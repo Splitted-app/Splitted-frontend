@@ -1,6 +1,56 @@
 .form
 {
-    width:490px;
-    height: 760px;
+    width:30%;
+    height: 85%;
     background-color: #4E35A7;
+    padding: 10px;
+    position: relative;
+    text-align: center;
 }
+
+.form .form-title
+{
+    color: white;
+}
+
+
+.form .form-title .form-main-title
+{
+    font-size: 48px;
+}
+
+.form .form-title .form-subtitle
+{
+    font-size: 27px;
+}
+
+.form .form-fields
+{
+    position: relative;
+    top: 30%;
+    display: inline-block;
+    margin: 0 auto;
+    width:100%
+}
+
+.form .form-button{
+    position: relative;
+    top: 65%;
+    display: inline-block;
+    margin: 0 auto;
+    width:100%
+}
+
+.form .form-continue-button
+{
+    font-size: 19px;
+    background-color: #20F7C5;
+    color: black;
+    width: 150px;
+    height: 70px;
+    border-radius: 40px;
+
+
+}
+
+

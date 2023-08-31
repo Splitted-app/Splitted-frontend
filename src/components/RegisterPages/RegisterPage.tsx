@@ -4,9 +4,7 @@ import Form from './Form'
 function RegisterPage() {
   return (
     <div className="register-page">
-      <div className='form'>
         <Form></Form>
-      </div>
     </div>
   );
 }
