@@ -1,0 +1,57 @@
+.welcome-panel
+{
+    background-image:url('../../assets/images/background.svg');
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: [start] 2% [left] auto [right] 2% [end];
+    grid-template-rows: [start] 38% [top] 10px [middle] auto [bottom] 58% [end];
+    color: white;
+}
+
+.title{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    grid-column-start: left;
+    grid-column-end: right;
+    grid-row-start: start;
+    grid-row-end: top;
+    padding-left: 30px;
+}
+
+.title-text
+{
+    align-self: flex-end;
+}
+
+.start-prompt
+{
+    grid-column-start: left;
+    grid-column-end: right;
+    grid-row-start: middle;
+    grid-row-end: bottom;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.start-prompt .label-container
+{
+    font-size: 48px;
+    font-family: 'Gotham Bold';
+}
+
+
+.start-prompt .button-container button
+{
+    background-color:#20F7C5;
+    border-radius: 50%;
+    height: 85.6px;
+    width: 85.6px;
+    outline:none;
+    margin-left: 20px;
+}
+
