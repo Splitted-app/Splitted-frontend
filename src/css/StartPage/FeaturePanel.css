@@ -1,0 +1,32 @@
+.feature-panel
+{
+    width: 100%;
+    height: 500px;
+    background-color: #260B5A;
+    color:white;
+}
+
+.feature-panel .feature-text 
+{
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.feature-panel .feature-text .feature-title 
+{
+    padding-top: 25px;
+    padding-bottom: 40px;
+    font-size: 40px;
+}
+
+.feature-panel .feature-text .feature-description 
+{
+    width: 70%;
+}
+
+.feature-panel .feature-text .feature-description p
+{
+    margin: 0;
+    font-size: 22px;
+    line-height: 40px;
+}
