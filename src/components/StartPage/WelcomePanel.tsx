@@ -1,5 +1,6 @@
 import '../../css/StartPage/WelcomePanel.css'
 import { Link } from 'react-router-dom'
+import startButton from '../../assets/images/start.svg';
 
 
 function WelcomePanel() {
@@ -20,9 +21,9 @@ function WelcomePanel() {
             Let's start
           </div>
           <div className='button-container'>
-          <Link to="/register">
-            <button></button>
-          </Link>
+            <Link to="/register">
+              <img className="start-button" src={startButton}></img>
+            </Link>
           </div>
         </div>
       </div>

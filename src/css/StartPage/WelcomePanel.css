@@ -45,13 +45,8 @@
 }
 
 
-.start-prompt .button-container button
+.start-prompt .button-container img
 {
-    background-color:#20F7C5;
-    border-radius: 50%;
-    height: 85.6px;
-    width: 85.6px;
-    outline:none;
     margin-left: 20px;
 }
 
