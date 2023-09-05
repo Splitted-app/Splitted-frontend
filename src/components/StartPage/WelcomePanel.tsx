@@ -8,10 +8,10 @@ function WelcomePanel() {
       <div className="welcome-panel">
         <div className='title'>
           <div className='title-text'>
-          <span style={{'fontFamily': 'Gotham Medium', 'fontSize': '72px'}}>
+          <span className="main-title-text">
             Spend it, Track it,&nbsp;
           </span>
-          <span style={{'fontFamily': 'Gotham Bold', 'fontSize': '92px'}}>
+          <span className="subtitle-text">
             Splitted
           </span>
           </div>
