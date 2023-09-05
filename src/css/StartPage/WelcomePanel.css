@@ -27,6 +27,18 @@
     align-self: flex-end;
 }
 
+.title-text .main-title-text
+{
+    font-family: 'Gotham Medium';
+    font-size: 72px;
+}
+
+.title-text .subtitle-text
+{
+    font-family: 'Gotham Bold';
+    font-size: 92px;
+}
+
 .start-prompt
 {
     grid-column-start: left;

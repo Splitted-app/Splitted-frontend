@@ -1,23 +1,26 @@
 import { Link } from 'react-router-dom';
 import '../../css/RegisterPages/Form.css';
 import { useState } from 'react';
+import EmailButton from './EmailButton';
+import LogInButton from './LogInButton';
+import SignUpButton from './SignUpButton';
 
-function Form() {
+interface FormProps
+{
+  users: any;
+}
+
+
+function Form({users}:FormProps) {
 
     const [buttonText, setButtonText] = useState("Continue");
-
-    function handleButton()
-    {
-      if(buttonText==="Log In" || buttonText==="Sign Up")
-      {
-        <Link to="/home"></Link>
-      }else{
-        //sprawdzanie czy email jest w bazie jeśli tak:
-        setButtonText("Log In");
-        //jeśli nie
-          setButtonText("Sign Up");
-      }
-    }
+    const [email, setEmail] = useState("");
+    const [initForm, setInitForm] = useState(true);
+    const [logIn, setLogIn] = useState(false);
+    const [signUp,setSignUp] = useState(false);
+    const [password, setPassword] = useState("");
+    const [nickname, setNickname] = useState("");
+    const [isDisabled, setIsDisabled] = useState(false);
 
     return (
       <div className="form">
@@ -29,15 +32,17 @@ function Form() {
             Spend it, Track it, Splitted
           </div>
         </div>
-        <div className='form-fields'>
-          <form>
-            <input type="email" name="email" placeholder='email:'></input>
+        <div className='form-fields' >
+          <form >
+            <input type="email" name="email" placeholder='email:' value={email} disabled={isDisabled} onChange={(e)=>setEmail(e.target.value)}></input>
+            {(logIn || signUp) && <input type="password" name="password" placeholder='password:' value={password} onChange={(e)=>setPassword(e.target.value)}></input>}
+            {signUp && <input type="text" name="nickname" placeholder='nickname:' value={nickname} onChange={(e)=>setNickname(e.target.value)}></input> }
           </form>
         </div>
-        <div className='form-button'>
-          <button className='form-continue-button' onClick={handleButton}>
-            {buttonText}
-          </button>
+        <div className='form-button' >
+          {initForm && <EmailButton email={email} buttonText={buttonText} setButtonText={setButtonText} users={users} setInitForm={setInitForm} setLogIn={setLogIn} setSignUp={setSignUp} setIsDisabled={setIsDisabled}></EmailButton>} 
+          {logIn && <LogInButton email={email} password={password} buttonText={buttonText} users={users}></LogInButton>}
+          {signUp && <SignUpButton email={email} password={password} nickname={nickname} buttonText={buttonText} users={users}></SignUpButton>}
         </div>
       </div>
     );
