@@ -1,0 +1,126 @@
+.signup-followup
+{
+    width: 40%;
+    height: 85%;
+    background-color: white;
+    padding: 30px;
+    position: relative;
+    text-align: center;
+    display: grid;
+    grid-template-rows: [top] 20% [upper] auto [lower] 30% [bottom];
+}
+
+.signup-followup .title
+{
+    margin-top: 55px;
+    font-family: 'Gotham Bold';
+    font-size: 40px;
+    color: #3C3C3C;
+}
+
+.signup-followup .information-fields
+{
+    padding-top: 50px;
+}
+
+.signup-followup .information-fields form
+{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: [start] 50% [middle] auto [end];
+    grid-template-rows: [line1] 25% [line2] 25% [line3] 25% [line4] 25% [line5];
+}
+
+
+.signup-followup .information-fields label
+{
+    font-family: 'Gotham Medium';
+    font-size: 24px;
+    align-self: center;
+    justify-self: left;
+    text-align: left;
+}
+
+.signup-followup .information-fields input, select
+{
+    justify-self: right;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.signup-followup .information-fields .field-style
+{
+    font-family: 'Gotham Medium';
+    font-size: 19px;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 15px;
+    height: 50px;
+    float:right;
+}
+
+.signup-followup .information-fields .avatar-input-container
+{
+    display: flex;
+    align-items: center;
+    font-family: 'Gotham Light';
+
+}
+
+.signup-followup .information-fields .avatar-input-button
+{
+    align-self: center;
+    background-color: #20F7C5;
+    border: 1px solid #010446;
+    width: 40%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-followup .information-fields .avatar-input-button label
+{
+    cursor: pointer;
+    height: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-followup .information-fields span
+{
+    margin: 10px;
+    max-width: 50%;
+    overflow: hidden;
+}
+
+.signup-followup .information-fields .avatar-input-button label
+{
+    font-size: 14px;
+}
+
+.signup-followup .button-container 
+{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 20px;
+}
+
+.signup-followup .button-container button
+{
+    font-size: 19px;
+    background-color: #20F7C5;
+    color: black;
+    width: 150px;
+    height: 70px;
+    border: 1px solid #010446;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    font-size: 19px;
+    box-shadow: 2px 5px 5px #010446;
+}

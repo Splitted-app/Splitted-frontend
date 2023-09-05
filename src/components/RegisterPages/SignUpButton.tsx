@@ -1,4 +1,5 @@
 import '../../css/RegisterPages/RegisterButton.css';
+import {useNavigate} from 'react-router-dom'
 
 interface SignUpButton{
     email: string;
@@ -11,6 +12,9 @@ interface SignUpButton{
 
 function SignUpButton({email, password, nickname , buttonText, users}: SignUpButton) {
 
+    const navigate = useNavigate();
+
+
     function handleButtonClicked(){
         
         let user = {email,password,nickname};
@@ -20,6 +24,8 @@ function SignUpButton({email, password, nickname , buttonText, users}: SignUpBut
             body: JSON.stringify(user)
         }
         )
+
+        navigate('/home');
 
     }
 
