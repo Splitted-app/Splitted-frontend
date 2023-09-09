@@ -15,6 +15,21 @@
   src: url('assets/fonts/Gotham-Font/GothamBold.ttf'); /*URL to font*/
 }
 
+@font-face {
+  font-family: 'CeraPro Medium'; /*a name to be used later*/
+  src: url('assets/fonts/Cera-Pro/CeraProMedium.otf'); /*URL to font*/
+}
+
+@font-face {
+  font-family: 'CeraPro Light'; /*a name to be used later*/
+  src: url('assets/fonts/Cera-Pro/CeraProLight.otf'); /*URL to font*/
+}
+
+@font-face {
+  font-family: 'CeraPro Bold'; /*a name to be used later*/
+  src: url('assets/fonts/Cera-Pro/CeraProBold.otf'); /*URL to font*/
+}
+
 html,body {
   margin: 0;
 }

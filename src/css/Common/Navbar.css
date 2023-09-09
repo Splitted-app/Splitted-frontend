@@ -1,0 +1,23 @@
+.navbar {
+    background-color: #0D071F;
+    width: 20%;
+    height: 100%;
+    display:grid;
+    grid-template-rows: 10% 80% 10%;
+    grid-template-columns: 100%;
+}
+
+.navbar .title
+{
+    padding-top: 5%;
+}
+
+.navbar .table-of-contents
+{
+    line-height: 40px;
+}
+
+.navbar .navbar-footer
+{
+    padding-bottom: 5%;
+}

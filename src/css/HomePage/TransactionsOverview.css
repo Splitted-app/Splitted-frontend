@@ -1,0 +1,85 @@
+.transactions-overview
+{
+    height: 100%;
+    display:grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 10% 90%;
+}
+
+.transactions-overview .time-scale-selector-container
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    align-items: center;
+}
+
+.transactions-overview .simple-time-span-selector-container
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+}
+
+.transactions-overview .transactions-panel
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: #BBB9DD;
+    border-radius: 20px;
+    height: 85%;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: column;
+}
+
+.transactions-overview .time-scale-selector-container select
+{
+    width: 65%;
+    height: 70%;
+    font-family: 'Gotham Medium';
+    font-size: 20px;
+    color: black;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.transactions-overview .transactions-panel .panel-title
+{
+    padding: 10px;
+    font-family: 'Gotham Medium';
+    font-size: 22px;
+}
+.transactions-overview .transactions-panel .transaction-list-container
+{
+    height: 70%;
+}
+
+
+.transactions-overview .transactions-panel .add-transaction-button-container
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transactions-overview .transactions-panel .add-transaction-button-container .add-transaction-button
+{
+    color: black;
+    background-color: #20F7C5;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 3px 3px 5px #54498B;
+    font-family: 'Gotham Medium';
+    font-size: 18px;
+}
