@@ -3,13 +3,18 @@ import {useState} from 'react';
 import CurrencyDropdown from './CurrencyDropdown';
 
 
-function SignUpFollowUp() {
+interface SignUpFollowUp
+{
+    setSignUpFollowUpVisible: Function;
+}
+
+function SignUpFollowUp({setSignUpFollowUpVisible}:SignUpFollowUp) {
 
     const [buttonText, setButtonText] = useState("Finish");
     const [filePath, setFilePath] = useState("no file chosen");
 
     function handleButtonClicked(){
-        
+        setSignUpFollowUpVisible(false);
 
     }
 
@@ -31,28 +36,32 @@ function SignUpFollowUp() {
                 <label>
                     Choose curency:
                 </label>
-                <CurrencyDropdown></CurrencyDropdown>
-
+                <div className='input-container'>
+                    <CurrencyDropdown></CurrencyDropdown>
+                </div>
                 <label>
                     Pick your bank:
                 </label>
-                <select className='field-style'>
-                    <option value="PKO BP">PKO BP</option>
-                    <option value="Pekao">Pekao</option>
-                    <option value="Santander Bank">Santander Bank</option>
-                    <option value="ING Bank">ING Bank</option>
-                    <option value="mBank">mBank</option>
-                    <option value="Other">Other</option>
-                </select>
+                <div className='input-container'>
+                    <select className='field-style'>
+                        <option value="PKO BP">PKO BP</option>
+                        <option value="Pekao">Pekao</option>
+                        <option value="Santander Bank">Santander Bank</option>
+                        <option value="ING Bank">ING Bank</option>
+                        <option value="mBank">mBank</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
                 <label>
                     Put your bank balance:
                 </label>
-                <input type="text" placeholder='0' className='field-style'></input>
- 
+                <div className='input-container'>
+                    <input type="number" placeholder='0' className='field-style'></input>
+                </div>
                 <label>
                     Choose your avatar:
                 </label>
-                <div className='avatar-input-container'>
+                <div className='avatar-input-container input-container'>
                     <div className='avatar-input-button'>
                         <input  type="file" className='file-input' id='avatar-input' style={{display: 'none'}} 
                         onChange={(e)=>{handleFileChange(e.target.value)}}></input>

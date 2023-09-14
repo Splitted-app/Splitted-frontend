@@ -1,46 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
-   version="1.1"
-   id="svg1"
-   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
-   sodipodi:docname="leftarrow.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#505050"
-     bordercolor="#eeeeee"
-     borderopacity="1"
-     inkscape:showpageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#505050"
-     inkscape:document-units="mm"
-     inkscape:zoom="0.70110129"
-     inkscape:cx="397.23219"
-     inkscape:cy="561.25984"
-     inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs1" />
-  <g
-     inkscape:label="Warstwa 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <path
-       id="rect1-8"
-       style="fill:#c9c6f8;fill-opacity:1;stroke-width:0.141"
-       d="m 150.89977,135.20208 2.57349,2.01693 -21.91908,20.70003 23.20582,21.91494 -2.57348,2.01693 -24.16235,-22.81876 -0.002,-0.002 -1.28675,-1.00821 z" />
+<svg width="22.754mm" height="22.754mm" version="1.1" viewBox="0 0 22.754 22.754" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="filter41" x="-.16348" y="-.21303" width="1.4243" height="1.5529" color-interpolation-filters="sRGB">
+   <feFlood flood-color="rgb(169,169,169)" in="SourceGraphic" result="flood"/>
+   <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="0.700000"/>
+   <feOffset dx="1.000000" dy="1.000000" in="blur" result="offset"/>
+   <feComposite in="flood" in2="offset" operator="in" result="comp1"/>
+   <feComposite in="SourceGraphic" in2="comp1" result="comp2"/>
+  </filter>
+ </defs>
+ <g transform="translate(-20.379,-11.699)" display="none">
+  <path d="m107.79 63.778a62.5 62.5 0 0 0-62.5 62.5 62.5 62.5 0 0 0 62.5 62.5 62.5 62.5 0 0 0 62.5-62.5 62.5 62.5 0 0 0-62.5-62.5zm0 7.5003a55 55 0 0 1 55 55 55 55 0 0 1-55 55 55 55 0 0 1-55-55 55 55 0 0 1 55-55z" display="none" fill="#fcc625" stroke-width=".26539"/>
+  <path d="m43.133 23.076a11.377 11.377 0 0 1-11.377 11.377 11.377 11.377 0 0 1-11.377-11.377 11.377 11.377 0 0 1 11.377-11.377 11.377 11.377 0 0 1 11.377 11.377z" fill="#20f7cf" stroke-width=".14975"/>
+  <g transform="matrix(1.1812 0 0 .96445 -123.73 9.6714)" filter="url(#filter41)">
+   <path d="m126 11.512h5.7088v3.7738h-5.7088z" stroke-width=".20946"/>
+   <path d="m129.34 17.342 6.9365-3.9431-6.9365-3.9431z" stroke-width=".060009"/>
   </g>
+ </g>
+ <path d="m19.322 3.4429-15.89 7.9341 15.89 7.9341v-2.468l-10.947-5.4661 10.947-5.4661z" fill="#c9c6f8" stroke-width=".2745"/>
 </svg>

@@ -1,0 +1,133 @@
+.import-csv-panel
+{
+    height: 100%;
+    width: 60%;
+    background-color: white;
+    border: solid 1px black;
+    box-shadow: 10px 10px 5px #262626;
+    border-radius: 50px;
+    padding-top: 5%;
+    display: flex;
+    flex-flow: column;
+}
+
+.import-csv-panel .title
+{
+    padding-top: 30px;
+    text-align: center;
+}
+
+.import-csv-panel  .title .main-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: #3C3C3C;
+}
+
+
+.import-csv-panel .title .subtitle
+{
+    font-family: 'Gotham Light';
+    font-size: 22px;
+}
+
+.import-csv-panel .main-content
+{
+    padding-top: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.import-csv-panel .main-content .bank-select-container
+{
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 50% auto;
+    column-gap: 30px;
+}
+.import-csv-panel .main-content .import-csv-file
+{
+    display: flex;
+}
+
+.import-csv-panel .main-content label{
+
+    font-family: 'Gotham Light';
+    font-size: 18px;
+    color: #373737;
+}
+
+.import-csv-panel .main-content .bank-select-container select
+{
+    font-family: 'Gotham Medium';
+    font-size: 12px;
+    display: block;
+    overflow: hidden;
+    height: 36px;
+    float:right;
+    
+}
+
+.import-csv-panel .main-content  .import-csv-container
+{
+    display: flex;
+    align-items: center;
+    font-family: 'Gotham Light';
+    display: grid;
+    grid-template-columns: 50% auto;
+    column-gap: 30px;
+}
+
+.import-csv-panel .main-content .import-csv-container .import-csv-button
+{
+    align-self: center;
+    background-color: #20F7C5;
+    border: 1px solid #010446;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.import-csv-panel .main-content .import-csv-container .import-csv-button label
+{
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    padding: 5px;
+}
+
+
+.import-csv-panel .main-content span
+{
+    margin: 10px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+
+
+.import-csv-panel .next-button-container
+{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.import-csv-panel .next-button-container .next-button
+{
+    font-size: 16px;
+    background-color: #20F7C5;
+    color: black;
+    width: 140px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    border: 1px solid #010446;
+    box-shadow: 8px 8px 5px #010446;
+}

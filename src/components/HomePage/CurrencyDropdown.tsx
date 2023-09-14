@@ -1,6 +1,5 @@
 function CurrencyDropdown() {
     return (
-      <div className="currency-dropdown">
         <select className="field-style" id="currency" name="currency" >
             <option value="PLN" selected>Polish Zloty</option>
             <option value="EUR">Euro</option>
@@ -167,7 +166,6 @@ function CurrencyDropdown() {
             <option value="YER">Yemeni Rial</option>
             <option value="ZMK">Zambian Kwacha</option>
         </select>
-      </div>
     );
   }
   
