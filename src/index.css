@@ -30,6 +30,9 @@
   src: url('assets/fonts/Cera-Pro/CeraProBold.otf'); /*URL to font*/
 }
 
-html,body {
+html,body,#root {
   margin: 0;
+  height: 100%;
+  width: 100%;
 }
+

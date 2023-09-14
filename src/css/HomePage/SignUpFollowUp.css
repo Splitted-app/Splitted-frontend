@@ -1,7 +1,7 @@
 .signup-followup
 {
-    width: 40%;
-    height: 85%;
+    width: 60%;
+    height: 100%;
     background-color: white;
     padding: 30px;
     position: relative;
@@ -12,15 +12,15 @@
 
 .signup-followup .title
 {
-    margin-top: 55px;
+    margin-top: 15px;
     font-family: 'Gotham Bold';
-    font-size: 40px;
+    font-size: 30px;
     color: #3C3C3C;
 }
 
 .signup-followup .information-fields
 {
-    padding-top: 50px;
+    padding-top: 15px;
 }
 
 .signup-followup .information-fields form
@@ -29,16 +29,25 @@
     grid-auto-flow: row;
     grid-template-columns: [start] 50% [middle] auto [end];
     grid-template-rows: [line1] 25% [line2] 25% [line3] 25% [line4] 25% [line5];
+    row-gap: 20px;
+    column-gap: 20px;
 }
 
 
 .signup-followup .information-fields label
 {
     font-family: 'Gotham Medium';
-    font-size: 24px;
+    font-size: 20px;
     align-self: center;
     justify-self: left;
     text-align: left;
+}
+
+.signup-followup .information-fields .input-container
+{
+    align-self: center;
+    display: flex;
+    align-items: center;
 }
 
 .signup-followup .information-fields input, select
@@ -56,7 +65,6 @@
     font-size: 19px;
     display: block;
     overflow: hidden;
-    margin-bottom: 15px;
     height: 50px;
     float:right;
 }
@@ -66,7 +74,7 @@
     display: flex;
     align-items: center;
     font-family: 'Gotham Light';
-
+    height: 100%;
 }
 
 .signup-followup .information-fields .avatar-input-button
@@ -89,6 +97,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 14px;
 }
 
 .signup-followup .information-fields span
@@ -98,29 +107,25 @@
     overflow: hidden;
 }
 
-.signup-followup .information-fields .avatar-input-button label
-{
-    font-size: 14px;
-}
 
 .signup-followup .button-container 
 {
     display: flex;
     justify-content: center;
     align-items: end;
-    padding: 20px;
+    /* padding: 50px; */
+    height: 100%;
 }
 
 .signup-followup .button-container button
 {
-    font-size: 19px;
     background-color: #20F7C5;
     color: black;
-    width: 150px;
-    height: 70px;
+    width: 100px;
+    height: 50px;
     border: 1px solid #010446;
     border-radius: 40px;
     font-family: 'Gotham Medium';
-    font-size: 19px;
+    font-size: 14px;
     box-shadow: 2px 5px 5px #010446;
 }

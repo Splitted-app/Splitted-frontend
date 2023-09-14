@@ -23,6 +23,7 @@
     grid-column-start: 2;
     grid-column-end: 3;
     display: flex;
+    justify-self: center;
 }
 
 .transactions-overview .transactions-panel
@@ -82,4 +83,18 @@
     box-shadow: 3px 3px 5px #54498B;
     font-family: 'Gotham Medium';
     font-size: 18px;
+}
+
+.transactions-overview .navigation-arrow
+{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    opacity: 0.2;
+}
+
+.transactions-overview .arrow-button:hover
+{
+    padding: 0;
+    transition: none
 }

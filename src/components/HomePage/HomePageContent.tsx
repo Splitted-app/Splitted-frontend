@@ -2,6 +2,8 @@ import '../../css/HomePage/HomePageContent.css'
 import Overview from './Overview';
 import Reminders from './Reminders';
 import React, { useState } from 'react';
+import leftarrow from '../../assets/images/leftarrow.svg'
+import rightarrow from '../../assets/images/rightarrow.svg'
 
 function getDate() {
     const today = new Date();
@@ -43,8 +45,8 @@ function HomePageContent() {
         <div className='information-panel'>
             <div className="header">
                 <div className='buttons'>
-                    <button className='transactionButton'>Add Transactions</button>
-                    <button className='partyButton'>Let's Party</button>
+                    <button className='transaction-button'>Add Transactions</button>
+                    <button className='party-button'>Let's Party</button>
                 </div>
                 <div className='date'>
                     {currentDate}
@@ -60,16 +62,16 @@ function HomePageContent() {
             </div>
         </div>
         <div className='left-arrow'>
-            <button className='left-arrow-button' onClick={handleLeftArrowButton}>
-                left Arrow
+            <button className='arrow-button' onClick={handleLeftArrowButton}>
+                <img src={leftarrow} className='navigation-arrow'/>
             </button>
         </div>
         <div className='scrollable-content'>
             <Overview typeId={overviewTypeId}></Overview>
         </div>
         <div className='right-arrow'>
-            <button className='right-arrow-button' onClick={handleRightArrowButton}>
-                right 
+            <button className='arrow-button' onClick={handleRightArrowButton}>
+            <img src={rightarrow} className='navigation-arrow'/>
             </button>
         </div>
       </div>

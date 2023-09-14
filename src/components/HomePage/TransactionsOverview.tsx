@@ -2,6 +2,8 @@ import '../../css/HomePage/TransactionsOverview.css'
 import SimpleTimeSpanSelector from './SimpleTimeSpanSelector';
 import {useState} from 'react';
 import TransactionList from './TransactionList';
+import leftarrow from '../../assets/images/leftarrow.svg'
+import rightarrow from '../../assets/images/rightarrow.svg'
 
 
 function TransactionsOverview() {
@@ -35,9 +37,17 @@ function TransactionsOverview() {
             </select>
           </div>
           <div className='simple-time-span-selector-container'>
-            <button className='left-arrow' onClick={handleLeftArrow}>Left Arrow</button>
+            <div className='left-arrow'>
+              <button className='arrow-button' onClick={handleLeftArrow}>
+                <img src={leftarrow} className='navigation-arrow'/>
+              </button>
+            </div>
               <SimpleTimeSpanSelector data={date}></SimpleTimeSpanSelector>
-            <button className='right-arrow' onClick={handleRightArrow}>Right Arrow </button>
+            <div className='right-arrow'>
+              <button className='arrow-button' onClick={handleRightArrow}>
+                <img src={rightarrow} className='navigation-arrow'/> 
+              </button>
+            </div>
           </div>
           <div className='transactions-panel'>
             <div className='panel-title'>
