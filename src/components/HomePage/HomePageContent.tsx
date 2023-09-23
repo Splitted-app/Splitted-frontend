@@ -4,6 +4,7 @@ import Reminders from './Reminders';
 import React, { useState } from 'react';
 import leftarrow from '../../assets/images/leftarrow.svg'
 import rightarrow from '../../assets/images/rightarrow.svg'
+import { func } from 'prop-types';
 
 function getDate() {
     const today = new Date();
@@ -19,9 +20,14 @@ function getDate() {
     console.log(date);
     return `${longDate}.${longMonth}.${year}`;
   }
+
+  interface HomePageContent
+  {
+    setAddTransactionsPanelVisible: Function;
+  }
   
 
-function HomePageContent() {
+function HomePageContent({setAddTransactionsPanelVisible}:HomePageContent) {
 
     const overTypeCount = 3;
     const [currentDate, setCurrentDate] = useState(getDate());
@@ -37,6 +43,11 @@ function HomePageContent() {
         setOverviewTypeId((overviewTypeId + 1) % overTypeCount);
     }
 
+    function handleTransactionButtonClicked()
+    {
+        setAddTransactionsPanelVisible(true);
+    }
+
     return (
       <div className="home-page-content">
         <div className='reminders-container'>
@@ -45,7 +56,7 @@ function HomePageContent() {
         <div className='information-panel'>
             <div className="header">
                 <div className='buttons'>
-                    <button className='transaction-button'>Add Transactions</button>
+                    <button className='transaction-button' onClick={handleTransactionButtonClicked}>Add Transactions</button>
                     <button className='party-button'>Let's Party</button>
                 </div>
                 <div className='date'>

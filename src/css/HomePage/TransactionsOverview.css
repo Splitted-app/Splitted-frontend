@@ -13,7 +13,9 @@
     grid-column-start: 1;
     grid-column-end: 2;
     display: flex;
-    align-items: center;
+    width: 80%;
+    height: 80%;
+    /* align-items: center; */
 }
 
 .transactions-overview .simple-time-span-selector-container
@@ -38,17 +40,6 @@
     margin-top: 10px;
     display: flex;
     flex-flow: column;
-}
-
-.transactions-overview .time-scale-selector-container select
-{
-    width: 65%;
-    height: 70%;
-    font-family: 'Gotham Medium';
-    font-size: 20px;
-    color: black;
-    background-color: white;
-    border-radius: 25px;
 }
 
 .transactions-overview .transactions-panel .panel-title

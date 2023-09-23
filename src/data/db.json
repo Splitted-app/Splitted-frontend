@@ -26,6 +26,12 @@
       "password": "123",
       "nickname": "gzyba",
       "id": 3
+    },
+    {
+      "email": "",
+      "password": "",
+      "nickname": "",
+      "id": 4
     }
   ]
 }
