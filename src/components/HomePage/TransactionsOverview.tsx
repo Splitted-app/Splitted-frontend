@@ -1,50 +1,80 @@
 import '../../css/HomePage/TransactionsOverview.css'
-import SimpleTimeSpanSelector from './SimpleTimeSpanSelector';
+import DateDisplay from './DateDisplay';
 import {useState} from 'react';
 import TransactionList from './TransactionList';
-import leftarrow from '../../assets/images/leftarrow.svg'
-import rightarrow from '../../assets/images/rightarrow.svg'
+import leftarrow from '../../assets/images/leftarrow.svg';
+import rightarrow from '../../assets/images/rightarrow.svg';
+import {changeDay, changeWeek, changeMonth} from '../../utils';
+import DateRangeSelector from './DateRangeSelector';
+
 
 
 function TransactionsOverview() {
 
-    const [firstSelect, setFirstSelect] = useState("daily");
-    const [date, setDate] = useState("Today");
+    const [timeScale, setTimeScale] = useState("daily");
+    let currentDate : Date = new Date();
+    // const [startDateRange, setStartDateRange] = useState(currentDate);
+    // const [endDateRange, setEndDateRange] = useState(currentDate);
+    const [dateRange, setDateRange] = useState<any>([{
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection'
+    }]);
 
-    function handleSelect(e:any)
+    function handleArrow(direction : number)
     {
-      setFirstSelect(e.target.value);
-    }
+      switch(timeScale)
+      {
+        case "daily":
+          setDateRange([{...dateRange[0], 
+            startDate: changeDay(dateRange[0].startDate, direction),
+            endDate: changeDay(dateRange[0].endDate, direction)
+          }])
 
-    function handleLeftArrow()
-    {
+          // setStartDateRange(changeDay(startDateRange, direction));
+          // setEndDateRange(changeDay(endDateRange, direction));
+          break;
+        case "weekly":
+          setDateRange([{...dateRange[0], 
+            startDate: changeWeek(dateRange[0].startDate, direction),
+            endDate: changeWeek(dateRange[0].endDate, direction)
+          }])
 
-    }
-    function handleRightArrow()
-    {
+          // setStartDateRange(changeWeek(startDateRange, direction));
+          // setEndDateRange(changeWeek(endDateRange, direction));
+          break;
+        case "monthly":
+          setDateRange([{...dateRange[0], 
+            startDate: changeMonth(dateRange[0].startDate, direction),
+            endDate: changeMonth(dateRange[0].endDate, direction)
+          }])
 
+          // setStartDateRange(changeMonth(startDateRange, direction));
+          // setEndDateRange(changeMonth(endDateRange, direction));
+          break;
+        case "custom":
+          break;
+      }
     }
 
     return (
       <div className="transactions-overview">
         <div className='time-scale-selector-container'>
-            <select className='time-scale-selector' value={firstSelect} onChange={(e) => handleSelect(e)}>
-              <option value="daily">daily</option>
-              <option value="weekly">weekly</option>
-              <option value="monthly">monthly</option>
-              <option value="yearly">yearly</option>
-              <option value="advanced data">advanced data</option>
-            </select>
+            <DateRangeSelector 
+            currentDate={currentDate} 
+            dateRange={dateRange}
+            setDateRange={setDateRange}
+            setTimeScale={setTimeScale}></DateRangeSelector>
           </div>
           <div className='simple-time-span-selector-container'>
             <div className='left-arrow'>
-              <button className='arrow-button' onClick={handleLeftArrow}>
+              <button className='arrow-button' onClick={() => handleArrow(-1)}>
                 <img src={leftarrow} className='navigation-arrow'/>
               </button>
             </div>
-              <SimpleTimeSpanSelector data={date}></SimpleTimeSpanSelector>
+              <DateDisplay timeScale={timeScale} date={dateRange[0].startDate}></DateDisplay>
             <div className='right-arrow'>
-              <button className='arrow-button' onClick={handleRightArrow}>
+              <button className='arrow-button' onClick={() => handleArrow(1)}>
                 <img src={rightarrow} className='navigation-arrow'/> 
               </button>
             </div>
