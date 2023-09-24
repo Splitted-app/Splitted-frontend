@@ -6,11 +6,11 @@ interface SignUpButton{
     password: string;
     nickname:string;
     buttonText:string;
-    users:any;
+    // users:any;
 }
 
 
-function SignUpButton({email, password, nickname , buttonText, users}: SignUpButton) {
+function SignUpButton({email, password, nickname , buttonText}: SignUpButton) {
 
     const navigate = useNavigate();
 
