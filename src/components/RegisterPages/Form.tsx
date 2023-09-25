@@ -5,13 +5,13 @@ import EmailButton from './EmailButton';
 import LogInButton from './LogInButton';
 import SignUpButton from './SignUpButton';
 
-interface FormProps
-{
-  users: any;
-}
+// interface FormProps
+// {
+//   users: any;
+// }
 
 
-function Form({users}:FormProps) {
+function Form() {
 
     const [buttonText, setButtonText] = useState("Continue");
     const [email, setEmail] = useState("");
@@ -40,9 +40,9 @@ function Form({users}:FormProps) {
           </form>
         </div>
         <div className='form-button' >
-          {initForm && <EmailButton email={email} buttonText={buttonText} setButtonText={setButtonText} users={users} setInitForm={setInitForm} setLogIn={setLogIn} setSignUp={setSignUp} setIsDisabled={setIsDisabled}></EmailButton>} 
-          {logIn && <LogInButton email={email} password={password} buttonText={buttonText} users={users}></LogInButton>}
-          {signUp && <SignUpButton email={email} password={password} nickname={nickname} buttonText={buttonText} users={users}></SignUpButton>}
+          {initForm && <EmailButton email={email} buttonText={buttonText} setButtonText={setButtonText} setInitForm={setInitForm} setLogIn={setLogIn} setSignUp={setSignUp} setIsDisabled={setIsDisabled}></EmailButton>} 
+          {logIn && <LogInButton email={email} password={password} buttonText={buttonText}></LogInButton>}
+          {signUp && <SignUpButton email={email} password={password} nickname={nickname} buttonText={buttonText} ></SignUpButton>}
         </div>
       </div>
     );
