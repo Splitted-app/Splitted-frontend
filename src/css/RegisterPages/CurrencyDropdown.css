@@ -1,0 +1,23 @@
+.field-style
+{
+    margin: auto;
+    display: block;
+    margin-bottom: 15px;
+    box-shadow: 5px 5px  #404040;
+    height: 35px;
+    width: 100%;
+    font-family: 'Gotham Light';
+    font-size: 16px;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+    border-width: 2px;
+    border-style: inset;
+    border-image: initial;
+}

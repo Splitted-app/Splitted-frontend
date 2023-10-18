@@ -8,3 +8,36 @@
     justify-content: center;
     align-items: center;
 }
+
+.register-page .form-panel
+{
+    width:30%;
+    height: 85%;
+    background-color: #4E35A7;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    display: grid;
+    grid-template-rows: [top] 15% [upper] auto [lower] 5% [bottom];
+}
+
+.register-page .form-panel .panel-header
+{
+    color: white;
+    font-family: 'Gotham Light';
+    font-size: 27px;
+}
+
+.register-page .form-panel .panel-header .title
+{
+    text-shadow: 5px 5px #351966;
+    font-family: 'Gotham Bold';
+    font-size: 48px;
+}
+
+.register-page .back-button-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}

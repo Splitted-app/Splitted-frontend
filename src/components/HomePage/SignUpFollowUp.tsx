@@ -1,21 +1,74 @@
 import '../../css/HomePage/SignUpFollowUp.css';
 import {useState} from 'react';
-import CurrencyDropdown from './CurrencyDropdown';
+import {useNavigate} from 'react-router-dom';
+import { useRecoilValue , useSetRecoilState} from 'recoil';
+import {UserTokenState} from '../../atoms/UserToken'
+import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
+import { BalanceState } from '../../atoms/Balance';
+import CurrencyDropdown from "./CurrencyDropdown";
 
 
-interface SignUpFollowUp
+
+interface FormDataInterface
 {
-    setSignUpFollowUpVisible: Function;
+    bank : string|null,
+    budgetType: string,
+    currency: string,
+    budgetBalance: number,
 }
 
-function SignUpFollowUp({setSignUpFollowUpVisible}:SignUpFollowUp) {
+function SignUpFollowUp() {
 
     const [buttonText, setButtonText] = useState("Finish");
     const [filePath, setFilePath] = useState("no file chosen");
+    const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
+    const [data, setData] = useState<FormDataInterface>({
+        bank: "Pekao",
+        budgetType: "Personal",
+        currency: "PLN",
+        budgetBalance: 0,
+    })
+    // const [bank , setBank] = useState(null);
+    // const [balance, setBalance] = useState<number>(0);
+    // const [avatar, setAvatar] = useState(null);
+    const token = useRecoilValue(UserTokenState);
+    const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
+    const setBankBalance = useSetRecoilState(BalanceState);
 
-    function handleButtonClicked(){
-        setSignUpFollowUpVisible(false);
-
+    function handleSubmit(event : any){
+        event.preventDefault();
+        console.log(data);
+        fetch('https://localhost:7012/api/budgets',{
+            method: 'POST',
+            headers: { 
+                'Accept': '*',
+                'Content-Type': 'application/json',
+                'Authorization' : `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                bank: data.bank,
+                budgetType: data.budgetType,
+                currency: data.currency,
+                budgetBalance: data.budgetBalance
+              })
+        })
+        .then(res=>{
+          if(!res.ok)
+          {
+            throw Error('could not fetch the data for that resource');
+          }
+          if(res.ok)
+          {
+            setBankBalance(data.budgetBalance);
+            setSignUpFollowUpVisibility(false);
+            navigate('/home');
+          }
+          return res.json();
+        })
+      .catch((err)=>{
+        setErrors(err.message);
+      });
     }
 
     function handleFileChange(path : string)
@@ -26,62 +79,69 @@ function SignUpFollowUp({setSignUpFollowUpVisible}:SignUpFollowUp) {
         setFilePath(newPath);
     }
 
+    function validateFormData(data : FormDataInterface)
+    {
+        return true
+    }
+
     return (
       <div className="signup-followup">
         <div className='title'>
             Before you begin
         </div>
-        <div className='information-fields'>
-            <form>
-                <label>
-                    Choose curency:
-                </label>
-                <div className='input-container'>
-                    <CurrencyDropdown></CurrencyDropdown>
-                </div>
-                <label>
-                    Pick your bank:
-                </label>
-                <div className='input-container'>
-                    <select className='field-style'>
-                        <option value="PKO BP">PKO BP</option>
-                        <option value="Pekao">Pekao</option>
-                        <option value="Santander Bank">Santander Bank</option>
-                        <option value="ING Bank">ING Bank</option>
-                        <option value="mBank">mBank</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <label>
-                    Put your bank balance:
-                </label>
-                <div className='input-container'>
-                    <input type="number" placeholder='0' className='field-style'></input>
-                </div>
-                <label>
-                    Choose your avatar:
-                </label>
-                <div className='avatar-input-container input-container'>
-                    <div className='avatar-input-button'>
-                        <input  type="file" className='file-input' id='avatar-input' style={{display: 'none'}} 
-                        onChange={(e)=>{handleFileChange(e.target.value)}}></input>
-                        <label htmlFor='avatar-input'>
-                            <div>
-                                Choose File
-                            </div>
-                        </label>
+        <form onSubmit={(e) => handleSubmit(e)}>
+            <div className='form-elements'>
+                <div className='information-fields'>
+                    <label>
+                        Pick your bank:
+                    </label>
+                    <div className='input-container'>
+                        <select className='field-style' value="PKO BP" onChange={(e:any)=>setData({...data, bank:e.target.value})}>
+                            <option value="PKO BP">PKO BP</option>
+                            <option value="Pekao">Pekao</option>
+                            <option value="Santander Bank">Santander Bank</option>
+                            <option value="ING Bank">ING Bank</option>
+                            <option value="mBank">mBank</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div> 
+                    <label>
+                        Put your bank balance:
+                    </label>
+                    <div className='input-container'>
+                        <input type="number" placeholder='0' className='field-style' onChange={(e:any)=>setData({...data, budgetBalance:e.target.value})} step="any"></input>
                     </div>
-                    <span>
-                        {filePath}
-                    </span>
+                    {/* <label>
+                        Choose your avatar:
+                    </label>
+                    <div className='avatar-input-container input-container'>
+                        <div className='avatar-input-button'>
+                            <input  type="file" className='file-input' id='avatar-input' style={{display: 'none'}} 
+                            onChange={(e)=>{handleFileChange(e.target.value)}}></input>
+                            <label htmlFor='avatar-input'>
+                                <div>
+                                    Choose File
+                                </div>
+                            </label>
+                        </div>
+                        <span>
+                            {filePath}
+                        </span>
+                    </div> */}
+                    <label>
+                        Choose your currency:
+                    </label>
+                    <div className="form-element">
+                        <CurrencyDropdown currency={data.currency} 
+                            setCurrency={(e:any)=>setData({...data, currency:e.target.value})}/>
+                    </div>
                 </div>
-                
-                
-            </form>
-        </div>
-        <div className='button-container'>
-            <button onClick={handleButtonClicked}>{buttonText}</button>
-        </div>
+                <div className='button-container'>
+                    <input type="submit" value={buttonText}/>
+                </div>
+            </div>
+        </form>
+
       </div>
     );
   }
