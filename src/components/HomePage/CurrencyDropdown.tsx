@@ -1,7 +1,15 @@
-function CurrencyDropdown() {
+import '../../css/RegisterPages/CurrencyDropdown.css'
+
+interface CurrencyDropdownInterface
+{
+    currency:string;
+    setCurrency:Function;
+}
+
+function CurrencyDropdown({currency, setCurrency}: CurrencyDropdownInterface) {
     return (
-        <select className="field-style" id="currency" name="currency" >
-            <option value="PLN" selected>Polish Zloty</option>
+        <select className="field-style" id="currency" name="currency" value={currency} onChange={(e)=>setCurrency(e)}>
+            <option value="PLN">Polish Zloty</option>
             <option value="EUR">Euro</option>
             <option value="USD">US Dollar</option>
             <option value="GBP">British Pound Sterling</option>

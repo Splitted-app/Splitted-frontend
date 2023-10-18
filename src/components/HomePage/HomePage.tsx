@@ -7,15 +7,17 @@ import AddTransactionsPanel from './AddTransactionsPanel';
 import ImportCsvPanel from './ImportCsvPanel';
 import ManualAddTransactionPanel from './ManualAddTransactionPanel';
 import ImportCsvCheck from './ImportCsvCheck';
+import { useRecoilValue } from 'recoil';
+import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 
 function HomePage() {
-    const [signUpFollowUpVisible, setSignUpFollowUpVisible] = useState(true);
     const [addTransactionsPanelVisible, setAddTransactionsPanelVisible] = useState(false);
     const [importCsvPanelVisible, setImportCsvPanelVisible] = useState(false);
     const [manualAddTransactionPanelVisible, setManualAddTransactionPanelVisible] = useState(false);
     const [importCsvCheckPanelVisible, setImportCsvCheckPanelVisible] = useState(false);
+    const SignUpFollowUpVisibility = useRecoilValue(SignUpFollowUpVisibilityState);
 
-    const isBlurred = signUpFollowUpVisible;
+    const isBlurred = SignUpFollowUpVisibility;
     const isDarkened = addTransactionsPanelVisible || 
                         importCsvPanelVisible ||
                         manualAddTransactionPanelVisible ||
@@ -29,7 +31,7 @@ function HomePage() {
           <HomePageContent setAddTransactionsPanelVisible={setAddTransactionsPanelVisible}></HomePageContent>        
         </div>
         <div className="popout-panel" style={{'display': isBlurred || isDarkened ? 'flex' : 'none'}}>
-          {signUpFollowUpVisible && <SignUpFollowUp setSignUpFollowUpVisible={setSignUpFollowUpVisible}/>}
+          {SignUpFollowUpVisibility && <SignUpFollowUp />}
           {addTransactionsPanelVisible && <AddTransactionsPanel setAddTransactionsPanelVisible={setAddTransactionsPanelVisible} setImportCsvPanelVisible={setImportCsvPanelVisible} setManualAddTransactionPanelVisible={setManualAddTransactionPanelVisible}/>}
           {importCsvPanelVisible && <ImportCsvPanel setImportCsvPanelVisible={setImportCsvPanelVisible} setImportCsvCheckPanelVisible={setImportCsvCheckPanelVisible}/>}
           {manualAddTransactionPanelVisible && <ManualAddTransactionPanel setManualAddTransactionPanelVisible={setManualAddTransactionPanelVisible}/>}

@@ -7,7 +7,7 @@
     position: relative;
     text-align: center;
     display: grid;
-    grid-template-rows: [top] 20% [upper] auto [lower] 30% [bottom];
+    grid-template-rows: [top] 20% [middle] 80% [bottom];
 }
 
 .signup-followup .title
@@ -18,17 +18,24 @@
     color: #3C3C3C;
 }
 
+.signup-followup .form-elements
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .signup-followup .information-fields
 {
     padding-top: 15px;
 }
 
-.signup-followup .information-fields form
+.signup-followup .information-fields
 {
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: [start] 50% [middle] auto [end];
-    grid-template-rows: [line1] 25% [line2] 25% [line3] 25% [line4] 25% [line5];
+    grid-template-rows: [line1] 33% [line2] 33% [line3] 34% [line4];
     row-gap: 20px;
     column-gap: 20px;
 }
@@ -66,6 +73,7 @@
     display: block;
     overflow: hidden;
     height: 50px;
+    width: 100%;
     float:right;
 }
 
@@ -113,11 +121,11 @@
     display: flex;
     justify-content: center;
     align-items: end;
-    /* padding: 50px; */
-    height: 100%;
+    align-self: center;
+    flex-grow: 1;
 }
 
-.signup-followup .button-container button
+.signup-followup .button-container input
 {
     background-color: #20F7C5;
     color: black;

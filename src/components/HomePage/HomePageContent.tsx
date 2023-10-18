@@ -4,7 +4,8 @@ import Reminders from './Reminders';
 import React, { useState } from 'react';
 import leftarrow from '../../assets/images/leftarrow.svg'
 import rightarrow from '../../assets/images/rightarrow.svg'
-import { func } from 'prop-types';
+import { useRecoilValue } from 'recoil';
+import { BalanceState } from '../../atoms/Balance';
 
 function getDate() {
     const today = new Date();
@@ -17,7 +18,6 @@ function getDate() {
     let longDate =date + '';
     if(date<10)
         longDate= '' + 0 + date;
-    console.log(date);
     return `${longDate}.${longMonth}.${year}`;
   }
 
@@ -32,6 +32,7 @@ function HomePageContent({setAddTransactionsPanelVisible}:HomePageContent) {
     const overTypeCount = 3;
     const [currentDate, setCurrentDate] = useState(getDate());
     const [overviewTypeId, setOverviewTypeId] = useState(0);
+    const bankBalance = useRecoilValue(BalanceState);
 
     function handleLeftArrowButton()
     {
@@ -47,6 +48,7 @@ function HomePageContent({setAddTransactionsPanelVisible}:HomePageContent) {
     {
         setAddTransactionsPanelVisible(true);
     }
+
 
     return (
       <div className="home-page-content">
@@ -68,7 +70,7 @@ function HomePageContent({setAddTransactionsPanelVisible}:HomePageContent) {
                     Your balance:
                 </div>
                 <div className='amount'>
-                    50 000 pln
+                    {bankBalance}
                 </div>
             </div>
         </div>
