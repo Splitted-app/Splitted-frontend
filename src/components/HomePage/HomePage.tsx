@@ -7,8 +7,9 @@ import AddTransactionsPanel from './AddTransactionsPanel';
 import ImportCsvPanel from './ImportCsvPanel';
 import ManualAddTransactionPanel from './ManualAddTransactionPanel';
 import ImportCsvCheck from './ImportCsvCheck';
-import { useRecoilValue } from 'recoil';
+
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
+import { useRecoilValue } from 'recoil';
 
 function HomePage() {
     const [addTransactionsPanelVisible, setAddTransactionsPanelVisible] = useState(false);
@@ -16,12 +17,14 @@ function HomePage() {
     const [manualAddTransactionPanelVisible, setManualAddTransactionPanelVisible] = useState(false);
     const [importCsvCheckPanelVisible, setImportCsvCheckPanelVisible] = useState(false);
     const SignUpFollowUpVisibility = useRecoilValue(SignUpFollowUpVisibilityState);
+    
 
     const isBlurred = SignUpFollowUpVisibility;
     const isDarkened = addTransactionsPanelVisible || 
                         importCsvPanelVisible ||
                         manualAddTransactionPanelVisible ||
                         importCsvCheckPanelVisible;
+
 
 
     return (

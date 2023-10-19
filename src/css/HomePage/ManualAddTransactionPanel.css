@@ -10,7 +10,7 @@
     position: relative;
     text-align: center;
     display: grid;
-    grid-template-rows: [top] 20% [upper] auto [lower] 30% [bottom];
+    grid-template-rows: [top] 20% [upper] auto [lower];
 }
 
 .manual-add-transaction-panel .title
@@ -36,15 +36,17 @@
 .manual-add-transaction-panel  .main-content
 {
     padding-top: 20px;
+    height: 100%;
 }
 
 .manual-add-transaction-panel .main-content form
 {
+    height: 100%;
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: [start] 50% [middle] auto [end];
-    grid-template-rows: [line1] 25% [line2] 25% [line3] 25% [line4] 25% [line5];
-    row-gap: 15px;
+    grid-template-rows: [line1] 20% [line2] 20% [line3] 20% [line4] 20% [line5] 20% [line6];
+    /* row-gap: 15px; */
 }
 
 
@@ -63,19 +65,23 @@
     align-self: center;
     justify-self: right;
     width: 100%;
+    border-width: 2px;
+    border-style: inset;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
 }
 
-.manual-add-transaction-panel  .main-content .field-style
+.manual-add-transaction-panel .main-content .field-style
 {
+    box-shadow: 5px 5px  #404040;
     font-family: 'Gotham Light';
     font-size: 16px;
     display: block;
     overflow: hidden;
     height: 40px;
     float:right;
+    
 }
 
 
@@ -85,6 +91,8 @@
     justify-content: center;
     align-items: end;
     padding: 20px;
+    grid-column-start: start;
+    grid-column-end: end;
 }
 
 .manual-add-transaction-panel .add-button-container .add-button{

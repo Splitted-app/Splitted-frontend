@@ -1,10 +1,12 @@
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
 import '../../css/RegisterPages/RegisterForm.css';
 import {useNavigate} from 'react-router-dom';
-import {useRecoilState} from 'recoil';
+import {useSetRecoilState} from 'recoil';
 import {UserTokenState} from '../../atoms/UserToken';
+import {BudgetIdState} from '../../atoms/BudgetId';
 import { useState } from "react";
 import FormError from "../Common/FormError";
+
 
 interface RegisterFormInterface
 {
@@ -16,10 +18,32 @@ interface RegisterFormInterface
 function LogInForm({data, setData, setState} : RegisterFormInterface)
 {
     const navigate = useNavigate();
-    const [token, setToken] = useRecoilState(UserTokenState);
+    const setToken = useSetRecoilState(UserTokenState)
+    const setBudgetId = useSetRecoilState(BudgetIdState);
     const [errors, setErrors] = useState({
         invalidPassword: false
     });
+
+    function fetchBudgetId(token : string)
+    {
+        fetch('https://localhost:7012/api/users/budgets?budgetType=Personal',{
+        headers: { 
+            'Accept': '*',
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${token}`
+        },
+        })
+        .then(res=>{
+            if(!res.ok)
+            {
+                throw Error('could not fetch the data for that resource');
+            }
+            return res.json();
+        })
+        .then((data)=>{
+            setBudgetId(data[0].id);
+        })
+    }
 
     function handleSubmit(e : any)
     {
@@ -46,7 +70,7 @@ function LogInForm({data, setData, setState} : RegisterFormInterface)
         .then(res=>{
           if(!res.ok)
           {
-            if (res.status == 401)
+            if (res.status === 401)
             {
                 newErrors.invalidPassword = true;
             }
@@ -60,6 +84,7 @@ function LogInForm({data, setData, setState} : RegisterFormInterface)
         })
         .then((data)=>
         {
+            fetchBudgetId(data.token)
             setToken(data.token);
         })
         .catch((err)=>{

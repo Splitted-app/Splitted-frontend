@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import leftarrow from '../../assets/images/leftarrow.svg'
 import rightarrow from '../../assets/images/rightarrow.svg'
 import { useRecoilValue } from 'recoil';
+import { BudgetIdState } from '../../atoms/BudgetId';
 import { BalanceState } from '../../atoms/Balance';
 
 function getDate() {
@@ -33,6 +34,7 @@ function HomePageContent({setAddTransactionsPanelVisible}:HomePageContent) {
     const [currentDate, setCurrentDate] = useState(getDate());
     const [overviewTypeId, setOverviewTypeId] = useState(0);
     const bankBalance = useRecoilValue(BalanceState);
+    const budgetId = useRecoilValue(BudgetIdState);
 
     function handleLeftArrowButton()
     {
