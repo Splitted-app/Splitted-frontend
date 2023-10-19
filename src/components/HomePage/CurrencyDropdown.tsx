@@ -8,7 +8,7 @@ interface CurrencyDropdownInterface
 
 function CurrencyDropdown({currency, setCurrency}: CurrencyDropdownInterface) {
     return (
-        <select className="field-style" id="currency" name="currency" value={currency} onChange={(e)=>setCurrency(e)}>
+        <select className="currency-select-style" id="currency" name="currency" value={currency} onChange={(e)=>setCurrency(e)}>
             <option value="PLN">Polish Zloty</option>
             <option value="EUR">Euro</option>
             <option value="USD">US Dollar</option>

@@ -6,6 +6,7 @@ import {UserTokenState} from '../../atoms/UserToken'
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 import { BalanceState } from '../../atoms/Balance';
 import CurrencyDropdown from "./CurrencyDropdown";
+import { BudgetIdState } from '../../atoms/BudgetId';
 
 
 
@@ -29,12 +30,33 @@ function SignUpFollowUp() {
         currency: "PLN",
         budgetBalance: 0,
     })
-    // const [bank , setBank] = useState(null);
-    // const [balance, setBalance] = useState<number>(0);
-    // const [avatar, setAvatar] = useState(null);
     const token = useRecoilValue(UserTokenState);
+    const setBudgetId = useSetRecoilState(BudgetIdState)
     const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
     const setBankBalance = useSetRecoilState(BalanceState);
+
+    function fetchBudgetId(token : string)
+    {
+        fetch('https://localhost:7012/api/users/budgets?budgetType=Personal',{
+        headers: { 
+            'Accept': '*',
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${token}`
+        },
+        })
+        .then(res=>{
+            if(!res.ok)
+            {
+                throw Error('could not fetch the data for that resource');
+            }
+            return res.json();
+        })
+        .then((data)=>{
+            console.log(data);
+            console.log(data[0].id);
+            setBudgetId(data[0].id);
+        })
+    }
 
     function handleSubmit(event : any){
         event.preventDefault();
@@ -62,6 +84,7 @@ function SignUpFollowUp() {
           {
             setBankBalance(data.budgetBalance);
             setSignUpFollowUpVisibility(false);
+            fetchBudgetId(token);
             navigate('/home');
           }
           return res.json();
@@ -131,7 +154,7 @@ function SignUpFollowUp() {
                     <label>
                         Choose your currency:
                     </label>
-                    <div className="form-element">
+                    <div className="input-container">
                         <CurrencyDropdown currency={data.currency} 
                             setCurrency={(e:any)=>setData({...data, currency:e.target.value})}/>
                     </div>
