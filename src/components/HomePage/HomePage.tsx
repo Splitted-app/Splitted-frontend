@@ -10,12 +10,17 @@ import ImportCsvCheck from './ImportCsvCheck';
 
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 import { useRecoilValue } from 'recoil';
+import AddModePanel from '../Common/AddModePanel';
+import FamilyModeAddPanel from '../Common/FamilyModeAddPanel';
+import PartnerModeAddPanel from '../Common/PartnerModeAddPanel';
 
 function HomePage() {
     const [addTransactionsPanelVisible, setAddTransactionsPanelVisible] = useState(false);
     const [importCsvPanelVisible, setImportCsvPanelVisible] = useState(false);
     const [manualAddTransactionPanelVisible, setManualAddTransactionPanelVisible] = useState(false);
     const [importCsvCheckPanelVisible, setImportCsvCheckPanelVisible] = useState(false);
+    const [addModePanelVisible, setAddModePanelVisible] = useState(true);
+
     const SignUpFollowUpVisibility = useRecoilValue(SignUpFollowUpVisibilityState);
     
 
@@ -39,6 +44,9 @@ function HomePage() {
           {importCsvPanelVisible && <ImportCsvPanel setImportCsvPanelVisible={setImportCsvPanelVisible} setImportCsvCheckPanelVisible={setImportCsvCheckPanelVisible}/>}
           {manualAddTransactionPanelVisible && <ManualAddTransactionPanel setManualAddTransactionPanelVisible={setManualAddTransactionPanelVisible}/>}
           {importCsvCheckPanelVisible && <ImportCsvCheck setImportCsvCheckPanelVisible={setImportCsvCheckPanelVisible}/>}
+          {/* {addModePanelVisible && <AddModePanel/>} */}
+          {/* <FamilyModeAddPanel></FamilyModeAddPanel> */}
+          {/* <PartnerModeAddPanel></PartnerModeAddPanel> */}
         </div>
       </div>
     );
