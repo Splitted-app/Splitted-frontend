@@ -1,0 +1,38 @@
+.transaction
+{
+    width:100%;
+    border-bottom: 2px solid black;
+}
+.transaction .transaction-content
+{
+    padding: 2%;
+    display: grid;
+    /* grid-template-columns: [line1] 25% [line2] 10% [line3] auto [line4] 10% [line5]; */
+}
+
+.transaction-element
+{
+    display: flex;
+    align-items: center;
+}
+
+.transaction .transaction-content .category
+{
+    font-family: 'Gotham Medium';
+    font-size: 15px;
+}
+
+.transaction .transaction-content .amount 
+{
+    font-family: 'Gotham Medium';
+    font-size: 15px;
+    justify-content: end;
+    gap:5%;
+}
+
+
+.transaction .transaction-content .description
+{
+    font-family: 'Gotham Light';
+    font-size: 10px;
+}

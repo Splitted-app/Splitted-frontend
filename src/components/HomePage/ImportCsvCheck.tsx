@@ -1,5 +1,5 @@
 import '../../css/HomePage/ImportCsvCheck.css'
-import TransactionList from './TransactionList';
+import TransactionList from '../Common/TransactionList';
 
 interface ImportCsvCheck{
   setImportCsvCheckPanelVisible: Function;

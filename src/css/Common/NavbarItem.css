@@ -1,6 +1,15 @@
 a{
     text-decoration: none;
 }
+/* .navbar-item 
+{
+    display: flex;
+}
+.navbar-item .icon img
+{
+    width: 30%;
+    height: 80%; */
+
 
 .navbar-item .text
 {

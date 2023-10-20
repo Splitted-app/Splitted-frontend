@@ -7,6 +7,7 @@ import rightarrow from '../../assets/images/rightarrow.svg'
 import { useRecoilValue } from 'recoil';
 import { BudgetIdState } from '../../atoms/BudgetId';
 import { BalanceState } from '../../atoms/Balance';
+import { CurrencyState } from '../../atoms/Currency';
 
 function getDate() {
     const today = new Date();
@@ -35,6 +36,7 @@ function HomePageContent({setAddTransactionsPanelVisible}:HomePageContent) {
     const [overviewTypeId, setOverviewTypeId] = useState(0);
     const bankBalance = useRecoilValue(BalanceState);
     const budgetId = useRecoilValue(BudgetIdState);
+    const currency = useRecoilValue(CurrencyState);
 
     function handleLeftArrowButton()
     {
@@ -72,7 +74,12 @@ function HomePageContent({setAddTransactionsPanelVisible}:HomePageContent) {
                     Your balance:
                 </div>
                 <div className='amount'>
-                    {bankBalance}
+                    <div className='bankBalance'>
+                        {bankBalance}
+                    </div>
+                    <div className='currency'>
+                        {currency}
+                    </div>
                 </div>
             </div>
         </div>

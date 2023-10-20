@@ -1,28 +1,29 @@
 import '../../css/HomePage/TransactionsOverview.css'
 import DateDisplay from './DateDisplay';
 import {useState} from 'react';
-import TransactionList from './TransactionList';
+import TransactionList from '../Common/TransactionList';
 import leftarrow from '../../assets/images/leftarrow.svg';
 import rightarrow from '../../assets/images/rightarrow.svg';
 import {changeDay, changeWeek, changeMonth} from '../../utils';
 import DateRangeSelector from './DateRangeSelector';
+import useFetchTransactions from '../../hooks/useFetchTransactions';
 
 
 
 function TransactionsOverview() {
-
     const [timeScale, setTimeScale] = useState("daily");
     let currentDate : Date = new Date();
-    // const [startDateRange, setStartDateRange] = useState(currentDate);
-    // const [endDateRange, setEndDateRange] = useState(currentDate);
     const [dateRange, setDateRange] = useState<any>([{
       startDate: new Date(),
       endDate: new Date(),
       key: 'selection'
     }]);
+    const [transactions, setTransactions] = useState<any>();
+    useFetchTransactions(setTransactions);
 
     function handleArrow(direction : number)
     {
+      console.log(transactions);
       switch(timeScale)
       {
         case "daily":
@@ -30,27 +31,18 @@ function TransactionsOverview() {
             startDate: changeDay(dateRange[0].startDate, direction),
             endDate: changeDay(dateRange[0].endDate, direction)
           }])
-
-          // setStartDateRange(changeDay(startDateRange, direction));
-          // setEndDateRange(changeDay(endDateRange, direction));
           break;
         case "weekly":
           setDateRange([{...dateRange[0], 
             startDate: changeWeek(dateRange[0].startDate, direction),
             endDate: changeWeek(dateRange[0].endDate, direction)
           }])
-
-          // setStartDateRange(changeWeek(startDateRange, direction));
-          // setEndDateRange(changeWeek(endDateRange, direction));
           break;
         case "monthly":
           setDateRange([{...dateRange[0], 
             startDate: changeMonth(dateRange[0].startDate, direction),
             endDate: changeMonth(dateRange[0].endDate, direction)
           }])
-
-          // setStartDateRange(changeMonth(startDateRange, direction));
-          // setEndDateRange(changeMonth(endDateRange, direction));
           break;
         case "custom":
           break;
@@ -84,7 +76,7 @@ function TransactionsOverview() {
               Transactions
             </div>
             <div className='transaction-list-container'>
-              <TransactionList></TransactionList>
+              <TransactionList transactions={transactions}></TransactionList>
             </div>
             <div className='add-transaction-button-container'>
               <button className='add-transaction-button'>+</button>

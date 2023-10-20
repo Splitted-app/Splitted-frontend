@@ -1,6 +1,7 @@
 .transactions-overview
 {
     height: 100%;
+    width: 100%;
     display:grid;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 10% 90%;
@@ -51,6 +52,7 @@
 .transactions-overview .transactions-panel .transaction-list-container
 {
     height: 70%;
+    
 }
 
 
