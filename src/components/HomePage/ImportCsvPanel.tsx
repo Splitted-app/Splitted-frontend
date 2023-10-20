@@ -56,7 +56,7 @@ function ImportCsvPanel({setImportCsvPanelVisible, setImportCsvCheckPanelVisible
         console.log(data);
       })
     setImportCsvPanelVisible(false);
-    setImportCsvCheckPanelVisible(true);
+    // setImportCsvCheckPanelVisible(true);
   }
     return (
       <div className="import-csv-panel">

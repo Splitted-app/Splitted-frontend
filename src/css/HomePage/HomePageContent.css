@@ -91,6 +91,20 @@
 
 .home-page-content .information-panel .balance .amount
 {
+    display: flex;
+    float: right;
+    gap: 10%;
+    margin-right: 5%;
+}
+
+.home-page-content .information-panel .balance .amount .bankBalance
+{
+    font-family: 'Gotham Bold';
+    font-size: 80px;
+    text-shadow: 5px 5px 3px #180A45;
+}
+.home-page-content .information-panel .balance .amount .currency
+{
     font-family: 'Gotham Bold';
     font-size: 80px;
     text-shadow: 5px 5px 3px #180A45;

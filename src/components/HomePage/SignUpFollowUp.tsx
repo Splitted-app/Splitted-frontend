@@ -7,6 +7,7 @@ import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibil
 import { BalanceState } from '../../atoms/Balance';
 import CurrencyDropdown from "./CurrencyDropdown";
 import { BudgetIdState } from '../../atoms/BudgetId';
+import { CurrencyState } from '../../atoms/Currency';
 
 
 
@@ -34,6 +35,7 @@ function SignUpFollowUp() {
     const setBudgetId = useSetRecoilState(BudgetIdState)
     const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
     const setBankBalance = useSetRecoilState(BalanceState);
+    const setCurrency = useSetRecoilState(CurrencyState);
 
     function fetchBudgetId(token : string)
     {
@@ -83,6 +85,7 @@ function SignUpFollowUp() {
           if(res.ok)
           {
             setBankBalance(data.budgetBalance);
+            setCurrency(data.currency);
             setSignUpFollowUpVisibility(false);
             fetchBudgetId(token);
             navigate('/home');

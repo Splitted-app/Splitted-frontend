@@ -42,7 +42,7 @@ function ManualAddTransactionPanel({setManualAddTransactionPanelVisible} : Manua
     amount: 0,
     currency: "PLN",
     date:Date(),
-    description:"test",
+    description:"",
     transactionType:"Other",
     userCategory:"Job"
 });

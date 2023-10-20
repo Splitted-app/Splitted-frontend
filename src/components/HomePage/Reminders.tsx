@@ -1,5 +1,6 @@
 import '../../css/HomePage/Reminders.css'
 import CurrentReminder from './CurrentReminder';
+import NotificationIcon from '../../assets/images/notification-bell.png'
 
 
 function Reminders() {
@@ -9,7 +10,7 @@ function Reminders() {
         </div>
         <div className='content'>
           <div className='icon'>
-
+            <img src={NotificationIcon}></img>
           </div>
           <div className='reminder-text'>
             <CurrentReminder></CurrentReminder>
