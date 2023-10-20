@@ -13,13 +13,15 @@ import { useRecoilValue } from 'recoil';
 import AddModePanel from '../Common/AddModePanel';
 import FamilyModeAddPanel from '../Common/FamilyModeAddPanel';
 import PartnerModeAddPanel from '../Common/PartnerModeAddPanel';
+import LogOutConfirmationPanel from '../Common/LogOutConfirmationPanel';
 
 function HomePage() {
     const [addTransactionsPanelVisible, setAddTransactionsPanelVisible] = useState(false);
     const [importCsvPanelVisible, setImportCsvPanelVisible] = useState(false);
     const [manualAddTransactionPanelVisible, setManualAddTransactionPanelVisible] = useState(false);
     const [importCsvCheckPanelVisible, setImportCsvCheckPanelVisible] = useState(false);
-    const [addModePanelVisible, setAddModePanelVisible] = useState(true);
+    // const [addModePanelVisible, setAddModePanelVisible] = useState(true);
+    const [logOutConfirmationPanelVisible, setLogOutConfirmationPanelVisible] =  useState(true);
 
     const SignUpFollowUpVisibility = useRecoilValue(SignUpFollowUpVisibilityState);
     
@@ -47,6 +49,7 @@ function HomePage() {
           {/* {addModePanelVisible && <AddModePanel/>} */}
           {/* <FamilyModeAddPanel></FamilyModeAddPanel> */}
           {/* <PartnerModeAddPanel></PartnerModeAddPanel> */}
+          {/* {logOutConfirmationPanelVisible && <LogOutConfirmationPanel></LogOutConfirmationPanel>} */}
         </div>
       </div>
     );
