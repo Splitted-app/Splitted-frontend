@@ -23,7 +23,7 @@
     pointer-events: none;
 }
 
-.popout-panel
+.popup-panel
 {
     position: fixed;
     top: 50%;

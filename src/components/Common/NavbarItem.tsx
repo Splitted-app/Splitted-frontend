@@ -11,7 +11,7 @@ interface NavbarItemInterface{
 }
 
 
-function NavbarItem({name, font, fontSize, link,icon} : NavbarItemInterface) {
+function NavbarItem({name, font, fontSize, link, icon} : NavbarItemInterface) {
     return (
     <Link to={link}>
       <div className="navbar-item">
