@@ -1,15 +1,28 @@
 a{
     text-decoration: none;
+
 }
-/* .navbar-item 
+.navbar-item 
 {
     display: flex;
+    padding-left: 2%;
+}
+
+.navbar-item .icon
+{
+    /* padding-top: auto;
+    padding-bottom: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .navbar-item .icon img
 {
-    width: 30%;
-    height: 80%; */
-
+    width: 35px;
+    height: 35px; 
+    /* margin-top: auto;
+    margin-bottom: auto; */
+}
 
 .navbar-item .text
 {

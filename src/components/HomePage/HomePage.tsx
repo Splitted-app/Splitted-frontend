@@ -51,7 +51,7 @@ function HomePage() {
           {/* <FamilyModeAddPanel></FamilyModeAddPanel> */}
           {/* <PartnerModeAddPanel></PartnerModeAddPanel> */}
           {/* {logOutConfirmationPanelVisible && <LogOutConfirmationPanel></LogOutConfirmationPanel>} */}
-          <PartyModeAddPanel></PartyModeAddPanel>
+          {/* <PartyModeAddPanel></PartyModeAddPanel> */}
         </div>
       </div>
     );
