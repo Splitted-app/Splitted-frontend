@@ -13,7 +13,7 @@ import { useRecoilValue } from 'recoil';
 import AddModePanel from '../Common/AddModePanel';
 import FamilyModeAddPanel from '../Common/FamilyModeAddPanel';
 import PartnerModeAddPanel from '../Common/PartnerModeAddPanel';
-import LogOutConfirmationPanel from '../Common/LogOutConfirmationPanel';
+// import LogOutConfirmationPanel from '../Common/LogOutConfirmationPanel';
 
 function HomePage() {
     const [addTransactionsPanelVisible, setAddTransactionsPanelVisible] = useState(false);

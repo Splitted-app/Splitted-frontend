@@ -4,10 +4,12 @@
     height: 500px;
     background-color: #260B5A;
     color:white;
+    display: flex;
 }
 
 .feature-panel .feature-text 
 {
+    width: 80%;
     padding-left: 55px;
     padding-right: 55px;
 }
@@ -29,4 +31,21 @@
     margin: 0;
     font-size: 22px;
     line-height: 40px;
+}
+.feature-panel .feature-image 
+{
+    /* padding-right: 5%; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 55px;
+}
+
+.feature-panel .feature-image img
+{
+    width: 250px;
+    height: 250px;
+    
 }
