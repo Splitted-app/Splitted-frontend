@@ -2,9 +2,13 @@
 {
     background-color: white;
     height: 100%;
-    box-shadow: inset 0 0 15px #404040;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.transaction-list-shadow
+{
+    box-shadow: inset 0 0 15px #404040;
 }
 
 .transaction-list::-webkit-scrollbar-thumb
