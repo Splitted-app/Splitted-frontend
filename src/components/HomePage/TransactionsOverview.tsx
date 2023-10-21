@@ -76,7 +76,7 @@ function TransactionsOverview() {
               Transactions
             </div>
             <div className='transaction-list-container'>
-              <TransactionList transactions={transactions}></TransactionList>
+              <TransactionList transactions={transactions} shadow={true}></TransactionList>
             </div>
             <div className='add-transaction-button-container'>
               <button className='add-transaction-button'>+</button>

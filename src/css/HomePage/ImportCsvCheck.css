@@ -20,16 +20,17 @@
     margin-bottom: 30px;
 }
 
-.import-csv-check .transactions-list
+.import-csv-check .transactions-list-container
 {
     width: 95%;
-    height: 70%;
+    height: 60%;
     box-shadow: 5px 5px 5px #676370,
     -5px -5px 5px #676370;
-    border-radius: 50px;
+    border-radius: 25px;
     border: none;
     display: block;
     margin: auto;
+    padding: 20px 0px 20px 10px
 }
 
 .import-csv-check .add-button-container

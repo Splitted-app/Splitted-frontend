@@ -1,8 +1,9 @@
 import '../../css/HomePage/ImportCsvPanel.css'
 import { BudgetIdState } from '../../atoms/BudgetId';
 import {useState} from 'react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import {UserTokenState} from '../../atoms/UserToken'
+import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { ChangeEvent } from 'react';
 
 
@@ -16,6 +17,7 @@ function ImportCsvPanel({setImportCsvPanelVisible, setImportCsvCheckPanelVisible
   const [filePath, setFilePath] = useState("no file chosen");
   const budgetId = useRecoilValue(BudgetIdState);
   const token = useRecoilValue(UserTokenState);
+  const setNewTransactions = useSetRecoilState(NewTransactionsState);
   const [bank, setBank] = useState("Pekao");
   const [file,setFile] = useState<File>();
   const formData = new FormData();
@@ -53,10 +55,10 @@ function ImportCsvPanel({setImportCsvPanelVisible, setImportCsvCheckPanelVisible
           return res.json();
       })
       .then((data)=>{
-        console.log(data);
+        setNewTransactions(data)
       })
     setImportCsvPanelVisible(false);
-    // setImportCsvCheckPanelVisible(true);
+    setImportCsvCheckPanelVisible(true);
   }
     return (
       <div className="import-csv-panel">
