@@ -16,7 +16,7 @@ function NavbarItem({name, font, fontSize, link,icon} : NavbarItemInterface) {
     <Link to={link}>
       <div className="navbar-item">
         <div className='icon'>
-          {/* <img src={icon}></img> */}
+          <img src={icon}></img>
         </div>
         <div className='text' style={{fontFamily: font, fontSize: fontSize}}>
             {name}
