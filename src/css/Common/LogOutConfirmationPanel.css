@@ -34,8 +34,8 @@
 {
     margin-top:10%;
     display: flex;
-    gap:15%;
-    padding-left: 10%;
+    gap: 15%;
+    justify-content: center;
 }
 
 .log-out-confirmation-panel .log-out-confirmation-panel-buttons .log-out-button-container .log-out-button

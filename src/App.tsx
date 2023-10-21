@@ -6,18 +6,31 @@ import HomePage from './components/HomePage/HomePage';
 import FamilyModePage from './components/ModePages/FamilyModePage';
 import AddModePanel from './components/Common/AddModePanel';
 
+import { useRecoilValue } from 'recoil';
+import { LogOutPanelVisibilityState } from './atoms/LogOutPanelVisibility';
+import LogOutConfirmationPanel from './components/Common/LogOutConfirmationPanel';
+
 
 
 function App() {
+  const logOutPanelVisibility = useRecoilValue(LogOutPanelVisibilityState);
+  const popupVisible = logOutPanelVisibility;
+
   return (
     <div className="app">
-      <Routes>
+      <div className='site-content'>
+        <div className={`page ${popupVisible ? "darkened" : ""}`}>
+          <Routes>
             <Route path="/" element={<StartPage/>}/>
             <Route path="/register" element={<RegisterPage/>}/>
-            <Route path="/home" element={<HomePage/>}/>
+            <Route path="/home" element={<HomePage/>}/>            
             <Route path="/family" element={<FamilyModePage/>}/>
-            <Route path="/addmode" element={<AddModePanel/>}></Route>
-      </Routes>
+          </Routes>
+        </div>
+        <div className='global-popup' style={{'display': popupVisible ? 'flex' : 'none'}}>
+          {logOutPanelVisibility && <LogOutConfirmationPanel/>}
+        </div>
+      </div>
     </div>
   );
 }

@@ -9,7 +9,12 @@ import GoalsIcon from '../../assets/images/goals.png'
 import SettingsIcon from '../../assets/images/settings.png'
 import LogOutIcon from '../../assets/images/log-out.png'
 
+import { useSetRecoilState } from 'recoil';
+import { LogOutPanelVisibilityState } from '../../atoms/LogOutPanelVisibility';
+
 function Navbar() {
+    const setLogOutPanelVisibility = useSetRecoilState(LogOutPanelVisibilityState);
+
     return (
       <div className="navbar">
         <div className="title">
@@ -23,8 +28,10 @@ function Navbar() {
           <NavbarItem name="Goals" font="CeraPro light" fontSize="19px" link="/home" icon={GoalsIcon}></NavbarItem>
         </div>
         <div className="navbar-footer">          
-          <NavbarItem name="Settings" font="CeraPro medium" fontSize="22px" link="/home"icon={SettingsIcon}></NavbarItem>
-          <NavbarItem name="Log Out" font="CeraPro medium" fontSize="22px" link="/home" icon={LogOutIcon}></NavbarItem>
+          <NavbarItem name="Settings" font="CeraPro medium" fontSize="22px" link="/settings"icon={SettingsIcon}></NavbarItem>
+          <div onClick={()=>setLogOutPanelVisibility(true)}>
+            <NavbarItem name="Log Out" font="CeraPro medium" fontSize="22px" link="#" icon={LogOutIcon}></NavbarItem>
+          </div>
         </div>
       </div>
     );
