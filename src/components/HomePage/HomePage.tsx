@@ -13,6 +13,7 @@ import { useRecoilValue } from 'recoil';
 import AddModePanel from '../Common/AddModePanel';
 import FamilyModeAddPanel from '../Common/FamilyModeAddPanel';
 import PartnerModeAddPanel from '../Common/PartnerModeAddPanel';
+import PartyModeAddPanel from '../Common/PartyModeAddPanel';
 // import LogOutConfirmationPanel from '../Common/LogOutConfirmationPanel';
 
 function HomePage() {
@@ -50,6 +51,7 @@ function HomePage() {
           {/* <FamilyModeAddPanel></FamilyModeAddPanel> */}
           {/* <PartnerModeAddPanel></PartnerModeAddPanel> */}
           {/* {logOutConfirmationPanelVisible && <LogOutConfirmationPanel></LogOutConfirmationPanel>} */}
+          <PartyModeAddPanel></PartyModeAddPanel>
         </div>
       </div>
     );

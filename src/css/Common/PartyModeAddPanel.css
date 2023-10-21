@@ -6,7 +6,142 @@
     border: solid 1px black;
     box-shadow: 10px 10px 5px #262626;
     border-radius: 50px;
-    padding-top: 5%;
     padding-left: 2%;
     padding-right: 2%;
+    display:grid;
+    grid-template-rows: 50% 20% 30%;
+    grid-template-columns: 100%;
+}
+
+.party-mode-add-panel .party-mode-add-panel-header
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 50% 50%;
+}
+
+.party-mode-add-panel .party-mode-add-panel-header .title 
+{
+    padding-top: 50px;
+    text-align:start;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.party-mode-add-panel .party-mode-add-panel-header .title .main-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: #3C3C3C;
+}
+
+.party-mode-add-panel .party-mode-add-panel-header .title .subtitle
+{
+    padding-top: 3%;
+    font-family: 'Gotham Light';
+    font-size: 20px;
+}
+
+.party-mode-add-panel .find-your-friends-panel
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Gotham Light';
+    font-size: 15px;
+}
+
+.party-mode-add-panel  .integrate-accounts-button
+{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.party-mode-add-panel  .party-mode-add-panel-header .party-mode-add-icon
+{
+    /* margin-top: 0;
+    margin-bottom: auto; */
+    /* display: flex;
+    align-items: flex-start;  */
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+} 
+
+
+
+.party-mode-add-panel  .party-mode-add-panel-header .party-mode-add-icon img
+{
+    width: 220px;
+    height: 220px;
+
+}
+
+
+.party-mode-add-panel  .integrate-accounts-button .button
+{
+    font-size: 12px;
+    background-color: #20F7C5;
+    color: black;
+    width: 120px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    border: 1px solid #010446;
+    box-shadow: 8px 8px 5px #010446;
+    margin-right: 40px;
+    margin-bottom: 0;
+}
+
+.party-mode-add-panel  .find-your-friends-panel label{
+    padding-right: 10px;
+
+}
+
+
+
+.party-mode-add-panel .find-your-friends-panel .search-container {
+    float: right;
+  }
+  
+  .party-mode-add-panel .find-your-friends-panel input[type=text] {
+    padding: 6px;
+    border:none;
+}
+  
+.party-mode-add-panel .find-your-friends-panel .search-container button {
+    float: right;
+    padding: 6px 10px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+}
+  
+.party-mode-add-panel .find-your-friends-panel .search-container button:hover {
+    background: #ccc;
+}
+
+
+.party-mode-add-panel  .find-your-friends-panel .search-container img
+{
+    width: 15px;
+    height: 15px;
 }
