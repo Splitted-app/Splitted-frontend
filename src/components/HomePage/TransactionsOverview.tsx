@@ -18,8 +18,7 @@ function TransactionsOverview() {
       endDate: new Date(),
       key: 'selection'
     }]);
-    const [transactions, setTransactions] = useState<any>();
-    useFetchTransactions(setTransactions);
+    const transactions = useFetchTransactions();
 
     function handleArrow(direction : number)
     {

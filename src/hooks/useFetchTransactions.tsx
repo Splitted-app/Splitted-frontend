@@ -1,17 +1,20 @@
 import { useRecoilValue } from "recoil";
 import { BudgetIdState } from "../atoms/BudgetId";
 import { UserTokenState } from "../atoms/UserToken";
+import { useEffect, useState } from "react";
 
-export default function useFetchTransactions(setTransactions : Function)
+export default function useFetchTransactions()
 {
     const budgetId = useRecoilValue(BudgetIdState);
     const token = useRecoilValue(UserTokenState);
-    if (budgetId === "")
-    {
-        return;
-    }
-        
-    fetch(`https://localhost:7012/api/budgets/${budgetId}/transactions/`,{
+    const [data, setData] = useState<any>([]);
+    // if (budgetId === "")
+    // {
+    //     return;
+    // }
+
+    useEffect(()=>{
+        fetch(`https://localhost:7012/api/budgets/${budgetId}/transactions/`,{
         headers: { 
             'Accept': '*',
             'Authorization' : `Bearer ${token}`
@@ -25,6 +28,13 @@ export default function useFetchTransactions(setTransactions : Function)
             return res.json();
         })
         .then(data=>{
-            setTransactions(data);
+            setData(data);
         })
+        .catch(error => {
+            console.log("error");
+        })
+    },[budgetId])
+        
+    
+    return data
 }
