@@ -67,7 +67,7 @@
     margin-bottom: 5%;
 }
 
-.navbar .table-of-contents .modes-panel  .add-new-mode-button .add-new-mode-button-container
+.navbar .table-of-contents .modes-panel .add-new-mode-button-container
 {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -79,18 +79,18 @@
     gap:10%;
     width: 100%;
 }
-.navbar .table-of-contents .modes-panel  .add-new-mode-button {
+/* .navbar .table-of-contents .modes-panel  .add-new-mode-button {
     border:0;
     outline:0;
     width: 100%;
     background-color: #BBB9DD;
-}
-.navbar .table-of-contents .modes-panel .add-new-mode-button .add-new-mode-button-container .add-new-mode-icon img{
+} */
+.navbar .table-of-contents .modes-panel  .add-new-mode-button-container .add-new-mode-icon img{
     width: 20px;
     height: 20px;
 }
 
-.navbar .table-of-contents .modes-panel .add-new-mode-button .add-new-mode-button-container .add-new-mode-text
+.navbar .table-of-contents .modes-panel .add-new-mode-button-container .add-new-mode-text
 {
     font-family: 'Gotham Light';
     font-size: 10px;

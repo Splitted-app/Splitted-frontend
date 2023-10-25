@@ -12,9 +12,11 @@ import AddNewModeIcon from '../../assets/images/add_new_mode.png'
 
 import { useSetRecoilState } from 'recoil';
 import { LogOutPanelVisibilityState } from '../../atoms/LogOutPanelVisibility';
+import { AddModesPanelVisibilityState } from '../../atoms/AddModesPanelVisibility';
 
 function Navbar() {
     const setLogOutPanelVisibility = useSetRecoilState(LogOutPanelVisibilityState);
+    const setAddModesPanelVisibility = useSetRecoilState(AddModesPanelVisibilityState);
 
     return (
       <div className="navbar">
@@ -37,8 +39,8 @@ function Navbar() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quas eveniet id, ducimus debitis ipsa voluptatem et vel, similique officia totam a odio rem. Velit laudantium quam accusamus dolore delectus?
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque dolores quod recusandae natus, quae minima distinctio in placeat. Ut nesciunt voluptate molestiae atque minus fugiat ipsa eveniet eum. Expedita.
             </div>
-            <button className='add-new-mode-button'>
-              <div className='add-new-mode-button-container'>
+            {/* <button className='add-new-mode-button' onClick={()=>setAddModesPanelVisibility(true)}> */}
+              <div className='add-new-mode-button-container' onClick={()=>{setAddModesPanelVisibility(true); console.log("clicked")}}>
                 <div className='add-new-mode-icon'>
                   <img src={AddNewModeIcon}></img>
                 </div>
@@ -46,7 +48,7 @@ function Navbar() {
                   Add new mode
                 </div>
               </div>
-            </button>
+            {/* </button> */}
           </div>
         </div>
         <div className="navbar-footer">          
