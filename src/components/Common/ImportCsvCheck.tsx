@@ -1,19 +1,19 @@
-import '../../css/HomePage/ImportCsvCheck.css'
-import TransactionList from '../Common/TransactionList';
+import '../../css/Common/ImportCsvCheck.css'
+import TransactionList from './TransactionList';
 import { useRecoilValue } from 'recoil';
 import { NewTransactionsState } from '../../atoms/NewTransactions';
+import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
+import { useSetRecoilState } from 'recoil';
 
-interface ImportCsvCheck{
-  setImportCsvCheckPanelVisible: Function;
-}
 
-function ImportCsvCheck({setImportCsvCheckPanelVisible}:ImportCsvCheck) {
+function ImportCsvCheck() {
 
   const transactions = useRecoilValue(NewTransactionsState);
+  const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
 
   function handleButtonClicked()
   {
-    setImportCsvCheckPanelVisible(false);
+    setImportCsvCheckPanelVisibility(false);
   }
 
     return (

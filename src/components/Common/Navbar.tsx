@@ -26,7 +26,7 @@ function Navbar() {
         <div className='table-of-contents'>
           <div className='side-pages'>
             <NavbarItem name="HomePage" font="CeraPro light" fontSize="17px" link="/home" icon={HomePageIcon}></NavbarItem>
-            <NavbarItem name="Transactions" font="CeraPro light" fontSize="17px" link="/home" icon={TransactionsIcon}></NavbarItem>
+            <NavbarItem name="Transactions" font="CeraPro light" fontSize="17px" link="/transactions" icon={TransactionsIcon}></NavbarItem>
             <NavbarItem name="Insights" font="CeraPro light" fontSize="17px" link="/home"icon={InsightsIcon}></NavbarItem>
             <NavbarItem name="Predictions" font="CeraPro light" fontSize="17px" link="/home"icon={PredictionsIcon}></NavbarItem>
             <NavbarItem name="Goals" font="CeraPro light" fontSize="17px" link="/home" icon={GoalsIcon}></NavbarItem>

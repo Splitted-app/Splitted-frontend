@@ -1,8 +1,10 @@
-import '../../css/HomePage/ManualAddTransactionPanel.css'
+import '../../css/Common/ManualAddTransactionPanel.css'
 import { useState } from 'react';
 import { BudgetIdState } from '../../atoms/BudgetId';
 import { useRecoilValue } from 'recoil';
 import {UserTokenState} from '../../atoms/UserToken'
+import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAddTransactionsPanelVisbility';
+import { useSetRecoilState } from 'recoil';
 
 function getDate() {
     const today = new Date();
@@ -18,10 +20,7 @@ function getDate() {
     return `${longDate}.${longMonth}.${year}`;
   }
   
-  interface ManualAddTransactionPanel
-  {
-    setManualAddTransactionPanelVisible:Function;
-  }
+
   interface ManualAddTransactionPanelInterface
 {
    amount:number,
@@ -33,11 +32,12 @@ function getDate() {
 }
 
 
-function ManualAddTransactionPanel({setManualAddTransactionPanelVisible} : ManualAddTransactionPanel) {
+function ManualAddTransactionPanel() {
 
   const [currentDate, setCurrentDate] = useState(getDate());
   const budgetId = useRecoilValue(BudgetIdState);
   const token = useRecoilValue(UserTokenState);
+  const setManualAddTransactionsPanelVisibility = useSetRecoilState(ManualAddTransactionsPanelVisibilityState);
   const [data, setData] = useState<ManualAddTransactionPanelInterface>({
     amount: 0,
     currency: "PLN",
@@ -78,7 +78,7 @@ function ManualAddTransactionPanel({setManualAddTransactionPanelVisible} : Manua
       .then((data)=>{
         console.log(data);
       });
-    setManualAddTransactionPanelVisible(false);
+    setManualAddTransactionsPanelVisibility(false);
   };
 
     return (

@@ -5,9 +5,11 @@ import React, { useState } from 'react';
 import leftarrow from '../../assets/images/leftarrow.svg'
 import rightarrow from '../../assets/images/rightarrow.svg'
 import { useRecoilValue } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { BudgetIdState } from '../../atoms/BudgetId';
 import { BalanceState } from '../../atoms/Balance';
 import { CurrencyState } from '../../atoms/Currency';
+import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
 
 function getDate() {
     const today = new Date();
@@ -23,13 +25,10 @@ function getDate() {
     return `${longDate}.${longMonth}.${year}`;
   }
 
-  interface HomePageContent
-  {
-    setAddTransactionsPanelVisible: Function;
-  }
+
   
 
-function HomePageContent({setAddTransactionsPanelVisible}:HomePageContent) {
+function HomePageContent() {
 
     const overTypeCount = 3;
     const [currentDate, setCurrentDate] = useState(getDate());
@@ -37,6 +36,7 @@ function HomePageContent({setAddTransactionsPanelVisible}:HomePageContent) {
     const bankBalance = useRecoilValue(BalanceState);
     const budgetId = useRecoilValue(BudgetIdState);
     const currency = useRecoilValue(CurrencyState);
+    const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
 
     function handleLeftArrowButton()
     {
@@ -50,7 +50,7 @@ function HomePageContent({setAddTransactionsPanelVisible}:HomePageContent) {
 
     function handleTransactionButtonClicked()
     {
-        setAddTransactionsPanelVisible(true);
+        setAddTransactionsPanelVisibility(true);
     }
 
 

@@ -1,23 +1,22 @@
-import '../../css/HomePage/ImportCsvPanel.css'
+import '../../css/Common/ImportCsvPanel.css'
 import { BudgetIdState } from '../../atoms/BudgetId';
 import {useState} from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import {UserTokenState} from '../../atoms/UserToken'
 import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { ChangeEvent } from 'react';
+import { ImportCsvPanelVisibilityState } from '../../atoms/ImportCsvPanelVisbility';
+import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
 
 
-interface ImportCsvPanel{
-  setImportCsvPanelVisible:Function;
-  setImportCsvCheckPanelVisible: Function;
-}
-
-function ImportCsvPanel({setImportCsvPanelVisible, setImportCsvCheckPanelVisible} : ImportCsvPanel) {
+function ImportCsvPanel() {
 
   const [filePath, setFilePath] = useState("no file chosen");
   const budgetId = useRecoilValue(BudgetIdState);
   const token = useRecoilValue(UserTokenState);
   const setNewTransactions = useSetRecoilState(NewTransactionsState);
+  const setImportCsvPanelVisibility = useSetRecoilState(ImportCsvPanelVisibilityState);
+  const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
   const [bank, setBank] = useState("Pekao");
   const [file,setFile] = useState<File>();
   const formData = new FormData();
@@ -57,8 +56,8 @@ function ImportCsvPanel({setImportCsvPanelVisible, setImportCsvCheckPanelVisible
       .then((data)=>{
         setNewTransactions(data)
       })
-    setImportCsvPanelVisible(false);
-    setImportCsvCheckPanelVisible(true);
+    setImportCsvPanelVisibility(false);
+    setImportCsvCheckPanelVisibility(true);
   }
     return (
       <div className="import-csv-panel">

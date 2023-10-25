@@ -1,25 +1,28 @@
-import '../../css/HomePage/AddTransactionsPanel.css';
-
-interface AddTransactionsPanel
-{
-  setAddTransactionsPanelVisible: Function;
-  setImportCsvPanelVisible:Function;
-  setManualAddTransactionPanelVisible: Function;
-}
+import '../../css/Common/AddTransactionsPanel.css';
+import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
+import { ImportCsvPanelVisibilityState } from '../../atoms/ImportCsvPanelVisbility';
+import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
+import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAddTransactionsPanelVisbility';
+import { useSetRecoilState } from 'recoil';
 
 
-function AddTransactionsPanel({setAddTransactionsPanelVisible, setImportCsvPanelVisible, setManualAddTransactionPanelVisible}:AddTransactionsPanel) {
+function AddTransactionsPanel() {
+
+  const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
+  const setImportCsvPanelVisibility = useSetRecoilState(ImportCsvPanelVisibilityState);
+  const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
+  const setManualAddTransactionsPanelVisibility = useSetRecoilState(ManualAddTransactionsPanelVisibilityState); 
 
   function handleImportCsvButtonClick()
   {
-    setAddTransactionsPanelVisible(false);
-    setImportCsvPanelVisible(true);
+    setAddTransactionsPanelVisibility(false);
+    setImportCsvPanelVisibility(true);
   }
 
   function handleManualButtonClick()
   {
-    setAddTransactionsPanelVisible(false);
-    setManualAddTransactionPanelVisible(true);
+    setAddTransactionsPanelVisibility(false);
+    setManualAddTransactionsPanelVisibility(true);
   }
 
     return (
