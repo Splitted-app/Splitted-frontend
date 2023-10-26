@@ -6,8 +6,7 @@ import { useEffect, useState } from "react";
 import useFetchBudgetId from "./useFetchBudgetId";
 import Moment from 'moment';
 
-export default function useFetchTransactions()
-{
+export default function useFetchTransactions() {
     const budgetId = useFetchBudgetId()
     const updater = useRecoilValue(TransactionUpdaterState);
     const dateRange = useRecoilValue(TransactionsDateRangeState);
@@ -18,28 +17,27 @@ export default function useFetchTransactions()
     query += `dateFrom=${Moment(dateRange[0].startDate).format('YYYY-MM-DD')}&`;
     query += `dateTo=${Moment(dateRange[0].endDate).format('YYYY-MM-DD')}&`;
 
-    useEffect(()=>{
-        fetch(`https://localhost:7012/api/budgets/${budgetId}/transactions/${query}`,{
-        headers: { 
-            'Accept': '*',
-            'Authorization' : `Bearer ${token}`
-        },
+    useEffect(() => {
+        fetch(`https://localhost:7012/api/budgets/${budgetId}/transactions/${query}`, {
+            headers: {
+                'Accept': '*',
+                'Authorization': `Bearer ${token}`
+            },
         })
-        .then(res=>{
-            if(!res.ok)
-            {
-                throw Error('could not fetch the data for that resource');
-            }
-            return res.json();
-        })
-        .then(data=>{
-            setData(data);
-        })
-        .catch(error => {
-            console.log("error");
-        })
-    },[budgetId, updater, dateRange])
-        
-    
+            .then(res => {
+                if (!res.ok) {
+                    throw Error('could not fetch the data for that resource');
+                }
+                return res.json();
+            })
+            .then(data => {
+                setData(data);
+            })
+            .catch(error => {
+                console.log("error");
+            })
+    }, [budgetId, updater, dateRange])
+
+
     return data
 }
