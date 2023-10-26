@@ -24,6 +24,7 @@ import AddTransactionsPanel from './components/Common/AddTransactionsPanel';
 import ImportCsvPanel from './components/Common/ImportCsvPanel';
 import ImportCsvCheck from './components/Common/ImportCsvCheck';
 import ManualAddTransactionPanel from './components/Common/ManualAddTransactionPanel';
+import SettingsPage from './components/SettingsPage/SettingsPage';
 
 
 
@@ -48,6 +49,7 @@ function App() {
             <Route path="/register" element={<RegisterPage/>}/>
             <Route path="/home" element={<HomePage/>}/>            
             <Route path="/transactions" element ={<TransactionPage/>}/>
+            <Route path="/settings" element={<SettingsPage/>}/>
           </Routes>
         </div>
         <div className='global-popup' style={{'display': popupVisible ? 'flex' : 'none'}}>

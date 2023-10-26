@@ -1,0 +1,12 @@
+.settings-page-navbar
+{
+    background-color: #0D071F;
+    width: 15%;
+    height: 100%;
+    display:grid;
+    grid-template-rows: 10% 75% 15%;
+    grid-template-columns: 100%;
+    box-shadow: 2px 2px 10px #180A45;
+    position: relative;
+    z-index: 10;
+}
