@@ -35,17 +35,12 @@ function HomePage() {
 
     return (
       <div>
-        <div className={`home-page ${isBlurred ? " blurred" : ""}: ""}`}>
+        <div className={`home-page ${isBlurred ? " blurred" : ""}`}>
           <Navbar></Navbar>
           <HomePageContent></HomePageContent>        
         </div>
         <div className="popup-panel" style={{'display': isBlurred ? 'flex' : 'none'}}>
            {SignUpFollowUpVisibility && <SignUpFollowUp />}
-           {/*
-          {addTransactionsPanelVisibility && <AddTransactionsPanel/>}
-          {importCsvPanelVisibility && <ImportCsvPanel/>}
-          {manualAddTransactionsPanelVisibility && <ManualAddTransactionPanel/>}
-          {importCsvCheckPanelVisibility && <ImportCsvCheck/>} */}
         </div>
       </div>
     );
