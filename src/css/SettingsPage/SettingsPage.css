@@ -1,0 +1,8 @@
+.settings-page
+{
+    background-color: #10032B;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
