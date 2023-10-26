@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom'
 import {useState} from 'react';
 import { useSetRecoilState } from 'recoil';
 import {UserTokenState} from '../../atoms/UserToken'
+import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 import FormError from "../Common/FormError";
 
 interface RegisterFormInterface
@@ -33,6 +34,7 @@ function SignUpForm({data, setData, setState} : RegisterFormInterface)
     const [invalidPassword, setInvalidPassword] = useState<boolean>(false);
 
     const setToken = useSetRecoilState(UserTokenState);
+    const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
     const navigate = useNavigate();
     const [firstTry, setFirstTry] = useState<boolean>(true);
 
@@ -115,6 +117,8 @@ function SignUpForm({data, setData, setState} : RegisterFormInterface)
           .then((data)=>
           {
             setToken(data.token);
+            // first log in
+            setSignUpFollowUpVisibility(true);
           })
           .catch((err)=>{
             
