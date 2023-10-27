@@ -1,18 +1,25 @@
 import { useRecoilValue } from "recoil";
-import { BudgetIdState } from "../atoms/BudgetId";
 import { UserTokenState } from "../atoms/UserToken";
-import { ManualTransactionUpdaterState } from "../atoms/ManualTransactionUpdater";
+import { TransactionUpdaterState } from "../atoms/TransactionUpdater";
+import { TransactionsDateRangeState } from "../atoms/TransactionsDateRange";
 import { useEffect, useState } from "react";
+import useFetchBudgetId from "./useFetchBudgetId";
+import Moment from 'moment';
 
 export default function useFetchTransactions()
 {
-    const budgetId = useRecoilValue(BudgetIdState);
-    const updater = useRecoilValue(ManualTransactionUpdaterState);
+    const budgetId = useFetchBudgetId()
+    const updater = useRecoilValue(TransactionUpdaterState);
+    const dateRange = useRecoilValue(TransactionsDateRangeState);
     const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>([]);
 
+    let query = `?`
+    query += `dateFrom=${Moment(dateRange[0].startDate).format('YYYY-MM-DD')}&`;
+    query += `dateTo=${Moment(dateRange[0].endDate).format('YYYY-MM-DD')}&`;
+
     useEffect(()=>{
-        fetch(`https://localhost:7012/api/budgets/${budgetId}/transactions/`,{
+        fetch(`https://localhost:7012/api/budgets/${budgetId}/transactions/${query}`,{
         headers: { 
             'Accept': '*',
             'Authorization' : `Bearer ${token}`
@@ -31,7 +38,7 @@ export default function useFetchTransactions()
         .catch(error => {
             console.log("error");
         })
-    },[budgetId, updater])
+    },[budgetId, updater, dateRange])
         
     
     return data

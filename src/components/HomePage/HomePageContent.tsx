@@ -6,10 +6,11 @@ import leftarrow from '../../assets/images/leftarrow.svg'
 import rightarrow from '../../assets/images/rightarrow.svg'
 import { useRecoilValue } from 'recoil';
 import { useSetRecoilState } from 'recoil';
-import { BudgetIdState } from '../../atoms/BudgetId';
+// import { BudgetIdState } from '../../atoms/BudgetId';
 import { BalanceState } from '../../atoms/Balance';
 import { CurrencyState } from '../../atoms/Currency';
 import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
+import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
 function getDate() {
     const today = new Date();
@@ -34,7 +35,8 @@ function HomePageContent() {
     const [currentDate, setCurrentDate] = useState(getDate());
     const [overviewTypeId, setOverviewTypeId] = useState(0);
     const bankBalance = useRecoilValue(BalanceState);
-    const budgetId = useRecoilValue(BudgetIdState);
+    // const budgetId = useRecoilValue(BudgetIdState);
+    const budgetId = useFetchBudgetId();
     const currency = useRecoilValue(CurrencyState);
     const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
 

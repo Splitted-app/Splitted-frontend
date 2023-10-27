@@ -3,7 +3,7 @@ import '../../css/RegisterPages/RegisterForm.css';
 import {useNavigate} from 'react-router-dom';
 import {useSetRecoilState} from 'recoil';
 import {UserTokenState} from '../../atoms/UserToken';
-import {BudgetIdState} from '../../atoms/BudgetId';
+// import {BudgetIdState} from '../../atoms/BudgetId';
 import { useState } from "react";
 import FormError from "../Common/FormError";
 
@@ -19,31 +19,31 @@ function LogInForm({data, setData, setState} : RegisterFormInterface)
 {
     const navigate = useNavigate();
     const setToken = useSetRecoilState(UserTokenState)
-    const setBudgetId = useSetRecoilState(BudgetIdState);
+    // const setBudgetId = useSetRecoilState(BudgetIdState);
     const [errors, setErrors] = useState({
         invalidPassword: false
     });
 
-    function fetchBudgetId(token : string)
-    {
-        fetch('https://localhost:7012/api/users/budgets?budgetType=Personal',{
-        headers: { 
-            'Accept': '*',
-            'Content-Type': 'application/json',
-            'Authorization' : `Bearer ${token}`
-        },
-        })
-        .then(res=>{
-            if(!res.ok)
-            {
-                throw Error('could not fetch the data for that resource');
-            }
-            return res.json();
-        })
-        .then((data)=>{
-            setBudgetId(data[0].id);
-        })
-    }
+    // function fetchBudgetId(token : string)
+    // {
+    //     fetch('https://localhost:7012/api/users/budgets?budgetType=Personal',{
+    //     headers: { 
+    //         'Accept': '*',
+    //         'Content-Type': 'application/json',
+    //         'Authorization' : `Bearer ${token}`
+    //     },
+    //     })
+    //     .then(res=>{
+    //         if(!res.ok)
+    //         {
+    //             throw Error('could not fetch the data for that resource');
+    //         }
+    //         return res.json();
+    //     })
+    //     .then((data)=>{
+    //         setBudgetId(data[0].id);
+    //     })
+    // }
 
     function handleSubmit(e : any)
     {
@@ -84,7 +84,7 @@ function LogInForm({data, setData, setState} : RegisterFormInterface)
         })
         .then((data)=>
         {
-            fetchBudgetId(data.token)
+            // fetchBudgetId(data.token)
             setToken(data.token);
         })
         .catch((err)=>{
