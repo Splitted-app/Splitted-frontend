@@ -13,7 +13,7 @@
     height: 100%;
     display: grid;
     grid-template-rows: 33% 17% 50%;    
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 30% 70%;
 }
 
 .transaction-page .transaction-page-content .header
@@ -115,5 +115,16 @@
     display: flex;
     align-items: center;
     padding-left: 10%;
+    gap:3%;
+}
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-icon
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-icon img{
+    width: 100%;
+    height: 100%;
 }
 
