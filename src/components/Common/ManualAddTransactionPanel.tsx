@@ -1,10 +1,9 @@
 import '../../css/Common/ManualAddTransactionPanel.css'
 import { useState } from 'react';
-// import { BudgetIdState } from '../../atoms/BudgetId';
 import { useRecoilValue } from 'recoil';
 import {UserTokenState} from '../../atoms/UserToken'
 import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAddTransactionsPanelVisbility';
-import { ManualTransactionUpdaterState } from '../../atoms/ManualTransactionUpdater';
+import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { useSetRecoilState, useRecoilState } from 'recoil';
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
@@ -37,9 +36,8 @@ function getDate() {
 function ManualAddTransactionPanel() {
 
   const [currentDate, setCurrentDate] = useState(getDate());
-  const [updater, setUpdater] = useRecoilState(ManualTransactionUpdaterState);
+  const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
 
-  // const budgetId = useRecoilValue(BudgetIdState);
   const budgetId = useFetchBudgetId();
   const token = useRecoilValue(UserTokenState);
   const setManualAddTransactionsPanelVisibility = useSetRecoilState(ManualAddTransactionsPanelVisibilityState);

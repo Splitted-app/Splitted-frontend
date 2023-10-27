@@ -1,6 +1,6 @@
 import {atom} from 'recoil';
 
-export const ManualTransactionUpdaterState = atom({
+export const TransactionUpdaterState = atom({
     key: 'ManualTransactionUpdater',
     default: false,
   });

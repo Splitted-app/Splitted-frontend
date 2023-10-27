@@ -12,7 +12,6 @@ export default function useFetchBudgetId()
     useEffect(()=>{
         if (token === "")
             return;
-        console.log(token);
         fetch('https://localhost:7012/api/users/budgets?budgetType=Personal',{
         headers: { 
             'Accept': '*',
@@ -28,7 +27,6 @@ export default function useFetchBudgetId()
             return res.json();
         })
         .then((data)=>{
-            console.log(data);
             if (data.length === 0)
             {
                 setBudgetId(null);
