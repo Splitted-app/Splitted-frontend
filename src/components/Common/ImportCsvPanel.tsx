@@ -39,7 +39,7 @@ function ImportCsvPanel() {
       return;
     }
     formData.append('csvfile', file);
-    fetch('https://localhost:7012/api/budgets/' + budgetId + '/transactions/csv?bank=' + bank, {
+    fetch(process.env.REACT_APP_API_URL + '/api/budgets/' + budgetId + '/transactions/csv?bank=' + bank, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,

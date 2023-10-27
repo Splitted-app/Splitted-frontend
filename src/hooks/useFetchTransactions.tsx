@@ -18,7 +18,7 @@ export default function useFetchTransactions() {
     query += `dateTo=${Moment(dateRange[0].endDate).format('YYYY-MM-DD')}&`;
 
     useEffect(() => {
-        fetch(`https://localhost:7012/api/budgets/${budgetId}/transactions/${query}`, {
+        fetch(process.env.REACT_API_URL + `/api/budgets/${budgetId}/transactions/${query}`, {
             headers: {
                 'Accept': '*',
                 'Authorization': `Bearer ${token}`
@@ -36,7 +36,7 @@ export default function useFetchTransactions() {
             .catch(error => {
                 console.log("error");
             })
-    }, [budgetId, updater, dateRange])
+    }, [budgetId])
 
 
     return data

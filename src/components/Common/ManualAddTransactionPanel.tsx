@@ -54,7 +54,7 @@ function ManualAddTransactionPanel() {
 
   function handleSubmit() {
     console.log(data);
-    fetch('https://localhost:7012/api/budgets/' + budgetId + '/transactions', {
+    fetch(process.env.REACT_API_URL + '/api/budgets/' + budgetId + '/transactions', {
       method: 'POST',
       headers: {
         'Accept': '*',

@@ -24,7 +24,7 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
 
     // function fetchBudgetId(token : string)
     // {
-    //     fetch('https://localhost:7012/api/users/budgets?budgetType=Personal',{
+    //     fetch(process.env.REACT_API_URL + '/api/users/budgets?budgetType=Personal',{
     //     headers: { 
     //         'Accept': '*',
     //         'Content-Type': 'application/json',

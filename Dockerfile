@@ -7,7 +7,10 @@ COPY package-lock.json ./
 RUN npm install --silent
 
 COPY . ./
+RUN chmod -R 755 ./
 RUN npm run build
+
+USER node
 
 FROM nginx:1.25.3
 
