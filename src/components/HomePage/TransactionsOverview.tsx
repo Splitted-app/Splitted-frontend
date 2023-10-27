@@ -7,22 +7,24 @@ import rightarrow from '../../assets/images/rightarrow.svg';
 import {changeDay, changeWeek, changeMonth} from '../../utils';
 import DateRangeSelector from './DateRangeSelector';
 import useFetchTransactions from '../../hooks/useFetchTransactions';
+import { useRecoilState } from 'recoil';
+import { TransactionsDateRangeState } from '../../atoms/TransactionsDateRange';
 
 
 
 function TransactionsOverview() {
     const [timeScale, setTimeScale] = useState("daily");
     let currentDate : Date = new Date();
-    const [dateRange, setDateRange] = useState<any>([{
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection'
-    }]);
+    // const [dateRange, setDateRange] = useState<any>([{
+    //   startDate: new Date(),
+    //   endDate: new Date(),
+    //   key: 'selection'
+    // }]);
+    const [dateRange, setDateRange] = useRecoilState<any>(TransactionsDateRangeState);
     const transactions = useFetchTransactions();
 
     function handleArrow(direction : number)
     {
-      console.log(transactions);
       switch(timeScale)
       {
         case "daily":

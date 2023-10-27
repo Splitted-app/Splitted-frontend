@@ -1,5 +1,5 @@
 import '../../css/Common/ImportCsvPanel.css'
-import { BudgetIdState } from '../../atoms/BudgetId';
+// import { BudgetIdState } from '../../atoms/BudgetId';
 import {useState} from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import {UserTokenState} from '../../atoms/UserToken'
@@ -7,12 +7,14 @@ import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { ChangeEvent } from 'react';
 import { ImportCsvPanelVisibilityState } from '../../atoms/ImportCsvPanelVisbility';
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
+import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
 
 function ImportCsvPanel() {
 
   const [filePath, setFilePath] = useState("no file chosen");
-  const budgetId = useRecoilValue(BudgetIdState);
+  // const budgetId = useRecoilValue(BudgetIdState);
+  const budgetId = useFetchBudgetId();
   const token = useRecoilValue(UserTokenState);
   const setNewTransactions = useSetRecoilState(NewTransactionsState);
   const setImportCsvPanelVisibility = useSetRecoilState(ImportCsvPanelVisibilityState);
