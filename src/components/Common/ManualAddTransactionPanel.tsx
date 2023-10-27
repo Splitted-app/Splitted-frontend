@@ -4,7 +4,8 @@ import { BudgetIdState } from '../../atoms/BudgetId';
 import { useRecoilValue } from 'recoil';
 import {UserTokenState} from '../../atoms/UserToken'
 import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAddTransactionsPanelVisbility';
-import { useSetRecoilState } from 'recoil';
+import { ManualTransactionUpdaterState } from '../../atoms/ManualTransactionUpdater';
+import { useSetRecoilState, useRecoilState } from 'recoil';
 
 function getDate() {
     const today = new Date();
@@ -35,9 +36,13 @@ function getDate() {
 function ManualAddTransactionPanel() {
 
   const [currentDate, setCurrentDate] = useState(getDate());
+  const [updater, setUpdater] = useRecoilState(ManualTransactionUpdaterState);
+
   const budgetId = useRecoilValue(BudgetIdState);
   const token = useRecoilValue(UserTokenState);
   const setManualAddTransactionsPanelVisibility = useSetRecoilState(ManualAddTransactionsPanelVisibilityState);
+
+
   const [data, setData] = useState<ManualAddTransactionPanelInterface>({
     amount: 0,
     currency: "PLN",
@@ -76,6 +81,7 @@ function ManualAddTransactionPanel() {
           return res.json();
       })
       .then((data)=>{
+        setUpdater(!updater);
         console.log(data);
       });
     setManualAddTransactionsPanelVisibility(false);
