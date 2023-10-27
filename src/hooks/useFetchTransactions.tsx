@@ -1,17 +1,15 @@
 import { useRecoilValue } from "recoil";
 import { BudgetIdState } from "../atoms/BudgetId";
 import { UserTokenState } from "../atoms/UserToken";
+import { ManualTransactionUpdaterState } from "../atoms/ManualTransactionUpdater";
 import { useEffect, useState } from "react";
 
 export default function useFetchTransactions()
 {
     const budgetId = useRecoilValue(BudgetIdState);
+    const updater = useRecoilValue(ManualTransactionUpdaterState);
     const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>([]);
-    // if (budgetId === "")
-    // {
-    //     return;
-    // }
 
     useEffect(()=>{
         fetch(`https://localhost:7012/api/budgets/${budgetId}/transactions/`,{
@@ -33,7 +31,7 @@ export default function useFetchTransactions()
         .catch(error => {
             console.log("error");
         })
-    },[budgetId])
+    },[budgetId, updater])
         
     
     return data
