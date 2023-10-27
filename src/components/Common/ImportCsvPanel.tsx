@@ -78,7 +78,7 @@ function ImportCsvPanel() {
               <label>
                 Select your bank:
               </label>
-              <select onSelect={(e:any) => {setBank(e.target.value)}}>
+              <select onChange={(e:any) => {setBank(e.target.value)}}>
                 <option value="Pko">PKO BP</option>
                 <option value="Pekao">Pekao</option>
                 <option value="Santander">Santander Bank</option>
