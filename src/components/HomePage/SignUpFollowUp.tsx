@@ -4,7 +4,6 @@ import {useNavigate} from 'react-router-dom';
 import { useRecoilState, useRecoilValue , useSetRecoilState} from 'recoil';
 import {UserTokenState} from '../../atoms/UserToken'
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
-import { BalanceState } from '../../atoms/Balance';
 import CurrencyDropdown from "./CurrencyDropdown";
 import { BudgetIdUpdaterState } from '../../atoms/BudgetIdUpdater';
 import { CurrencyState } from '../../atoms/Currency';
@@ -32,34 +31,9 @@ function SignUpFollowUp() {
         budgetBalance: 0,
     })
     const token = useRecoilValue(UserTokenState);
-    // const setBudgetId = useSetRecoilState(BudgetIdState)
     const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
-    const setBankBalance = useSetRecoilState(BalanceState);
     const setCurrency = useSetRecoilState(CurrencyState);
     const [updater, setUpdater] = useRecoilState(BudgetIdUpdaterState);
-
-    // function fetchBudgetId(token : string)
-    // {
-    //     fetch('https://localhost:7012/api/users/budgets?budgetType=Personal',{
-    //     headers: { 
-    //         'Accept': '*',
-    //         'Content-Type': 'application/json',
-    //         'Authorization' : `Bearer ${token}`
-    //     },
-    //     })
-    //     .then(res=>{
-    //         if(!res.ok)
-    //         {
-    //             throw Error('could not fetch the data for that resource');
-    //         }
-    //         return res.json();
-    //     })
-    //     .then((data)=>{
-    //         console.log(data);
-    //         console.log(data[0].id);
-    //         setBudgetId(data[0].id);
-    //     })
-    // }
 
     function handleSubmit(event : any){
         event.preventDefault();
@@ -85,7 +59,6 @@ function SignUpFollowUp() {
           }
           if(res.ok)
           {
-            setBankBalance(data.budgetBalance);
             setCurrency(data.currency);
             setSignUpFollowUpVisibility(false);
             setUpdater(!updater);
