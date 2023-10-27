@@ -5,6 +5,7 @@ import useFetchTransactions from '../../hooks/useFetchTransactions';
 import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
 import { useSetRecoilState } from 'recoil';
 import TransactionsInsightsPanel from './TransactionsInsightsPanel';
+import DownArrowIcon from '../../assets/images/filter_downarrow.svg'
 
 function TransactionPage() {
     const transactions = useFetchTransactions();
@@ -29,6 +30,9 @@ function TransactionPage() {
             </div>
             <div className='transaction-page-filter-menu'>
                 Show filter menu
+                <div className='transaction-page-filter-menu-icon'>
+                    <img src={DownArrowIcon}></img>
+                </div>
             </div>
             <div className='transactions-list'>
                 <TransactionList transactions={transactions} shadow={false}></TransactionList>
