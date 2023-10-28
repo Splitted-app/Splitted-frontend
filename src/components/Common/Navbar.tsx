@@ -9,18 +9,29 @@ import GoalsIcon from '../../assets/images/goals.png'
 import SettingsIcon from '../../assets/images/settings.png'
 import LogOutIcon from '../../assets/images/log-out.png'
 import AddNewModeIcon from '../../assets/images/add_new_mode.png'
+import MenuIcon from '../../assets/images/main-menu.png'
 
 import { useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { LogOutPanelVisibilityState } from '../../atoms/LogOutPanelVisibility';
 import { AddModesPanelVisibilityState } from '../../atoms/AddModesPanelVisibility';
+import { NavbarVisibilityState } from '../../atoms/NavbarVisibility';
+import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibility';
+import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
 
 function Navbar() {
     const setLogOutPanelVisibility = useSetRecoilState(LogOutPanelVisibilityState);
     const setAddModesPanelVisibility = useSetRecoilState(AddModesPanelVisibilityState);
+    const setNavbarVisibility = useSetRecoilState(NavbarVisibilityState);
+    const setSettingsNavbarVisibility = useSetRecoilState(SettingsNavbarVisibilityState);
+    const menuIconVisibility= useRecoilValue(MenuIconVisibilityState);
 
     return (
       <div className="navbar">
         <div className="title">
+          { menuIconVisibility && <div className='old-menu-icon' onClick={()=>{setNavbarVisibility(false); setSettingsNavbarVisibility(true)}}>
+            <img src={MenuIcon}></img>
+          </div>}
           <NavbarItem name="Splitted" font="CeraPro bold" fontSize="25px" link="/home" icon={SplitIcon}></NavbarItem>
         </div>
         <div className='table-of-contents'>
