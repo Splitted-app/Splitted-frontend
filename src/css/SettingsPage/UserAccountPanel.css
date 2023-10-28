@@ -1,0 +1,34 @@
+.user-account-panel
+{
+    width: 75%;
+    height: 75%;
+    background-color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    box-shadow: inset 0 0 10px #404040;
+    border-radius: 35px;
+    display: flex;
+}
+
+.user-account-panel .username
+{
+    width: 60%;
+    color: #676464;
+    font-family: 'Gotham Medium';
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+.user-account-panel .user-icon 
+{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-account-panel .user-icon img
+{
+    width: 90%;
+    height: 90%;
+}

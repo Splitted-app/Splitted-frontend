@@ -2,19 +2,17 @@ import '../../css/HomePage/HomePage.css'
 import SignUpFollowUp from "./SignUpFollowUp";
 import Navbar from "../Common/Navbar"
 import HomePageContent from './HomePageContent';
-import { useState } from 'react';
-import AddTransactionsPanel from '../Common/AddTransactionsPanel';
-import ImportCsvPanel from '../Common/ImportCsvPanel';
-import ManualAddTransactionPanel from '../Common/ManualAddTransactionPanel';
-import ImportCsvCheck from '../Common/ImportCsvCheck';
+import { useEffect} from 'react';
+
 
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
 import { ImportCsvPanelVisibilityState } from '../../atoms/ImportCsvPanelVisbility';
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
 import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAddTransactionsPanelVisbility';
+import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
 
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 function HomePage() {
     const addTransactionsPanelVisibility = useRecoilValue(AddTransactionsPanelVisibilityState);
@@ -31,6 +29,12 @@ function HomePage() {
     //                     manualAddTransactionsPanelVisibility ||
     //                     importCsvCheckPanelVisibility;
 
+    const setMenuIconVisibility = useSetRecoilState(MenuIconVisibilityState);
+
+    useEffect(()=>
+    {
+      setMenuIconVisibility(false);
+    },[])
 
 
     return (
