@@ -1,6 +1,7 @@
 import '../../css/Common/Transaction.css';
 import { CurrencyState } from '../../atoms/Currency';
 import { useRecoilValue } from 'recoil';
+import EditTransactionIcon from '../../assets/images/three_dots.svg'
 
 interface TransactionInterface
 {
@@ -57,7 +58,9 @@ function Transaction({transaction, showUser, showTransactionType}: TransactionPr
             </div>
         </div>
         <div className='transaction-edit-button-container'>
-            
+            <button>
+                <img src={EditTransactionIcon}></img>
+            </button>
         </div>
       </div>
     );
