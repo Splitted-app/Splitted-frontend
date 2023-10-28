@@ -13,8 +13,22 @@
 .navbar .title
 {
     padding-top: 5%;
+    display: flex;
 }
 
+.navbar .title .old-menu-icon
+{
+    width:20%;
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+}
+
+.navbar .title .old-menu-icon img
+{
+    width: 65%;
+    height: 45%;
+}
 .navbar .table-of-contents
 {
     display: grid;

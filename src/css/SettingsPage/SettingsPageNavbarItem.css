@@ -1,0 +1,12 @@
+.settings-page-navbar-item
+{
+    width: 100%;
+}
+
+.settings-page-navbar-item .settings-page-navbar-item-text
+{
+    color: white;
+    font-family: 'Gotham Medium';
+    font-size: 18px;
+    text-align: left;
+}
