@@ -5,11 +5,19 @@ import useFetchTransactions from '../../hooks/useFetchTransactions';
 import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
 import { useSetRecoilState } from 'recoil';
 import TransactionsInsightsPanel from './TransactionsInsightsPanel';
-import DownArrowIcon from '../../assets/images/filter_downarrow.svg'
+import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
+import {useEffect} from 'react';
 
 function TransactionPage() {
     const transactions = useFetchTransactions();
     const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
+    const setMenuIconVisibility = useSetRecoilState(MenuIconVisibilityState);
+
+    useEffect(()=>
+    {
+      setMenuIconVisibility(false);
+    },[])
 
     return (
       <div className="transaction-page">
