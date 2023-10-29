@@ -5,6 +5,8 @@
     display: grid;
     grid-template-rows: 33% 67%;    
     grid-template-columns: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .notifications-page .notifications-page-header
@@ -42,4 +44,32 @@
     grid-column-end: 2;
     width: 100%;
     border-top: 1px solid white;
+    padding-top: 2%;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 5% 90% 5%;
+
+}
+.notifications-page .notifications-page-content .toggle-buttons-container
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.notifications-page .notifications-page-content .toggle-buttons-container .toggle-button-class 
+{
+    padding-bottom: 12%;
+}
+
+.notifications-page .notifications-page-content .toggle-buttons-container .toggle-button-class .toggle-button-class-title
+{
+    color: white;
+    font-family: 'Gotham Medium';
+    font-size: 22px;
+    padding-left: 9%;
+    padding-bottom: 1%;
 }
