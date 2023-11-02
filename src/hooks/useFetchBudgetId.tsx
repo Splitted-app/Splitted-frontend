@@ -11,7 +11,7 @@ export default function useFetchBudgetId() {
     useEffect(() => {
         if (token === "")
             return;
-        fetch(process.env.REACT_API_URL + '/api/users/budgets?budgetType=Personal', {
+        fetch(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal', {
             headers: {
                 'Accept': '*',
                 'Content-Type': 'application/json',

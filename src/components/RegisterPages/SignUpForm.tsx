@@ -87,7 +87,7 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
     }
 
     function loginAfterSignUp() {
-        fetch(process.env.REACT_API_URL + '/api/users/login', {
+        fetch(process.env.REACT_APP_API_URL + '/api/users/login', {
             method: 'POST',
             headers: {
                 'Accept': '*',
