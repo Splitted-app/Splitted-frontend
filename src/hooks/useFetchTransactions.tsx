@@ -36,7 +36,7 @@ export default function useFetchTransactions() {
             .catch(error => {
                 console.log("error");
             })
-    }, [budgetId])
+    }, [budgetId, updater, dateRange])
 
 
     return data
