@@ -36,7 +36,7 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
     const [amount, setAmount] = useState(transaction.amount);
     const [category, setCategory] = useState((transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory);
     const [userCategory, setUserCategory] = useState(transaction.userCategory);
-    const [currency, setCurrency] = useRecoilState(CurrencyState);
+    const currency = useRecoilValue(CurrencyState);
     const [transactionType, setTransactionType] = useState(transaction.transactionType);
     const [description, setDescription] = useState(transaction.description);
     const transactionId = transaction.id;
@@ -90,7 +90,6 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
                 },
                 body: JSON.stringify({
                     amount: amount,
-                    currency: currency,
                     date: transaction.date,
                     description: description,
                     transactionType: transactionType,
@@ -98,6 +97,7 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
                   })
               })
                 .then(res => {
+                    console.log(userCategory)
                     console.log(res);
                   if (!res.ok) {
                     throw Error('could not fetch the data for that resource');
@@ -112,7 +112,7 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
     return (
       <div className="transaction">
         <div className='transaction-content' style={gridStyle}>
-            <div className='category transaction-element' contentEditable={editable} onChange={(e:any)=>{setUserCategory(e.target.value)}}>
+            <div className='category transaction-element' contentEditable={editable}  onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}>
                 {category}
             </div>
             {showUser &&
@@ -121,16 +121,18 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
             </div>
             }
             {showTransactionType &&
-            <div className='transactionType transaction-element' contentEditable={editable}  onChange={(e:any)=>{setTransactionType(e.target.value)}}>
+            <div className='transactionType transaction-element' contentEditable={editable}  onInput={(e:any)=>{setTransactionType(e.currentTarget.textContent)}}>
                 {transactionType}
             </div>
             }
-            <div className='description transaction-element'contentEditable={editable} onChange={(e:any)=>{setDescription(e.target.value)}}>
+            <div className='description transaction-element' contentEditable={editable} onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}>
                 {description}
             </div>
-            <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} contentEditable={editable}  onChange={(e:any)=>{setAmount(e.target.value)}}>
-                {transaction.amount}
-                <div className='currency transaction-element' onChange={(e:any)=>{setCurrency(e.target.value)}}>
+            <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
+                <div className='number transaction-element' contentEditable={editable}  onInput={(e:any)=>{setAmount(e.currentTarget.textContent) ; console.log(e.currentTarget.textContent)}}>
+                    {transaction.amount}
+                </div>
+                <div className='currency transaction-element'>
                     {currency}
                 </div>
             </div>
