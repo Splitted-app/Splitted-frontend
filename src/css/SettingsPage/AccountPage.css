@@ -1,0 +1,88 @@
+.account-page
+{
+    width: 85%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 33% 67%;    
+    grid-template-columns: 100%;
+}
+
+.account-page .account-page-header
+{
+    background: linear-gradient(to top,#10032B , #B6B0CF  );
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 25% 80% 5%;
+    grid-template-columns: 5% 35% 20% 35% 5%;
+}
+
+.account-page .account-page-header .user-panel
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.account-page .account-page-header .account-page-title
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+.account-page .account-page-header .account-page-subtitle
+{
+
+    font-family: 'Gotham Medium';
+    font-size: 20px;
+    text-align: right;
+
+}
+
+.account-page .account-page-header .account-page-maintitle
+{
+
+    font-family: 'Gotham Bold';
+    font-size: 70px;
+    text-shadow: 2px 2px 5px #10032B;
+    text-align: right;
+
+}
+
+
+.account-page .account-page-content
+{
+    grid-row-start:2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 100%;
+    border-top: 1px solid white;
+}
+
+.account-page .account-page-content .account-page-content-title
+{
+    color: white;
+    font-family: 'Gotham Medium';
+    font-size: 28px;
+    padding-top: 2%;
+    padding-left: 5%;
+
+}
+
+.account-page .account-page-content .user-account-main-panel-container
+{
+    width: 45%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}

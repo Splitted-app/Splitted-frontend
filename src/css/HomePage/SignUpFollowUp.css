@@ -1,0 +1,139 @@
+.signup-followup
+{
+    width: 60%;
+    height: 100%;
+    background-color: white;
+    padding: 30px;
+    position: relative;
+    text-align: center;
+    display: grid;
+    grid-template-rows: [top] 20% [middle] 80% [bottom];
+}
+
+.signup-followup .title
+{
+    margin-top: 15px;
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: #3C3C3C;
+}
+
+.signup-followup .form-elements
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.signup-followup .information-fields
+{
+    padding-top: 15px;
+}
+
+.signup-followup .information-fields
+{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: [start] 50% [middle] auto [end];
+    grid-template-rows: [line1] 33% [line2] 33% [line3] 34% [line4];
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+
+.signup-followup .information-fields label
+{
+    font-family: 'Gotham Medium';
+    font-size: 20px;
+    align-self: center;
+    justify-self: left;
+    text-align: left;
+}
+
+.signup-followup .information-fields .input-container
+{
+    align-self: center;
+    display: flex;
+    align-items: center;
+}
+
+.signup-followup .information-fields input, select
+{
+    justify-self: right;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.signup-followup .information-fields .field-style
+{
+    font-family: 'Gotham Medium';
+    font-size: 19px;
+    display: block;
+    overflow: hidden;
+    height: 50px;
+    width: 100%;
+    float:right;
+}
+
+.signup-followup .information-fields .avatar-input-container
+{
+    display: flex;
+    align-items: center;
+    font-family: 'Gotham Light';
+    height: 100%;
+}
+
+.signup-followup .information-fields .avatar-input-button
+{
+    align-self: center;
+    background-color: #20F7C5;
+    border: 1px solid #010446;
+    width: 40%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-followup .information-fields .avatar-input-button label
+{
+    cursor: pointer;
+    height: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.signup-followup .information-fields span
+{
+    margin: 10px;
+    max-width: 50%;
+    overflow: hidden;
+}
+
+
+.signup-followup .button-container 
+{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    align-self: center;
+    flex-grow: 1;
+}
+
+.signup-followup .button-container input
+{
+    background-color: #20F7C5;
+    color: black;
+    width: 100px;
+    height: 50px;
+    border: 1px solid #010446;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    font-size: 14px;
+    box-shadow: 2px 5px 5px #010446;
+}

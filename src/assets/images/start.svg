@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="22.754mm" height="22.754mm" version="1.1" viewBox="0 0 22.754 22.754" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="filter41" x="-.16345" y="-.21303" width="1.4242" height="1.5529" color-interpolation-filters="sRGB">
+   <feFlood flood-color="rgb(169,169,169)" in="SourceGraphic" result="flood"/>
+   <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="0.700000"/>
+   <feOffset dx="1.000000" dy="1.000000" in="blur" result="offset"/>
+   <feComposite in="flood" in2="offset" operator="in" result="comp1"/>
+   <feComposite in="SourceGraphic" in2="comp1" result="comp2"/>
+  </filter>
+ </defs>
+ <g transform="translate(-20.379 -11.699)">
+  <path d="m107.79 63.778a62.5 62.5 0 0 0-62.5 62.5 62.5 62.5 0 0 0 62.5 62.5 62.5 62.5 0 0 0 62.5-62.5 62.5 62.5 0 0 0-62.5-62.5zm0 7.5003a55 55 0 0 1 55 55 55 55 0 0 1-55 55 55 55 0 0 1-55-55 55 55 0 0 1 55-55z" display="none" fill="#fcc625" stroke-width=".26539"/>
+  <path d="m43.133 23.076a11.377 11.377 0 0 1-11.377 11.377 11.377 11.377 0 0 1-11.377-11.377 11.377 11.377 0 0 1 11.377-11.377 11.377 11.377 0 0 1 11.377 11.377z" fill="#20f7cf" stroke-width=".14975"/>
+  <g transform="matrix(1.1812 0 0 .96445 -123.73 9.6714)" filter="url(#filter41)">
+   <path d="m126 11.512h5.7088v3.7738h-5.7088z" stroke-width=".20946"/>
+   <path d="m129.34 17.342 6.9365-3.9431-6.9365-3.9431z" stroke-width=".060009"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,8 @@
+.date-display
+{
+    font-family: 'Gotham Bold';
+    font-size: 32px;
+    color: #C9C6F8;
+    text-shadow: 5px 5px 5px #180A45;
+    width:max-content;
+}

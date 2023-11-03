@@ -1,0 +1,74 @@
+.reminders
+{
+    width:100%;
+    height:90%;
+    background-color: white;
+    box-shadow: inset 0 0 10px #404040;
+    border-radius: 35px;
+    display: grid;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-columns: 100%;
+}
+.reminders .content 
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns:  5% 20% 5% 70% 5%;
+    grid-template-rows: 100%;
+}
+.reminders .content .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row-start: 1;
+    grid-row-end:2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.reminders .content .reminder-text
+{
+    grid-row-start: 1;
+    grid-row-end:2;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reminders .content .icon img
+{
+    width: 80%;
+    height: 70%;
+}
+
+.reminders .up-arrow
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end:2;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reminders .up-arrow img{
+    width: 100%;
+    height: 100%;
+}
+
+.reminders .down-arrow 
+{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end:2;
+}
+.reminders .down-arrow img{
+    width: 100%;
+    height: 100%;
+}

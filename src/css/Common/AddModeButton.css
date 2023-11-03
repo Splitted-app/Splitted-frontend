@@ -1,0 +1,43 @@
+.add-mode-button
+{
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 20% 80%;
+    padding-top: 5%;
+    padding-left: 5%;
+    column-gap: 2%;
+}
+
+.add-mode-button .icon
+{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.add-mode-button .add-mode-button-title
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-family: 'Gotham Medium';
+    font-size: 15px;
+    color: #0D071F;
+    text-shadow: 1px 1px 2px #54498B;
+}
+.add-mode-button .description
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-family: 'Gotham Light';
+    font-size: 10px;
+    padding-top: 1%;
+}
+.add-mode-button .icon img
+{
+    width: 90%;
+    height: 90%;
+}

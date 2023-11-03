@@ -1,0 +1,55 @@
+.import-csv-check
+{
+    background-color: white;
+    width: 90%;
+    height: 85%;
+    border: solid 1px black;
+    box-shadow: 10px 10px 5px #262626;
+    border-radius: 50px;
+    padding: 30px;
+    display: flex;
+    flex-flow: column;
+}
+
+.import-csv-check .title
+{
+    text-align: center;
+    font-family: 'Gotham Medium';
+    font-size: 30px;
+    color: #575757;
+    margin-bottom: 30px;
+}
+
+.import-csv-check .transactions-list-container
+{
+    width: 95%;
+    height: 60%;
+    box-shadow: 5px 5px 5px #676370,
+    -5px -5px 5px #676370;
+    border-radius: 25px;
+    border: none;
+    display: block;
+    margin: auto;
+    padding: 20px 0px 20px 10px
+}
+
+.import-csv-check .add-button-container
+{
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: end;
+}
+
+.import-csv-check .add-button-container .add-button{
+    background-color: #20F7C5;
+    color: black;
+    width: 140px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    font-size: 16px;
+    box-shadow: 2px 5px 5px #010446;
+    border: none;
+}
+

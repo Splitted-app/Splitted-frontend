@@ -1,0 +1,38 @@
+/* @import url('https://fonts.cdnfonts.com/css/gotham-6'); */
+
+@font-face {
+  font-family: 'Gotham Medium'; /*a name to be used later*/
+  src: url('assets/fonts/Gotham-Font/GothamMedium.ttf'); /*URL to font*/
+}
+
+@font-face {
+  font-family: 'Gotham Light'; /*a name to be used later*/
+  src: url('assets/fonts/Gotham-Font/GothamLight.ttf'); /*URL to font*/
+}
+
+@font-face {
+  font-family: 'Gotham Bold'; /*a name to be used later*/
+  src: url('assets/fonts/Gotham-Font/GothamBold.ttf'); /*URL to font*/
+}
+
+@font-face {
+  font-family: 'CeraPro Medium'; /*a name to be used later*/
+  src: url('assets/fonts/Cera-Pro/CeraProMedium.otf'); /*URL to font*/
+}
+
+@font-face {
+  font-family: 'CeraPro Light'; /*a name to be used later*/
+  src: url('assets/fonts/Cera-Pro/CeraProLight.otf'); /*URL to font*/
+}
+
+@font-face {
+  font-family: 'CeraPro Bold'; /*a name to be used later*/
+  src: url('assets/fonts/Cera-Pro/CeraProBold.otf'); /*URL to font*/
+}
+
+html,body,#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+

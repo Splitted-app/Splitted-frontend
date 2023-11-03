@@ -1,0 +1,82 @@
+.transaction
+{
+    width:100%;
+    border-bottom: 2px solid black;
+    display: flex;
+}
+.transaction .transaction-content
+{
+    width:95%;
+    padding: 2%;
+    display: grid;
+    /* grid-template-columns: 20% 15% 15% 20% 10% 10%;
+    grid-template-rows: 100%;
+} */
+}
+
+.transaction-element
+{
+    display: flex;
+    align-items: center;
+}
+
+.transaction .transaction-content .category
+{
+    font-family: 'Gotham Medium';
+    font-size: 80%;
+}
+
+.transaction .transaction-content .amount 
+{
+    font-family: 'Gotham Medium';
+    font-size: 100%;
+    justify-content: end;
+    gap:1%;
+}
+.transaction .transaction-content .transactionType
+{
+    font-family: 'Gotham Light';
+    font-size: 80%;
+}
+
+.transaction .transaction-content .description
+{
+    font-family: 'Gotham Light';
+    font-size: 80%;
+}
+
+.transaction .transaction-edit-button-container 
+{
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.transaction .transaction-edit-button-container button
+{
+    border: none;
+    background-color: transparent;
+}
+.transaction .transaction-edit-button-container button img
+{
+    width: 80%;
+    height: 80%;
+}
+
+.transaction .transaction-delete-button-container 
+{
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.transaction .transaction-delete-button-container button
+{
+    border: none;
+    background-color: transparent;
+}
+.transaction .transaction-delete-button-container button img
+{
+    width: 80%;
+    height: 80%;
+}

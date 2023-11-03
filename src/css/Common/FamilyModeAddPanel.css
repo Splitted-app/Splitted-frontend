@@ -1,0 +1,134 @@
+.family-mode-add-panel
+{
+    height: 100%;
+    width: 60%;
+    background-color: white;
+    border: solid 1px black;
+    box-shadow: 10px 10px 5px #262626;
+    border-radius: 50px;
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    display:grid;
+    grid-template-rows: 30% 20% 50%;
+    grid-template-columns: 40% 60%;
+}
+
+.family-mode-add-panel .title 
+{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.family-mode-add-panel .title .main-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: #3C3C3C;
+}
+
+
+.family-mode-add-panel .title .subtitle
+{
+    padding-top: 3%;
+    font-family: 'Gotham Light';
+    font-size: 20px;
+}
+
+.family-mode-add-panel .find-your-family-panel
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Gotham Light';
+    font-size: 15px;
+}
+.family-mode-add-panel .integrate-accounts-button
+{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-top: auto;
+    margin-bottom: auto;
+} 
+
+.family-mode-add-panel .family-mode-icon
+{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-top: auto;
+    margin-bottom: 0;
+    padding-right: 10%;
+    display: flex;
+    align-items: flex-end;
+}
+
+
+
+.family-mode-add-panel .family-mode-icon img
+{
+    width: 100%;
+    height: 100%;
+
+}
+
+.family-mode-add-panel .integrate-accounts-button .button
+{
+    font-size: 12px;
+    background-color: #20F7C5;
+    color: black;
+    width: 120px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    border: 1px solid #010446;
+    box-shadow: 8px 8px 5px #010446;
+    margin-right: 40px;
+    margin-bottom: 0;
+}
+.family-mode-add-panel .find-your-family-panel label{
+    padding-right: 10px;
+
+}
+
+
+
+.family-mode-add-panel .find-your-family-panel .search-container {
+    float: right;
+  }
+  
+.family-mode-add-panel .find-your-family-panel input[type=text] {
+    padding: 6px;
+    border:none;
+}
+  
+  .family-mode-add-panel .find-your-family-panel .search-container button {
+    float: right;
+    padding: 6px 10px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+}
+  
+.family-mode-add-panel .find-your-family-panel .search-container button:hover {
+    background: #ccc;
+}
+
+
+.family-mode-add-panel .find-your-family-panel .search-container img
+{
+    width: 15px;
+    height: 15px;
+}

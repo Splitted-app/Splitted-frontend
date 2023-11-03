@@ -1,0 +1,130 @@
+.transaction-page
+{
+    background-color: #10032B;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.transaction-page .transaction-page-content
+{
+    width: 85%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 33% 17% 50%;    
+    grid-template-columns: 30% 70%;
+}
+
+.transaction-page .transaction-page-content .header
+{
+    background: linear-gradient(to top,#10032B , #B6B0CF  );
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+    text-align: end;
+    margin-left: auto;
+    margin-right: 0;
+    display:grid;
+    grid-template-rows: 40% 60%;    
+    grid-template-columns: 30% 20% 50%;
+
+}
+
+.transaction-page .transaction-page-content .header .add-transactions-button-container
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    padding-right: 3%;
+    padding-top: 5%;
+
+}
+
+.transaction-page .transaction-page-content .header .add-transactions-button-container .add-transactions-button
+{
+    font-size: 16px;
+    background-color: #20F7C5;
+    color: black;
+    width: 180px;
+    height: 50px;
+    border:none;
+    border-radius: 33px;
+    font-family: 'Gotham Bold';
+    box-shadow: 5px 5px 3px #180A45;
+}
+.transaction-page .transaction-page-content .header .title
+{
+    padding-right: 3%;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    text-align: end;
+    color: white;
+    margin-top: 5%;
+}
+
+.transaction-page .transaction-page-content .header .title .main-title
+{
+
+
+    font-family: 'Gotham Bold';
+    font-size: 80px;
+    text-shadow: 5px 5px 3px #180A45;
+
+}
+
+.transaction-page .transaction-page-content .header .insights-panel
+{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 10%;
+}
+
+.transaction-page .transaction-page-content .transactions-list
+{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    /* width: 98%;
+    padding-left: 1%;
+    padding-right: 1%; */
+    width: 100%;
+}
+
+.transaction-page .transaction-page-content .transaction-page-filter-menu
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 100%;
+    text-align: start;
+    font-family: 'Gotham Medium';
+    font-size: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    gap:3%;
+}
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-icon
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-icon img{
+    width: 100%;
+    height: 100%;
+}
+

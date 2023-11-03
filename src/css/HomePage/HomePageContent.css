@@ -1,0 +1,172 @@
+.home-page-content
+{
+    width: 85%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 20% 25% 10% 25% 20%;
+}
+/* .home-page-content .home-page-content-header
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    width: 100%;
+    background: linear-gradient(to top,#10032B , #B6B0CF  );
+} */
+.home-page-content .information-panel
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 6;
+    padding-top: 15%;
+    text-align: end;
+    margin-left: auto;
+    margin-right: 0;
+    padding-right: 5%;
+    color: white;
+    width: 95%;
+    height: 100%;
+}
+
+.home-page-content .reminders-container
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    padding-top: 15%;
+    width: 100%;
+
+}
+
+.home-page-content .scrollable-content
+{
+    padding-top: 5%;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+.home-page-content .left-arrow
+{
+    grid-row-start: 2;
+    justify-self: right;
+    align-self: center;
+}
+
+.home-page-content .right-arrow
+{
+    grid-row-start: 2;
+    justify-self: left;
+    align-self: center;
+}
+
+.home-page-content .navigation-arrow
+{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.home-page-content .arrow-button
+{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+    margin: 20px;
+}
+
+.home-page-content .arrow-button:hover
+{
+    padding: 5px;
+    transition: padding 0.1s;
+}
+
+/* .home-page-content .information-panel .balance
+{
+    margin-top: 5%;
+    color: white;
+
+} */
+
+.home-page-content .information-panel .your-balance
+{
+    font-family: 'Gotham Medium';
+    font-size: 28px;
+    /* margin-right: 5%; */
+}
+
+.home-page-content .information-panel .amount
+{
+    display: flex;
+    float: right;
+    gap: 5%;
+    margin-right: 5%; 
+}
+
+.home-page-content .information-panel .amount .bankBalance
+{
+    font-family: 'Gotham Bold';
+    font-size: 80px;
+    text-shadow: 5px 5px 3px #180A45;
+    
+}
+.home-page-content .information-panel .amount .currency
+{
+    font-family: 'Gotham Bold';
+    font-size: 80px;
+    text-shadow: 5px 5px 3px #180A45;
+}
+
+/* .home-page-content .information-panel .header
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+
+}
+
+ .home-page-content .information-panel .header .date
+{
+    color: white;
+    font-family: 'Gotham Bold';
+    font-size: 28px;
+}
+.home-page-content .information-panel .header .buttons
+{
+    display:flex;
+    gap: 10px;
+} */
+
+/* .home-page-content .information-panel .header .buttons .transaction-button
+{
+    font-size: 16px;
+    background-color: #20F7C5;
+    color: black;
+    width: 180px;
+    height: 50px;
+    border:none;
+    border-radius: 33px;
+    font-family: 'Gotham Bold';
+    box-shadow: 5px 5px 3px #180A45;
+}
+
+.home-page-content .information-panel .header .buttons .party-button
+{
+    font-size: 16px;
+    background-color: #20F7C5;
+    color: black;
+    width: 130px;
+    height: 50px;
+    border:none;
+    border-radius: 33px;
+    font-family: 'Gotham Bold';
+    box-shadow: 5px 5px 3px #180A45;
+} */
