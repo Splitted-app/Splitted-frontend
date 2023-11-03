@@ -11,19 +11,19 @@ import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactions
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 import useFetchBalance from '../../hooks/useFetchBalance';
 
-function getDate() {
-    const today = new Date();
-    let month = today.getMonth() + 1;
-    let longMonth =month + '';
-    if(month<10)
-        longMonth= '' + 0 + month;
-    const year = today.getFullYear();
-    const date = today.getDate();
-    let longDate =date + '';
-    if(date<10)
-        longDate= '' + 0 + date;
-    return `${longDate}.${longMonth}.${year}`;
-  }
+// function getDate() {
+//     const today = new Date();
+//     let month = today.getMonth() + 1;
+//     let longMonth =month + '';
+//     if(month<10)
+//         longMonth= '' + 0 + month;
+//     const year = today.getFullYear();
+//     const date = today.getDate();
+//     let longDate =date + '';
+//     if(date<10)
+//         longDate= '' + 0 + date;
+//     return `${longDate}.${longMonth}.${year}`;
+//   }
 
 
   
@@ -31,7 +31,7 @@ function getDate() {
 function HomePageContent() {
 
     const overTypeCount = 3;
-    const [currentDate, setCurrentDate] = useState(getDate());
+    // const [currentDate, setCurrentDate] = useState(getDate());
     const [overviewTypeId, setOverviewTypeId] = useState(0);
     const bankBalance = useFetchBalance();
     // const budgetId = useFetchBudgetId();
@@ -56,20 +56,11 @@ function HomePageContent() {
 
     return (
       <div className="home-page-content">
-        <div className='reminders-container'>
-            <Reminders></Reminders>
-        </div>
-        <div className='information-panel'>
-            <div className="header">
-                {/* <div className='buttons'>
-                    <button className='transaction-button' onClick={handleTransactionButtonClicked}>Add Transactions</button>
-                    <button className='party-button'>Let's Party</button>
-                </div> */}
-                <div className='date'>
-                    {currentDate}
-                </div>
+        {/* <div className='home-page-content-header'> */}
+            <div className='reminders-container'>
+                <Reminders></Reminders>
             </div>
-            <div className='balance'>
+            <div className='information-panel'>
                 <div className='your-balance'>
                     Your balance:
                 </div>
@@ -82,7 +73,7 @@ function HomePageContent() {
                     </div>
                 </div>
             </div>
-        </div>
+        {/* </div> */}
         <div className='left-arrow'>
             <button className='arrow-button' onClick={handleLeftArrowButton}>
                 <img src={leftarrow} className='navigation-arrow'/>
