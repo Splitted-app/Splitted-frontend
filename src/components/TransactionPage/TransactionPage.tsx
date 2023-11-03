@@ -43,7 +43,7 @@ function TransactionPage() {
                 </div>
             </div>
             <div className='transactions-list'>
-                <TransactionList transactions={transactions} shadow={false}></TransactionList>
+                <TransactionList transactions={transactions} shadow={false} showTransactionType={true} showDeleteIcon={false}></TransactionList>
             </div>
         </div>
       </div>

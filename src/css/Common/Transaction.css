@@ -9,7 +9,9 @@
     width:95%;
     padding: 2%;
     display: grid;
-    /* grid-template-columns: [line1] 25% [line2] 10% [line3] auto [line4] 10% [line5]; */
+    /* grid-template-columns: 20% 15% 15% 20% 10% 10%;
+    grid-template-rows: 100%;
+} */
 }
 
 .transaction-element
@@ -21,22 +23,26 @@
 .transaction .transaction-content .category
 {
     font-family: 'Gotham Medium';
-    font-size: 15px;
+    font-size: 80%;
 }
 
 .transaction .transaction-content .amount 
 {
     font-family: 'Gotham Medium';
-    font-size: 15px;
+    font-size: 100%;
     justify-content: end;
-    gap:5%;
+    gap:1%;
 }
-
+.transaction .transaction-content .transactionType
+{
+    font-family: 'Gotham Light';
+    font-size: 80%;
+}
 
 .transaction .transaction-content .description
 {
     font-family: 'Gotham Light';
-    font-size: 10px;
+    font-size: 80%;
 }
 
 .transaction .transaction-edit-button-container 
@@ -53,6 +59,24 @@
 }
 .transaction .transaction-edit-button-container button img
 {
-    width: 50%;
-    height: 50%;
+    width: 80%;
+    height: 80%;
+}
+
+.transaction .transaction-delete-button-container 
+{
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.transaction .transaction-delete-button-container button
+{
+    border: none;
+    background-color: transparent;
+}
+.transaction .transaction-delete-button-container button img
+{
+    width: 80%;
+    height: 80%;
 }

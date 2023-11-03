@@ -2,8 +2,8 @@ FROM node:20.8-alpine as build-env
 
 WORKDIR /app
 
-COPY package.json ./
-COPY package-lock.json ./
+COPY ./package.json ./
+COPY ./package-lock.json ./
 RUN npm install --silent
 
 COPY . ./
