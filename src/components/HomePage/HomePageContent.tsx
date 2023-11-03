@@ -36,7 +36,7 @@ function HomePageContent() {
     const bankBalance = useFetchBalance();
     // const budgetId = useFetchBudgetId();
     const currency = useRecoilValue(CurrencyState);
-    const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
+    // const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
 
     function handleLeftArrowButton()
     {
@@ -48,10 +48,10 @@ function HomePageContent() {
         setOverviewTypeId((overviewTypeId + 1) % overTypeCount);
     }
 
-    function handleTransactionButtonClicked()
-    {
-        setAddTransactionsPanelVisibility(true);
-    }
+    // function handleTransactionButtonClicked()
+    // {
+    //     setAddTransactionsPanelVisibility(true);
+    // }
 
 
     return (
@@ -61,10 +61,10 @@ function HomePageContent() {
         </div>
         <div className='information-panel'>
             <div className="header">
-                <div className='buttons'>
+                {/* <div className='buttons'>
                     <button className='transaction-button' onClick={handleTransactionButtonClicked}>Add Transactions</button>
                     <button className='party-button'>Let's Party</button>
-                </div>
+                </div> */}
                 <div className='date'>
                     {currentDate}
                 </div>

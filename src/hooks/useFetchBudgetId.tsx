@@ -22,9 +22,11 @@ export default function useFetchBudgetId() {
                 if (!res.ok) {
                     throw Error('could not fetch the data for that resource');
                 }
+
                 return res.json();
             })
             .then((data) => {
+                console.log(data);
                 if (data.length === 0) {
                     setBudgetId(null);
                 }

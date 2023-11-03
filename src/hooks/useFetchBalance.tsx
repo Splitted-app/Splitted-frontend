@@ -38,7 +38,7 @@ export default function useFetchBudgetId() {
             .catch(error => {
                 console.log(error);
             })
-    }, [transactionUpdater, budgetIdUpdater])
+    }, [transactionUpdater, budgetIdUpdater, token])
 
     return balance;
 }

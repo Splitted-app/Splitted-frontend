@@ -7,9 +7,10 @@ import rightarrow from '../../assets/images/rightarrow.svg';
 import {changeDay, changeWeek, changeMonth} from '../../utils';
 import DateRangeSelector from './DateRangeSelector';
 import useFetchTransactions from '../../hooks/useFetchTransactions';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { TransactionsDateRangeState } from '../../atoms/TransactionsDateRange';
 
+import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
 
 
 function TransactionsOverview() {
@@ -22,6 +23,7 @@ function TransactionsOverview() {
     // }]);
     const [dateRange, setDateRange] = useRecoilState<any>(TransactionsDateRangeState);
     const transactions = useFetchTransactions();
+    const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
 
     function handleArrow(direction : number)
     {
@@ -77,10 +79,10 @@ function TransactionsOverview() {
               Transactions
             </div>
             <div className='transaction-list-container'>
-              <TransactionList transactions={transactions} shadow={true}></TransactionList>
+              <TransactionList transactions={transactions} shadow={true} showTransactionType={false} showDeleteIcon={true}></TransactionList>
             </div>
             <div className='add-transaction-button-container'>
-              <button className='add-transaction-button'>+</button>
+              <button className='add-transaction-button' onClick={()=>{setAddTransactionsPanelVisibility(true)}}>+</button>
             </div>
           </div>
       </div>

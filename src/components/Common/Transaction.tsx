@@ -1,8 +1,14 @@
 import '../../css/Common/Transaction.css';
 import { CurrencyState } from '../../atoms/Currency';
-import { useRecoilValue } from 'recoil';
-import EditTransactionIcon from '../../assets/images/three_dots.svg'
+import {useState} from 'react';
+import { useRecoilValue , useRecoilState} from 'recoil';
+// import EditTransactionIcon from '../../assets/images/three_dots.svg'
+import EditTransactionIcon from '../../assets/images/edit_transaction.png'
+import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
+import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
+import UpdateTransactionIcon from '../../assets/images/update.png'
 
+import { UserTokenState } from '../../atoms/UserToken'
 interface TransactionInterface
 {
     id:string,
@@ -22,24 +28,91 @@ interface TransactionPropsInterface
     transaction: TransactionInterface,
     showUser: boolean,
     showTransactionType: boolean,
+    showDeleteIcon:boolean
 }
 
 
-function Transaction({transaction, showUser, showTransactionType}: TransactionPropsInterface) {
-    const amount = transaction.amount;
-    const category = (transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory;
+function Transaction({transaction, showUser, showTransactionType, showDeleteIcon}: TransactionPropsInterface) {
+    const [amount, setAmount] = useState(transaction.amount);
+    const [category, setCategory] = useState((transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory);
+    const [userCategory, setUserCategory] = useState(transaction.userCategory);
     const currency = useRecoilValue(CurrencyState);
+    const [transactionType, setTransactionType] = useState(transaction.transactionType);
+    const [description, setDescription] = useState(transaction.description);
+    const transactionId = transaction.id;
+    const token = useRecoilValue(UserTokenState);
+    const [editable, setEditable] = useState(false);
+
+    const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
 
     const gridStyle = {
-        gridTemplateColumns: showUser
-        ? '[line1] 25% [line2] 10% [line3] auto [line4] 10% [line5]'
-        : '[line1] 25% [line2] auto [line4] 10% [line5]'
+        gridTemplateColumns: showUser && showTransactionType
+        ? '20% 15% 15% 20% auto'
+        : showUser && !showTransactionType
+        ? '20% 15% 20% auto'
+        : !showUser && showTransactionType
+        ? '20% 15% 20% auto'
+        : '20% 20% auto '
+
+    }
+
+    function handleDeleteTransactionButton()
+    {
+        fetch(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionId , {
+            method: 'DELETE',
+            headers: {
+              'Accept': '*',
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`,
+      
+            }
+          })
+            .then(res => {
+                console.log(res);
+              if (!res.ok) {
+                throw Error('could not fetch the data for that resource');
+              }
+              setUpdater(!updater);
+            });
+    }
+
+    function handleEditTransactionButton()
+    {
+        if(editable)
+        {
+            fetch(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionId , {
+                method: 'PUT',
+                headers: {
+                  'Accept': '*',
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${token}`,
+          
+                },
+                body: JSON.stringify({
+                    amount: amount,
+                    date: transaction.date,
+                    description: description,
+                    transactionType: transactionType,
+                    userCategory: userCategory
+                  })
+              })
+                .then(res => {
+                    console.log(userCategory)
+                    console.log(res);
+                  if (!res.ok) {
+                    throw Error('could not fetch the data for that resource');
+                  }
+                  setUpdater(!updater);
+                });
+        }
+
+        setEditable(!editable)
     }
 
     return (
       <div className="transaction">
         <div className='transaction-content' style={gridStyle}>
-            <div className='category transaction-element'>
+            <div className='category transaction-element' contentEditable={editable}  onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}>
                 {category}
             </div>
             {showUser &&
@@ -47,21 +120,33 @@ function Transaction({transaction, showUser, showTransactionType}: TransactionPr
                 User
             </div>
             }
-            <div className='description transaction-element'>
-                {transaction.description}
+            {showTransactionType &&
+            <div className='transactionType transaction-element' contentEditable={editable}  onInput={(e:any)=>{setTransactionType(e.currentTarget.textContent)}}>
+                {transactionType}
             </div>
-            <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}}>
-                {transaction.amount}
+            }
+            <div className='description transaction-element' contentEditable={editable} onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}>
+                {description}
+            </div>
+            <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
+                <div className='number transaction-element' contentEditable={editable}  onInput={(e:any)=>{setAmount(e.currentTarget.textContent) ; console.log(e.currentTarget.textContent)}}>
+                    {transaction.amount}
+                </div>
                 <div className='currency transaction-element'>
                     {currency}
                 </div>
             </div>
         </div>
-        <div className='transaction-edit-button-container'>
-            <button>
-                <img src={EditTransactionIcon}></img>
+        <div className='transaction-edit-button-container' >
+            <button onClick={handleEditTransactionButton}>
+                <img src={(editable)?UpdateTransactionIcon:EditTransactionIcon} style={{width:(showDeleteIcon)?"80%" : "50%"}}></img>
             </button>
         </div>
+        {showDeleteIcon && <div className='transaction-delete-button-container'>
+            <button onClick={handleDeleteTransactionButton}>
+                <img src={DeleteTransactionIcon}></img>
+            </button>
+        </div>}
       </div>
     );
   }
