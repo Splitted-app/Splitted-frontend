@@ -26,7 +26,8 @@ function ImportCsvPanel() {
   function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
     let pathElements = e.target.value.split('\\')
     let newPath = pathElements[pathElements.length - 1]
-    newPath = newPath === "" ? "no file chosen" : newPath
+    newPath = newPath === "" ? "choose file" : newPath
+    newPath = newPath.length >= 14 ? newPath.substring(0, 11) + "..." : newPath;
     setFilePath(newPath);
     if (e.target.files) {
       setFile(e.target.files[0]);

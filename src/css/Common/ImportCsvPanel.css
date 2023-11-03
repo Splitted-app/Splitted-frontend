@@ -37,6 +37,7 @@
     /* padding-top: 50px; */
     padding-left: 50px;
     padding-right: 50px;
+    justify-content: center;
 }
 
 .import-csv-panel .main-content .bank-select-container
@@ -88,7 +89,8 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
+    overflow: hidden;
 }
 
 
