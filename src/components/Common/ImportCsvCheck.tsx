@@ -22,7 +22,7 @@ function ImportCsvCheck() {
           Let's check
         </div>
         <div className='transactions-list-container'>
-          <TransactionList transactions={transactions} shadow={false} showTransactionType={true} showDeleteIcon={true}></TransactionList>
+          <TransactionList transactions={transactions} shadow={false} showTransactionType={true} showDeleteIcon={true} showDeleteTransactionRadioButton={false}></TransactionList>
         </div>
         <div className='add-button-container'>
           <button className='add-button' onClick={handleButtonClicked}>Add</button>

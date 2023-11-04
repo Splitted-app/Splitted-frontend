@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { UserTokenState } from "../atoms/UserToken";
-import { TransactionUpdaterState } from "../atoms/TransactionUpdater";
 import { SignUpFollowUpUpdaterState } from "../atoms/SignUpFollowUpUpdater";
 
 export default function useFetchBudgetId() {
     const token = useRecoilValue(UserTokenState);
-    const transactionUpdater = useRecoilValue(TransactionUpdaterState);
-    const updater = useRecoilValue(SignUpFollowUpUpdaterState);
-    const [balance, setBalance] = useState<any>();
+    const updater = useRecoilState(SignUpFollowUpUpdaterState);
+    const [currency, setCurrency] = useState<any>();
+    
 
     useEffect(() => {
         if (token === "")
@@ -24,21 +23,22 @@ export default function useFetchBudgetId() {
                 if (!res.ok) {
                     throw Error('could not fetch the data for that resource');
                 }
+
                 return res.json();
             })
             .then((data) => {
+                console.log(data);
                 if (data.length === 0) {
-                    setBalance(0);
+                    setCurrency(null);
                 }
                 else {
-                    setBalance(data[0].budgetBalance);
+                    setCurrency(data[0].currency);
                 }
-
             })
             .catch(error => {
                 console.log(error);
             })
-    }, [transactionUpdater, updater, token])
+    }, [token, updater])
 
-    return balance;
+    return currency;
 }

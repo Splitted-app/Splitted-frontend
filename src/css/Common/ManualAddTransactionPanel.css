@@ -10,12 +10,11 @@
     position: relative;
     text-align: center;
     display: grid;
-    grid-template-rows: [top] 20% [upper] auto [lower];
+    grid-template-rows: [top] 5% [upper] 15% [lower] auto [lower];
 }
 
 .manual-add-transaction-panel .title
 {
-    padding-top: 30px;
     text-align: center;
 }
 

@@ -8,6 +8,7 @@ import { ImportCsvPanelVisibilityState } from '../../atoms/ImportCsvPanelVisbili
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
+import CloseButton from './CloseButton';
 
 
 function ImportCsvPanel() {
@@ -62,6 +63,9 @@ function ImportCsvPanel() {
   }
   return (
     <div className="import-csv-panel">
+      <div style={{padding: '0 30px 0 30px'}}>
+        <CloseButton setVisibility={setImportCsvPanelVisibility}/>
+      </div>
       <div className='title'>
         <div className='main-title'>
           Add transactions

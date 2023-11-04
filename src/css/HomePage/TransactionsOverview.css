@@ -52,7 +52,7 @@
 .transactions-overview .transactions-panel .transaction-list-container
 {
     height: 70%;
-    
+    min-height: 70%;
 }
 
 

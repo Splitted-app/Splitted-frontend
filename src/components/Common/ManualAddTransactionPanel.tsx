@@ -6,6 +6,7 @@ import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAdd
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { useSetRecoilState, useRecoilState } from 'recoil';
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
+import CloseButton from './CloseButton';
 
 function getDate() {
   const today = new Date();
@@ -87,6 +88,7 @@ function ManualAddTransactionPanel() {
 
   return (
     <div className="manual-add-transaction-panel">
+      <CloseButton setVisibility={setManualAddTransactionsPanelVisibility}/>
       <div className='title'>
         <div className='main-title'>
           Add transactions
@@ -100,7 +102,7 @@ function ManualAddTransactionPanel() {
           <label>
             enter amount:
           </label>
-          <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, amount: e.target.value })}></input>
+          <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, amount: e.target.value })} step="any"></input>
           <label>
             select category
           </label>
