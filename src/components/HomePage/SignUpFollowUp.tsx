@@ -5,8 +5,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { UserTokenState } from '../../atoms/UserToken'
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 import CurrencyDropdown from "./CurrencyDropdown";
-import { BudgetIdUpdaterState } from '../../atoms/BudgetIdUpdater';
-import { CurrencyState } from '../../atoms/Currency';
+import { SignUpFollowUpUpdaterState } from '../../atoms/SignUpFollowUpUpdater';
 
 
 
@@ -31,8 +30,7 @@ function SignUpFollowUp() {
     })
     const token = useRecoilValue(UserTokenState);
     const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
-    const setCurrency = useSetRecoilState(CurrencyState);
-    const [updater, setUpdater] = useRecoilState(BudgetIdUpdaterState);
+    const [updater, setUpdater] = useRecoilState(SignUpFollowUpUpdaterState);
 
     function handleSubmit(event: any) {
         event.preventDefault();
@@ -56,7 +54,6 @@ function SignUpFollowUp() {
                     throw Error('could not fetch the data for that resource');
                 }
                 if (res.ok) {
-                    setCurrency(data.currency);
                     setSignUpFollowUpVisibility(false);
                     setUpdater(!updater);
                     navigate('/home');
