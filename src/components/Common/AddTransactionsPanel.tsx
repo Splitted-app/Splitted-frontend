@@ -4,13 +4,13 @@ import { ImportCsvPanelVisibilityState } from '../../atoms/ImportCsvPanelVisbili
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
 import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAddTransactionsPanelVisbility';
 import { useSetRecoilState } from 'recoil';
+import CloseButton from './CloseButton';
 
 
 function AddTransactionsPanel() {
 
   const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
   const setImportCsvPanelVisibility = useSetRecoilState(ImportCsvPanelVisibilityState);
-  const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
   const setManualAddTransactionsPanelVisibility = useSetRecoilState(ManualAddTransactionsPanelVisibilityState); 
 
   function handleImportCsvButtonClick()
@@ -27,6 +27,9 @@ function AddTransactionsPanel() {
 
     return (
       <div className="add-transactions-panel">
+        <div style={{padding: '0 30px 0 30px'}}>
+          <CloseButton setVisibility={setAddTransactionsPanelVisibility}/>
+        </div>
         <div className='title'>
           <div className='main-title'>
             Add transactions

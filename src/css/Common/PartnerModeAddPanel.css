@@ -10,7 +10,7 @@
     padding-left: 2%;
     padding-right: 2%;
     display:grid;
-    grid-template-rows: 30% 20% 50%;
+    grid-template-rows: 5% 25% 20% 50%;
     grid-template-columns: 40% 60%;
 }
 
@@ -19,9 +19,8 @@
 {
     grid-column-start: 1;
     grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    padding-top: 30px;
+    grid-row-start: 2;
+    grid-row-end: 3;
     text-align: center;
 }
 
@@ -41,8 +40,8 @@
 }
 .partner-mode-add-panel .find-your-partner-panel
 {
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 3;
     margin-top: auto;
@@ -54,8 +53,8 @@
 }
 .partner-mode-add-panel .integrate-accounts-button
 {
-    grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
     grid-column-start: 1;
     grid-column-end: 2;
     margin-top: auto;
@@ -64,8 +63,8 @@
 
 .partner-mode-add-panel .partner-mode-icon
 {
-    grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
     grid-column-start: 2;
     grid-column-end: 3;
     margin-top: auto;
