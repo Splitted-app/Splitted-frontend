@@ -1,6 +1,6 @@
 import {atom} from 'recoil';
 
-export const BudgetIdUpdaterState = atom({
+export const SignUpFollowUpUpdaterState = atom({
     key: 'BudgetIdUpdater',
     default: false,
   });

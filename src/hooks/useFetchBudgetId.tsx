@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { UserTokenState } from "../atoms/UserToken";
-import { BudgetIdUpdaterState } from "../atoms/BudgetIdUpdater";
+import { SignUpFollowUpUpdaterState } from "../atoms/SignUpFollowUpUpdater";
 
 export default function useFetchBudgetId() {
     const token = useRecoilValue(UserTokenState);
-    const updater = useRecoilValue(BudgetIdUpdaterState);
+    const updater = useRecoilValue(SignUpFollowUpUpdaterState);
     const [budgetId, setBudgetId] = useState<any>();
 
     useEffect(() => {

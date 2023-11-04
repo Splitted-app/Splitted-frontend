@@ -1,5 +1,4 @@
 import '../../css/Common/Transaction.css';
-import { CurrencyState } from '../../atoms/Currency';
 import {useState} from 'react';
 import { useRecoilValue , useRecoilState, useSetRecoilState} from 'recoil';
 // import EditTransactionIcon from '../../assets/images/three_dots.svg'

@@ -6,10 +6,10 @@ import leftarrow from '../../assets/images/leftarrow.svg'
 import rightarrow from '../../assets/images/rightarrow.svg'
 import { useRecoilValue } from 'recoil';
 import { useSetRecoilState } from 'recoil';
-import { CurrencyState } from '../../atoms/Currency';
 import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 import useFetchBalance from '../../hooks/useFetchBalance';
+import useFetchCurrency from '../../hooks/useFetchCurrency';
 
 // function getDate() {
 //     const today = new Date();
@@ -35,7 +35,7 @@ function HomePageContent() {
     const [overviewTypeId, setOverviewTypeId] = useState(0);
     const bankBalance = useFetchBalance();
     // const budgetId = useFetchBudgetId();
-    const currency = useRecoilValue(CurrencyState);
+    const currency = useFetchCurrency();
     // const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
 
     function handleLeftArrowButton()
