@@ -8,7 +8,6 @@ import { AddPartnerModePanelVisibilityState } from '../../atoms/AddPartnerModePa
 import { AddPartyModePanelVisibilityState } from '../../atoms/AddPartyModePanelVisibility';
 import { AddModesPanelVisibilityState } from '../../atoms/AddModesPanelVisibility';
 import { useSetRecoilState } from 'recoil';
-import CloseButton from './CloseButton';
 
 
 function AddModePanel() {
@@ -18,9 +17,6 @@ function AddModePanel() {
   const setAddModesPanelVisibility = useSetRecoilState(AddModesPanelVisibilityState);
     return (
       <div className="add-mode-panel">
-        <div style={{padding: '20px 20px 0px 20px'}}>
-          <CloseButton setVisibility={setAddModesPanelVisibility}/>
-        </div>
         <div className='title'>
           <div className='main-title'>
             Add mode

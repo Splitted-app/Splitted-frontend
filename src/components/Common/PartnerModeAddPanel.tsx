@@ -2,20 +2,13 @@ import '../../css/Common/PartnerModeAddPanel.css';
 import PartnerModeIcon from '../../assets/images/partner_mode_add.png'
 import {useState} from 'react';
 import SearchIcon from '../../assets/images/search.png'
-import CloseButton from './CloseButton';
-import { useSetRecoilState } from 'recoil';
-import { AddPartnerModePanelVisibilityState } from '../../atoms/AddPartnerModePanelVisibility';
 
 
 function PartnerModeAddPanel() {
     const [searchInput, setSearchInput] = useState("");
-    const setAddPartnerModePanelVisibility = useSetRecoilState(AddPartnerModePanelVisibilityState)
 
     return (
       <div className="partner-mode-add-panel">
-        <div style={{gridColumnStart: 2, padding: '0 30px 0 30px'}}>
-          <CloseButton setVisibility={setAddPartnerModePanelVisibility}/>
-        </div>
         <div className='title'>
           <div className='main-title'>
             Partner mode

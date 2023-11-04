@@ -2,19 +2,12 @@ import '../../css/Common/FamilyModeAddPanel.css';
 import FamilyModeIcon from '../../assets/images/family_mode_add.png';
 import {useState} from 'react';
 import SearchIcon from '../../assets/images/search.png'
-import CloseButton from './CloseButton';
-import { useSetRecoilState } from 'recoil';
-import { AddFamilyModePanelVisibilityState } from '../../atoms/AddFamilyModePanelVisibility';
 
 function FamilyModeAddPanel() {
     const [searchInput, setSearchInput] = useState("");
-    const setAddFamilyModePanelVisibility = useSetRecoilState(AddFamilyModePanelVisibilityState);
 
     return (
       <div className="family-mode-add-panel">
-        <div style={{gridColumnStart: 2, padding: '0 30px 0 30px'}}>
-          <CloseButton setVisibility={setAddFamilyModePanelVisibility}/>
-        </div>
         <div className='title'>
           <div className='main-title'>
             Family mode

@@ -1,13 +1,14 @@
 import '../../css/Common/Transaction.css';
+import { CurrencyState } from '../../atoms/Currency';
 import {useState} from 'react';
-import { useRecoilValue , useRecoilState, useSetRecoilState} from 'recoil';
+import { useRecoilValue , useRecoilState} from 'recoil';
 // import EditTransactionIcon from '../../assets/images/three_dots.svg'
 import EditTransactionIcon from '../../assets/images/edit_transaction.png'
 import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import UpdateTransactionIcon from '../../assets/images/update.png'
+
 import { UserTokenState } from '../../atoms/UserToken'
-import { TransactionsToDeleteState } from '../../atoms/TransactionsToDelete';
 interface TransactionInterface
 {
     id:string,
@@ -27,38 +28,31 @@ interface TransactionPropsInterface
     transaction: TransactionInterface,
     showUser: boolean,
     showTransactionType: boolean,
-    showDeleteIcon:boolean,
-    showDeleteTransactionRadioButton:boolean
+    showDeleteIcon:boolean
 }
 
 
-function Transaction({transaction, showUser, showTransactionType, showDeleteIcon, showDeleteTransactionRadioButton}: TransactionPropsInterface) {
+function Transaction({transaction, showUser, showTransactionType, showDeleteIcon}: TransactionPropsInterface) {
     const [amount, setAmount] = useState(transaction.amount);
-    // const [category, setCategory] = useState((transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory);
+    const [category, setCategory] = useState((transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory);
     const [userCategory, setUserCategory] = useState(transaction.userCategory);
-    // const currency = useRecoilValue(CurrencyState);
+    const currency = useRecoilValue(CurrencyState);
     const [transactionType, setTransactionType] = useState(transaction.transactionType);
     const [description, setDescription] = useState(transaction.description);
-    const transactionId: string = transaction.id;
+    const transactionId = transaction.id;
     const token = useRecoilValue(UserTokenState);
     const [editable, setEditable] = useState(false);
+
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
-    const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
 
     const gridStyle = {
-        gridTemplateColumns: showDeleteTransactionRadioButton && showUser && showTransactionType
-        ? '5% 20% 15% 15% 20% auto':
-        showDeleteTransactionRadioButton && !showUser && showTransactionType
-        ? '5% 20% 15% 20% auto':
-        showDeleteTransactionRadioButton && showUser && !showTransactionType
-        ? '5% 20% 15% 20% auto':
-        !showDeleteTransactionRadioButton && showUser && showTransactionType
-        ? '20% 15% 15% 20% auto':
-        !showDeleteTransactionRadioButton && showUser && !showTransactionType
-        ? '20% 15% 20% auto': 
-        !showDeleteTransactionRadioButton && !showUser && showTransactionType
-        ? '20% 15% 20% auto':
-        '20% 20% auto '
+        gridTemplateColumns: showUser && showTransactionType
+        ? '20% 15% 15% 20% auto'
+        : showUser && !showTransactionType
+        ? '20% 15% 20% auto'
+        : !showUser && showTransactionType
+        ? '20% 15% 20% auto'
+        : '20% 20% auto '
 
     }
 
@@ -115,22 +109,11 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
         setEditable(!editable)
     }
 
-    function handleDeleteMultipleTransactionsButton()
-    {
-        const newTransactionsToDelete= transactionsToDelete.concat([transactionId]);
-        console.log(newTransactionsToDelete);
-        setTransactionsToDelete(newTransactionsToDelete);
-    }
-
     return (
-      <div className="transaction" key={transactionId}>
+      <div className="transaction">
         <div className='transaction-content' style={gridStyle}>
-            {showDeleteTransactionRadioButton && 
-            <div className='delete-transaction-radio-button-container'>
-              <input type="radio" className='delete-transaction-radio-button' onChange={handleDeleteMultipleTransactionsButton}></input>
-            </div>}
             <div className='category transaction-element' contentEditable={editable}  onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}>
-                {(transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory}
+                {category}
             </div>
             {showUser &&
             <div className='user transaction-element'>
@@ -139,18 +122,18 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
             }
             {showTransactionType &&
             <div className='transactionType transaction-element' contentEditable={editable}  onInput={(e:any)=>{setTransactionType(e.currentTarget.textContent)}}>
-                {transaction.transactionType}
+                {transactionType}
             </div>
             }
             <div className='description transaction-element' contentEditable={editable} onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}>
-                {transaction.description}
+                {description}
             </div>
             <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
                 <div className='number transaction-element' contentEditable={editable}  onInput={(e:any)=>{setAmount(e.currentTarget.textContent) ; console.log(e.currentTarget.textContent)}}>
                     {transaction.amount}
                 </div>
                 <div className='currency transaction-element'>
-                    {transaction.currency}
+                    {currency}
                 </div>
             </div>
         </div>

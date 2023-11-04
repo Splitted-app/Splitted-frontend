@@ -16,7 +16,7 @@ interface DateRangeSelectorInterface
 
 
 function DateRangeSelector({currentDate , dateRange, setDateRange, setTimeScale} : DateRangeSelectorInterface) {
-    const [contentVisible, setContentVisible] = useState(false);
+    const [contentVisible, setContentVisible] = useState(true)
     const [lockContent, setLockContent] = useState(false);
     const [buttonText, setButtonText] = useState("daily");
 
