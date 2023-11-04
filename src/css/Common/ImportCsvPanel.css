@@ -1,5 +1,6 @@
 .import-csv-panel
 {
+    padding-top: 30px;
     height: 100%;
     width: 60%;
     background-color: white;
@@ -7,12 +8,11 @@
     box-shadow: 10px 10px 5px #262626;
     border-radius: 50px;
     display: grid;
-    grid-template-rows: [top] 20% [middle] auto [bottom];
+    grid-template-rows: [top] 5% [upper] 15% [lower] auto [bottom];
 }
 
 .import-csv-panel .title
 {
-    padding-top: 30px;
     text-align: center;
 }
 
@@ -34,10 +34,12 @@
 {
     display: flex;
     align-items: center;
-    /* padding-top: 50px; */
-    padding-left: 50px;
-    padding-right: 50px;
     justify-content: center;
+}
+
+.import-csv-panel form
+{
+    width: 80%;
 }
 
 .import-csv-panel .main-content .bank-select-container
