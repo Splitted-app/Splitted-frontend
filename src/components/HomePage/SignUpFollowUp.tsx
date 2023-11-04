@@ -91,12 +91,12 @@ function SignUpFollowUp() {
                             Pick your bank:
                         </label>
                         <div className='input-container'>
-                            <select className='field-style' value="PKO BP" onChange={(e: any) => setData({ ...data, bank: e.target.value })}>
-                                <option value="PKO BP">PKO BP</option>
+                            <select className='field-style' onChange={(e: any) => setData({ ...data, bank: e.target.value })}>
+                                <option value="Pko">PKO BP</option>
                                 <option value="Pekao">Pekao</option>
-                                <option value="Santander Bank">Santander Bank</option>
-                                <option value="ING Bank">ING Bank</option>
-                                <option value="mBank">mBank</option>
+                                <option value="Santander">Santander Bank</option>
+                                <option value="Ing">ING Bank</option>
+                                <option value="Mbank">mBank</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>
