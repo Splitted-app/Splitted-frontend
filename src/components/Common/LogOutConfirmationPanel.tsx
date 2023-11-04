@@ -1,5 +1,5 @@
 import '../../css/Common/LogOutConfirmationPanel.css';
-import { useSetRecoilState, useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { LogOutPanelVisibilityState } from '../../atoms/LogOutPanelVisibility';
 import { UserTokenState } from '../../atoms/UserToken';
 import {useNavigate} from 'react-router-dom';
@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom';
 function LogOutConfirmationPanel() {
 
     const setLogOutPanelVisibility = useSetRecoilState(LogOutPanelVisibilityState);
-    const [token,setToken] = useRecoilState(UserTokenState)
+    const setToken = useSetRecoilState(UserTokenState)
     const navigate = useNavigate();
 
 
@@ -18,24 +18,9 @@ function LogOutConfirmationPanel() {
 
     function handleConfirm()
     {
-      fetch(process.env.REACT_APP_API_URL + '/api/users/revoke', {
-        method: 'POST',
-        headers: {
-          'Accept': '*',
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-  
-        }
-      })
-        .then(res => {
-          if (!res.ok) {
-            throw Error('could not fetch the data for that resource');
-          }
-          setToken("");
-          setLogOutPanelVisibility(false);
-          navigate('/');
-        });
-
+      setToken("");
+      setLogOutPanelVisibility(false);
+      navigate('/');
     }
 
     return (

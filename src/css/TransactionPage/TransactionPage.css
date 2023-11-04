@@ -32,7 +32,8 @@
     grid-template-columns: 30% 20% 50%;
 
 }
-.transaction-page .transaction-page-content .header .transaction-page-content-buttons
+
+.transaction-page .transaction-page-content .header .add-transactions-button-container
 {
     grid-row-start: 1;
     grid-row-end: 2;
@@ -40,27 +41,10 @@
     grid-column-end: 4;
     padding-right: 3%;
     padding-top: 5%;
-    display: flex;
-    gap:3%;
-    justify-content: end;
-    align-items: center;
-}
 
+}
 
 .transaction-page .transaction-page-content .header .add-transactions-button-container .add-transactions-button
-{
-    font-size: 16px;
-    background-color: #20F7C5;
-    color: black;
-    width: 180px;
-    height: 50px;
-    border:none;
-    border-radius: 33px;
-    font-family: 'Gotham Bold';
-    box-shadow: 5px 5px 3px #180A45;
-}
-
-.transaction-page .transaction-page-content .header .delete-transactions-button-container .delete-transactions-button
 {
     font-size: 16px;
     background-color: #20F7C5;

@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { UserTokenState } from "../atoms/UserToken";
 import { TransactionUpdaterState } from "../atoms/TransactionUpdater";
-import { SignUpFollowUpUpdaterState } from "../atoms/SignUpFollowUpUpdater";
+import { BudgetIdUpdaterState } from "../atoms/BudgetIdUpdater";
 
 export default function useFetchBudgetId() {
     const token = useRecoilValue(UserTokenState);
     const transactionUpdater = useRecoilValue(TransactionUpdaterState);
-    const updater = useRecoilValue(SignUpFollowUpUpdaterState);
+    const budgetIdUpdater = useRecoilValue(BudgetIdUpdaterState);
     const [balance, setBalance] = useState<any>();
 
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function useFetchBudgetId() {
             .catch(error => {
                 console.log(error);
             })
-    }, [transactionUpdater, updater, token])
+    }, [transactionUpdater, budgetIdUpdater, token])
 
     return balance;
 }
