@@ -100,7 +100,7 @@ function ManualAddTransactionPanel() {
           <label>
             enter amount:
           </label>
-          <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, amount: e.target.value })}></input>
+          <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, amount: e.target.value })} step="any"></input>
           <label>
             select category
           </label>
