@@ -80,3 +80,63 @@
     width: 80%;
     height: 80%;
 }
+
+.delete-transaction-checkbox-container
+{
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.delete-transaction-checkbox-container input
+{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    margin: auto;
+}
+
+.delete-transaction-checkbox-container .checkmark 
+{
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-radius: 50%;
+    border: solid 3px #6E6E6E;
+}
+
+.delete-transaction-checkbox-container .checkmark:after 
+{
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.delete-transaction-checkbox-container input:checked ~ .checkmark:after 
+{
+    display: block;
+}
+
+.delete-transaction-checkbox-container .checkmark:after 
+{
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: #6E6E6E;
+}
+
+.delete-transaction-checkbox-container span
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
