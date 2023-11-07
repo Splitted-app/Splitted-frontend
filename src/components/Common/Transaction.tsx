@@ -115,20 +115,40 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
         setEditable(!editable)
     }
 
-    function handleDeleteMultipleTransactionsButton()
+    function handleDeleteMultipleTransactionsButton(checked : boolean)
     {
-        const newTransactionsToDelete= transactionsToDelete.concat([transactionId]);
-        console.log(newTransactionsToDelete);
-        setTransactionsToDelete(newTransactionsToDelete);
+        if (checked)
+        {
+          const newTransactionsToDelete= transactionsToDelete.concat([transactionId]);
+          console.log(newTransactionsToDelete);
+          setTransactionsToDelete(newTransactionsToDelete);
+        }
+        else
+        {
+          
+          const idx = transactionsToDelete.indexOf(transactionId);
+          if (idx > -1)
+          {
+            const newTransactionsToDelete = [...transactionsToDelete]
+            newTransactionsToDelete.splice(idx, 1);
+            console.log(newTransactionsToDelete);
+            setTransactionsToDelete(newTransactionsToDelete);
+          }
+        }
     }
 
     return (
       <div className="transaction" key={transactionId}>
         <div className='transaction-content' style={gridStyle}>
             {showDeleteTransactionRadioButton && 
-            <div className='delete-transaction-radio-button-container'>
-              <input type="radio" className='delete-transaction-radio-button' onChange={handleDeleteMultipleTransactionsButton}></input>
-            </div>}
+            <label className='delete-transaction-checkbox-container '>
+              <input type="checkbox" 
+                      className='delete-transaction-checkbox' 
+                      onChange={(e)=>handleDeleteMultipleTransactionsButton(e.target.checked)}>
+              </input>
+              <span className="checkmark">
+              </span>
+            </label>}
             <div className='category transaction-element' contentEditable={editable}  onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}>
                 {(transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory}
             </div>
