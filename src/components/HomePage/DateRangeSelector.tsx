@@ -1,10 +1,11 @@
 import '../../css/HomePage/DateRangeSelector.css'
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
-import { DateRange } from 'react-date-range'
-import {useState} from 'react'
 import downArrow from '../../assets/images/downarrow.svg'
 import {changeDay, getStartOfWeek, getStartOfMonth, getEndOfMonth} from '../../utils';
+import { DateRange } from 'react-date-range'
+import {useState} from 'react'
+
 
 interface DateRangeSelectorInterface
 {

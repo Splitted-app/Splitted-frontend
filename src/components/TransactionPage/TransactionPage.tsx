@@ -98,7 +98,6 @@ function TransactionPage() {
     {
         if(showDeleteTransactionRadioButton && transactionsToDelete.length!==0)
         {
-            console.log(transactionsToDelete.join('/'));
             fetch(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionsToDelete.join('/') , {
                 method: 'DELETE',
                 headers: {
@@ -109,7 +108,6 @@ function TransactionPage() {
                 }
               })
                 .then(res => {
-                    console.log(res);
                   if (!res.ok) {
                     throw Error('could not fetch the data for that resource');
                   }

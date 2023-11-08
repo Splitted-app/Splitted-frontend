@@ -1,10 +1,11 @@
-import { useState } from 'react';
-
 import '../../css/RegisterPages/RegisterPage.css'
+
 import EmailForm from './EmailForm'
-import RegisterFormDataInterface from './RegisterFormDataInterface';
 import LogInForm from './LogInForm';
+import RegisterFormDataInterface from './RegisterFormDataInterface';
 import SignUpForm from './SignUpForm';
+
+import { useState } from 'react';
 
 function RegisterPage() {
 
@@ -30,9 +31,6 @@ function RegisterPage() {
         {state == "emailCheck" && <EmailForm data={data} setData={setData} setState={setState}/>}
         {state == "logIn" && <LogInForm data={data} setData={setData} setState={setState}/>}
         {state == "signUp" && <SignUpForm data={data} setData={setData} setState={setState}/>}
-        {/* <div className='back-button-container'>
-          {state != "emailCheck" && <button onClick={()=>setState("emailCheck")}>Back</button>}
-        </div> */}
       </div>
     </div>
   );

@@ -1,12 +1,15 @@
 import '../../css/HomePage/HomePage.css'
-import SignUpFollowUp from "./SignUpFollowUp";
-import Navbar from "../Common/Navbar"
+
 import HomePageContent from './HomePageContent';
-import { useEffect} from 'react';
-import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
+import Navbar from "../Common/Navbar"
+import SignUpFollowUp from "./SignUpFollowUp";
+
 import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
+import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useEffect} from 'react';
+
 
 function HomePage() {
     const SignUpFollowUpVisibility = useRecoilValue(SignUpFollowUpVisibilityState);

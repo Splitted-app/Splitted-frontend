@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import '../../css/Common/FormError.css';
-import warning from '../../assets/images/warning.png'
+import warning from '../../assets/images/warning.png';
+import { useState } from 'react';
 
 interface FormErrorInterface
 {

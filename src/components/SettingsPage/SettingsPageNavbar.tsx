@@ -1,12 +1,17 @@
 import '../../css/SettingsPage/SettingsPageNavbar.css'
-import DeleteAccountIcon from '../../assets/images/delete_account.png'
+
+import NavbarItem from '../../components/Common/NavbarItem'
 import SettingsPageNavbarItem from './SettingsPageNavbarItem';
+
+import { NavbarVisibilityState } from '../../atoms/NavbarVisibility';
+import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibility';
+
+import DeleteAccountIcon from '../../assets/images/delete_account.png'
 import MenuIcon from '../../assets/images/main-menu.png'
 import SplitIcon from '../../assets/images/split.png'
-import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibility';
-import { NavbarVisibilityState } from '../../atoms/NavbarVisibility';
+
 import { useSetRecoilState } from 'recoil';
-import NavbarItem from '../../components/Common/NavbarItem'
+
 interface SettingsPageNavbarInterface
 {
   setAccountPageVisibility:Function,

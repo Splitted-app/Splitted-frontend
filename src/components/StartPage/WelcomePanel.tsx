@@ -1,7 +1,8 @@
 import '../../css/StartPage/WelcomePanel.css'
-import { Link } from 'react-router-dom'
+
 import startButton from '../../assets/images/start.svg';
 
+import { Link } from 'react-router-dom'
 
 function WelcomePanel() {
     return (

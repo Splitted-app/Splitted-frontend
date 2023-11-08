@@ -1,6 +1,8 @@
 import '../../css/SettingsPage/UserAccountMainPanel.css'
-import UserAccountIcon from '../../assets/images/user_account.png'
+
 import EditIcon from '../../assets/images/edit_icon.png'
+import UserAccountIcon from '../../assets/images/user_account.png'
+
 
 function UserAccountMainPanel() {
     return (
