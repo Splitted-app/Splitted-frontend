@@ -12,15 +12,15 @@
     width: 85%;
     height: 100%;
     display: grid;
-    grid-template-rows: 33% 17% 50%;    
+    /* grid-template-rows: 33% 17% 50%;     */
     grid-template-columns: 30% 70%;
 }
 
 .transaction-page .transaction-page-content .header
 {
     background: linear-gradient(to top,#10032B , #B6B0CF  );
-    grid-row-start: 1;
-    grid-row-end: 2;
+    /* grid-row-start: 1;
+    grid-row-end: 2; */
     grid-column-start: 1;
     grid-column-end: 3;
     width: 100%;
@@ -34,8 +34,8 @@
 }
 .transaction-page .transaction-page-content .header .transaction-page-content-buttons
 {
-    grid-row-start: 1;
-    grid-row-end: 2;
+    /* grid-row-start: 1;
+    grid-row-end: 2; */
     grid-column-start: 3;
     grid-column-end: 4;
     padding-right: 3%;
@@ -75,8 +75,8 @@
 .transaction-page .transaction-page-content .header .title
 {
     padding-right: 3%;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    /* grid-row-start: 2;
+    grid-row-end: 3; */
     grid-column-start: 3;
     grid-column-end: 4;
     text-align: end;
@@ -107,20 +107,22 @@
 
 .transaction-page .transaction-page-content .transactions-list
 {
-    grid-row-start: 3;
-    grid-row-end: 4;
+    /* grid-row-start: 3;
+    grid-row-end: 4; */
     grid-column-start: 1;
     grid-column-end: 3;
     /* width: 98%;
     padding-left: 1%;
     padding-right: 1%; */
     width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-.transaction-page .transaction-page-content .transaction-page-filter-menu
+.transaction-page .transaction-page-content .transaction-page-show-filter-menu
 {
-    grid-row-start: 2;
-    grid-row-end: 3;
+    /* grid-row-start: 2;
+    grid-row-end: 3; */
     grid-column-start: 1;
     grid-column-end: 2;
     width: 100%;
@@ -133,14 +135,100 @@
     padding-left: 10%;
     gap:3%;
 }
-.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-icon
+.transaction-page .transaction-page-content .transaction-page-show-filter-menu .transaction-page-show-filter-menu-icon
 {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-icon img{
+.transaction-page .transaction-page-content .transaction-page-show-filter-menu .transaction-page-show-filter-menu-icon img{
     width: 100%;
     height: 100%;
 }
 
+.transaction-page .transaction-page-content .transaction-page-filter-menu
+{
+    width: 100%;
+    background-color: #10032B;
+    box-shadow: inset 0 0 10px #54498B;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-rows: 33% 33% 33%;
+    grid-template-columns: 70% 30%;
+}
+
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    color: white;
+    font-family: 'Gotham Medium';
+    font-size: 20px;
+    padding-left: 2%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+}
+
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element label
+{
+    font-size: 18px;
+}
+
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element input
+{
+    margin-left: 10%;
+    width: 50%;
+    background-color: transparent;
+    color: white;
+    font-family: 'Gotham Light';
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-date-filter-menu
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    
+}
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-category-filter-menu
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-amount-filter-menu
+{
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+}
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-button-container
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-button-container .transaction-page-filter-menu-button
+{
+    font-size: 16px;
+    background-color: #20F7C5;
+    color: black;
+    width: 180px;
+    height: 50px;
+    border:none;
+    border-radius: 33px;
+    font-family: 'Gotham Bold';
+    box-shadow: 5px 5px 3px #180A45;
+}

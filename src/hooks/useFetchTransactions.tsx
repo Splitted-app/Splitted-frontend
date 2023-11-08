@@ -1,24 +1,42 @@
 import { useRecoilValue } from "recoil";
 import { UserTokenState } from "../atoms/UserToken";
 import { TransactionUpdaterState } from "../atoms/TransactionUpdater";
-import { TransactionsDateRangeState } from "../atoms/TransactionsDateRange";
 import { useEffect, useState } from "react";
 import useFetchBudgetId from "./useFetchBudgetId";
 import Moment from 'moment';
 
-export default function useFetchTransactions() {
+
+export default function useFetchTransactions(
+    dateRange: any = null,
+    category: string|null = null,
+    amountRange: any = null,
+) {
     const budgetId = useFetchBudgetId()
     const updater = useRecoilValue(TransactionUpdaterState);
-    const dateRange = useRecoilValue(TransactionsDateRangeState);
     const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>([]);
 
     let query = `?`
-    query += `dateFrom=${Moment(dateRange[0].startDate).format('YYYY-MM-DD')}&`;
-    query += `dateTo=${Moment(dateRange[0].endDate).format('YYYY-MM-DD')}&`;
+    if (dateRange)
+    {
+        query += `dateFrom=${Moment(dateRange[0].startDate).format('YYYY-MM-DD')}&`;
+        query += `dateTo=${Moment(dateRange[0].endDate).format('YYYY-MM-DD')}&`;
+    }
+    if (category)
+    {
+        query += `category=${category}&`;
+    }
+    if (amountRange)
+    {
+        if (amountRange.minAmount)
+            query += `minAmount=${amountRange.minAmount}&`;
+        if (amountRange.maxAmount)
+            query += `maxAmount=${amountRange.maxAmount}&`;
+    }
+    
 
     useEffect(() => {
-        console.log(query);
+        console.log(dateRange);
         fetch(process.env.REACT_APP_API_URL + `/api/budgets/${budgetId}/transactions/${query}`, {
             headers: {
                 'Accept': '*',
