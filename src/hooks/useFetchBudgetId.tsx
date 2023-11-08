@@ -26,7 +26,6 @@ export default function useFetchBudgetId() {
                 return res.json();
             })
             .then((data) => {
-                console.log(data);
                 if (data.length === 0) {
                     setBudgetId(null);
                 }
