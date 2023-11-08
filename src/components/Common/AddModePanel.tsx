@@ -1,5 +1,6 @@
 import '../../css/Common/AddModePanel.css';
 import AddModeButton from './AddModeButton';
+import CloseButton from './CloseButton';
 import FamilyModeIcon from '../../assets/images/family_mode.png'
 import PartnerModeIcon from '../../assets/images/partner_mode.png'
 import PartyModeIcon from '../../assets/images/party_mode.png'
@@ -8,7 +9,7 @@ import { AddPartnerModePanelVisibilityState } from '../../atoms/AddPartnerModePa
 import { AddPartyModePanelVisibilityState } from '../../atoms/AddPartyModePanelVisibility';
 import { AddModesPanelVisibilityState } from '../../atoms/AddModesPanelVisibility';
 import { useSetRecoilState } from 'recoil';
-import CloseButton from './CloseButton';
+
 
 
 function AddModePanel() {

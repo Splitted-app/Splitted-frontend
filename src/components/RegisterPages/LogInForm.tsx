@@ -1,12 +1,15 @@
-import RegisterFormDataInterface from "./RegisterFormDataInterface";
 import '../../css/RegisterPages/RegisterForm.css';
-import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
-import { UserTokenState } from '../../atoms/UserToken';
-// import {BudgetIdState} from '../../atoms/BudgetId';
-import { useState } from "react";
+
+import RegisterFormDataInterface from "./RegisterFormDataInterface";
+
 import FormError from "../Common/FormError";
 
+import { UserTokenState } from '../../atoms/UserToken';
+
+
+import { useState } from "react";
+import { useSetRecoilState } from 'recoil';
+import { useNavigate } from 'react-router-dom';
 
 interface RegisterFormInterface {
     data: RegisterFormDataInterface,
@@ -17,31 +20,10 @@ interface RegisterFormInterface {
 function LogInForm({ data, setData, setState }: RegisterFormInterface) {
     const navigate = useNavigate();
     const setToken = useSetRecoilState(UserTokenState)
-    // const setBudgetId = useSetRecoilState(BudgetIdState);
     const [errors, setErrors] = useState({
         invalidPassword: false
     });
 
-    // function fetchBudgetId(token : string)
-    // {
-    //     fetch(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal',{
-    //     headers: { 
-    //         'Accept': '*',
-    //         'Content-Type': 'application/json',
-    //         'Authorization' : `Bearer ${token}`
-    //     },
-    //     })
-    //     .then(res=>{
-    //         if(!res.ok)
-    //         {
-    //             throw Error('could not fetch the data for that resource');
-    //         }
-    //         return res.json();
-    //     })
-    //     .then((data)=>{
-    //         setBudgetId(data[0].id);
-    //     })
-    // }
 
     function handleSubmit(e: any) {
         // use `newErrors` to clear errors before validation
@@ -77,12 +59,10 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
                 return res.json();
             })
             .then((data) => {
-                // fetchBudgetId(data.token)
                 setToken(data.token);
             })
             .catch((err) => {
                 setErrors(newErrors);
-                console.log(err)
             });
     }
 

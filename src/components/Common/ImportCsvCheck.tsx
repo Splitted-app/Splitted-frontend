@@ -1,8 +1,8 @@
 import '../../css/Common/ImportCsvCheck.css'
 import TransactionList from './TransactionList';
-import { useRecoilValue } from 'recoil';
-import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
+import { NewTransactionsState } from '../../atoms/NewTransactions';
+import { useRecoilValue } from 'recoil';
 import { useSetRecoilState } from 'recoil';
 
 

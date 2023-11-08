@@ -1,12 +1,18 @@
-import RegisterFormDataInterface from "./RegisterFormDataInterface";
 import '../../css/RegisterPages/RegisterForm.css';
 
-import { useNavigate } from 'react-router-dom'
+import RegisterFormDataInterface from "./RegisterFormDataInterface";
+
+import FormError from "../Common/FormError";
+
+
+import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
+import { UserTokenState } from '../../atoms/UserToken'
+
+
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { UserTokenState } from '../../atoms/UserToken'
-import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
-import FormError from "../Common/FormError";
+import { useNavigate } from 'react-router-dom'
+
 
 interface RegisterFormInterface {
     data: RegisterFormDataInterface,
@@ -162,7 +168,6 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
                         value={data.password}
                         onChange={(e) => {
                             setData({ ...data, password: e.target.value });
-                            console.log(firstTry);
                             !firstTry && validateData({ ...data, password: e.target.value });
                         }} />
                     <div className="form-error-container" style={{ display: `${errors.pwdNoLowerCase ? "block" : "none"}` }}>

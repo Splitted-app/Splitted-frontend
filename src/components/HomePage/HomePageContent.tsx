@@ -1,12 +1,14 @@
 import '../../css/HomePage/HomePageContent.css'
 import Overview from './Overview';
 import Reminders from './Reminders';
-import { useState } from 'react';
-import leftarrow from '../../assets/images/leftarrow.svg'
-import rightarrow from '../../assets/images/rightarrow.svg'
+
 import useFetchBalance from '../../hooks/useFetchBalance';
 import useFetchCurrency from '../../hooks/useFetchCurrency';
 
+import leftarrow from '../../assets/images/leftarrow.svg'
+import rightarrow from '../../assets/images/rightarrow.svg'
+
+import { useState } from 'react';
 
 function HomePageContent() {
 

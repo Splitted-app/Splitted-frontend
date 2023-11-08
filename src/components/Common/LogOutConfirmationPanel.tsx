@@ -1,7 +1,8 @@
 import '../../css/Common/LogOutConfirmationPanel.css';
-import { useSetRecoilState, useRecoilState } from 'recoil';
 import { LogOutPanelVisibilityState } from '../../atoms/LogOutPanelVisibility';
 import { UserTokenState } from '../../atoms/UserToken';
+
+import { useSetRecoilState, useRecoilState } from 'recoil';
 import {useNavigate} from 'react-router-dom';
 
 function LogOutConfirmationPanel() {

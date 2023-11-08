@@ -1,26 +1,30 @@
 import '../../css/Common/ManualAddTransactionPanel.css'
-import { useState } from 'react';
-import { useRecoilValue } from 'recoil';
-import { UserTokenState } from '../../atoms/UserToken'
-import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAddTransactionsPanelVisbility';
-import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
-import { useSetRecoilState, useRecoilState } from 'recoil';
-import useFetchBudgetId from '../../hooks/useFetchBudgetId';
+
 import CloseButton from './CloseButton';
 
-function getDate() {
-  const today = new Date();
-  let month = today.getMonth() + 1;
-  let longMonth = month + '';
-  if (month < 10)
-    longMonth = '' + 0 + month;
-  const year = today.getFullYear();
-  const date = today.getDate();
-  let longDate = date + '';
-  if (date < 10)
-    longDate = '' + 0 + date;
-  return `${longDate}.${longMonth}.${year}`;
-}
+import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAddTransactionsPanelVisbility';
+import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
+import { UserTokenState } from '../../atoms/UserToken'
+
+import useFetchBudgetId from '../../hooks/useFetchBudgetId';
+
+import { useSetRecoilState, useRecoilState } from 'recoil';
+import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
+
+// function getDate() {
+//   const today = new Date();
+//   let month = today.getMonth() + 1;
+//   let longMonth = month + '';
+//   if (month < 10)
+//     longMonth = '' + 0 + month;
+//   const year = today.getFullYear();
+//   const date = today.getDate();
+//   let longDate = date + '';
+//   if (date < 10)
+//     longDate = '' + 0 + date;
+//   return `${longDate}.${longMonth}.${year}`;
+// }
 
 
 interface ManualAddTransactionPanelInterface {
@@ -35,7 +39,7 @@ interface ManualAddTransactionPanelInterface {
 
 function ManualAddTransactionPanel() {
 
-  const [currentDate, setCurrentDate] = useState(getDate());
+  // const [currentDate, setCurrentDate] = useState(getDate());
   const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
 
   const budgetId = useFetchBudgetId();
@@ -54,8 +58,6 @@ function ManualAddTransactionPanel() {
 
 
   function handleSubmit() {
-    console.log(data);
-    console.log(budgetId);
     fetch(process.env.REACT_APP_API_URL + '/api/budgets/' + budgetId + '/transactions', {
       method: 'POST',
       headers: {
@@ -81,7 +83,6 @@ function ManualAddTransactionPanel() {
       })
       .then((data) => {
         setUpdater(!updater);
-        console.log(data);
       });
     setManualAddTransactionsPanelVisibility(false);
   };

@@ -78,7 +78,6 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
             }
           })
             .then(res => {
-                console.log(res);
               if (!res.ok) {
                 throw Error('could not fetch the data for that resource');
               }
@@ -107,8 +106,6 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
                   })
               })
                 .then(res => {
-                    console.log(userCategory)
-                    console.log(res);
                   if (!res.ok) {
                     throw Error('could not fetch the data for that resource');
                   }
@@ -124,7 +121,6 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
         if (checked)
         {
           const newTransactionsToDelete= transactionsToDelete.concat([transactionId]);
-          console.log(newTransactionsToDelete);
           setTransactionsToDelete(newTransactionsToDelete);
         }
         else
@@ -135,7 +131,6 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
           {
             const newTransactionsToDelete = [...transactionsToDelete]
             newTransactionsToDelete.splice(idx, 1);
-            console.log(newTransactionsToDelete);
             setTransactionsToDelete(newTransactionsToDelete);
           }
         }
@@ -176,7 +171,7 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
                 {transaction.description}
             </div>
             <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
-                <div className='number transaction-element' contentEditable={editable}  onInput={(e:any)=>{setAmount(e.currentTarget.textContent) ; console.log(e.currentTarget.textContent)}}>
+                <div className='number transaction-element' contentEditable={editable}  onInput={(e:any)=>{setAmount(e.currentTarget.textContent)}}>
                     {transaction.amount}
                 </div>
                 <div className='currency transaction-element'>

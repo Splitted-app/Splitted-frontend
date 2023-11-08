@@ -1,15 +1,20 @@
 import '../../css/HomePage/TransactionsOverview.css'
+
 import DateDisplay from './DateDisplay';
-import {useState} from 'react';
-import TransactionList from '../Common/TransactionList';
-import leftarrow from '../../assets/images/leftarrow.svg';
-import rightarrow from '../../assets/images/rightarrow.svg';
-import {changeDay, changeWeek, changeMonth} from '../../utils';
 import DateRangeSelector from './DateRangeSelector';
-import useFetchTransactions from '../../hooks/useFetchTransactions';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import TransactionList from '../Common/TransactionList';
+import {changeDay, changeWeek, changeMonth} from '../../utils';
 
 import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
+
+import useFetchTransactions from '../../hooks/useFetchTransactions';
+
+import leftarrow from '../../assets/images/leftarrow.svg';
+import rightarrow from '../../assets/images/rightarrow.svg';
+
+import {useState} from 'react';
+import {useSetRecoilState } from 'recoil';
+
 
 
 function TransactionsOverview() {
@@ -20,7 +25,6 @@ function TransactionsOverview() {
       endDate: new Date(),
       key: 'selection'
     }]);
-    // const [dateRange, setDateRange] = useRecoilState<any>(TransactionsDateRangeState);
     const transactions = useFetchTransactions(dateRange);
     const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
 

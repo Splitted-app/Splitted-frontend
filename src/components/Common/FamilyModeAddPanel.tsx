@@ -1,10 +1,10 @@
 import '../../css/Common/FamilyModeAddPanel.css';
-import FamilyModeIcon from '../../assets/images/family_mode_add.png';
-import {useState} from 'react';
-import SearchIcon from '../../assets/images/search.png'
 import CloseButton from './CloseButton';
-import { useSetRecoilState } from 'recoil';
 import { AddFamilyModePanelVisibilityState } from '../../atoms/AddFamilyModePanelVisibility';
+import FamilyModeIcon from '../../assets/images/family_mode_add.png';
+import SearchIcon from '../../assets/images/search.png'
+import {useState} from 'react';
+import { useSetRecoilState } from 'recoil';
 
 function FamilyModeAddPanel() {
     const [searchInput, setSearchInput] = useState("");
@@ -35,7 +35,6 @@ function FamilyModeAddPanel() {
                     </button>
                 </form>
             </div>
-            {/* <input type="text" placeholder="Search.." value={searchInput} /> */}
         </div>
         <div className='integrate-accounts-button'>
             <button className='button'>Integrate accounts</button>

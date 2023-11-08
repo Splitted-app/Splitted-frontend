@@ -1,5 +1,7 @@
 import '../../css/ModePages/FamilyModePage.css';
+
 import Navbar from "../Common/Navbar";
+
 import FamilyModeIcon from '../../assets/images/family_mode_add.png'
 
 

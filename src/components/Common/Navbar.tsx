@@ -1,5 +1,12 @@
 import '../../css/Common/Navbar.css'
 import NavbarItem from './NavbarItem';
+
+import { LogOutPanelVisibilityState } from '../../atoms/LogOutPanelVisibility';
+import { AddModesPanelVisibilityState } from '../../atoms/AddModesPanelVisibility';
+import { NavbarVisibilityState } from '../../atoms/NavbarVisibility';
+import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibility';
+import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
+
 import SplitIcon from '../../assets/images/split.png'
 import HomePageIcon from '../../assets/images/home_page.png'
 import TransactionsIcon from '../../assets/images/transactions.png'
@@ -13,11 +20,7 @@ import MenuIcon from '../../assets/images/main-menu.png'
 
 import { useSetRecoilState } from 'recoil';
 import { useRecoilValue } from 'recoil';
-import { LogOutPanelVisibilityState } from '../../atoms/LogOutPanelVisibility';
-import { AddModesPanelVisibilityState } from '../../atoms/AddModesPanelVisibility';
-import { NavbarVisibilityState } from '../../atoms/NavbarVisibility';
-import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibility';
-import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
+
 
 function Navbar() {
     const setLogOutPanelVisibility = useSetRecoilState(LogOutPanelVisibilityState);
@@ -51,7 +54,7 @@ function Navbar() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque dolores quod recusandae natus, quae minima distinctio in placeat. Ut nesciunt voluptate molestiae atque minus fugiat ipsa eveniet eum. Expedita.
             </div>
             {/* <button className='add-new-mode-button' onClick={()=>setAddModesPanelVisibility(true)}> */}
-              <div className='add-new-mode-button-container' onClick={()=>{setAddModesPanelVisibility(true); console.log("clicked")}}>
+              <div className='add-new-mode-button-container' onClick={()=>{setAddModesPanelVisibility(true)}}>
                 <div className='add-new-mode-icon'>
                   <img src={AddNewModeIcon}></img>
                 </div>

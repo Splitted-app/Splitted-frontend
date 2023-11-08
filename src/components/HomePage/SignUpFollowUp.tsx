@@ -1,11 +1,16 @@
 import '../../css/HomePage/SignUpFollowUp.css';
+
+import CurrencyDropdown from "./CurrencyDropdown";
+
+
+import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
+import { SignUpFollowUpUpdaterState } from '../../atoms/SignUpFollowUpUpdater';
+import { UserTokenState } from '../../atoms/UserToken'
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { UserTokenState } from '../../atoms/UserToken'
-import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
-import CurrencyDropdown from "./CurrencyDropdown";
-import { SignUpFollowUpUpdaterState } from '../../atoms/SignUpFollowUpUpdater';
+
 
 
 
@@ -34,7 +39,6 @@ function SignUpFollowUp() {
 
     function handleSubmit(event: any) {
         event.preventDefault();
-        console.log(data);
         fetch(process.env.REACT_APP_API_URL + '/api/budgets', {
             method: 'POST',
             headers: {
@@ -103,23 +107,6 @@ function SignUpFollowUp() {
                         <div className='input-container'>
                             <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, budgetBalance: e.target.value })} step="any"></input>
                         </div>
-                        {/* <label>
-                        Choose your avatar:
-                    </label>
-                    <div className='avatar-input-container input-container'>
-                        <div className='avatar-input-button'>
-                            <input  type="file" className='file-input' id='avatar-input' style={{display: 'none'}} 
-                            onChange={(e)=>{handleFileChange(e.target.value)}}></input>
-                            <label htmlFor='avatar-input'>
-                                <div>
-                                    Choose File
-                                </div>
-                            </label>
-                        </div>
-                        <span>
-                            {filePath}
-                        </span>
-                    </div> */}
                         <label>
                             Choose your currency:
                         </label>

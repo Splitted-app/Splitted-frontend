@@ -1,8 +1,10 @@
-import RegisterFormDataInterface from "./RegisterFormDataInterface";
 import '../../css/RegisterPages/RegisterForm.css';
-import { useState } from "react";
+
+import RegisterFormDataInterface from "./RegisterFormDataInterface";
+
 import FormError from "../Common/FormError";
 
+import { useState } from "react";
 interface RegisterFormInterface {
     data: RegisterFormDataInterface,
     setData: Function,

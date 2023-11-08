@@ -1,8 +1,11 @@
 import '../../css/HomePage/Reminders.css'
+
 import CurrentReminder from './CurrentReminder';
+
+import DownArrowIcon from '../../assets/images/notif_downarrow.svg'
 import NotificationIcon from '../../assets/images/notification-bell.png'
 import UpArrowIcon from '../../assets/images/notif_uparrow.svg'
-import DownArrowIcon from '../../assets/images/notif_downarrow.svg'
+
 
 
 function Reminders() {

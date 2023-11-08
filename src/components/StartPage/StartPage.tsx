@@ -1,6 +1,7 @@
 import FeaturePanel from "./FeaturePanel";
 import Footer from "./Footer";
 import WelcomePanel from "./WelcomePanel";
+
 import FamilyModeIcon from '../../assets/images/family_mode.png';
 import PartnerModeIcon from '../../assets/images/partner_mode.png';
 import PartyModeIcon from '../../assets/images/party_mode.png';

@@ -1,14 +1,18 @@
 import '../../css/SettingsPage/SettingsPage.css'
-import Navbar from '../Common/Navbar';
+
 import AccountPage from './AccountPage';
 import FriendsPage from './FriendsPage';
+import Navbar from '../Common/Navbar';
 import NotificationsPage from './NotificationsPage';
 import SettingsPageNavbar from './SettingsPageNavbar';
-import {useState, useEffect} from 'react';
+
 import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
-import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { NavbarVisibilityState } from '../../atoms/NavbarVisibility';
 import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibility';
+
+import {useState, useEffect} from 'react';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
+
 
 function SettingsPage() {
     const [accountPageVisibility, setAccountPageVisibility] = useState(true);
