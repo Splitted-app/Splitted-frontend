@@ -8,6 +8,10 @@ import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import UpdateTransactionIcon from '../../assets/images/update.png'
 import { UserTokenState } from '../../atoms/UserToken'
 import { TransactionsToDeleteState } from '../../atoms/TransactionsToDelete';
+import { TransactionTypes } from '../../enums';
+
+
+
 interface TransactionInterface
 {
     id:string,
@@ -158,8 +162,14 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
             </div>
             }
             {showTransactionType &&
-            <div className='transactionType transaction-element' contentEditable={editable}  onInput={(e:any)=>{setTransactionType(e.currentTarget.textContent)}}>
-                {transaction.transactionType}
+            <div className='transactionType transaction-element' /*contentEditable={editable}  onInput={(e:any)=>{setTransactionType(e.currentTarget.textContent)}}*/>
+                {!editable && transaction.transactionType}
+                {editable && <select onChange={(e)=>{setTransactionType(e.target.value)}}>
+                <option>TransactionTypes.Blik</option>
+                <option>TransactionTypes.Card</option>
+                <option>TransactionTypes.Transfer</option>
+                <option>TransactionTypes.Other</option>
+                </select>}
             </div>
             }
             <div className='description transaction-element' contentEditable={editable} onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}>
