@@ -23,7 +23,7 @@ function ImportCsvPanel() {
   const setNewTransactions = useSetRecoilState(NewTransactionsState);
   const setImportCsvPanelVisibility = useSetRecoilState(ImportCsvPanelVisibilityState);
   const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
-  const [bank, setBank] = useState("Pekao");
+  const [bank, setBank] = useState("Pko");
   const [file, setFile] = useState<File>();
   const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
   const formData = new FormData();
@@ -45,6 +45,7 @@ function ImportCsvPanel() {
       return;
     }
     formData.append('csvfile', file);
+    console.log(bank);
     fetch(process.env.REACT_APP_API_URL + '/api/budgets/' + budgetId + '/transactions/csv?bank=' + bank, {
       method: 'POST',
       headers: {
