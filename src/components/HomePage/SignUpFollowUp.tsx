@@ -7,9 +7,13 @@ import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibil
 import { SignUpFollowUpUpdaterState } from '../../atoms/SignUpFollowUpUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 
+import { BankNames } from '../../enums'
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+
+
 
 
 
@@ -28,7 +32,7 @@ function SignUpFollowUp() {
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
     const [data, setData] = useState<FormDataInterface>({
-        bank: "Pekao",
+        bank: BankNames.Pko,
         budgetType: "Personal",
         currency: "PLN",
         budgetBalance: 0,
@@ -93,12 +97,12 @@ function SignUpFollowUp() {
                         </label>
                         <div className='input-container'>
                             <select className='field-style' onChange={(e: any) => setData({ ...data, bank: e.target.value })}>
-                                <option value="Pko">PKO BP</option>
-                                <option value="Pekao">Pekao</option>
-                                <option value="Santander">Santander Bank</option>
-                                <option value="Ing">ING Bank</option>
-                                <option value="Mbank">mBank</option>
-                                <option value="Other">Other</option>
+                                <option value={BankNames.Pko}>PKO BP</option>
+                                <option value={BankNames.Pekao}>Pekao</option>
+                                <option value={BankNames.Santander}>Santander Bank</option>
+                                <option value={BankNames.Ing}>ING Bank</option>
+                                <option value={BankNames.Mbank}>mBank</option>
+                                <option value={BankNames.Other}>Other</option>
                             </select>
                         </div>
                         <label>
