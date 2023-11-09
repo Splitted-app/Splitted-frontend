@@ -150,13 +150,13 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
                 {(transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory}
             </div>
             {showTransactionType &&
-            <div className='transactionType transaction-element' /*contentEditable={editable}  onInput={(e:any)=>{setTransactionType(e.currentTarget.textContent)}}*/>
+            <div className='transactionType transaction-element'>
                 {!editable && transaction.transactionType}
-                {editable && <select onChange={(e)=>{setTransactionType(e.target.value)}}>
-                <option>TransactionTypes.Blik</option>
-                <option>TransactionTypes.Card</option>
-                <option>TransactionTypes.Transfer</option>
-                <option>TransactionTypes.Other</option>
+                {editable && <select value={transactionType} onChange={(e)=>{setTransactionType(e.target.value)}}>
+                <option value={TransactionTypes.Blik}>{TransactionTypes.Blik}</option>
+                <option value={TransactionTypes.Card}>{TransactionTypes.Card}</option>
+                <option value={TransactionTypes.Transfer}>{TransactionTypes.Transfer}</option>
+                <option value={TransactionTypes.Other}>{TransactionTypes.Other}</option>
                 </select>}
             </div>
             }
