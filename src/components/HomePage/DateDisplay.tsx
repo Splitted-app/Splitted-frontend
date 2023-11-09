@@ -23,8 +23,7 @@ function DateDisplay({timeScale, date}:DateDisplayInterface) {
           {
             return "Yesterday"
           }
-          // TODO Add leading zeroes
-          return `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
+          return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`
         case "weekly":
           let currentWeek = getStartOfWeek(currentDate);
           let dateWeek = getStartOfWeek(date);
@@ -36,7 +35,7 @@ function DateDisplay({timeScale, date}:DateDisplayInterface) {
           {
             return "Last Week"
           }
-          return `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
+          return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`
         case "monthly":
           let currentMonth = getStartOfMonth(currentDate);
           let dateMonth = getStartOfMonth(date);
@@ -48,9 +47,9 @@ function DateDisplay({timeScale, date}:DateDisplayInterface) {
           {
             return "Last Month"
           }
-          return `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
+          return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`
         default:
-          return `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
+          return `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`
       }
     }
 
