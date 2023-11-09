@@ -5,3 +5,12 @@ export const enum TransactionTypes {
     Other = "Other"
   };
 
+export const enum BankNames {
+  Pko = "Pko",
+  Pekao = "Pekao",
+  Mbank = "Mbank",
+  Santander = "Santander",
+  Ing = "Ing",
+  Other = "Other",
+}
+

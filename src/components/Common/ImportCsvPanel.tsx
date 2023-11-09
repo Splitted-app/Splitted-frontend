@@ -7,6 +7,8 @@ import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 
+import { BankNames } from '../../enums';
+
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
 import { ChangeEvent } from 'react';
@@ -86,12 +88,12 @@ function ImportCsvPanel() {
               Select your bank:
             </label>
             <select onChange={(e: any) => { setBank(e.target.value) }}>
-              <option value="Pko">PKO BP</option>
-              <option value="Pekao">Pekao</option>
-              <option value="Santander">Santander Bank</option>
-              <option value="Ing">ING Bank</option>
-              <option value="Mbank">mBank</option>
-              <option value="Other">Other</option>
+              <option value={BankNames.Pko}>PKO BP</option>
+              <option value={BankNames.Pekao}>Pekao</option>
+              <option value={BankNames.Santander}>Santander Bank</option>
+              <option value={BankNames.Ing}>ING Bank</option>
+              <option value={BankNames.Mbank}>mBank</option>
+              <option value={BankNames.Other}>Other</option>
             </select>
           </div>
           <div className='import-csv-container'>
