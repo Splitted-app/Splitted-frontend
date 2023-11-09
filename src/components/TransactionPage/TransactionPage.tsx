@@ -12,10 +12,12 @@ import {useState} from 'react';
 import { TransactionsToDeleteState } from '../../atoms/TransactionsToDelete';
 import { UserTokenState } from '../../atoms/UserToken'
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
+import Moment from 'moment';
+
 
 function TransactionPage() {
     const [dateRange, setDateRange] = useState<any>([{
-        startDate: new Date(),
+        startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
         endDate: new Date(),
         key: 'selection'
       }]);
@@ -27,7 +29,7 @@ function TransactionPage() {
     const transactions = useFetchTransactions(dateRange, category, amountRange);
 
     const [filterData, setFilterData] = useState<any>({
-        startDate: new Date(),
+        startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
         endDate: new Date(),
         category: null,
         minAmount: null,
@@ -153,13 +155,17 @@ function TransactionPage() {
                     Dates:
                     <div className='transaction-page-start-date-filter-menu'>
                         <label>From</label>
-                        <input type="date" value={filterData.startDate}
-                            onChange={(e)=>setFilterData({...filterData, startDate: e.target.value})}></input>
+                        <input type="date"
+                            value={Moment(filterData.startDate).format('yyyy-MM-DD')}
+                            onChange={(e)=>setFilterData({...filterData, startDate: e.target.value})}
+                        />
                     </div>
                     <div className='transaction-page-end-date-filter-menu'>
                         <label>To</label>
-                        <input type="date" value={filterData.endDate}
-                            onChange={(e)=>setFilterData({...filterData, endDate: e.target.value})}></input>
+                        <input type="date"
+                            value={Moment(filterData.endDate).format('yyyy-MM-DD')}
+                            onChange={(e)=>setFilterData({...filterData, endDate: e.target.value})}
+                        />
                     </div>          
                 </div>
                 <div className='transaction-page-category-filter-menu transaction-page-filter-menu-element' style={{gridTemplateColumns:'20% auto'}}>

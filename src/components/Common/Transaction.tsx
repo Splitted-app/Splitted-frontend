@@ -162,7 +162,7 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
             }
             {showDate &&
             <div className='date transaction-element'>
-              {Moment(transaction.date).format('YYYY-MM-DD')}
+              {Moment(transaction.date).format('DD.MM.yyyy')}
             </div>}
             {showUser &&
             <div className='user transaction-element'>
