@@ -82,7 +82,7 @@ function TransactionsOverview() {
               Transactions
             </div>
             <div className='transaction-list-container'>
-              <TransactionList transactions={transactions} shadow={true} showTransactionType={false} showDeleteIcon={true} showDeleteTransactionRadioButton={false}></TransactionList>
+              <TransactionList transactions={transactions} shadow={true} showTransactionType={false} showDate={false} showDeleteIcon={true} showDeleteTransactionRadioButton={false}></TransactionList>
             </div>
             <div className='add-transaction-button-container'>
               <button className='add-transaction-button' onClick={()=>{setAddTransactionsPanelVisibility(true)}}>+</button>
