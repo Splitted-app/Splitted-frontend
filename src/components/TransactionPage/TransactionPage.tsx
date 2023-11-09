@@ -92,6 +92,7 @@ function TransactionPage() {
             minAmount: filterData.minAmount,
             maxAmount: filterData.maxAmount,
         });
+        setFilterMenuVisibility(false);
     }
 
     function handleDeleteTransactions()
@@ -186,7 +187,7 @@ function TransactionPage() {
                 </div>
             </div>}
             <div className='transactions-list'>
-                <TransactionList transactions={transactions} shadow={false} showTransactionType={true} showDeleteIcon={false} showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}></TransactionList>
+                <TransactionList transactions={transactions} shadow={false} showTransactionType={true} showDate={true} showDeleteIcon={false} showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}></TransactionList>
             </div>
         </div>
       </div>

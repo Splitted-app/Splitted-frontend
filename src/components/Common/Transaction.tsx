@@ -9,6 +9,7 @@ import UpdateTransactionIcon from '../../assets/images/update.png'
 import { UserTokenState } from '../../atoms/UserToken'
 import { TransactionsToDeleteState } from '../../atoms/TransactionsToDelete';
 import { TransactionTypes } from '../../enums';
+import Moment from 'moment';
 
 
 
@@ -31,12 +32,13 @@ interface TransactionPropsInterface
     transaction: TransactionInterface,
     showUser: boolean,
     showTransactionType: boolean,
+    showDate:boolean
     showDeleteIcon:boolean,
     showDeleteTransactionRadioButton:boolean
 }
 
 
-function Transaction({transaction, showUser, showTransactionType, showDeleteIcon, showDeleteTransactionRadioButton}: TransactionPropsInterface) {
+function Transaction({transaction, showUser, showTransactionType, showDate, showDeleteIcon, showDeleteTransactionRadioButton}: TransactionPropsInterface) {
     const [amount, setAmount] = useState(transaction.amount);
     // const [category, setCategory] = useState((transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory);
     const [userCategory, setUserCategory] = useState(transaction.userCategory);
@@ -49,22 +51,18 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
     const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
 
-    const gridStyle = {
-        gridTemplateColumns: showDeleteTransactionRadioButton && showUser && showTransactionType
-        ? '5% 20% 15% 15% 20% auto':
-        showDeleteTransactionRadioButton && !showUser && showTransactionType
-        ? '5% 20% 15% 20% auto':
-        showDeleteTransactionRadioButton && showUser && !showTransactionType
-        ? '5% 20% 15% 20% auto':
-        !showDeleteTransactionRadioButton && showUser && showTransactionType
-        ? '20% 15% 15% 20% auto':
-        !showDeleteTransactionRadioButton && showUser && !showTransactionType
-        ? '20% 15% 20% auto': 
-        !showDeleteTransactionRadioButton && !showUser && showTransactionType
-        ? '20% 15% 20% auto':
-        '20% 20% auto '
+    let gridTemplateColumns = '';
+    gridTemplateColumns += showDeleteTransactionRadioButton ? '5% ' : '';
+    gridTemplateColumns += '20% ';
+    gridTemplateColumns += showTransactionType ? '10% ' : '';
+    gridTemplateColumns += showDate ? '15% ' : '';
+    gridTemplateColumns += showUser ? '15% ' : '';
+    gridTemplateColumns += 'auto ';
+    gridTemplateColumns += '10%';
 
-    }
+    const gridStyle = {
+      gridTemplateColumns: gridTemplateColumns
+    };
 
     function handleDeleteTransactionButton()
     {
@@ -151,11 +149,6 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
             <div className='category transaction-element' contentEditable={editable}  onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}>
                 {(transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory}
             </div>
-            {showUser &&
-            <div className='user transaction-element'>
-                User
-            </div>
-            }
             {showTransactionType &&
             <div className='transactionType transaction-element' /*contentEditable={editable}  onInput={(e:any)=>{setTransactionType(e.currentTarget.textContent)}}*/>
                 {!editable && transaction.transactionType}
@@ -167,6 +160,16 @@ function Transaction({transaction, showUser, showTransactionType, showDeleteIcon
                 </select>}
             </div>
             }
+            {showDate &&
+            <div className='date transaction-element'>
+              {Moment(transaction.date).format('YYYY-MM-DD')}
+            </div>}
+            {showUser &&
+            <div className='user transaction-element'>
+                User
+            </div>
+            }
+
             <div className='description transaction-element' contentEditable={editable} onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}>
                 {transaction.description}
             </div>

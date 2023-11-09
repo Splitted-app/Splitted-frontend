@@ -45,6 +45,13 @@
     font-size: 80%;
 }
 
+.transaction .transaction-content .date
+{
+    font-family: 'Gotham Light';
+    font-size: 80%;
+}
+
+
 .transaction .transaction-edit-button-container 
 {
     width: 5%;
