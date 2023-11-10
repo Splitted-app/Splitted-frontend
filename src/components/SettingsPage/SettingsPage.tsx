@@ -38,11 +38,13 @@ function SettingsPage() {
 
     return (
       <div className="settings-page">
+      <div className='settings-page-content' style={{filter:(deleteAccountPanelVisibility)?'brightness(50%)': 'brightness(100%'}}>
         {navbarVisibility && <Navbar/>}
         {settingsNavbarVisibility && <SettingsPageNavbar setAccountPageVisibility={setAccountPageVisibility} setNotificationsPageVisibility={setNotificationsPageVisibility} setFriendsPageVisibility={setFriendsPageVisibility}/>}
         {accountPageVisibility && <AccountPage/>}
         {notificationsPageVisibility && <NotificationsPage/>}
         {friendsPageVisibility && <FriendsPage/>}
+      </div>
         <div className='settings-page-popup' style={{'display': deleteAccountPanelVisibility ? 'flex' : 'none'}}>
           {deleteAccountPanelVisibility && <DeleteAccountConfirmationPanel/>}
         </div>
