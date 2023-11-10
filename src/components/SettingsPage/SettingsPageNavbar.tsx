@@ -3,6 +3,7 @@ import '../../css/SettingsPage/SettingsPageNavbar.css'
 import NavbarItem from '../../components/Common/NavbarItem'
 import SettingsPageNavbarItem from './SettingsPageNavbarItem';
 
+import { DeleteAccountPanelVisibilityState } from '../../atoms/DeleteAccountPanelVisibility';
 import { NavbarVisibilityState } from '../../atoms/NavbarVisibility';
 import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibility';
 
@@ -10,7 +11,7 @@ import DeleteAccountIcon from '../../assets/images/delete_account.png'
 import MenuIcon from '../../assets/images/main-menu.png'
 import SplitIcon from '../../assets/images/split.png'
 
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 
 interface SettingsPageNavbarInterface
 {
@@ -24,7 +25,9 @@ function SettingsPageNavbar({setAccountPageVisibility, setNotificationsPageVisib
   
   const setNavbarVisibility = useSetRecoilState(NavbarVisibilityState);
   const setSettingsNavbarVisibility = useSetRecoilState(SettingsNavbarVisibilityState);
-  
+  const setDeleteAccountPanelVisibility = useSetRecoilState(DeleteAccountPanelVisibilityState);
+
+
   return (
       <div className="settings-page-navbar">
         <div className='settings-page-navbar-header'>
@@ -49,7 +52,7 @@ function SettingsPageNavbar({setAccountPageVisibility, setNotificationsPageVisib
             </button>
           </div>
         </div>
-        <div className='settings-page-navbar-footer'>
+        <div className='settings-page-navbar-footer'  onClick={(e)=>{setDeleteAccountPanelVisibility(true);}}>
           <div className='delete-account-icon'>
             <img src={DeleteAccountIcon}></img>
           </div>
