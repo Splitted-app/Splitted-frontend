@@ -11,7 +11,7 @@ import { BankNames } from '../../enums';
 
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useEffect } from 'react';
 import { useState } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import useFetchBankName from '../../hooks/useFetchBankName';
@@ -26,10 +26,13 @@ function ImportCsvPanel() {
   const setNewTransactions = useSetRecoilState(NewTransactionsState);
   const setImportCsvPanelVisibility = useSetRecoilState(ImportCsvPanelVisibilityState);
   const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
-  const [bank, setBank] = useState<any>(useFetchBankName());
+  const bankName = useFetchBankName();
+  const [bank, setBank] = useState<string>(bankName);
   const [file, setFile] = useState<File>();
   const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
   const formData = new FormData();
+
+  useEffect(()=>{setBank(bankName)},[bankName]);
 
   function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
     let pathElements = e.target.value.split('\\')

@@ -124,10 +124,8 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
         e.preventDefault();
 
         setFirstTry(false);
-        console.log(data.password)
         if (!validateData(data))
             return;
-        console.log(data)
         fetch(process.env.REACT_APP_API_URL + '/api/users/register', {
             method: 'POST',
             headers: {

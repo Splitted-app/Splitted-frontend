@@ -36,7 +36,6 @@ export default function useFetchTransactions(
     
 
     useEffect(() => {
-        console.log(dateRange);
         fetch(process.env.REACT_APP_API_URL + `/api/budgets/${budgetId}/transactions/${query}`, {
             headers: {
                 'Accept': '*',

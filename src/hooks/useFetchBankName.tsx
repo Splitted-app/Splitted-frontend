@@ -3,10 +3,10 @@ import { useRecoilValue } from "recoil";
 import { UserTokenState } from "../atoms/UserToken";
 import { SignUpFollowUpUpdaterState } from "../atoms/SignUpFollowUpUpdater";
 
-export default function useFetchBankName() : string|null {
+export default function useFetchBankName() : string {
     const token = useRecoilValue(UserTokenState);
     const updater = useRecoilValue(SignUpFollowUpUpdaterState);
-    const [bankName, setBankName] = useState<string|null>(null);
+    const [bankName, setBankName] = useState<string>("Other");
 
     useEffect(() => {
         if (token === "")
@@ -27,7 +27,7 @@ export default function useFetchBankName() : string|null {
             })
             .then((data) => {
                 if (data.length === 0) {
-                    setBankName(null);
+                    setBankName("Other");
                 }
                 else {
                     setBankName(data[0].bank);
