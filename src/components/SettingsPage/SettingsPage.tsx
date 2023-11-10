@@ -5,13 +5,15 @@ import FriendsPage from './FriendsPage';
 import Navbar from '../Common/Navbar';
 import NotificationsPage from './NotificationsPage';
 import SettingsPageNavbar from './SettingsPageNavbar';
+import DeleteAccountConfirmationPanel from './DeleteAccountConfirmationPanel'
 
+import { DeleteAccountPanelVisibilityState } from '../../atoms/DeleteAccountPanelVisibility';
 import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
 import { NavbarVisibilityState } from '../../atoms/NavbarVisibility';
 import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibility';
 
 import {useState, useEffect} from 'react';
-import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { useSetRecoilState, useRecoilValue , useRecoilState} from 'recoil';
 
 
 function SettingsPage() {
@@ -23,12 +25,15 @@ function SettingsPage() {
     const setMenuIconVisibility = useSetRecoilState(MenuIconVisibilityState);
     const setSettingsNavbarVisibility = useSetRecoilState(SettingsNavbarVisibilityState);
     const setNavbarVisibility = useSetRecoilState(NavbarVisibilityState);
+    const [deleteAccountPanelVisibility, setDeleteAccountPanelVisibility] = useRecoilState(DeleteAccountPanelVisibilityState);
+
 
     useEffect(()=>
     {
       setMenuIconVisibility(true);
       setSettingsNavbarVisibility(true);
       setNavbarVisibility(false);
+      setDeleteAccountPanelVisibility(false);
     },[]);
 
     return (
@@ -38,6 +43,9 @@ function SettingsPage() {
         {accountPageVisibility && <AccountPage/>}
         {notificationsPageVisibility && <NotificationsPage/>}
         {friendsPageVisibility && <FriendsPage/>}
+        <div className='settings-page-popup' style={{'display': deleteAccountPanelVisibility ? 'flex' : 'none'}}>
+          {deleteAccountPanelVisibility && <DeleteAccountConfirmationPanel/>}
+        </div>
       </div>
     );
   }
