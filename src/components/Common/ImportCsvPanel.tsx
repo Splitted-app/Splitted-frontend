@@ -14,6 +14,7 @@ import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 import { ChangeEvent } from 'react';
 import { useState } from 'react';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import useFetchBankName from '../../hooks/useFetchBankName';
 
 
 
@@ -25,7 +26,7 @@ function ImportCsvPanel() {
   const setNewTransactions = useSetRecoilState(NewTransactionsState);
   const setImportCsvPanelVisibility = useSetRecoilState(ImportCsvPanelVisibilityState);
   const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
-  const [bank, setBank] = useState("Pko");
+  const [bank, setBank] = useState<any>(useFetchBankName());
   const [file, setFile] = useState<File>();
   const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
   const formData = new FormData();
@@ -87,7 +88,7 @@ function ImportCsvPanel() {
             <label>
               Select your bank:
             </label>
-            <select onChange={(e: any) => { setBank(e.target.value) }}>
+            <select value={bank} onChange={(e: any) => { setBank(e.target.value) }}>
               <option value={BankNames.Pko}>PKO BP</option>
               <option value={BankNames.Pekao}>Pekao</option>
               <option value={BankNames.Santander}>Santander Bank</option>
