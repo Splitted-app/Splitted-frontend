@@ -116,13 +116,13 @@
 }
 
 
-
 .import-csv-panel .next-button-container
 {
     flex: 1 1 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 15px;
 }
 
 .import-csv-panel .next-button-container .next-button
@@ -136,4 +136,12 @@
     font-family: 'Gotham Medium';
     border: 1px solid #010446;
     box-shadow: 8px 8px 5px #010446;
+}
+
+.import-csv-panel .invalid-bank-message
+{
+    font-family: 'Gotham Medium';
+    font-size: 10pt;
+    color: darkgray;
+    text-align: center;
 }

@@ -2,7 +2,7 @@ import '../../css/RegisterPages/RegisterForm.css';
 
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
 
-import FormError from "../Common/FormError";
+import {FormInfo} from '../Common/FormInfo';
 
 
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
@@ -124,10 +124,8 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
         e.preventDefault();
 
         setFirstTry(false);
-        console.log(data.password)
         if (!validateData(data))
             return;
-        console.log(data)
         fetch(process.env.REACT_APP_API_URL + '/api/users/register', {
             method: 'POST',
             headers: {
@@ -140,22 +138,22 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
                 username: data.nickname
             })
         })
-            .then(res => {
-                if (!res.ok) {
-                    if (res.status === 409) {
-                        setErrors({ ...errors, invalidRequestStatus: 409 });
-                    }
-                    throw Error('could not fetch the data for that resource');
+        .then(res => {
+            if (!res.ok) {
+                if (res.status === 409) {
+                    setErrors({ ...errors, invalidRequestStatus: 409 });
                 }
-                if (res.ok) {
-                    loginAfterSignUp();
-                    navigate('/home');
-                }
-                return res.json();
-            })
-            .catch((err) => {
+                throw Error('could not fetch the data for that resource');
+            }
+            if (res.ok) {
+                loginAfterSignUp();
+                navigate('/home');
+            }
+            return res.json();
+        })
+        .catch((err) => {
 
-            });
+        });
     }
 
     return (
@@ -171,19 +169,24 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
                             !firstTry && validateData({ ...data, password: e.target.value });
                         }} />
                     <div className="form-error-container" style={{ display: `${errors.pwdNoLowerCase ? "block" : "none"}` }}>
-                        {errors.pwdNoLowerCase && <FormError message="Use a lowercase letter" details=""></FormError>}
+                        {errors.pwdNoLowerCase && 
+                            <FormInfo message="Use a lowercase letter" details="" textColor="white"/>}
                     </div>
                     <div className="form-error-container" style={{ display: `${errors.pwdNoUpperCase ? "block" : "none"}` }}>
-                        {errors.pwdNoUpperCase && <FormError message="Use an uppercase letter" details=""></FormError>}
+                        {errors.pwdNoUpperCase && 
+                            <FormInfo message="Use an uppercase letter" details="" textColor="white"/>}
                     </div>
                     <div className="form-error-container" style={{ display: `${errors.pwdNoDigit ? "block" : "none"}` }}>
-                        {errors.pwdNoDigit && <FormError message="Use a digit" details=""></FormError>}
+                        {errors.pwdNoDigit && 
+                            <FormInfo message="Use a digit" details="" textColor="white"/>}
                     </div>
                     <div className="form-error-container" style={{ display: `${errors.pwdNoSpecialCharacter ? "block" : "none"}` }}>
-                        {errors.pwdNoSpecialCharacter && <FormError message="Use a special character" details=""></FormError>}
+                        {errors.pwdNoSpecialCharacter && 
+                            <FormInfo message="Use a special character" details="" textColor="white"/>}
                     </div>
                     <div className="form-error-container" style={{ display: `${errors.pwdTooShort ? "block" : "none"}` }}>
-                        {errors.pwdTooShort && <FormError message="Use at least 8 symbols" details=""></FormError>}
+                        {errors.pwdTooShort && 
+                            <FormInfo message="Use at least 8 symbols" details="" textColor="white"/>}
                     </div>
                     <input className={`form-element ${errors.nicknameTooShort ? "error-input" : ""}`}
                         type="text" name="nickname" placeholder='nickname'
@@ -193,10 +196,12 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
                             !firstTry && validateData({ ...data, nickname: e.target.value });
                         }} />
                     <div className="form-error-container" style={{ display: `${errors.nicknameTooShort ? "block" : "none"}` }}>
-                        {errors.nicknameTooShort && <FormError message="Use at least 3 symbols" details=""></FormError>}
+                        {errors.nicknameTooShort && 
+                            <FormInfo message="Use at least 3 symbols" details="" textColor="white"/>}
                     </div>
                     <div className="form-error-container" style={{ display: `${errors.invalidRequestStatus === 409 ? "block" : "none"}` }}>
-                        {errors.invalidRequestStatus && <FormError message="Username already taken" details=""></FormError>}
+                        {errors.invalidRequestStatus && 
+                            <FormInfo message="Username already taken" details="" textColor="white"/>}
                     </div>
                 </div>
                 <div className="form-button-container">
