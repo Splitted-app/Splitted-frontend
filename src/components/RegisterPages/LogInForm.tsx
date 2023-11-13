@@ -2,7 +2,7 @@ import '../../css/RegisterPages/RegisterForm.css';
 
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
 
-import FormError from "../Common/FormError";
+import { FormInfo } from '../Common/FormInfo';
 
 import { UserTokenState } from '../../atoms/UserToken';
 
@@ -76,7 +76,11 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
                         value={data.password}
                         onChange={(e) => setData({ ...data, password: e.target.value })} />
                     <div className="form-element">
-                        {errors.invalidPassword && <FormError message="Invalid Email or Password" details="AAVS"></FormError>}
+                        {errors.invalidPassword && 
+                            <FormInfo 
+                                message="Invalid Email or Password" 
+                                details="" 
+                                textColor="white"/>}
                     </div>
                 </div>
                 <div className="form-button-container">

@@ -2,7 +2,7 @@ import '../../css/RegisterPages/RegisterForm.css';
 
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
 
-import FormError from "../Common/FormError";
+import { FormInfo } from '../Common/FormInfo';
 
 import { useState } from "react";
 interface RegisterFormInterface {
@@ -79,10 +79,11 @@ function EmailForm({ data, setData, setState }: RegisterFormInterface) {
                             !firstTry && validateData({ ...data, email: e.target.value });
                         }} />
                     <div className="form-element">
-                        {errors.invalidEmail && <FormError message="Invalid Email" details=""></FormError>}
+                        {errors.invalidEmail && 
+                            <FormInfo message="Invalid Email" details="" textColor="white"/>}
                     </div>
                     <div className="form-element">
-                        {errors.invalidRequest && <FormError message="Unknown error" details=""></FormError>}
+                        {errors.invalidRequest && <FormInfo message="Unknown error" details="" textColor="white"/>}
                     </div>
                 </div>
                 <div className="form-button-container">
