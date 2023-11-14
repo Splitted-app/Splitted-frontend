@@ -1,7 +1,11 @@
 import './App.css';
 
+import { useEffect } from 'react';
+
+import axios from 'axios';
+import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import { Route,Routes } from "react-router-dom"
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 import AddModePanel from './components/Common/AddModePanel';
 import AddTransactionsPanel from './components/Common/AddTransactionsPanel';
@@ -27,6 +31,7 @@ import { ImportCsvCheckPanelVisibilityState } from './atoms/ImportCsvCheckPanelV
 import { ImportCsvPanelVisibilityState } from './atoms/ImportCsvPanelVisbility';
 import { LogOutPanelVisibilityState } from './atoms/LogOutPanelVisibility';
 import { ManualAddTransactionsPanelVisibilityState } from './atoms/ManualAddTransactionsPanelVisbility';
+import { UserTokenState } from './atoms/UserToken';
 
 
 function App() {
@@ -40,6 +45,27 @@ function App() {
   const importCsvCheckPanelVisibility = useRecoilValue(ImportCsvCheckPanelVisibilityState);
   const manualAddTransactionsPanelVisibility = useRecoilValue(ManualAddTransactionsPanelVisibilityState);
   const popupVisible = logOutPanelVisibility || addModesPanelVisibility || addFamilyModePanelVisibility || addPartnerModePanelVisibility || addPartyModePanelVisibility || addTransactionsPanelVisibility || importCsvPanelVisibility ||importCsvCheckPanelVisibility || manualAddTransactionsPanelVisibility ;
+  const [token, setToken] = useRecoilState(UserTokenState);
+
+
+  useEffect(()=>{
+    // axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`)
+    //     .then((tokenRefreshResponse) => {
+    //       console.log("hello" + tokenRefreshResponse);
+    //       // setToken(tokenRefreshResponse.data.token);
+    //       // failedRequest.response.config.headers['Authorization'] = 'Bearer ' + tokenRefreshResponse.data.token;
+    //       // return Promise.resolve();
+    //   });
+    // const refreshAuthLogic = (failedRequest: any) =>
+    //     axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`)
+    //     .then((tokenRefreshResponse) => {
+    //       setToken(tokenRefreshResponse.data.token);
+    //       failedRequest.response.config.headers['Authorization'] = 'Bearer ' + tokenRefreshResponse.data.token;
+    //       return Promise.resolve();
+    //     });
+
+    // createAuthRefreshInterceptor(axios, refreshAuthLogic);
+  },[])
 
   return (
     <div className="app">

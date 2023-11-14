@@ -18,6 +18,7 @@ import { UserTokenState } from '../../atoms/UserToken'
 import useFetchTransactions from '../../hooks/useFetchTransactions';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+import axios from 'axios';
 
 
 function TransactionPage() {
@@ -40,6 +41,16 @@ function TransactionPage() {
         minAmount: null,
         maxAmount: null,
     })
+
+    useEffect(()=>{
+        axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`)
+        .then((tokenRefreshResponse) => {
+          console.log("hello" + tokenRefreshResponse);
+        })
+        .catch((error)=>{
+            console.error(error.response?.data);
+        })
+    },[])
       
     
     const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);

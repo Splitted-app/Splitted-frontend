@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import axios from 'axios';
 import Moment from 'moment';
 import { useRecoilValue } from "recoil";
 
@@ -40,24 +41,36 @@ export default function useFetchTransactions(
     
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_API_URL + `/api/budgets/${budgetId}/transactions/${query}`, {
+        axios.get(process.env.REACT_APP_API_URL + `/api/budgets/${budgetId}/transactions/${query}`, {
             headers: {
                 'Accept': '*',
                 'Authorization': `Bearer ${token}`
-            },
+            },   
         })
-            .then(res => {
-                if (!res.ok) {
-                    throw Error('could not fetch the data for that resource');
-                }
-                return res.json();
-            })
-            .then(data => {
-                setData(data);
-            })
-            .catch(error => {
-                console.log("error");
-            })
+        .then(res => {
+            setData(res.data);
+        })
+        .catch(error => {
+            console.log("Fetch transactions error: " + error);
+        })
+        // fetch(process.env.REACT_APP_API_URL + `/api/budgets/${budgetId}/transactions/${query}`, {
+        //     headers: {
+        //         'Accept': '*',
+        //         'Authorization': `Bearer ${token}`
+        //     },
+        // })
+        // .then(res => {
+        //     if (!res.ok) {
+        //         throw Error('could not fetch the data for that resource');
+        //     }
+        //     return res.json();
+        // })
+        // .then(data => {
+        //     setData(data);
+        // })
+        // .catch(error => {
+        //     console.log("error");
+        // })
     }, [budgetId, updater, dateRange])
 
 
