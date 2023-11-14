@@ -1,9 +1,12 @@
 import '../../css/Common/AddTransactionsPanel.css';
+
+import { useSetRecoilState } from 'recoil';
+
 import CloseButton from './CloseButton';
+
 import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
 import { ImportCsvPanelVisibilityState } from '../../atoms/ImportCsvPanelVisbility';
 import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAddTransactionsPanelVisbility';
-import { useSetRecoilState } from 'recoil';
 
 
 function AddTransactionsPanel() {

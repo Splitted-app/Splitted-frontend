@@ -1,18 +1,23 @@
 import '../../css/TransactionPage/TransactionPage.css'
+
+import { useEffect, useState } from 'react';
+
+import Moment from 'moment';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+
 import Navbar from "../Common/Navbar"
 import TransactionList from '../Common/TransactionList';
-import useFetchTransactions from '../../hooks/useFetchTransactions';
-import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
-import { useSetRecoilState , useRecoilValue, useRecoilState} from 'recoil';
 import TransactionsInsightsPanel from './TransactionsInsightsPanel';
-import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+
+import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
 import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
-import {useEffect} from 'react';
-import {useState} from 'react';
 import { TransactionsToDeleteState } from '../../atoms/TransactionsToDelete';
-import { UserTokenState } from '../../atoms/UserToken'
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
-import Moment from 'moment';
+import { UserTokenState } from '../../atoms/UserToken'
+
+import useFetchTransactions from '../../hooks/useFetchTransactions';
+
+import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
 
 
 function TransactionPage() {

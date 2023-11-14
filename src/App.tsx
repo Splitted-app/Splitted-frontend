@@ -1,31 +1,32 @@
 import './App.css';
-import {Route,Routes} from "react-router-dom"
-import StartPage from './components/StartPage/StartPage';
-import RegisterPage from './components/RegisterPages/RegisterPage';
-import HomePage from './components/HomePage/HomePage';
-import AddModePanel from './components/Common/AddModePanel';
 
+import { Route,Routes } from "react-router-dom"
 import { useRecoilValue } from 'recoil';
-import { LogOutPanelVisibilityState } from './atoms/LogOutPanelVisibility';
-import { AddModesPanelVisibilityState } from './atoms/AddModesPanelVisibility';
+
+import AddModePanel from './components/Common/AddModePanel';
+import AddTransactionsPanel from './components/Common/AddTransactionsPanel';
+import FamilyModeAddPanel from './components/Common/FamilyModeAddPanel';
+import HomePage from './components/HomePage/HomePage';
+import ImportCsvCheck from './components/Common/ImportCsvCheck';
+import ImportCsvPanel from './components/Common/ImportCsvPanel';
+import LogOutConfirmationPanel from './components/Common/LogOutConfirmationPanel';
+import ManualAddTransactionPanel from './components/Common/ManualAddTransactionPanel';
+import PartnerModeAddPanel from './components/Common/PartnerModeAddPanel';
+import PartyModeAddPanel from './components/Common/PartyModeAddPanel';
+import RegisterPage from './components/RegisterPages/RegisterPage';
+import SettingsPage from './components/SettingsPage/SettingsPage';
+import StartPage from './components/StartPage/StartPage';
+import TransactionPage from './components/TransactionPage/TransactionPage';
+
 import { AddFamilyModePanelVisibilityState } from './atoms/AddFamilyModePanelVisibility';
+import { AddModesPanelVisibilityState } from './atoms/AddModesPanelVisibility';
 import { AddPartnerModePanelVisibilityState } from './atoms/AddPartnerModePanelVisibility';
 import { AddPartyModePanelVisibilityState } from './atoms/AddPartyModePanelVisibility';
 import { AddTransactionsPanelVisibilityState } from './atoms/AddTransactionsPanelVisbility';
-import { ImportCsvPanelVisibilityState } from './atoms/ImportCsvPanelVisbility';
 import { ImportCsvCheckPanelVisibilityState } from './atoms/ImportCsvCheckPanelVisibility';
+import { ImportCsvPanelVisibilityState } from './atoms/ImportCsvPanelVisbility';
+import { LogOutPanelVisibilityState } from './atoms/LogOutPanelVisibility';
 import { ManualAddTransactionsPanelVisibilityState } from './atoms/ManualAddTransactionsPanelVisbility';
-import LogOutConfirmationPanel from './components/Common/LogOutConfirmationPanel';
-import FamilyModeAddPanel from './components/Common/FamilyModeAddPanel';
-import PartnerModeAddPanel from './components/Common/PartnerModeAddPanel';
-import PartyModeAddPanel from './components/Common/PartyModeAddPanel';
-import TransactionPage from './components/TransactionPage/TransactionPage';
-import AddTransactionsPanel from './components/Common/AddTransactionsPanel';
-import ImportCsvPanel from './components/Common/ImportCsvPanel';
-import ImportCsvCheck from './components/Common/ImportCsvCheck';
-import ManualAddTransactionPanel from './components/Common/ManualAddTransactionPanel';
-import SettingsPage from './components/SettingsPage/SettingsPage';
-
 
 
 function App() {

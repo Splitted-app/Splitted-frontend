@@ -1,7 +1,7 @@
 import '../../css/SettingsPage/AccountPage.css'
-import UserAccountPanel from './UserAccountPanel';
-import UserAccountMainPanel from './UserAccoutMainPanel';
 
+import UserAccountMainPanel from './UserAccoutMainPanel';
+import UserAccountPanel from './UserAccountPanel';
 
 function AccountPage() {
     return (

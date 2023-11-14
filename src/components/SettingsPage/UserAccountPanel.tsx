@@ -1,4 +1,5 @@
 import '../../css/SettingsPage/UserAccountPanel.css'
+
 import UserAccountIcon from '../../assets/images/user_account.png'
 
 function UserAccountPanel() {

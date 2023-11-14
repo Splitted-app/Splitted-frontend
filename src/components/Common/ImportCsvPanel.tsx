@@ -1,5 +1,11 @@
 import '../../css/Common/ImportCsvPanel.css'
+
+import { ChangeEvent, useEffect, useState } from 'react';
+
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+
 import CloseButton from './CloseButton';
+import FormInfo  from './FormInfo';
 
 import { ImportCsvPanelVisibilityState } from '../../atoms/ImportCsvPanelVisbility';
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
@@ -7,16 +13,10 @@ import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 
-import { BankNames } from '../../enums';
-
+import useFetchBankName from '../../hooks/useFetchBankName';
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
-import { ChangeEvent, useEffect } from 'react';
-import { useState } from 'react';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import useFetchBankName from '../../hooks/useFetchBankName';
-import { FormInfo } from './FormInfo';
-
+import { BankNames } from '../../enums';
 
 
 function ImportCsvPanel() {

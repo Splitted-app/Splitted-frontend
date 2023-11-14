@@ -1,17 +1,16 @@
 import '../../css/RegisterPages/RegisterForm.css';
 
+import { useState } from 'react';
+
+import { useNavigate } from 'react-router-dom'
+import { useSetRecoilState } from 'recoil';
+
+import FormInfo from '../Common/FormInfo';
+
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
-
-import {FormInfo} from '../Common/FormInfo';
-
 
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 import { UserTokenState } from '../../atoms/UserToken'
-
-
-import { useState } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { useNavigate } from 'react-router-dom'
 
 
 interface RegisterFormInterface {

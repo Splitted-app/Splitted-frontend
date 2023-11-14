@@ -1,5 +1,7 @@
 import '../../css/SettingsPage/SettingsPageNavbar.css'
 
+import { useSetRecoilState } from 'recoil';
+
 import NavbarItem from '../../components/Common/NavbarItem'
 import SettingsPageNavbarItem from './SettingsPageNavbarItem';
 
@@ -11,7 +13,6 @@ import DeleteAccountIcon from '../../assets/images/delete_account.png'
 import MenuIcon from '../../assets/images/main-menu.png'
 import SplitIcon from '../../assets/images/split.png'
 
-import { useSetRecoilState, useRecoilValue } from 'recoil';
 
 interface SettingsPageNavbarInterface
 {

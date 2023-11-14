@@ -1,19 +1,23 @@
 import '../../css/SettingsPage/SettingsPage.css'
 
+import { useState, useEffect } from 'react';
+
+import { useSetRecoilState, useRecoilValue , useRecoilState } from 'recoil';
+
 import AccountPage from './AccountPage';
+import DeleteAccountConfirmationPanel from './DeleteAccountConfirmationPanel'
 import FriendsPage from './FriendsPage';
 import Navbar from '../Common/Navbar';
 import NotificationsPage from './NotificationsPage';
 import SettingsPageNavbar from './SettingsPageNavbar';
-import DeleteAccountConfirmationPanel from './DeleteAccountConfirmationPanel'
+
 
 import { DeleteAccountPanelVisibilityState } from '../../atoms/DeleteAccountPanelVisibility';
 import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
 import { NavbarVisibilityState } from '../../atoms/NavbarVisibility';
 import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibility';
 
-import {useState, useEffect} from 'react';
-import { useSetRecoilState, useRecoilValue , useRecoilState} from 'recoil';
+
 
 
 function SettingsPage() {

@@ -1,4 +1,5 @@
 import '../../css/SettingsPage/NotificationsPage.css'
+
 import ToggleButton from './ToggleButton';
 
 

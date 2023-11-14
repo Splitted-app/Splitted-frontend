@@ -1,21 +1,17 @@
 import '../../css/HomePage/SignUpFollowUp.css';
 
-import CurrencyDropdown from "./CurrencyDropdown";
+import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+
+import CurrencyDropdown from "./CurrencyDropdown";
 
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 import { SignUpFollowUpUpdaterState } from '../../atoms/SignUpFollowUpUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 
 import { BankNames } from '../../enums'
-
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-
-
-
-
 
 
 interface FormDataInterface {

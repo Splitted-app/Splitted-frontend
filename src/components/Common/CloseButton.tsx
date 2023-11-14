@@ -1,4 +1,5 @@
 import '../../css/Common/CloseButton.css'
+
 import CloseButtonIcon from '../../assets/images/close_button.svg'
 
 interface CloseButtonInterface

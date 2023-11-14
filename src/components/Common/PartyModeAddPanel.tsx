@@ -1,4 +1,9 @@
 import '../../css/Common/PartyModeAddPanel.css';
+
+import { useState } from 'react';
+
+import { useSetRecoilState } from 'recoil';
+
 import CloseButton from './CloseButton';
 
 import { AddPartyModePanelVisibilityState } from '../../atoms/AddPartyModePanelVisibility';
@@ -6,8 +11,7 @@ import { AddPartyModePanelVisibilityState } from '../../atoms/AddPartyModePanelV
 import PartyModeIcon from '../../assets/images/party_mode_add.png'
 import SearchIcon from '../../assets/images/search.png'
 
-import {useState} from 'react';
-import { useSetRecoilState } from 'recoil';
+
 
 function PartyModeAddPanel() {
   const [searchInput, setSearchInput] = useState("");

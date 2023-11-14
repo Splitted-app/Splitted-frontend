@@ -1,5 +1,9 @@
 import '../../css/HomePage/HomePage.css'
 
+import { useEffect} from 'react';
+
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+
 import HomePageContent from './HomePageContent';
 import Navbar from "../Common/Navbar"
 import SignUpFollowUp from "./SignUpFollowUp";
@@ -7,8 +11,6 @@ import SignUpFollowUp from "./SignUpFollowUp";
 import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { useEffect} from 'react';
 
 
 function HomePage() {

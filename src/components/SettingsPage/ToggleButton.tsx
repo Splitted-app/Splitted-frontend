@@ -1,7 +1,8 @@
 import '../../css/SettingsPage/ToggleButton.css'
-import Switch from '@mui/material/Switch';
-import FormGroup from '@mui/material/FormGroup';
+
 import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import Switch from '@mui/material/Switch';
 
 interface ToggleButtonInterface
 {
