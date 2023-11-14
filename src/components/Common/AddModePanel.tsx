@@ -1,14 +1,21 @@
 import '../../css/Common/AddModePanel.css';
+
+import { useSetRecoilState } from 'recoil';
+
 import AddModeButton from './AddModeButton';
 import CloseButton from './CloseButton';
+
+import { AddFamilyModePanelVisibilityState } from '../../atoms/AddFamilyModePanelVisibility';
+import { AddModesPanelVisibilityState } from '../../atoms/AddModesPanelVisibility';
+import { AddPartnerModePanelVisibilityState } from '../../atoms/AddPartnerModePanelVisibility';
+import { AddPartyModePanelVisibilityState } from '../../atoms/AddPartyModePanelVisibility';
+
 import FamilyModeIcon from '../../assets/images/family_mode.png'
 import PartnerModeIcon from '../../assets/images/partner_mode.png'
 import PartyModeIcon from '../../assets/images/party_mode.png'
-import { AddFamilyModePanelVisibilityState } from '../../atoms/AddFamilyModePanelVisibility';
-import { AddPartnerModePanelVisibilityState } from '../../atoms/AddPartnerModePanelVisibility';
-import { AddPartyModePanelVisibilityState } from '../../atoms/AddPartyModePanelVisibility';
-import { AddModesPanelVisibilityState } from '../../atoms/AddModesPanelVisibility';
-import { useSetRecoilState } from 'recoil';
+
+
+
 
 
 

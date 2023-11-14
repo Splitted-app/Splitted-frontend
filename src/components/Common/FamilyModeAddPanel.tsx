@@ -1,10 +1,16 @@
 import '../../css/Common/FamilyModeAddPanel.css';
+
+import { useState } from 'react';
+
+import { useSetRecoilState } from 'recoil';
+
 import CloseButton from './CloseButton';
+
 import { AddFamilyModePanelVisibilityState } from '../../atoms/AddFamilyModePanelVisibility';
+
 import FamilyModeIcon from '../../assets/images/family_mode_add.png';
 import SearchIcon from '../../assets/images/search.png'
-import {useState} from 'react';
-import { useSetRecoilState } from 'recoil';
+
 
 function FamilyModeAddPanel() {
     const [searchInput, setSearchInput] = useState("");

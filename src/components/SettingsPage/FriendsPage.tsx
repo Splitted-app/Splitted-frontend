@@ -1,6 +1,9 @@
 import '../../css/SettingsPage/FriendsPage.css'
-import FriendsIcon from '../../assets/images/friends_settings.png'
+
 import FriendsPanel from './FriendsPanel';
+
+import FriendsIcon from '../../assets/images/friends_settings.png'
+
 
 
 function FriendsPage() {

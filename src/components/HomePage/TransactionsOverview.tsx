@@ -1,19 +1,21 @@
 import '../../css/HomePage/TransactionsOverview.css'
 
+import { useState } from 'react';
+
+import { useSetRecoilState } from 'recoil';
+
 import DateDisplay from './DateDisplay';
 import DateRangeSelector from './DateRangeSelector';
 import TransactionList from '../Common/TransactionList';
-import {changeDay, changeWeek, changeMonth} from '../../utils';
 
 import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
 
 import useFetchTransactions from '../../hooks/useFetchTransactions';
 
+import { changeDay, changeMonth, changeWeek } from '../../utils';
+
 import leftarrow from '../../assets/images/leftarrow.svg';
 import rightarrow from '../../assets/images/rightarrow.svg';
-
-import {useState} from 'react';
-import {useSetRecoilState } from 'recoil';
 
 
 

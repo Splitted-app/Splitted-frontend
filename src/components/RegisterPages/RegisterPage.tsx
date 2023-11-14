@@ -1,11 +1,12 @@
 import '../../css/RegisterPages/RegisterPage.css'
 
+import { useState } from 'react';
+
 import EmailForm from './EmailForm'
 import LogInForm from './LogInForm';
-import RegisterFormDataInterface from './RegisterFormDataInterface';
 import SignUpForm from './SignUpForm';
 
-import { useState } from 'react';
+import RegisterFormDataInterface from './RegisterFormDataInterface';
 
 function RegisterPage() {
 

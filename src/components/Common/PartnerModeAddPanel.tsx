@@ -1,4 +1,9 @@
 import '../../css/Common/PartnerModeAddPanel.css';
+
+import { useState } from 'react';
+
+import { useSetRecoilState } from 'recoil';
+
 import CloseButton from './CloseButton';
 
 import { AddPartnerModePanelVisibilityState } from '../../atoms/AddPartnerModePanelVisibility';
@@ -6,8 +11,7 @@ import { AddPartnerModePanelVisibilityState } from '../../atoms/AddPartnerModePa
 import PartnerModeIcon from '../../assets/images/partner_mode_add.png'
 import SearchIcon from '../../assets/images/search.png'
 
-import {useState} from 'react';
-import { useSetRecoilState } from 'recoil';
+
 
 
 function PartnerModeAddPanel() {

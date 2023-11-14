@@ -1,6 +1,8 @@
 import '../../css/Common/FormError.css';
-import errorIcon from '../../assets/images/error.png';
+
 import { useState } from 'react';
+
+import errorIcon from '../../assets/images/error.png';
 
 interface FormInfoInterface
 {
@@ -9,7 +11,7 @@ interface FormInfoInterface
     textColor: string,
 }
 
-export function FormInfo({message, details, textColor} : FormInfoInterface)
+function FormInfo({message, details, textColor} : FormInfoInterface)
 {
     const [detailsDisplay, setDetailsDisplay] = useState("none")
 
@@ -22,3 +24,5 @@ export function FormInfo({message, details, textColor} : FormInfoInterface)
         </div>
     )
 }
+
+export default FormInfo;

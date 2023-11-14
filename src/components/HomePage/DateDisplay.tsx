@@ -1,5 +1,6 @@
 import '../../css/HomePage/DateDisplay.css'
-import {changeDay, changeWeek, changeMonth, getStartOfWeek, getStartOfMonth, getEndOfMonth} from '../../utils';
+
+import { changeDay, getEndOfMonth, getStartOfMonth, getStartOfWeek } from '../../utils';
 interface DateDisplayInterface
 {
   timeScale: string;

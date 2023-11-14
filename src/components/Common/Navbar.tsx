@@ -1,25 +1,30 @@
 import '../../css/Common/Navbar.css'
+
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+
 import NavbarItem from './NavbarItem';
 
-import { LogOutPanelVisibilityState } from '../../atoms/LogOutPanelVisibility';
 import { AddModesPanelVisibilityState } from '../../atoms/AddModesPanelVisibility';
+import { LogOutPanelVisibilityState } from '../../atoms/LogOutPanelVisibility';
+import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
 import { NavbarVisibilityState } from '../../atoms/NavbarVisibility';
 import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibility';
-import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
 
-import SplitIcon from '../../assets/images/split.png'
-import HomePageIcon from '../../assets/images/home_page.png'
-import TransactionsIcon from '../../assets/images/transactions.png'
-import InsightsIcon from '../../assets/images/insights.png'
-import PredictionsIcon from '../../assets/images/predictions.png'
-import GoalsIcon from '../../assets/images/goals.png'
-import SettingsIcon from '../../assets/images/settings.png'
-import LogOutIcon from '../../assets/images/log-out.png'
 import AddNewModeIcon from '../../assets/images/add_new_mode.png'
+import GoalsIcon from '../../assets/images/goals.png'
+import HomePageIcon from '../../assets/images/home_page.png'
+import InsightsIcon from '../../assets/images/insights.png'
+import LogOutIcon from '../../assets/images/log-out.png'
 import MenuIcon from '../../assets/images/main-menu.png'
+import PredictionsIcon from '../../assets/images/predictions.png'
+import SettingsIcon from '../../assets/images/settings.png'
+import SplitIcon from '../../assets/images/split.png'
+import TransactionsIcon from '../../assets/images/transactions.png'
 
-import { useSetRecoilState } from 'recoil';
-import { useRecoilValue } from 'recoil';
+
+
+
+
 
 
 function Navbar() {

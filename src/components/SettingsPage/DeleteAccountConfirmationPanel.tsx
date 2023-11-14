@@ -1,10 +1,12 @@
 import '../../css/SettingsPage/DeleteAccountConfirmationPanel.css'
 
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+
 import { DeleteAccountPanelVisibilityState } from '../../atoms/DeleteAccountPanelVisibility';
 import { UserTokenState } from '../../atoms/UserToken';
 
-import { useSetRecoilState, useRecoilState } from 'recoil';
-import {useNavigate} from 'react-router-dom';
+
 
 function LogOutConfirmationPanel() {
 
