@@ -138,7 +138,7 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
     }
 
     return (
-      <div className="transaction" key={transactionId}>
+      <div className="transaction">
         <div className='transaction-content' style={gridStyle}>
             {showDeleteTransactionRadioButton && 
             <label className='delete-transaction-checkbox-container '>

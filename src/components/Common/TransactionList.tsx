@@ -17,7 +17,13 @@ function TransactionList({transactions, shadow, showTransactionType, showDate, s
       <div className={`transaction-list ${shadow ? 'transaction-list-shadow' : ''}`}>
           {transactions &&           
           Array.from(transactions).map((transaction:any)=>
-            <Transaction transaction={transaction} showUser={false} showTransactionType={showTransactionType} showDate={showDate} showDeleteIcon={showDeleteIcon} showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}/>
+            <Transaction key={transaction.id} 
+              transaction={transaction} 
+              showUser={false} 
+              showTransactionType={showTransactionType} 
+              showDate={showDate} 
+              showDeleteIcon={showDeleteIcon} 
+              showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}/>
           )}
 
       </div>
