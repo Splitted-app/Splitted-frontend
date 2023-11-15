@@ -9,10 +9,12 @@ import { UserTokenState } from "../atoms/UserToken";
 
 export default function useFetchBudgetId() {
     const token = useRecoilValue(UserTokenState);
-    const updater = useRecoilValue(FullLoginUpdaterState);
+    const loginUpdater = useRecoilValue(FullLoginUpdaterState);
     const [budgetId, setBudgetId] = useState<any>();
 
     useEffect(() => {
+        if (!loginUpdater)
+            return;
         axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal', {
             headers: {
                 'Accept': '*',
@@ -31,7 +33,7 @@ export default function useFetchBudgetId() {
         .catch(error => {
             console.log("Fetch budgetId error: " + error);
         })
-    }, [updater])
+    }, [loginUpdater])
 
     return budgetId;
 }

@@ -8,10 +8,12 @@ import { UserTokenState } from "../atoms/UserToken";
 
 export default function useFetchBankName() : string {
     const token = useRecoilValue(UserTokenState);
-    const updater = useRecoilValue(FullLoginUpdaterState);
+    const loginUpdater = useRecoilValue(FullLoginUpdaterState);
     const [bankName, setBankName] = useState<string>("Other");
 
     useEffect(() => {
+        if (!loginUpdater)
+            return;
         axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal', {
             headers: {
                 'Accept': '*',
@@ -30,7 +32,7 @@ export default function useFetchBankName() : string {
         .catch(error => {
             console.log(error);
         })
-    }, [updater])
+    }, [loginUpdater])
 
     return bankName;
 }

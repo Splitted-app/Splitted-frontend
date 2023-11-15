@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import axios from "axios";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 
 import { FullLoginUpdaterState } from "../atoms/FullLoginUpdater";
 import { UserTokenState } from "../atoms/UserToken";
@@ -9,11 +9,13 @@ import { UserTokenState } from "../atoms/UserToken";
 
 export default function useFetchCurrency() {
     const token = useRecoilValue(UserTokenState);
-    const updater = useRecoilState(FullLoginUpdaterState);
+    const loginUpdater = useRecoilValue(FullLoginUpdaterState);
     const [currency, setCurrency] = useState<any>();
     
 
     useEffect(() => {
+        if (!loginUpdater)
+            return;
         axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal', {
             headers: {
                 'Accept': '*',
@@ -32,7 +34,7 @@ export default function useFetchCurrency() {
         .catch(error => {
             console.log(error);
         })
-    }, [updater])
+    }, [loginUpdater])
 
     return currency;
 }

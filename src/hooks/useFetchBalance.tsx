@@ -10,10 +10,12 @@ import { UserTokenState } from "../atoms/UserToken";
 export default function useFetchBalance() {
     const token = useRecoilValue(UserTokenState);
     const transactionUpdater = useRecoilValue(TransactionUpdaterState);
-    const updater = useRecoilValue(FullLoginUpdaterState);
+    const loginUpdater = useRecoilValue(FullLoginUpdaterState);
     const [balance, setBalance] = useState<any>();
 
     useEffect(() => {
+        if (!loginUpdater)
+            return;
         axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal', {
             headers: {
                 'Accept': '*',
@@ -33,7 +35,7 @@ export default function useFetchBalance() {
         .catch(error => {
             console.log(error);
         })
-    }, [transactionUpdater, updater])
+    }, [transactionUpdater, loginUpdater])
 
     return balance;
 }
