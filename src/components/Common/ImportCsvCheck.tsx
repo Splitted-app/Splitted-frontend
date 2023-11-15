@@ -1,6 +1,6 @@
 import '../../css/Common/ImportCsvCheck.css'
 
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import TransactionList from './TransactionList';
 
@@ -11,12 +11,13 @@ import { NewTransactionsState } from '../../atoms/NewTransactions';
 
 function ImportCsvCheck() {
 
-  const transactions = useRecoilValue(NewTransactionsState);
+  const [newTransactions, setNewTransactions] = useRecoilState(NewTransactionsState);
   const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
 
   function handleButtonClicked()
   {
     setImportCsvCheckPanelVisibility(false);
+    setNewTransactions([]);
   }
 
     return (
@@ -25,7 +26,7 @@ function ImportCsvCheck() {
           Let's check
         </div>
         <div className='transactions-list-container'>
-          <TransactionList transactions={transactions} shadow={false} showTransactionType={true} showDate={false} showDeleteIcon={true} showDeleteTransactionRadioButton={false}></TransactionList>
+          <TransactionList transactions={newTransactions} shadow={false} showTransactionType={true} showDate={false} showDeleteIcon={true} showDeleteTransactionRadioButton={false}></TransactionList>
         </div>
         <div className='add-button-container'>
           <button className='add-button' onClick={handleButtonClicked}>Add</button>

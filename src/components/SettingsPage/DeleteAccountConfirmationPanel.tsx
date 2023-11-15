@@ -5,13 +5,15 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { DeleteAccountPanelVisibilityState } from '../../atoms/DeleteAccountPanelVisibility';
 import { UserTokenState } from '../../atoms/UserToken';
+import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
 
 
 
 function LogOutConfirmationPanel() {
 
     const setDeleteAccountPanelVisibility = useSetRecoilState(DeleteAccountPanelVisibilityState);
-    const [token,setToken] = useRecoilState(UserTokenState)
+    const [token,setToken] = useRecoilState(UserTokenState);
+    const [loginUpdater, setLoginUpdater] = useRecoilState(FullLoginUpdaterState);
     const navigate = useNavigate();
 
 
@@ -35,6 +37,8 @@ function LogOutConfirmationPanel() {
               if (!res.ok) {
                 throw Error('could not fetch the data for that resource');
               }
+              setLoginUpdater(!loginUpdater);
+              setToken("");
               navigate('/');
             });
     }
