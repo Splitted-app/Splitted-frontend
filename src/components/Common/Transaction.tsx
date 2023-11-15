@@ -176,8 +176,9 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
             <div className='description transaction-element' contentEditable={editable} onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}>
                 {transaction.description}
             </div>
-            <div className='amount transaction-element' style={{color:(transaction.amount>=0)? "#35B736" : "#CB3939"}} >
-                <div className='number transaction-element' contentEditable={editable}  onInput={(e:any)=>{setAmount(e.currentTarget.textContent)}}>
+            <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
+                <div className='number transaction-element' contentEditable={editable}  
+                  onInput={(e:any)=>{setAmount(e.currentTarget.textContent)}}>
                     {transaction.amount}
                 </div>
                 <div className='currency transaction-element'>
