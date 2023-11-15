@@ -1,6 +1,6 @@
 import '../../css/TransactionPage/TransactionPage.css'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Moment from 'moment';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -18,6 +18,7 @@ import { UserTokenState } from '../../atoms/UserToken'
 import useFetchTransactions from '../../hooks/useFetchTransactions';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+import axios from 'axios';
 
 
 function TransactionPage() {
@@ -40,6 +41,10 @@ function TransactionPage() {
         minAmount: null,
         maxAmount: null,
     })
+
+    useEffect(()=>{
+        setMenuIconVisibility(false);
+    },[])
       
     
     const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
@@ -81,11 +86,6 @@ function TransactionPage() {
         '33% 15% auto'
 
     }
-
-    useEffect(()=>
-    {
-      setMenuIconVisibility(false);
-    },[])
 
     function handleFilterButton()
     {

@@ -94,6 +94,7 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
     function loginAfterSignUp() {
         fetch(process.env.REACT_APP_API_URL + '/api/users/login', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Accept': '*',
                 'Content-Type': 'application/json'
@@ -103,20 +104,19 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
                 password: data.password
             })
         })
-            .then(res => {
-                if (!res.ok) {
-                    throw Error('could not fetch the data for that resource');
-                }
-                return res.json();
-            })
-            .then((data) => {
-                setToken(data.token);
-                // first log in
-                setSignUpFollowUpVisibility(true);
-            })
-            .catch((err) => {
+        .then(res => {
+            if (!res.ok) {
+                throw Error('could not fetch the data for that resource');
+            }
+            return res.json();
+        })
+        .then((data) => {
+            setToken(data.token);
+            setSignUpFollowUpVisibility(true);
+        })
+        .catch((err) => {
 
-            });
+        });
     }
 
     function handleSubmit(e: any) {

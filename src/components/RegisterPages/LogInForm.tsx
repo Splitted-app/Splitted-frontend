@@ -2,18 +2,16 @@ import '../../css/RegisterPages/RegisterForm.css';
 
 import { useState } from "react";
 
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import FormInfo from '../Common/FormInfo';
 
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
 
+import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
 import { UserTokenState } from '../../atoms/UserToken';
-
-
-
-
 
 interface RegisterFormInterface {
     data: RegisterFormDataInterface,
@@ -23,7 +21,8 @@ interface RegisterFormInterface {
 
 function LogInForm({ data, setData, setState }: RegisterFormInterface) {
     const navigate = useNavigate();
-    const setToken = useSetRecoilState(UserTokenState)
+    const setToken = useSetRecoilState(UserTokenState);
+    const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState);
     const [errors, setErrors] = useState({
         invalidPassword: false
     });
@@ -36,11 +35,10 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
         let newErrors = {
             invalidPassword: false
         }
-
-
         e.preventDefault();
         fetch(process.env.REACT_APP_API_URL + '/api/users/login', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Accept': '*',
                 'Content-Type': 'application/json'
@@ -50,24 +48,27 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
                 password: data.password
             })
         })
-            .then(res => {
-                if (!res.ok) {
-                    if (res.status === 401) {
-                        newErrors.invalidPassword = true;
-                    }
-                    throw Error('could not fetch the data for that resource');
+        .then(res => {
+            if (!res.ok) {
+                if (res.status === 401) {
+                    newErrors.invalidPassword = true;
                 }
-                if (res.ok) {
-                    navigate('/home');
-                }
-                return res.json();
-            })
-            .then((data) => {
-                setToken(data.token);
-            })
-            .catch((err) => {
-                setErrors(newErrors);
-            });
+                throw Error('could not fetch the data for that resource');
+            }
+            return res.json();
+        })
+        .then((data) => {
+            setToken(data.token);
+        })
+        .then(() => {
+            setUpdater(!updater);
+        })
+        .then(() => {
+            navigate('/home');
+        })
+        .catch((err) => {
+            setErrors(newErrors);
+        });
     }
 
     return (
