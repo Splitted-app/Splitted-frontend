@@ -27,7 +27,7 @@ function TransactionsOverview() {
       endDate: new Date(),
       key: 'selection'
     }]);
-    const transactions = useFetchTransactions(dateRange);
+    const transactions = useFetchTransactions(dateRange).transactions;
     const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
 
     function handleArrow(direction : number)

@@ -2,13 +2,17 @@ import '../../css/TransactionPage/TransactionsInsightsPanel.css'
 
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, LabelList } from 'recharts';
 
+interface TransactionsInsightsPanelInterface
+{
+  expenses:number,
+  income:number
+}
 
-
-function TransactionsInsightsPanel() {
+function TransactionsInsightsPanel({expenses,income}:TransactionsInsightsPanelInterface) {
     const data=[
       {
-        expenses:5000,
-        income:10000
+        expenses:-expenses,
+        income:income
       }
     ]
     return (
