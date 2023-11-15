@@ -32,7 +32,7 @@ function TransactionPage() {
         minAmount: null,
         maxAmount: null,
     }])
-    const transactions = useFetchTransactions(dateRange, category, amountRange);
+    const data = useFetchTransactions(dateRange, category, amountRange);
 
     const [filterData, setFilterData] = useState<any>({
         startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
@@ -132,7 +132,7 @@ function TransactionPage() {
         <div className='transaction-page-content' style={gridStyle}>
             <div className='header'>
                 <div className='insights-panel'>
-                    <TransactionsInsightsPanel/>
+                    <TransactionsInsightsPanel expenses={data.expenses} income={data.income}/>
                 </div>
                 <div className='transaction-page-content-buttons'>
                     <div className="add-transactions-button-container">
@@ -198,7 +198,7 @@ function TransactionPage() {
                 </div>
             </div>}
             <div className='transactions-list'>
-                <TransactionList transactions={transactions} shadow={false} showTransactionType={true} showDate={true} showDeleteIcon={false} showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}></TransactionList>
+                <TransactionList transactions={data.transactions} shadow={false} showTransactionType={true} showDate={true} showDeleteIcon={false} showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}></TransactionList>
             </div>
         </div>
       </div>
