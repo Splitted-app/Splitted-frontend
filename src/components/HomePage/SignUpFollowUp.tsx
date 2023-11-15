@@ -8,7 +8,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import CurrencyDropdown from "./CurrencyDropdown";
 
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
-import { SignUpFollowUpUpdaterState } from '../../atoms/SignUpFollowUpUpdater';
+import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 
 import { BankNames } from '../../enums'
@@ -35,7 +35,7 @@ function SignUpFollowUp() {
     })
     const token = useRecoilValue(UserTokenState);
     const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
-    const [updater, setUpdater] = useRecoilState(SignUpFollowUpUpdaterState);
+    const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState);
 
     function handleSubmit(event: any) {
         event.preventDefault();
@@ -57,12 +57,14 @@ function SignUpFollowUp() {
                 if (!res.ok) {
                     throw Error('could not fetch the data for that resource');
                 }
-                if (res.ok) {
-                    setSignUpFollowUpVisibility(false);
-                    setUpdater(!updater);
-                    navigate('/home');
-                }
                 return res.json();
+            })
+            .then(() => {
+                setUpdater(!updater);
+            })
+            .then(() => {
+                setSignUpFollowUpVisibility(false);
+                // navigate('/home');
             })
             .catch((err) => {
                 setErrors(err.message);

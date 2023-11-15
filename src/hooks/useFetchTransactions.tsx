@@ -17,7 +17,7 @@ export default function useFetchTransactions(
     amountRange: any = null,
 ) {
     const budgetId = useFetchBudgetId()
-    const updater = useRecoilValue(TransactionUpdaterState);
+    const transactionUpdater = useRecoilValue(TransactionUpdaterState);
     const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>([]);
 
@@ -53,25 +53,7 @@ export default function useFetchTransactions(
         .catch(error => {
             console.log("Fetch transactions error: " + error);
         })
-        // fetch(process.env.REACT_APP_API_URL + `/api/budgets/${budgetId}/transactions/${query}`, {
-        //     headers: {
-        //         'Accept': '*',
-        //         'Authorization': `Bearer ${token}`
-        //     },
-        // })
-        // .then(res => {
-        //     if (!res.ok) {
-        //         throw Error('could not fetch the data for that resource');
-        //     }
-        //     return res.json();
-        // })
-        // .then(data => {
-        //     setData(data);
-        // })
-        // .catch(error => {
-        //     console.log("error");
-        // })
-    }, [budgetId, updater, dateRange])
+    }, [budgetId, transactionUpdater, dateRange])
 
 
     return data

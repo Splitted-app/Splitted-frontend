@@ -1,6 +1,6 @@
 import '../../css/TransactionPage/TransactionPage.css'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Moment from 'moment';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -43,13 +43,7 @@ function TransactionPage() {
     })
 
     useEffect(()=>{
-        axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`)
-        .then((tokenRefreshResponse) => {
-          console.log("hello" + tokenRefreshResponse);
-        })
-        .catch((error)=>{
-            console.error(error.response?.data);
-        })
+        setMenuIconVisibility(false);
     },[])
       
     
@@ -92,11 +86,6 @@ function TransactionPage() {
         '33% 15% auto'
 
     }
-
-    useEffect(()=>
-    {
-      setMenuIconVisibility(false);
-    },[])
 
     function handleFilterButton()
     {

@@ -2,6 +2,7 @@ import '../../css/Common/Transaction.css';
 
 import { useState } from 'react';
 
+import axios from 'axios';
 import Moment from 'moment';
 import { useRecoilValue , useRecoilState} from 'recoil';
 
@@ -14,11 +15,6 @@ import { TransactionTypes } from '../../enums';
 import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
 import EditTransactionIcon from '../../assets/images/edit_transaction.png'
 import UpdateTransactionIcon from '../../assets/images/update.png'
-
-
-
-
-
 
 
 interface TransactionInterface
@@ -74,8 +70,7 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
 
     function handleDeleteTransactionButton()
     {
-        fetch(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionId , {
-            method: 'DELETE',
+        axios.delete(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionId , {
             headers: {
               'Accept': '*',
               'Content-Type': 'application/json',
@@ -83,40 +78,40 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
       
             }
           })
-            .then(res => {
-              if (!res.ok) {
-                throw Error('could not fetch the data for that resource');
-              }
-              setUpdater(!updater);
-            });
+          .then(res => {
+            setUpdater(!updater);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
     }
 
     function handleEditTransactionButton()
     {
         if(editable)
         {
-            fetch(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionId , {
-                method: 'PUT',
+            axios.put(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionId,
+              JSON.stringify({
+                amount: amount,
+                date: transaction.date,
+                description: description,
+                transactionType: transactionType,
+                userCategory: userCategory
+              }),
+              {
                 headers: {
                   'Accept': '*',
                   'Content-Type': 'application/json',
                   'Authorization': `Bearer ${token}`,
           
                 },
-                body: JSON.stringify({
-                    amount: amount,
-                    date: transaction.date,
-                    description: description,
-                    transactionType: transactionType,
-                    userCategory: userCategory
-                  })
               })
-                .then(res => {
-                  if (!res.ok) {
-                    throw Error('could not fetch the data for that resource');
-                  }
-                  setUpdater(!updater);
-                });
+              .then(res => {
+                setUpdater(!updater);
+              })
+              .catch((error) => {
+                console.error(error);
+              });
         }
 
         setEditable(!editable)
