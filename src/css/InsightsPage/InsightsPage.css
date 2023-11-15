@@ -1,0 +1,54 @@
+.insights-page
+{
+    background-color: #10032B;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.insights-page .insights-page-content
+{
+    width: 85%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 33% 17% 50%;    
+    grid-template-columns: 10% 30% 20% 20% 20%;
+}
+
+.insights-page  .insights-page-content .header
+{
+    background: linear-gradient(to top,#10032B , #B6B0CF  );
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    width: 100%;
+    text-align: end;
+    margin-left: auto;
+    margin-right: 0;
+    display:grid;
+    grid-template-rows: 40% 60%;    
+    grid-template-columns: 10% 30% 20% 40%;
+
+}
+
+.insights-page  .insights-page-content .header .title
+{
+    padding-right: 3%;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    text-align: end;
+    color: white;
+    margin-top: 5%;
+}
+
+.insights-page  .insights-page-content .header .title .main-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 80px;
+    text-shadow: 5px 5px 3px #180A45;
+
+}

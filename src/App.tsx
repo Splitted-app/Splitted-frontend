@@ -13,6 +13,7 @@ import FamilyModeAddPanel from './components/Common/FamilyModeAddPanel';
 import HomePage from './components/HomePage/HomePage';
 import ImportCsvCheck from './components/Common/ImportCsvCheck';
 import ImportCsvPanel from './components/Common/ImportCsvPanel';
+import InsightsPage from './components/InsightsPage/InsightsPage';
 import LogOutConfirmationPanel from './components/Common/LogOutConfirmationPanel';
 import ManualAddTransactionPanel from './components/Common/ManualAddTransactionPanel';
 import PartnerModeAddPanel from './components/Common/PartnerModeAddPanel';
@@ -77,6 +78,7 @@ function App() {
             <Route path="/register" element={<RegisterPage/>}/>
             <Route path="/home" element={<HomePage/>}/>            
             <Route path="/transactions" element ={<TransactionPage/>}/>
+            <Route path="/insights" element ={<InsightsPage/>}/>
             <Route path="/settings" element={<SettingsPage/>}/>
           </Routes>
         </div>
