@@ -9,13 +9,13 @@ import { useRecoilValue , useRecoilState} from 'recoil';
 import { TransactionsToDeleteState } from '../../atoms/TransactionsToDelete';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
+import { NewTransactionsState } from '../../atoms/NewTransactions';
 
 import { TransactionTypes } from '../../enums';
 
 import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
 import EditTransactionIcon from '../../assets/images/edit_transaction.png'
 import UpdateTransactionIcon from '../../assets/images/update.png'
-
 
 interface TransactionInterface
 {
@@ -54,6 +54,7 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
     const [editable, setEditable] = useState(false);
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
     const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
+    const [newTransactions, setNewTransactions] = useRecoilState<any>(NewTransactionsState);
 
     let gridTemplateColumns = '';
     gridTemplateColumns += showDeleteTransactionRadioButton ? '5% ' : '';
@@ -80,6 +81,13 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
           })
           .then(res => {
             setUpdater(!updater);
+            const idx = newTransactions.indexOf(transaction);
+            if (idx > -1)
+            {
+              const newNewTransactions = [...newTransactions]
+              newNewTransactions.splice(idx, 1);
+              setNewTransactions(newNewTransactions);
+            }
           })
           .catch((error) => {
             console.error(error);
