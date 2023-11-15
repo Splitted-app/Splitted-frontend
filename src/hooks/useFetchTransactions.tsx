@@ -41,6 +41,8 @@ export default function useFetchTransactions(
     
 
     useEffect(() => {
+        if (budgetId === undefined)
+            return;
         axios.get(process.env.REACT_APP_API_URL + `/api/budgets/${budgetId}/transactions/${query}`, {
             headers: {
                 'Accept': '*',
@@ -51,7 +53,7 @@ export default function useFetchTransactions(
             setData(res.data);
         })
         .catch(error => {
-            console.log("Fetch transactions error: " + error);
+            console.error(error);
         })
     }, [budgetId, transactionUpdater, dateRange])
 
