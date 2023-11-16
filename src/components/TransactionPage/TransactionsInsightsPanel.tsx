@@ -26,8 +26,8 @@ function TransactionsInsightsPanel({expenses,income}:TransactionsInsightsPanelIn
             <XAxis type="number" hide />
             <YAxis dataKey="name" type="category" hide/>
             <Bar dataKey="expenses" barSize={30} fill="#A30D0D" >
-            {data.map(() => (
-            <Cell
+            {data.map((_, index) => (
+            <Cell key={index}
               style={{
                 filter: `drop-shadow(3px 7px 3px #404040)`
               }}
@@ -36,8 +36,8 @@ function TransactionsInsightsPanel({expenses,income}:TransactionsInsightsPanelIn
             <LabelList position="right" dataKey="expenses" style={{textShadow:'none', fill:'#545454', fontFamily:'Gotham Medium', fontSize:'15'}}/>
             </Bar>
             <Bar dataKey="income" barSize={30} fill="#20F7C5" >
-            {data.map((x) => (
-            <Cell
+            {data.map((_, index) => (
+            <Cell key={index}
             style={{
               filter: `drop-shadow(3px 7px 3px #404040)`
             }}

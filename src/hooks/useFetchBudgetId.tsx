@@ -13,8 +13,8 @@ export default function useFetchBudgetId() {
     const [budgetId, setBudgetId] = useState<any>();
 
     useEffect(() => {
-        if (!loginUpdater)
-            return;
+        // if (!loginUpdater)
+        //     return;
         axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal', {
             headers: {
                 'Accept': '*',
@@ -31,7 +31,7 @@ export default function useFetchBudgetId() {
             }
         })
         .catch(error => {
-            console.log("Fetch budgetId error: " + error);
+            console.error(error);
         })
     }, [loginUpdater])
 
