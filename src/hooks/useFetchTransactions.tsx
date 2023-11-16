@@ -22,20 +22,20 @@ export default function useFetchTransactions(
     const [data, setData] = useState<any>([]);
 
     let query = `?`
-    if (dateRange)
+    if (dateRange != null)
     {
         query += `dateFrom=${Moment(dateRange[0].startDate).format('YYYY-MM-DD')}&`;
         query += `dateTo=${Moment(dateRange[0].endDate).format('YYYY-MM-DD')}&`;
     }
-    if (category)
+    if (category) // if "" (empty string) don't add it to query
     {
         query += `category=${category}&`;
     }
     if (amountRange)
     {
-        if (amountRange.minAmount)
+        if (amountRange.minAmount != null && amountRange.minAmount != "")
             query += `minAmount=${amountRange.minAmount}&`;
-        if (amountRange.maxAmount)
+        if (amountRange.maxAmount != null && amountRange.maxAmount != "")
             query += `maxAmount=${amountRange.maxAmount}&`;
     }
     

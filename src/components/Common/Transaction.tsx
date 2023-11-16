@@ -157,7 +157,10 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
               <span className="checkmark">
               </span>
             </label>}
-            <div className='category transaction-element' contentEditable={editable}  onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}>
+            <div className='category transaction-element' 
+                  contentEditable={editable} 
+                  onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}
+                  suppressContentEditableWarning={true}>
                 {(transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory}
             </div>
             {showTransactionType &&
@@ -181,12 +184,17 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
             </div>
             }
 
-            <div className='description transaction-element' contentEditable={editable} onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}>
+            <div className='description transaction-element' 
+                  contentEditable={editable} 
+                  onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}
+                  suppressContentEditableWarning={true}>
                 {transaction.description}
             </div>
             <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
-                <div className='number transaction-element' contentEditable={editable}  
-                  onInput={(e:any)=>{setAmount(e.currentTarget.textContent)}}>
+                <div className='number transaction-element' 
+                      contentEditable={editable}  
+                      onInput={(e:any)=>{setAmount(e.currentTarget.textContent)}}
+                      suppressContentEditableWarning={true}>
                     {transaction.amount}
                 </div>
                 <div className='currency transaction-element'>
