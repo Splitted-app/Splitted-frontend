@@ -27,19 +27,19 @@ function TransactionPage() {
         endDate: new Date(),
         key: 'selection'
       }]);
-    const [category, setCategory] = useState<string|null>(null);
-    const [amountRange, setAmountRange] = useState<any>([{
-        minAmount: null,
-        maxAmount: null,
-    }])
+    const [category, setCategory] = useState<string>("");
+    const [amountRange, setAmountRange] = useState<any>({
+        minAmount: 0,
+        maxAmount: 0,
+    })
     const data = useFetchTransactions(dateRange, category, amountRange);
 
     const [filterData, setFilterData] = useState<any>({
         startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
         endDate: new Date(),
-        category: null,
-        minAmount: null,
-        maxAmount: null,
+        category: "",
+        minAmount: 0,
+        maxAmount: 0,
     })
 
     useEffect(()=>{
