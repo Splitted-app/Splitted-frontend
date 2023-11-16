@@ -14,8 +14,8 @@ export default function useFetchCurrency() {
     
 
     useEffect(() => {
-        if (!loginUpdater)
-            return;
+        // if (!loginUpdater)
+        //     return;
         axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal', {
             headers: {
                 'Accept': '*',
@@ -32,7 +32,7 @@ export default function useFetchCurrency() {
             }
         })
         .catch(error => {
-            console.log(error);
+            console.error(error);
         })
     }, [loginUpdater])
 

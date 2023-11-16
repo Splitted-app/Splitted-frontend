@@ -12,8 +12,8 @@ export default function useFetchBankName() : string {
     const [bankName, setBankName] = useState<string>("Other");
 
     useEffect(() => {
-        if (!loginUpdater)
-            return;
+        // if (!loginUpdater)
+        //     return;
         axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal', {
             headers: {
                 'Accept': '*',
@@ -30,7 +30,7 @@ export default function useFetchBankName() : string {
             }
         })
         .catch(error => {
-            console.log(error);
+            console.error(error);
         })
     }, [loginUpdater])
 
