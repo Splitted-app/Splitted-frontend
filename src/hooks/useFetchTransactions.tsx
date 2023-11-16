@@ -33,9 +33,9 @@ export default function useFetchTransactions(
     }
     if (amountRange)
     {
-        if (amountRange.minAmount != null)
+        if (amountRange.minAmount != null && amountRange.minAmount != "")
             query += `minAmount=${amountRange.minAmount}&`;
-        if (amountRange.maxAmount != null)
+        if (amountRange.maxAmount != null && amountRange.maxAmount != "")
             query += `maxAmount=${amountRange.maxAmount}&`;
     }
     
