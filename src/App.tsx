@@ -78,10 +78,11 @@ function App() {
       })
       .then(() => {
         createAuthRefreshInterceptor(axios, refreshAuthLogic);
-        setUpdater(!updater);
+        setUpdater(updater + 1);
       })
       .catch((error)=>{
         console.error(error);
+        setUpdater(0);
         setToken("");
         navigate('/');
       });
@@ -90,7 +91,7 @@ function App() {
     setInterval(() => {
       console.log("Refreshing token...")
       refreshRequest();
-    }, 600000);
+    }, 540000);
   },[])
 
   return (

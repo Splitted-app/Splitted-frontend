@@ -61,7 +61,7 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
             setToken(data.token);
         })
         .then(() => {
-            setUpdater(!updater);
+            setUpdater(updater + 1);
         })
         .then(() => {
             navigate('/home');

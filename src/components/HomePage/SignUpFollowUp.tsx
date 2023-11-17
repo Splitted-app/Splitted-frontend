@@ -60,7 +60,7 @@ function SignUpFollowUp() {
                 return res.json();
             })
             .then(() => {
-                setUpdater(!updater);
+                setUpdater(updater + 1);
             })
             .then(() => {
                 setSignUpFollowUpVisibility(false);
