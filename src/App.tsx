@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 import axios from 'axios';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
-import { Route,Routes } from "react-router-dom"
+import { Route,Routes, useNavigate } from "react-router-dom"
 import { useRecoilState, useRecoilValue } from 'recoil';
 
 import AddModePanel from './components/Common/AddModePanel';
@@ -28,11 +28,13 @@ import { AddModesPanelVisibilityState } from './atoms/AddModesPanelVisibility';
 import { AddPartnerModePanelVisibilityState } from './atoms/AddPartnerModePanelVisibility';
 import { AddPartyModePanelVisibilityState } from './atoms/AddPartyModePanelVisibility';
 import { AddTransactionsPanelVisibilityState } from './atoms/AddTransactionsPanelVisbility';
+import { FullLoginUpdaterState } from './atoms/FullLoginUpdater';
 import { ImportCsvCheckPanelVisibilityState } from './atoms/ImportCsvCheckPanelVisibility';
 import { ImportCsvPanelVisibilityState } from './atoms/ImportCsvPanelVisbility';
 import { LogOutPanelVisibilityState } from './atoms/LogOutPanelVisibility';
 import { ManualAddTransactionsPanelVisibilityState } from './atoms/ManualAddTransactionsPanelVisbility';
 import { UserTokenState } from './atoms/UserToken';
+
 
 
 function App() {
@@ -47,13 +49,16 @@ function App() {
   const manualAddTransactionsPanelVisibility = useRecoilValue(ManualAddTransactionsPanelVisibilityState);
   const popupVisible = logOutPanelVisibility || addModesPanelVisibility || addFamilyModePanelVisibility || addPartnerModePanelVisibility || addPartyModePanelVisibility || addTransactionsPanelVisibility || importCsvPanelVisibility ||importCsvCheckPanelVisibility || manualAddTransactionsPanelVisibility ;
   const [token, setToken] = useRecoilState(UserTokenState);
+  const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState)
 
   const tokenUpdatedRef = useRef(false);
+  const navigate = useNavigate();
 
   useEffect(()=>{
     if (tokenUpdatedRef.current) 
         return;
     tokenUpdatedRef.current = true;
+    
     const refreshAuthLogic = (failedRequest: any) =>
     {
       return axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`, null , {withCredentials:true})
@@ -66,7 +71,26 @@ function App() {
         console.error(error);
       });
     }
-    createAuthRefreshInterceptor(axios, refreshAuthLogic);
+    const refreshRequest = () => 
+    axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`, null , {withCredentials:true})
+      .then((tokenRefreshResponse) => {
+        setToken(tokenRefreshResponse.data.token);
+      })
+      .then(() => {
+        createAuthRefreshInterceptor(axios, refreshAuthLogic);
+        setUpdater(!updater);
+      })
+      .catch((error)=>{
+        console.error(error);
+        setToken("");
+        navigate('/');
+      });
+    
+    refreshRequest();
+    setInterval(() => {
+      console.log("Refreshing token...")
+      refreshRequest();
+    }, 600000);
   },[])
 
   return (
