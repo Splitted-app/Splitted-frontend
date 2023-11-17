@@ -15,7 +15,8 @@ export default function useFetchTransactions(
     dateRange: any = null,
     category: string|null = null,
     amountRange: any = null,
-) {
+) 
+{
     const budgetId = useFetchBudgetId()
     const transactionUpdater = useRecoilValue(TransactionUpdaterState);
     const token = useRecoilValue(UserTokenState);
