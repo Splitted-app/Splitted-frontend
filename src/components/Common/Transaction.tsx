@@ -69,6 +69,25 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
       gridTemplateColumns: gridTemplateColumns
     };
 
+    function handleAmountChanged(value: string)
+    {
+      try
+      {
+        const parsedValue: string = value
+          .replace(',', '.')            // change ',' to '.'
+          .replace(/[.](?=.*[.])/g, "") // remove all '.' but the last one
+          .replace(/[^0-9.-]/g, "")      // remove all characters that are not a digit, '.' or '-'
+          .replace(/(?!^)-/, "");
+        let numValue = Number(parsedValue);
+        numValue = Math.round((numValue + Number.EPSILON) * 100) / 100;  
+        setAmount(numValue);
+      }
+      catch 
+      {
+        console.log(`Could not parse ${value} into a number`)
+      }
+    }
+
     function handleDeleteTransactionButton()
     {
         axios.delete(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionId , {
@@ -191,9 +210,21 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
                 {transaction.description}
             </div>
             <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
+                {/* {!editable && 
+                  <div className='number transaction-element' >
+                    {transaction.amount}
+                  </div>
+                }
+                {
+                  editable &&
+                  <input type="number" 
+                    value={amount}
+                    step="0.01"
+                    onChange={(e:any)=>{setAmount(e.target.value)}}/>
+                } */}
                 <div className='number transaction-element' 
                       contentEditable={editable}  
-                      onInput={(e:any)=>{setAmount(e.currentTarget.textContent)}}
+                      onInput={(e:any)=>{handleAmountChanged(e.currentTarget.textContent)}}
                       suppressContentEditableWarning={true}>
                     {transaction.amount}
                 </div>
