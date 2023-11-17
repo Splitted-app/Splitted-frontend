@@ -91,7 +91,7 @@ function App() {
     setInterval(() => {
       console.log("Refreshing token...")
       refreshRequest();
-    }, 600000);
+    }, 540000);
   },[])
 
   return (
