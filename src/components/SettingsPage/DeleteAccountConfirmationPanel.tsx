@@ -37,7 +37,7 @@ function LogOutConfirmationPanel() {
               if (!res.ok) {
                 throw Error('could not fetch the data for that resource');
               }
-              setLoginUpdater(!loginUpdater);
+              setLoginUpdater(0);
               setToken("");
               navigate('/');
             });
