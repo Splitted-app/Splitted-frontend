@@ -1,0 +1,84 @@
+.confirm-email-page
+{
+    background-image:url('../../assets/images/backgroundregister.svg');
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-email-page .confirm-email-panel
+{
+    width: 50%;
+    height: 60%;
+    background-color: #4E35A7;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 20% auto 10%;
+}
+
+.confirm-email-page .title-container .icon
+{
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+.confirm-email-page .title-container .icon img
+{
+    width: 120px;
+    height: 120px;
+}
+.confirm-email-page .title-container .subtitle
+{
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Gotham Light';
+    font-size: 27px;
+}
+
+.confirm-email-page .message-container
+{
+    padding-top: 20%;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    justify-content: center;
+    color: white;
+    font-family: 'Gotham Light';
+    font-size: 15px;
+}
+
+.confirm-email-page .message-container .email-waiting_icon
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.confirm-email-page .message-container .email-waiting_icon img
+{
+    width: 50px;
+    height: 50px;
+}
+.confirm-email-page .confirm-email-panel .email-confirmation-panel-footer
+{
+    border-top: 2px solid #351966;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Gotham Medium';
+    font-size: 10px;
+    text-shadow: 3px 3px 5px  #351966;
+
+}

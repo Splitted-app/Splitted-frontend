@@ -9,6 +9,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 
 import AddModePanel from './components/Common/AddModePanel';
 import AddTransactionsPanel from './components/Common/AddTransactionsPanel';
+import ConfirmEmailPage from './components/RegisterPages/ConfirmEmailPage';
 import FamilyModeAddPanel from './components/Common/FamilyModeAddPanel';
 import HomePage from './components/HomePage/HomePage';
 import ImportCsvCheck from './components/Common/ImportCsvCheck';
@@ -105,6 +106,7 @@ function App() {
             <Route path="/transactions" element ={<TransactionPage/>}/>
             <Route path="/insights" element ={<InsightsPage/>}/>
             <Route path="/settings" element={<SettingsPage/>}/>
+            <Route path="/ConfirmEmail" element={<ConfirmEmailPage/>}/>
           </Routes>
         </div>
         <div className='global-popup' style={{'display': popupVisible ? 'flex' : 'none'}}>
