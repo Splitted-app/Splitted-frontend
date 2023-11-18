@@ -1,6 +1,7 @@
 .insights-page
 {
-    background-color: #10032B;
+    background: rgb(16,3,43);
+    background: linear-gradient(0deg, rgba(16,3,43,1) 0%, rgba(16,3,43,1) 67%, rgba(182,176,207,1) 100%);
     height: 100vh;
     width: 100%;
     display: flex;
@@ -18,7 +19,6 @@
 
 .insights-page  .insights-page-content .header
 {
-    background: linear-gradient(to top,#10032B , #B6B0CF  );
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 1;

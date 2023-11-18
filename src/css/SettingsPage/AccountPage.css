@@ -9,7 +9,6 @@
 
 .account-page .account-page-header
 {
-    background: linear-gradient(to top,#10032B , #B6B0CF  );
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 1;
