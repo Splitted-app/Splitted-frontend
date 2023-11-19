@@ -72,15 +72,74 @@
     overflow-x: hidden;
     overflow-y: auto;
     display: grid;
-    grid-template-rows: 33% 33% 33%;
+    grid-template-rows:  10% 45% 30% 55% 30% 55% 10%;
     grid-template-columns: 5% 40% 10% 40% 5%;
 }
 
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart .line-chart-title
+{
+    color: white;
+    font-family: 'Gotham Bold';
+    font-size: 25px;
+    padding-bottom: 1%;
+}
 .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart
 {
-    grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 5;
+}
+
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart
+{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .recharts-wrapper svg{
+    overflow: inherit !important;
+    }
+
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .pie-chart-title
+{
+    color: white;
+    font-family: 'Gotham Bold';
+    font-size: 25px;
+    padding-bottom: 10%;
+}
     
+
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses
+{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses .bar-chart-title
+{
+    color: white;
+    font-family: 'Gotham Bold';
+    font-size: 25px;
+    padding-bottom: 3%;
+}
+
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution
+{
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution .expenses-chart-title
+{
+    color: white;
+    font-family: 'Gotham Bold';
+    font-size: 25px;
+    padding-bottom: 3%;
 }
