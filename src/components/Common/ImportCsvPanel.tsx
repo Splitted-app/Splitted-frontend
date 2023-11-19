@@ -38,6 +38,8 @@ function ImportCsvPanel() {
     noFileProvided: false,
   });
   const [invalidRequestStatus, setInvalidRequestStatus] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [uploadError, setUploadError] = useState<boolean>(false);
 
   useEffect(()=>{setBank(bankName)},[bankName]);
 
@@ -98,6 +100,8 @@ function ImportCsvPanel() {
       return;
     
     formData.append('csvfile', file);
+    setLoading(true);
+    setUploadError(false);
     fetch(process.env.REACT_APP_API_URL + '/api/budgets/' + budgetId + '/transactions/csv?bank=' + bank, {
       method: 'POST',
       headers: {
@@ -117,9 +121,12 @@ function ImportCsvPanel() {
         setNewTransactions(data)
         setImportCsvPanelVisibility(false);
         setImportCsvCheckPanelVisibility(true);
+        setLoading(false)
       })
       .catch((err)=>{
         console.log(err)
+        setUploadError(true);
+        setLoading(false);
       })
     
   }
@@ -187,10 +194,23 @@ function ImportCsvPanel() {
             {errors.invalidBankName && 
               <FormInfo message="Sorry, we only support this functionality with specified banks. But if you're from other bank don't worry, you can still add transactions manually." details="" textColor="darkgray" infoLevel={InfoLevel.None}/>}
           </div> */}
-          <div className='next-button-container'>
-            <input type="submit" className='next-button' value="Next" disabled={errors.invalidBankName}
-              style={{backgroundColor: `${errors.invalidBankName ? "lightgray" : "#20F7C5"}`}}/>
-          </div>
+          {
+            loading
+          }
+          {
+            (!loading || uploadError) && 
+            <div className='next-button-container'>
+              <input type="submit" className='next-button' value={uploadError ? "Try Again" : "Next"} disabled={errors.invalidBankName}
+                style={{backgroundColor: `${errors.invalidBankName ? "lightgray" : "#20F7C5"}`}}/>
+            </div>
+          }
+          {
+            loading && !uploadError &&
+            <div className='uploading-message'>
+              Uploading...
+            </div>
+          }
+          
         </form>
       </div>
     </div>
