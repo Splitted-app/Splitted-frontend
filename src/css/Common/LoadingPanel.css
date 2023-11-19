@@ -1,0 +1,24 @@
+.loading-panel
+{
+    height: 100%;
+    width: 100%;
+    font-family: 'Gotham Medium';
+    font-size: 24pt;
+    color: white;
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.loading-panel .primary-message
+{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.loading-panel .secondary-message
+{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
