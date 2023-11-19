@@ -6,6 +6,7 @@ import { useSetRecoilState } from 'recoil';
 
 import DateDisplay from './DateDisplay';
 import DateRangeSelector from './DateRangeSelector';
+import LoadingPanel from '../Common/LoadingPanel';
 import TransactionList from '../Common/TransactionList';
 
 import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
@@ -27,7 +28,7 @@ function TransactionsOverview() {
       endDate: new Date(),
       key: 'selection'
     }]);
-    const transactions = useFetchTransactions(dateRange).transactions;
+    const { data, loading} = useFetchTransactions(dateRange)
     const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
 
     function handleArrow(direction : number)
@@ -84,7 +85,13 @@ function TransactionsOverview() {
               Transactions
             </div>
             <div className='transaction-list-container'>
-              <TransactionList transactions={transactions} shadow={true} showTransactionType={false} showDate={false} showDeleteIcon={true} showDeleteTransactionRadioButton={false}></TransactionList>
+              {!loading &&
+                <TransactionList transactions={data.transactions} shadow={true} showTransactionType={false} showDate={false} showDeleteIcon={true} showDeleteTransactionRadioButton={false}></TransactionList>
+              }
+              {loading &&
+                <LoadingPanel/>
+              }
+              
             </div>
             <div className='add-transaction-button-container'>
               <button className='add-transaction-button' onClick={()=>{setAddTransactionsPanelVisibility(true)}}>+</button>

@@ -21,6 +21,7 @@ export default function useFetchTransactions(
     const transactionUpdater = useRecoilValue(TransactionUpdaterState);
     const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>([]);
+    const [loading, setLoading] = useState<boolean>(true);
 
     let query = `?`
     if (dateRange != null)
@@ -44,6 +45,7 @@ export default function useFetchTransactions(
     useEffect(() => {
         if (budgetId === undefined)
             return;
+        setLoading(true);
         axios.get(process.env.REACT_APP_API_URL + `/api/budgets/${budgetId}/transactions/${query}`, {
             headers: {
                 'Accept': '*',
@@ -56,8 +58,12 @@ export default function useFetchTransactions(
         .catch(error => {
             console.error(error);
         })
+        .finally(() => {
+            setTimeout(() => setLoading(false), 5000)
+            // setLoading(false);
+        })
     }, [budgetId, transactionUpdater, dateRange])
 
 
-    return data
+    return {data, loading}
 }

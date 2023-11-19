@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import Moment from 'moment';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
+import LoadingPanel from '../Common/LoadingPanel';
 import Navbar from "../Common/Navbar"
 import TransactionList from '../Common/TransactionList';
 import TransactionsInsightsPanel from './TransactionsInsightsPanel';
@@ -18,7 +19,6 @@ import { UserTokenState } from '../../atoms/UserToken'
 import useFetchTransactions from '../../hooks/useFetchTransactions';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
-import axios from 'axios';
 
 
 function TransactionPage() {
@@ -32,7 +32,7 @@ function TransactionPage() {
         minAmount: "",
         maxAmount: "",
     })
-    const data = useFetchTransactions(dateRange, category, amountRange);
+    const {data, loading} = useFetchTransactions(dateRange, category, amountRange);
 
     const [filterData, setFilterData] = useState<any>({
         startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
@@ -198,7 +198,13 @@ function TransactionPage() {
                 </div>
             </div>}
             <div className='transactions-list'>
-                <TransactionList transactions={data.transactions} shadow={false} showTransactionType={true} showDate={true} showDeleteIcon={false} showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}></TransactionList>
+                {!loading &&
+                    <TransactionList transactions={data.transactions} shadow={false} showTransactionType={true} showDate={true} showDeleteIcon={false} showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}></TransactionList>
+                }
+                {loading &&
+                    <LoadingPanel/>
+                }
+                
             </div>
         </div>
       </div>
