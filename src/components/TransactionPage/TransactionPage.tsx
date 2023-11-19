@@ -32,7 +32,7 @@ function TransactionPage() {
         minAmount: "",
         maxAmount: "",
     })
-    const {data, loading} = useFetchTransactions(dateRange, category, amountRange);
+    const {data, loading, error } = useFetchTransactions(dateRange, category, amountRange);
 
     const [filterData, setFilterData] = useState<any>({
         startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
@@ -202,7 +202,7 @@ function TransactionPage() {
                     <TransactionList transactions={data.transactions} shadow={false} showTransactionType={true} showDate={true} showDeleteIcon={false} showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}></TransactionList>
                 }
                 {loading &&
-                    <LoadingPanel/>
+                    <LoadingPanel error={error}/>
                 }
                 
             </div>

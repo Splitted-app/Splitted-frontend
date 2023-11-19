@@ -22,6 +22,7 @@ export default function useFetchTransactions(
     const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<boolean>(false);
 
     let query = `?`
     if (dateRange != null)
@@ -56,14 +57,14 @@ export default function useFetchTransactions(
             setData(res.data);
         })
         .catch(error => {
+            setError(true);
             console.error(error);
         })
         .finally(() => {
-            setTimeout(() => setLoading(false), 5000)
-            // setLoading(false);
+            setLoading(false);
         })
     }, [budgetId, transactionUpdater, dateRange])
 
 
-    return {data, loading}
+    return {data, loading, error}
 }

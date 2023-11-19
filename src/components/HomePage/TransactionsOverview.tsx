@@ -28,7 +28,7 @@ function TransactionsOverview() {
       endDate: new Date(),
       key: 'selection'
     }]);
-    const { data, loading} = useFetchTransactions(dateRange)
+    const { data, loading, error } = useFetchTransactions(dateRange)
     const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
 
     function handleArrow(direction : number)
@@ -89,7 +89,7 @@ function TransactionsOverview() {
                 <TransactionList transactions={data.transactions} shadow={true} showTransactionType={false} showDate={false} showDeleteIcon={true} showDeleteTransactionRadioButton={false}></TransactionList>
               }
               {loading &&
-                <LoadingPanel/>
+                <LoadingPanel error={error}/>
               }
               
             </div>
