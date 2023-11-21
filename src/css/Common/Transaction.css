@@ -7,8 +7,6 @@
 
 .duplicate
 {
-    /* background: rgb(255,189,186); */
-    /* background: linear-gradient(0deg, rgba(255,189,186,1) 0%, rgba(255,189,186,1) 10%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%); */
     background: rgb(255,189,186);
     background: linear-gradient(0deg, rgba(255,189,186,1) 0%, rgba(255,255,255,1) 100%);
 }
@@ -18,9 +16,6 @@
     width:95%;
     padding: 2%;
     display: grid;
-    /* grid-template-columns: 20% 15% 15% 20% 10% 10%;
-    grid-template-rows: 100%;
-} */
 }
 
 .transaction-element
@@ -155,4 +150,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.transaction .editable-content
+{
+    outline: none;
+}
+
+.transaction .editable-content select
+{
+    padding: 5px;
+    outline: none;
+    border: black solid 2px;
+    border-radius: 5px;
+}
+
+.transaction .editable-content:focus
+{
+    border-bottom: black dashed 2px;
+}
+
+.transaction .editable-margin
+{
+    margin-right: 10%;
 }
