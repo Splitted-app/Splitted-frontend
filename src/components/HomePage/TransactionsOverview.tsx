@@ -86,7 +86,14 @@ function TransactionsOverview() {
             </div>
             <div className='transaction-list-container'>
               {!loading &&
-                <TransactionList transactions={data.transactions} shadow={true} showTransactionType={false} showDate={false} showDeleteIcon={true} showDeleteTransactionRadioButton={false}></TransactionList>
+                <TransactionList 
+                  transactions={data.transactions} 
+                  shadow={true} 
+                  showTransactionType={false} 
+                  showDate={false} 
+                  showDeleteIcon={true} 
+                  showDeleteTransactionRadioButton={false}
+                  markDuplicates={false}></TransactionList>
               }
               {loading &&
                 <LoadingPanel error={error}/>
