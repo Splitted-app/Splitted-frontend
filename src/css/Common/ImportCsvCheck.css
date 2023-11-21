@@ -20,7 +20,7 @@
     margin-bottom: 30px;
 }
 
-.import-csv-check .transactions-list-container
+.import-csv-check .content-container
 {
     width: 95%;
     height: 60%;
@@ -28,12 +28,16 @@
     -5px -5px 5px #676370;
     border-radius: 25px;
     border: none;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    padding: 20px 0px 20px 10px
+    padding: 20px 0px 20px 10px;
+    font-family: 'Gotham Medium';
+    color: #575757;
 }
 
-.import-csv-check .add-button-container
+.import-csv-check .button-container
 {
     display: flex;
     flex: 1 1 auto;
@@ -41,7 +45,7 @@
     align-items: end;
 }
 
-.import-csv-check .add-button-container .add-button{
+.import-csv-check .button-container .interaction-button{
     background-color: #20F7C5;
     color: black;
     width: 140px;

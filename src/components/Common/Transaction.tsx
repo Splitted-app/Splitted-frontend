@@ -29,6 +29,7 @@ interface TransactionInterface
     autoCategory:string,
     userCategory:string
     userId:string
+    duplicatedTransaction: any|null
 }
 
 interface TransactionPropsInterface
@@ -38,11 +39,19 @@ interface TransactionPropsInterface
     showTransactionType: boolean,
     showDate:boolean
     showDeleteIcon:boolean,
-    showDeleteTransactionRadioButton:boolean
+    showDeleteTransactionRadioButton:boolean,
+    markDuplicate:boolean,
 }
 
 
-function Transaction({transaction, showUser, showTransactionType, showDate, showDeleteIcon, showDeleteTransactionRadioButton}: TransactionPropsInterface) {
+function Transaction({
+  transaction, 
+  showUser, 
+  showTransactionType, 
+  showDate, 
+  showDeleteIcon, 
+  showDeleteTransactionRadioButton, 
+  markDuplicate}: TransactionPropsInterface) {
     const [amount, setAmount] = useState(transaction.amount);
     // const [category, setCategory] = useState((transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory);
     const [userCategory, setUserCategory] = useState(transaction.userCategory);
@@ -165,7 +174,7 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
     }
 
     return (
-      <div className="transaction">
+      <div className={`transaction ${transaction.duplicatedTransaction && markDuplicate ? "duplicate" : ""}`}>
         <div className='transaction-content' style={gridStyle}>
             {showDeleteTransactionRadioButton && 
             <label className='delete-transaction-checkbox-container '>
@@ -210,18 +219,6 @@ function Transaction({transaction, showUser, showTransactionType, showDate, show
                 {transaction.description}
             </div>
             <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
-                {/* {!editable && 
-                  <div className='number transaction-element' >
-                    {transaction.amount}
-                  </div>
-                }
-                {
-                  editable &&
-                  <input type="number" 
-                    value={amount}
-                    step="0.01"
-                    onChange={(e:any)=>{setAmount(e.target.value)}}/>
-                } */}
                 <div className='number transaction-element' 
                       contentEditable={editable}  
                       onInput={(e:any)=>{handleAmountChanged(e.currentTarget.textContent)}}

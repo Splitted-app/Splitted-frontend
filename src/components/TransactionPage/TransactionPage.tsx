@@ -199,7 +199,14 @@ function TransactionPage() {
             </div>}
             <div className='transactions-list'>
                 {!loading &&
-                    <TransactionList transactions={data.transactions} shadow={false} showTransactionType={true} showDate={true} showDeleteIcon={false} showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}></TransactionList>
+                    <TransactionList 
+                        transactions={data.transactions} 
+                        shadow={false} 
+                        showTransactionType={true} 
+                        showDate={true} 
+                        showDeleteIcon={false} 
+                        showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}
+                        markDuplicates={false}></TransactionList>
                 }
                 {loading &&
                     <LoadingPanel error={error}/>
