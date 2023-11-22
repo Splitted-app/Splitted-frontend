@@ -87,7 +87,8 @@ function Transaction({
           .replace(/[^0-9.-]/g, "")      // remove all characters that are not a digit, '.' or '-'
           .replace(/(?!^)-/, "");
         let numValue = Number(parsedValue);
-        numValue = Math.round((numValue + Number.EPSILON) * 100) / 100;  
+        numValue = Math.round((numValue + Number.EPSILON) * 100) / 100; 
+        console.log(numValue);
         setAmount(numValue);
       }
       catch 
@@ -172,6 +173,14 @@ function Transaction({
         }
     }
 
+    function adjustContent(target: any, toLeft: boolean = true)
+    {
+      if (toLeft)
+        target.scrollLeft = 0;
+      else
+        target.scrollLeft = target.scrollWidth - target.clientWidth;
+    }
+
     return (
       <div className={`transaction ${transaction.duplicatedTransaction && markDuplicate ? "duplicate" : ""}`}>
         <div className='transaction-content' style={gridStyle}>
@@ -187,7 +196,8 @@ function Transaction({
             <div className={`category transaction-element ${editable ? "editable-content editable-margin" : ""}`}
                   contentEditable={editable} 
                   onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}
-                  suppressContentEditableWarning={true}>
+                  suppressContentEditableWarning={true}
+                  onBlur={(e) => {adjustContent(e.target)}}>
                 {(transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory}
             </div>
             {showTransactionType &&
@@ -215,17 +225,19 @@ function Transaction({
             <div className={`description transaction-element ${editable ? "editable-content editable-margin" : ""}`}
                   contentEditable={editable} 
                   onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}
-                  suppressContentEditableWarning={true}>
+                  suppressContentEditableWarning={true}
+                  onBlur={(e) => {adjustContent(e.target)}}>
                 {transaction.description}
             </div>
             <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
                 <div className={`transaction-element ${editable ? "editable-content" : ""}`}
                       contentEditable={editable}  
                       onInput={(e:any)=>{handleAmountChanged(e.currentTarget.textContent)}}
-                      suppressContentEditableWarning={true}>
+                      suppressContentEditableWarning={true}
+                      onBlur={(e) => {adjustContent(e.target, false)}}>
                     {transaction.amount}
                 </div>
-                <div className='transaction-element'>
+                <div className='transaction-element' style={{minWidth: 'fit-content'}}>
                     {transaction.currency}
                 </div>
             </div>
