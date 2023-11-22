@@ -65,13 +65,13 @@ function Transaction({
     const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
     const [newTransactions, setNewTransactions] = useRecoilState<any>(NewTransactionsState);
     let gridTemplateColumns = '';
-    gridTemplateColumns += showDeleteTransactionRadioButton ? '5% ' : '';
-    gridTemplateColumns += '20% ';
-    gridTemplateColumns += showTransactionType ? '10% ' : '';
-    gridTemplateColumns += showDate ? '15% ' : '';
-    gridTemplateColumns += showUser ? '15% ' : '';
-    gridTemplateColumns += 'auto ';
-    gridTemplateColumns += '10%';
+    gridTemplateColumns += showDeleteTransactionRadioButton ? '5% ' : ''; // delete checkbox
+    gridTemplateColumns += '20% '; // category
+    gridTemplateColumns += showTransactionType ? '10% ' : ''; // transaction type
+    gridTemplateColumns += showDate ? '15% ' : ''; // date
+    gridTemplateColumns += showUser ? '15% ' : ''; // user
+    gridTemplateColumns += 'auto '; // description
+    gridTemplateColumns += '20%'; // amount
 
     const gridStyle = {
       gridTemplateColumns: gridTemplateColumns
