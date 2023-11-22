@@ -64,7 +64,6 @@ function Transaction({
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
     const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
     const [newTransactions, setNewTransactions] = useRecoilState<any>(NewTransactionsState);
-
     let gridTemplateColumns = '';
     gridTemplateColumns += showDeleteTransactionRadioButton ? '5% ' : '';
     gridTemplateColumns += '20% ';
