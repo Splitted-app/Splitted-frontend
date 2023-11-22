@@ -16,15 +16,9 @@ import HomePageIcon from '../../assets/images/home_page.png'
 import InsightsIcon from '../../assets/images/insights.png'
 import LogOutIcon from '../../assets/images/log-out.png'
 import MenuIcon from '../../assets/images/main-menu.png'
-import PredictionsIcon from '../../assets/images/predictions.png'
 import SettingsIcon from '../../assets/images/settings.png'
 import SplitIcon from '../../assets/images/split.png'
 import TransactionsIcon from '../../assets/images/transactions.png'
-
-
-
-
-
 
 
 function Navbar() {
@@ -46,8 +40,7 @@ function Navbar() {
           <div className='side-pages'>
             <NavbarItem name="HomePage" font="CeraPro light" fontSize="17px" link="/home" icon={HomePageIcon}></NavbarItem>
             <NavbarItem name="Transactions" font="CeraPro light" fontSize="17px" link="/transactions" icon={TransactionsIcon}></NavbarItem>
-            <NavbarItem name="Insights" font="CeraPro light" fontSize="17px" link="/insights"icon={InsightsIcon}></NavbarItem>
-            <NavbarItem name="Predictions" font="CeraPro light" fontSize="17px" link="/home"icon={PredictionsIcon}></NavbarItem>
+            <NavbarItem name="Insights" font="CeraPro light" fontSize="17px" link="/insights" icon={InsightsIcon}></NavbarItem>
             <NavbarItem name="Goals" font="CeraPro light" fontSize="17px" link="/home" icon={GoalsIcon}></NavbarItem>
           </div>
           <div className='modes-panel'>
