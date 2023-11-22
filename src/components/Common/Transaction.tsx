@@ -193,7 +193,7 @@ function Transaction({
               <span className="checkmark">
               </span>
             </label>}
-            <div className={`category transaction-element ${editable ? "editable-content editable-margin" : ""}`}
+            <div className={`category transaction-element element-margin ${editable ? "editable-content" : ""}`}
                   contentEditable={editable} 
                   onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}
                   suppressContentEditableWarning={true}
@@ -201,7 +201,7 @@ function Transaction({
                 {(transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory}
             </div>
             {showTransactionType &&
-            <div className={`transactionType transaction-element ${editable ? "editable-content editable-margin" : ""}`}>
+            <div className={`transactionType transaction-element element-margin ${editable ? "editable-content" : ""}`}>
                 {!editable && transaction.transactionType}
                 {editable && 
                 <select value={transactionType} onChange={(e)=>{setTransactionType(e.target.value)}}>
@@ -222,7 +222,7 @@ function Transaction({
             </div>
             }
 
-            <div className={`description transaction-element ${editable ? "editable-content editable-margin" : ""}`}
+            <div className={`description transaction-element element-margin ${editable ? "editable-content" : ""}`}
                   contentEditable={editable} 
                   onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}
                   suppressContentEditableWarning={true}
@@ -234,7 +234,7 @@ function Transaction({
                       contentEditable={editable}  
                       onInput={(e:any)=>{handleAmountChanged(e.currentTarget.textContent)}}
                       suppressContentEditableWarning={true}
-                      onBlur={(e) => {adjustContent(e.target, false)}}>
+                      onBlur={(e) => {adjustContent(e.target)}}>
                     {transaction.amount}
                 </div>
                 <div className='transaction-element' style={{minWidth: 'fit-content'}}>
