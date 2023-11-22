@@ -172,6 +172,7 @@
     border-bottom: #575757 dashed 2px;
     width: fit-content;
     min-width: 20px;
+    max-width: 90%; /*100 - 10% margin*/
 }
 
 .transaction .editable-margin
