@@ -14,7 +14,7 @@ import rightarrow from '../../assets/images/rightarrow.svg'
 
 function HomePageContent() {
 
-    const overTypeCount = 3;
+    const overTypeCount = 2;
     const [overviewTypeId, setOverviewTypeId] = useState(0);
     const bankBalance = useFetchBalance();
     const currency = useFetchCurrency();
