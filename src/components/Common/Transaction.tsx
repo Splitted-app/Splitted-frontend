@@ -64,7 +64,6 @@ function Transaction({
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
     const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
     const [newTransactions, setNewTransactions] = useRecoilState<any>(NewTransactionsState);
-
     let gridTemplateColumns = '';
     gridTemplateColumns += showDeleteTransactionRadioButton ? '5% ' : '';
     gridTemplateColumns += '20% ';
@@ -185,20 +184,21 @@ function Transaction({
               <span className="checkmark">
               </span>
             </label>}
-            <div className='category transaction-element' 
+            <div className={`category transaction-element ${editable ? "editable-content editable-margin" : ""}`}
                   contentEditable={editable} 
                   onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}
                   suppressContentEditableWarning={true}>
                 {(transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory}
             </div>
             {showTransactionType &&
-            <div className='transactionType transaction-element'>
+            <div className={`transactionType transaction-element ${editable ? "editable-content editable-margin" : ""}`}>
                 {!editable && transaction.transactionType}
-                {editable && <select value={transactionType} onChange={(e)=>{setTransactionType(e.target.value)}}>
-                <option value={TransactionTypes.Blik}>{TransactionTypes.Blik}</option>
-                <option value={TransactionTypes.Card}>{TransactionTypes.Card}</option>
-                <option value={TransactionTypes.Transfer}>{TransactionTypes.Transfer}</option>
-                <option value={TransactionTypes.Other}>{TransactionTypes.Other}</option>
+                {editable && 
+                <select value={transactionType} onChange={(e)=>{setTransactionType(e.target.value)}}>
+                  <option value={TransactionTypes.Blik}>{TransactionTypes.Blik}</option>
+                  <option value={TransactionTypes.Card}>{TransactionTypes.Card}</option>
+                  <option value={TransactionTypes.Transfer}>{TransactionTypes.Transfer}</option>
+                  <option value={TransactionTypes.Other}>{TransactionTypes.Other}</option>
                 </select>}
             </div>
             }
@@ -212,20 +212,20 @@ function Transaction({
             </div>
             }
 
-            <div className='description transaction-element' 
+            <div className={`description transaction-element ${editable ? "editable-content editable-margin" : ""}`}
                   contentEditable={editable} 
                   onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}
                   suppressContentEditableWarning={true}>
                 {transaction.description}
             </div>
             <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
-                <div className='number transaction-element' 
+                <div className={`transaction-element ${editable ? "editable-content" : ""}`}
                       contentEditable={editable}  
                       onInput={(e:any)=>{handleAmountChanged(e.currentTarget.textContent)}}
                       suppressContentEditableWarning={true}>
                     {transaction.amount}
                 </div>
-                <div className='currency transaction-element'>
+                <div className='transaction-element'>
                     {transaction.currency}
                 </div>
             </div>
