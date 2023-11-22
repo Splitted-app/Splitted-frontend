@@ -3,7 +3,10 @@ import '../../css/InsightsPage/InsightsPage.css'
 import { useEffect,  useCallback, useState } from 'react';
 
 import { useSetRecoilState } from 'recoil';
+
 import Navbar from "../Common/Navbar"
+import StatisticsPanel from './StatisticsPanel';
+
 
 import { BarChart,LineChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, LabelList ,Line ,PieChart, Pie, Sector, Legend, ReferenceLine} from 'recharts';
 
@@ -300,6 +303,9 @@ function InsightsPage() {
                             <Bar dataKey="amount" fill="#FF7300" />
                         </BarChart>
                     </ResponsiveContainer>
+                </div>
+                <div className='insights-page-main-charts-statistics-panel'>
+                    <StatisticsPanel/>
                 </div>
             </div>
         </div>

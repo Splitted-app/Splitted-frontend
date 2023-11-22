@@ -1,0 +1,81 @@
+.statistics-panel
+{
+    width: 80%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 15px 15px 2px #54498B;
+    border-radius: 40px;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 5% 10% 10% 70% 5% ;
+    grid-template-columns: 5% 90% 5%;
+}
+
+.statistics-panel .statistics-panel-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: black;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.statistics-panel .statistics-panel-category
+{
+    font-family: 'Gotham Medium';
+    font-size: 20px;
+    color: black;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.statistics-panel .statistics-panel-main-content
+{
+    font-family: 'Gotham Medium';
+    font-size: 20px;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    
+}
+
+
+.statistics-panel .statistics-panel-main-content .statistics-element-name
+{
+    display: flex;
+}
+
+.statistics-panel .statistics-panel-main-content .max-value
+{
+    color: #EA6900;
+}
+
+.statistics-panel .statistics-panel-main-content .q3
+{
+    color: #FF006F;
+}
+
+.statistics-panel .statistics-panel-main-content .mean-value
+{
+    color: #4B5CA6;
+}
+
+.statistics-panel .statistics-panel-main-content .q1
+{
+    color: #00E2AD;
+}
+
+.statistics-panel .statistics-panel-main-content .min-value
+{
+    color: #7E0101;
+}
+
+.statistics-panel .statistics-panel-main-content .statistics-element-amount
+{
+    color: #444444;
+}
