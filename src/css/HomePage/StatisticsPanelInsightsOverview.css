@@ -1,0 +1,104 @@
+.statistics-panel-insights-overview
+{
+    width: 85%;
+    height: 75%;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 46px 1px rgba(126, 127, 160, 1);
+    -moz-box-shadow: 0px 0px 46px 1px rgba(126, 127, 160, 1);
+    box-shadow: 0px 0px 46px 1px rgba(126, 127, 160, 1);
+    border-radius: 40px;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 5% 25% 65%;
+    grid-template-columns: 5% 90% 5%;
+}
+
+.statistics-panel-insights-overview .statistics-panel-header
+{
+
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: grid;
+    grid-template-columns: 5% 40% 5% 45% 5%;
+    grid-template-rows: 100%;
+}
+
+.statistics-panel-insights-overview .statistics-panel-header .statistics-panel-title
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-family: 'Gotham Bold';
+    font-size: 18px;
+    color: black;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.statistics-panel-insights-overview .statistics-panel-header .statistics-panel-category
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    font-family: 'Gotham Medium';
+    font-size: 15px;
+    color: black;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.statistics-panel-insights-overview .statistics-panel-main-content
+{
+    font-family: 'Gotham Medium';
+    font-size: 15px;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-top: auto;
+    margin-bottom: auto;
+    line-height: 120%;
+}
+
+.statistics-panel-insights-overview .statistics-panel-main-content .statistics-element
+{
+    display: grid;
+    grid-template-columns: 10% 35% 10% 35% 10%;
+    grid-template-rows: 100%;
+
+}
+
+.statistics-panel-insights-overview  .statistics-panel-main-content .statistics-element .max-value
+{
+    color: #EA6900;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+
+.statistics-panel-insights-overview .statistics-panel-main-content .statistics-element .mean-value
+{
+    color: #4B5CA6;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.statistics-panel-insights-overview  .statistics-panel-main-content .statistics-element .min-value
+{
+    color: #7E0101;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.statistics-panel-insights-overview  .statistics-panel-main-content .statistics-element .statistics-element-amount
+{
+    color: #444444;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}

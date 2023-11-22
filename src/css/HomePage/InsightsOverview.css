@@ -2,7 +2,63 @@
 {
     height: 100%;
     width: 100%;
-    display:grid;
-    grid-template-columns: 30% 40% 30%;
-    grid-template-rows: 10% 90%;
+    background-color: #BBB9DD;
+    border-radius: 20px;
+    height: 85%;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: column;
+}
+
+
+.insights-overview .panel-title
+{
+    padding: 10px;
+    font-family: 'Gotham Medium';
+    font-size: 22px;
+}
+
+.insights-overview .insights-overview-content
+{
+    height: 70%;
+    min-height: 70%;
+    background-color: white;
+    box-shadow: inset 0 0 15px #404040;
+    display: grid;
+    grid-template-columns: 40% 10% 50% 5% ;
+    grid-template-rows: 5% 60% 30% 5%;
+}
+
+.insights-overview .insights-overview-content .insights-overview-statistics-panel
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.insights-overview .insights-overview-content .insights-overview-category-expenses-distribution
+{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+
+}
+
+.insights-overview .insights-overview-content .insights-overview-category-expenses-distribution .recharts-wrapper svg
+{
+    overflow: inherit !important;
+
+}
+.insights-overview .insights-overview-content .insights-overview-income-expenses
+{
+    grid-row-start: 3;
+    grid-row-end:5;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
 }
