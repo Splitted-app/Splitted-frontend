@@ -7,7 +7,7 @@
     border-radius: 40px;
     margin: auto;
     display: grid;
-    grid-template-rows: 5% 10% 10% 70% 5% ;
+    grid-template-rows: 5% 15% 10% 65%;
     grid-template-columns: 5% 90% 5%;
 }
 
@@ -20,6 +20,8 @@
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .statistics-panel .statistics-panel-category
@@ -31,6 +33,8 @@
     grid-row-end: 4;
     grid-column-start: 2;
     grid-column-end: 3;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .statistics-panel .statistics-panel-main-content
@@ -41,41 +45,57 @@
     grid-row-end: 5;
     grid-column-start: 2;
     grid-column-end: 3;
-    
+    margin-top: auto;
+    margin-bottom: auto;
+    line-height: 150%;
 }
 
-
-.statistics-panel .statistics-panel-main-content .statistics-element-name
+.statistics-panel .statistics-panel-main-content .statistics-element
 {
-    display: flex;
+    display: grid;
+    grid-template-columns: 10% 35% 10% 35% 10%;
+    grid-template-rows: 100%;
+
 }
 
-.statistics-panel .statistics-panel-main-content .max-value
+.statistics-panel .statistics-panel-main-content .statistics-element .max-value
 {
     color: #EA6900;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
-.statistics-panel .statistics-panel-main-content .q3
+.statistics-panel .statistics-panel-main-content .statistics-element .q3
 {
     color: #FF006F;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
-.statistics-panel .statistics-panel-main-content .mean-value
+.statistics-panel .statistics-panel-main-content .statistics-element .mean-value
 {
     color: #4B5CA6;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
-.statistics-panel .statistics-panel-main-content .q1
+.statistics-panel .statistics-panel-main-content .statistics-element  .q1
 {
     color: #00E2AD;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
-.statistics-panel .statistics-panel-main-content .min-value
+.statistics-panel .statistics-panel-main-content .statistics-element .min-value
 {
     color: #7E0101;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
-.statistics-panel .statistics-panel-main-content .statistics-element-amount
+.statistics-panel .statistics-panel-main-content .statistics-element .statistics-element-amount
 {
     color: #444444;
+    grid-column-start: 4;
+    grid-column-end: 5;
 }
