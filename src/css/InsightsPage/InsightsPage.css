@@ -143,3 +143,12 @@
     font-size: 25px;
     padding-bottom: 3%;
 }
+
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-statistics-panel
+{
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    
+}
