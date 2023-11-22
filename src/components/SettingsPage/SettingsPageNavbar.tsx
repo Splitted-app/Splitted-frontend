@@ -17,12 +17,11 @@ import SplitIcon from '../../assets/images/split.png'
 interface SettingsPageNavbarInterface
 {
   setAccountPageVisibility:Function,
-  setNotificationsPageVisibility:Function,
-  setFriendsPageVisibility:Function;
+    setFriendsPageVisibility:Function;
 
 }
 
-function SettingsPageNavbar({setAccountPageVisibility, setNotificationsPageVisibility, setFriendsPageVisibility} : SettingsPageNavbarInterface) {
+function SettingsPageNavbar({setAccountPageVisibility, setFriendsPageVisibility} : SettingsPageNavbarInterface) {
   
   const setNavbarVisibility = useSetRecoilState(NavbarVisibilityState);
   const setSettingsNavbarVisibility = useSetRecoilState(SettingsNavbarVisibilityState);
@@ -42,13 +41,10 @@ function SettingsPageNavbar({setAccountPageVisibility, setNotificationsPageVisib
             Settings
           </div>
           <div className='settings-page-navbar-subsides'>
-            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(true); setNotificationsPageVisibility(false); setFriendsPageVisibility(false)}}>
+            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(true); setFriendsPageVisibility(false)}}>
               <SettingsPageNavbarItem title="Account"/>
             </button>
-            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(false); setNotificationsPageVisibility(true); setFriendsPageVisibility(false)}}>
-              <SettingsPageNavbarItem title="Notifications"/>
-            </button>
-            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(false); setNotificationsPageVisibility(false); setFriendsPageVisibility(true)}}>
+            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(false); setFriendsPageVisibility(true)}}>
               <SettingsPageNavbarItem title="Friends"/>
             </button>
           </div>
