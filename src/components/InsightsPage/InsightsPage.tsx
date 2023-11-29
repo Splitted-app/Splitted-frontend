@@ -17,6 +17,7 @@ import useFetchBalanceHistory from '../../hooks/useFetchBalanceHistory';
 import useFetchExpensesBreakdown from '../../hooks/useFetchExpensesBreakdown';
 import useFetchIncomeExpensesOverTime from '../../hooks/useFetchIncomeExpensesOverTime';
 import useFetchExpensesHistogram from '../../hooks/useFetchExpensesHistogram';
+import InsightsPageDateRangeSelector from './InsightsPageDateRangeSelector';
 
 
 function InsightsPage() {
@@ -26,128 +27,26 @@ function InsightsPage() {
     },[])
       
     const setMenuIconVisibility = useSetRecoilState(MenuIconVisibilityState);
-    const incomeExpenses = useFetchIncomeExpenses()
-    const balanceHistory = useFetchBalanceHistory()
 
-    // const balanceHistory=[
-    //     {
-    //         balance:500,
-    //         date:'01-01-2023'
-    //     },
-    //     {
-    //         balance:1000,
-    //         date:'14-03-2023'
-    //     },
-    //     {
-    //         balance:2000,
-    //         date:'26-05-2023'
-    //     },
-    //     {
-    //         balance:100,
-    //         date:'02-07-2023'
-    //     },
-    //     {
-    //         balance:1500,
-    //         date:'09-09-2023'
-    //     }
-    // ]
+    let currentDate : Date = new Date();
+    const [dateRange, setDateRange] = useState<any>([{
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection'
+    }]);
 
-    const expensesBreakdown = useFetchExpensesBreakdown();
-    // const expensesBreakdown=[
-    //     {
-    //         category: 'Groceries',
-    //         amount: 700
-    //     },
-    //     {
-    //         category: 'Shopping',
-    //         amount: 500
-    //     },
-    //     {
-    //         category: 'Transport',
-    //         amount: 50
-    //     },
-    //     {
-    //         category: 'Food & Drink',
-    //         amount: 250
-    //     },
-    //     {
-    //         category: 'Health',
-    //         amount: 100
-    //     }
-    // ]
-    const incomeExpensesOverTime = useFetchIncomeExpensesOverTime();
-    // const incomeExpensesOverTime = [
-    //     {
-    //         date: '01-01-2023',
-    //         income: 2000 ,
-    //         expenses: -1000
-    //     },
-    //     {
-    //         date: '14-03-2023',
-    //         income: 5000 ,
-    //         expenses: -2000
-    //     },
-    //     {
-    //         date: '26-05-2023',
-    //         income: 1000 ,
-    //         expenses: -500
-    //     },
-    //     {
-    //         date: '02-07-2023',
-    //         income: 4000 ,
-    //         expenses: -1500
-    //     },
-    //     {
-    //         date: '09-09-2023',
-    //         income: 5000 ,
-    //         expenses: -3000
-    //     },
-    //     {
-    //         date: '18-10-2023',
-    //         income: 3000 ,
-    //         expenses: -1000
-    //     },
-    //     {
-    //         date: '30-11-2023',
-    //         income: 4500 ,
-    //         expenses: -1000
-    //     },
-    //   ];
-      
+    const incomeExpenses = useFetchIncomeExpenses(dateRange);
+    const balanceHistory = useFetchBalanceHistory(dateRange);
 
-    const expensesHistogram = useFetchExpensesHistogram();
-    //   const expensesHistogram=[
-    //     {
-    //         amount:1000,
-    //         date:'01-01-2023'
-    //     },
-    //     {
-    //         amount:2000,
-    //         date:'14-03-2023'
-    //     },
-    //     {
-    //         amount:500,
-    //         date:'26-05-2023'
-    //     },
-    //     {
-    //         amount:1500,
-    //         date:'02-07-2023'
-    //     },
-    //     {
-    //         amount:3000,
-    //         date:'09-09-2023'
-    //     },
-    //     {
-    //         amount:1000,
-    //         date:'18-10-2023'
-    //     },
-    //     {
-    //         amount:1000,
-    //         date:'30-11-2023'
-    //     }
-    // ]
+    const expensesBreakdown = useFetchExpensesBreakdown(dateRange);
+
+    const incomeExpensesOverTime = useFetchIncomeExpensesOverTime(dateRange);
+
+    const expensesHistogram = useFetchExpensesHistogram(dateRange);
 
     const COLORS = ['#FF5EA4 ', '#FF7300', '#FFBF00', '#54498B ','#A30D0D '];
+
+
 
     const renderActiveShape = (props:any) => {
         const RADIAN = Math.PI / 180;
@@ -209,6 +108,9 @@ function InsightsPage() {
         <Navbar></Navbar>
         <div className='insights-page-content'>
             <div className='header'>
+                <div className='date-range-select'>
+                    <InsightsPageDateRangeSelector currentDate={currentDate} dateRange={dateRange} setDateRange={setDateRange}/>
+                </div>
                 <div className='income-expenses-chart'>
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart width={500} height={300} data={incomeExpenses.data} layout="vertical" margin={{top: 20, right: 100,left: 0, bottom: 15}}  barGap={0}>
