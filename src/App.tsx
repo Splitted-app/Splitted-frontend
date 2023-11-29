@@ -35,6 +35,7 @@ import { ImportCsvPanelVisibilityState } from './atoms/ImportCsvPanelVisbility';
 import { LogOutPanelVisibilityState } from './atoms/LogOutPanelVisibility';
 import { ManualAddTransactionsPanelVisibilityState } from './atoms/ManualAddTransactionsPanelVisbility';
 import { UserTokenState } from './atoms/UserToken';
+import FamilyModePage from './components/ModePages/FamilyModePage';
 
 
 
@@ -107,6 +108,8 @@ function App() {
             <Route path="/insights" element ={<InsightsPage/>}/>
             <Route path="/settings" element={<SettingsPage/>}/>
             <Route path="/ConfirmEmail" element={<ConfirmEmailPage/>}/>
+            <Route path="/family" element={<FamilyModePage/>}/>
+
           </Routes>
         </div>
         <div className='global-popup' style={{'display': popupVisible ? 'flex' : 'none'}}>
