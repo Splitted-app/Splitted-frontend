@@ -14,10 +14,7 @@ function LoadingPanel({error}: LoadingPanelInterface)
 
     useEffect(() => {
         setTimeout(() => setLongwait(true), 3000)
-        console.log(error);
     })
-
-    
     
     return (
         <div className="loading-panel">

@@ -4,6 +4,8 @@ import {useCallback, useState } from 'react';
 
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, LabelList, PieChart, Pie, Legend, Sector} from 'recharts';
 import StatisticsPanelInsightsOverview from './StatisticsPanelInsightsOverview';
+import useFetchIncomesExpenses from '../../hooks/useFetchIncomeExpenses';
+import useFetchExpensesBreakdown from '../../hooks/useFetchExpensesBreakdown';
 
 interface InsightsOverviewInterface
 {
@@ -11,34 +13,8 @@ interface InsightsOverviewInterface
 }
 
 function InsightsOverview({dateRange}:InsightsOverviewInterface) {
-  const data=[
-    {
-      expenses:50000,
-      income:100000
-    }
-  ]
-  const pie_chart_data=[
-    {
-        category: 'Groceries',
-        amount: 700
-    },
-    {
-        category: 'Shopping',
-        amount: 500
-    },
-    {
-        category: 'Transport',
-        amount: 150
-    },
-    {
-        category: 'Food & Drink',
-        amount: 250
-    },
-    {
-        category: 'Health',
-        amount: 100
-    }
-]
+  const incomeExpenses= useFetchIncomesExpenses(dateRange)
+  const pieChartData= useFetchExpensesBreakdown(dateRange);
 
 const COLORS = ['#FF5EA4 ', '#FF7300', '#FFBF00', '#54498B ','#A30D0D' ];
 
@@ -110,7 +86,7 @@ const renderActiveShape = (props:any) => {
                   <Pie
                     activeIndex={activeIndex}
                     activeShape={renderActiveShape}
-                    data={pie_chart_data}
+                    data={pieChartData.data}
                     cx="50%"
                     cy="50%"
                     innerRadius={35}
@@ -120,7 +96,7 @@ const renderActiveShape = (props:any) => {
                     onMouseEnter={onPieEnter}
                     stroke="none"
                     >                  
-                  {pie_chart_data.map((entry, index) => (
+                  {pieChartData.data.map((entry :any, index:number) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
@@ -129,11 +105,11 @@ const renderActiveShape = (props:any) => {
           </div>
           <div className='insights-overview-income-expenses'>
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart  data={data} layout="vertical" margin={{right: 100,left: 0, bottom: 0}}  barGap={0}>
+              <BarChart  data={incomeExpenses.data} layout="vertical" margin={{right: 100,left: 0, bottom: 0}}  barGap={0}>
                 <XAxis type="number" hide />
                 <YAxis dataKey="name" type="category" hide/>
                 <Bar dataKey="expenses" barSize={30} fill="#A30D0D" >
-                    {data.map((_, index) => (
+                    {incomeExpenses.data.map((_:any, index:number) => (
                       <Cell key={index}
                         style={{
                         filter: `drop-shadow(5px 7px 3px #10032B)`
@@ -143,7 +119,7 @@ const renderActiveShape = (props:any) => {
                   <LabelList position="right" dataKey="expenses" style={{textShadow:'none', fill:'#404040', fontFamily:'Gotham Medium', fontSize:'15'}}/>
                 </Bar>
                 <Bar dataKey="income" barSize={30} fill="#20F7C5" >
-                  {data.map((_, index) => (
+                  {incomeExpenses.data.map((_:any, index:number) => (
                     <Cell key={index}
                       style={{
                       filter: `drop-shadow(5px 7px 3px #10032B)`

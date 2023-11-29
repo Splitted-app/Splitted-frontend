@@ -12,7 +12,11 @@ import { BarChart,LineChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, Label
 
 import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
 
-
+import useFetchIncomeExpenses from '../../hooks/useFetchIncomeExpenses';
+import useFetchBalanceHistory from '../../hooks/useFetchBalanceHistory';
+import useFetchExpensesBreakdown from '../../hooks/useFetchExpensesBreakdown';
+import useFetchIncomeExpensesOverTime from '../../hooks/useFetchIncomeExpensesOverTime';
+import useFetchExpensesHistogram from '../../hooks/useFetchExpensesHistogram';
 
 
 function InsightsPage() {
@@ -22,125 +26,126 @@ function InsightsPage() {
     },[])
       
     const setMenuIconVisibility = useSetRecoilState(MenuIconVisibilityState);
-    const data=[
-        {
-          expenses:50000,
-          income:100000
-        }
-      ]
-    const line_chart_data=[
-        {
-            balance:500,
-            date:'01-01-2023'
-        },
-        {
-            balance:1000,
-            date:'14-03-2023'
-        },
-        {
-            balance:2000,
-            date:'26-05-2023'
-        },
-        {
-            balance:100,
-            date:'02-07-2023'
-        },
-        {
-            balance:1500,
-            date:'09-09-2023'
-        }
-    ]
+    const incomeExpenses = useFetchIncomeExpenses()
+    const balanceHistory = useFetchBalanceHistory()
 
-    const pie_chart_data=[
-        {
-            category: 'Groceries',
-            amount: 700
-        },
-        {
-            category: 'Shopping',
-            amount: 500
-        },
-        {
-            category: 'Transport',
-            amount: 50
-        },
-        {
-            category: 'Food & Drink',
-            amount: 250
-        },
-        {
-            category: 'Health',
-            amount: 100
-        }
-    ]
-    const income_expenses_data = [
-        {
-            date: '01-01-2023',
-            income: 2000 ,
-            expenses: -1000
-        },
-        {
-            date: '14-03-2023',
-            income: 5000 ,
-            expenses: -2000
-        },
-        {
-            date: '26-05-2023',
-            income: 1000 ,
-            expenses: -500
-        },
-        {
-            date: '02-07-2023',
-            income: 4000 ,
-            expenses: -1500
-        },
-        {
-            date: '09-09-2023',
-            income: 5000 ,
-            expenses: -3000
-        },
-        {
-            date: '18-10-2023',
-            income: 3000 ,
-            expenses: -1000
-        },
-        {
-            date: '30-11-2023',
-            income: 4500 ,
-            expenses: -1000
-        },
-      ];
+    // const balanceHistory=[
+    //     {
+    //         balance:500,
+    //         date:'01-01-2023'
+    //     },
+    //     {
+    //         balance:1000,
+    //         date:'14-03-2023'
+    //     },
+    //     {
+    //         balance:2000,
+    //         date:'26-05-2023'
+    //     },
+    //     {
+    //         balance:100,
+    //         date:'02-07-2023'
+    //     },
+    //     {
+    //         balance:1500,
+    //         date:'09-09-2023'
+    //     }
+    // ]
+
+    const expensesBreakdown = useFetchExpensesBreakdown();
+    // const expensesBreakdown=[
+    //     {
+    //         category: 'Groceries',
+    //         amount: 700
+    //     },
+    //     {
+    //         category: 'Shopping',
+    //         amount: 500
+    //     },
+    //     {
+    //         category: 'Transport',
+    //         amount: 50
+    //     },
+    //     {
+    //         category: 'Food & Drink',
+    //         amount: 250
+    //     },
+    //     {
+    //         category: 'Health',
+    //         amount: 100
+    //     }
+    // ]
+    const incomeExpensesOverTime = useFetchIncomeExpensesOverTime();
+    // const incomeExpensesOverTime = [
+    //     {
+    //         date: '01-01-2023',
+    //         income: 2000 ,
+    //         expenses: -1000
+    //     },
+    //     {
+    //         date: '14-03-2023',
+    //         income: 5000 ,
+    //         expenses: -2000
+    //     },
+    //     {
+    //         date: '26-05-2023',
+    //         income: 1000 ,
+    //         expenses: -500
+    //     },
+    //     {
+    //         date: '02-07-2023',
+    //         income: 4000 ,
+    //         expenses: -1500
+    //     },
+    //     {
+    //         date: '09-09-2023',
+    //         income: 5000 ,
+    //         expenses: -3000
+    //     },
+    //     {
+    //         date: '18-10-2023',
+    //         income: 3000 ,
+    //         expenses: -1000
+    //     },
+    //     {
+    //         date: '30-11-2023',
+    //         income: 4500 ,
+    //         expenses: -1000
+    //     },
+    //   ];
       
-      const expenes_chart_data=[
-        {
-            amount:1000,
-            date:'01-01-2023'
-        },
-        {
-            amount:2000,
-            date:'14-03-2023'
-        },
-        {
-            amount:500,
-            date:'26-05-2023'
-        },
-        {
-            amount:1500,
-            date:'02-07-2023'
-        },
-        {
-            amount:3000,
-            date:'09-09-2023'
-        },
-        {
-            amount:1000,
-            date:'18-10-2023'
-        },
-        {
-            amount:1000,
-            date:'30-11-2023'
-        }
-    ]
+
+    const expensesHistogram = useFetchExpensesHistogram();
+    //   const expensesHistogram=[
+    //     {
+    //         amount:1000,
+    //         date:'01-01-2023'
+    //     },
+    //     {
+    //         amount:2000,
+    //         date:'14-03-2023'
+    //     },
+    //     {
+    //         amount:500,
+    //         date:'26-05-2023'
+    //     },
+    //     {
+    //         amount:1500,
+    //         date:'02-07-2023'
+    //     },
+    //     {
+    //         amount:3000,
+    //         date:'09-09-2023'
+    //     },
+    //     {
+    //         amount:1000,
+    //         date:'18-10-2023'
+    //     },
+    //     {
+    //         amount:1000,
+    //         date:'30-11-2023'
+    //     }
+    // ]
 
     const COLORS = ['#FF5EA4 ', '#FF7300', '#FFBF00', '#54498B ','#A30D0D '];
 
@@ -205,12 +210,12 @@ function InsightsPage() {
         <div className='insights-page-content'>
             <div className='header'>
                 <div className='income-expenses-chart'>
-                    <ResponsiveContainer width="100%" height="100%">
-                        <BarChart width={500} height={300} data={data} layout="vertical" margin={{top: 20, right: 100,left: 0, bottom: 15}}  barGap={0}>
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart width={500} height={300} data={incomeExpenses.data} layout="vertical" margin={{top: 20, right: 100,left: 0, bottom: 15}}  barGap={0}>
                         <XAxis type="number" hide />
                         <YAxis dataKey="name" type="category" hide/>
                         <Bar dataKey="expenses" barSize={40} fill="#A30D0D" >
-                            {data.map((_, index) => (
+                            {incomeExpenses.data.map((_: any, index: number) => (
                                 <Cell key={index}
                                 style={{
                                 filter: `drop-shadow(5px 7px 3px #10032B)`
@@ -220,7 +225,7 @@ function InsightsPage() {
                             <LabelList position="right" dataKey="expenses" style={{textShadow:'none', fill:'white', fontFamily:'Gotham Medium', fontSize:'15'}}/>
                         </Bar>
                         <Bar dataKey="income" barSize={40} fill="#20F7C5" >
-                            {data.map((_, index) => (
+                            {incomeExpenses.data.map((_: any, index: number) => (
                             <Cell key={index}
                             style={{
                             filter: `drop-shadow(5px 7px 3px #10032B)`
@@ -244,7 +249,7 @@ function InsightsPage() {
                         Balance
                     </div>
                     <ResponsiveContainer  width="100%" height="100%">
-                            <LineChart width={500} height={200}  data={line_chart_data}>
+                            <LineChart width={500} height={200}  data={balanceHistory.data}>
                             <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
                             <YAxis stroke="white" fontFamily='Gotham Medium' fontSize='15px' />
                             <Line type="monotone" dataKey="balance" stroke="#D80088" />
@@ -257,11 +262,23 @@ function InsightsPage() {
                     </div>
                     <ResponsiveContainer  width="100%" height="100%" >
                         <PieChart width={400} height={400} >
-                            <Legend layout="vertical" verticalAlign="top" align="left" overflow='visible' payload={pie_chart_data.map((item, index) => ({id: item.category,type: "circle",value: `${item.category}`,color: COLORS[index % COLORS.length]}))} wrapperStyle={{fontFamily: 'Gotham Medium' ,fontSize:'15px', lineHeight:'23px'}}/>
+                            <Legend 
+                                layout="vertical" 
+                                verticalAlign="top" 
+                                align="left" 
+                                overflow='visible' 
+                                payload={
+                                    expensesBreakdown.data.map((item: any, index: number) => 
+                                        ({
+                                            id: item.categor, 
+                                            type: "circle",
+                                            value: `${item.category}`,
+                                            color: COLORS[index % COLORS.length]}))} 
+                                            wrapperStyle={{fontFamily: 'Gotham Medium' ,fontSize:'15px', lineHeight:'23px'}}/>
                             <Pie
                                 activeIndex={activeIndex}
                                 activeShape={renderActiveShape}
-                                data={pie_chart_data}
+                                data={expensesBreakdown.data}
                                 cx="50%"
                                 cy="50%"
                                 innerRadius={60}
@@ -271,7 +288,7 @@ function InsightsPage() {
                                 onMouseEnter={onPieEnter}
                                 stroke="none"
                             >
-                            {pie_chart_data.map((entry, index) => (
+                            {expensesBreakdown.data.map((_: any, index: number) => (
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                             ))}
                             </Pie>
@@ -283,7 +300,7 @@ function InsightsPage() {
                         Income & Expenses
                     </div>
                     <ResponsiveContainer width="100%" height="100%">
-                        <BarChart width={500} height={300} data={income_expenses_data} stackOffset="sign">
+                        <BarChart width={500} height={300} data={incomeExpensesOverTime.data} stackOffset="sign">
                         <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
                         <YAxis stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
                         <ReferenceLine y={0} stroke="white" />
@@ -297,10 +314,10 @@ function InsightsPage() {
                         Expenses Distribution
                     </div>
                     <ResponsiveContainer width="100%" height="100%">
-                        <BarChart width={150} height={40} data={expenes_chart_data}>
-                            <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
+                        <BarChart width={150} height={40} data={expensesHistogram.data}>
+                            <XAxis dataKey="range" stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
                             <YAxis stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
-                            <Bar dataKey="amount" fill="#FF7300" />
+                            <Bar dataKey="count" fill="#FF7300" />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
