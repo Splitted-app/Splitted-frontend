@@ -174,7 +174,18 @@
     border: none;
     border-bottom: 1px solid white;
 }
-
+.transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element select
+{
+    width: 50%;
+    background-color: transparent;
+    color: white;
+    font-family: 'Gotham Light';
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid white;
+    justify-self: left;
+}
 .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }

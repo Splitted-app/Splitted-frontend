@@ -2,6 +2,7 @@ import '../../css/InsightsPage/InsightsPage.css'
 
 import { useEffect,  useCallback, useState } from 'react';
 
+import Moment from 'moment';
 import { useSetRecoilState } from 'recoil';
 
 import Navbar from "../Common/Navbar"
@@ -17,7 +18,8 @@ import useFetchBalanceHistory from '../../hooks/useFetchBalanceHistory';
 import useFetchExpensesBreakdown from '../../hooks/useFetchExpensesBreakdown';
 import useFetchIncomeExpensesOverTime from '../../hooks/useFetchIncomeExpensesOverTime';
 import useFetchExpensesHistogram from '../../hooks/useFetchExpensesHistogram';
-import InsightsPageDateRangeSelector from './InsightsPageDateRangeSelector';
+
+import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
 
 
 function InsightsPage() {
@@ -27,22 +29,55 @@ function InsightsPage() {
     },[])
       
     const setMenuIconVisibility = useSetRecoilState(MenuIconVisibilityState);
+    const [filterMenuVisibility, setFilterMenuVisibility] = useState(false);
 
-    let currentDate : Date = new Date();
+    const gridStyle = {
+        gridTemplateRows: filterMenuVisibility
+        ? '33% 15% auto':
+        '33% 15% auto'
+
+    }
+    const [filterData, setFilterData] = useState<any>({
+        startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
+        endDate: new Date(),
+        category: "",
+        deltaTime:"Day",
+        binRange:50
+    })
     const [dateRange, setDateRange] = useState<any>([{
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection'
-    }]);
+        startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
+        endDate: new Date(),
+        key: 'selection'
+      }]);
+    const [category, setCategory] = useState<string>("");
 
-    const incomeExpenses = useFetchIncomeExpenses(dateRange);
-    const balanceHistory = useFetchBalanceHistory(dateRange);
+    const [deltaTime,setDeltaTime] = useState<string>("Day");
+
+    const [binRange,SetBinRange] = useState<number>(50);
+
+    function handleFilterButton()
+    {
+        setDateRange([{
+            startDate: filterData.startDate,
+            endDate: filterData.endDate,
+            key: 'selection'
+          }]);
+        setCategory(filterData.category);
+        setDeltaTime(filterData.deltaTime);
+        SetBinRange(filterData.binRange);
+        setFilterMenuVisibility(false);
+    }
+
+
+    const incomeExpenses = useFetchIncomeExpenses(dateRange,category);
+
+    const balanceHistory = useFetchBalanceHistory(dateRange,deltaTime);
 
     const expensesBreakdown = useFetchExpensesBreakdown(dateRange);
 
-    const incomeExpensesOverTime = useFetchIncomeExpensesOverTime(dateRange);
+    const incomeExpensesOverTime = useFetchIncomeExpensesOverTime(dateRange,category,deltaTime);
 
-    const expensesHistogram = useFetchExpensesHistogram(dateRange);
+    const expensesHistogram = useFetchExpensesHistogram(dateRange,category,binRange);
 
     const COLORS = ['#FF5EA4 ', '#FF7300', '#FFBF00', '#54498B ','#A30D0D '];
 
@@ -86,7 +121,7 @@ function InsightsPage() {
             />
             <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
             <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="white" fontFamily='Gotham Medium' fontSize='15px'>{` ${category}`}</text>
+            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="white" fontFamily='Gotham Medium' fontSize='15px'>{` ${category?category:'none'}`}</text>
             <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="white"  fontFamily='Gotham Medium' fontSize='15px'>
               {`(Rate ${(percent * 100).toFixed(2)}%)`}
             </text>
@@ -106,11 +141,8 @@ function InsightsPage() {
 
       <div className="insights-page">
         <Navbar></Navbar>
-        <div className='insights-page-content'>
+        <div className='insights-page-content'  style={gridStyle}>
             <div className='header'>
-                <div className='date-range-select'>
-                    <InsightsPageDateRangeSelector currentDate={currentDate} dateRange={dateRange} setDateRange={setDateRange}/>
-                </div>
                 <div className='income-expenses-chart'>
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart width={500} height={300} data={incomeExpenses.data} layout="vertical" margin={{top: 20, right: 100,left: 0, bottom: 15}}  barGap={0}>
@@ -145,6 +177,54 @@ function InsightsPage() {
                     </div>
                 </div>
             </div>
+            <div className='insights-page-show-filter-menu'>
+                Show filter menu
+                <div className='insights-page-show-filter-menu-icon' onClick={()=>{setFilterMenuVisibility(!filterMenuVisibility)}}>
+                    <img src={DownArrowIcon}></img>
+                </div>
+            </div>
+            {filterMenuVisibility && 
+            <div className='insights-page-filter-menu'>
+                <div className='insights-page-date-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% 40% 40%'}}>
+                    Dates:
+                    <div className='insights-page-start-date-filter-menu'>
+                        <label>From</label>
+                        <input type="date"
+                            value={Moment(filterData.startDate).format('yyyy-MM-DD')}
+                            onChange={(e)=>setFilterData({...filterData, startDate: e.target.value})}
+                        />
+                    </div>
+                    <div className='insights-page-end-date-filter-menu'>
+                        <label>To</label>
+                        <input type="date"
+                            value={Moment(filterData.endDate).format('yyyy-MM-DD')}
+                            onChange={(e)=>setFilterData({...filterData, endDate: e.target.value})}
+                        />
+                    </div>          
+                </div>
+                <div className='insights-page-category-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% auto'}}>
+                    Categories:
+                    <input type="text" style={{marginLeft:'0'}} value={filterData.category}
+                            onChange={(e)=>setFilterData({...filterData, category: e.target.value})}></input>
+                </div>
+                <div className='insights-page-delta-time-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% auto'}}>
+                    Delta Time:
+                    <select style={{marginLeft:'0'}} value={filterData.deltaTime} onChange={(e)=>setFilterData({...filterData, deltaTime: e.target.value})}>
+                        <option value="Day" style={{color:'black'}}>Day</option>
+                        <option value="Month" style={{color:'black'}}>Month</option>
+                    </select>
+                </div> 
+                <div className='insights-page-bin-range-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% auto'}}>
+                    Bin Range:
+                    <input type="number" style={{marginLeft:'0'}} value={filterData.binRange}
+                            onChange={(e)=>setFilterData({...filterData, binRange: e.target.value})}></input>
+                </div>                                      
+                <div className='insights-page-filter-menu-button-container'>
+                    <button className='insights-page-filter-menu-button' onClick={handleFilterButton}>
+                        Filter
+                    </button>
+                </div>
+            </div>}
             <div className='insights-page-main-charts'>
                 <div className='insights-page-main-charts-linear-balance-chart'>
                     <div className='line-chart-title'>
@@ -172,9 +252,9 @@ function InsightsPage() {
                                 payload={
                                     expensesBreakdown.data.map((item: any, index: number) => 
                                         ({
-                                            id: item.categor, 
+                                            id: item.category, 
                                             type: "circle",
-                                            value: `${item.category}`,
+                                            value: `${item.category?item.category:'none'}`,
                                             color: COLORS[index % COLORS.length]}))} 
                                             wrapperStyle={{fontFamily: 'Gotham Medium' ,fontSize:'15px', lineHeight:'23px'}}/>
                             <Pie
@@ -224,7 +304,7 @@ function InsightsPage() {
                     </ResponsiveContainer>
                 </div>
                 <div className='insights-page-main-charts-statistics-panel'>
-                    <StatisticsPanel/>
+                    <StatisticsPanel category={category}/>
                 </div>
             </div>
         </div>
