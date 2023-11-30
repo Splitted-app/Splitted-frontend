@@ -2,19 +2,22 @@ import '../../css/Common/ImportCsvCheck.css'
 
 import { useEffect, useState } from 'react';
 
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import TransactionList from './TransactionList';
 
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
 import { NewTransactionsState } from '../../atoms/NewTransactions';
-
+import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
+import { UserTokenState } from '../../atoms/UserToken'
 
 function ImportCsvCheck() {
 
   const [newTransactions, setNewTransactions] = useRecoilState(NewTransactionsState);
   const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
   const [showDuplicatesMessage, setShowDuplicatesMessage] = useState<boolean>(false);
+  const token = useRecoilValue(UserTokenState);
+  const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
 
   function handleButtonClicked()
   {
@@ -26,7 +29,37 @@ function ImportCsvCheck() {
     {
       setImportCsvCheckPanelVisibility(false);
       setNewTransactions([]);
+
     }
+  }
+
+  function handleCancelButtonClicked()
+  {
+
+    const transactionsToDeleteIds: Array<string> = [] 
+    newTransactions.map(((transaction:any)=>{
+      transactionsToDeleteIds.push(transaction.id);
+    }
+    ));
+
+
+    fetch(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionsToDeleteIds.join('/') , {
+      method: 'DELETE',
+      headers: {
+        'Accept': '*',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw Error('could not fetch the data for that resource');
+        }
+        setUpdater(!updater);
+        setImportCsvCheckPanelVisibility(false);
+        setNewTransactions([]);
+      });
   }
 
   useEffect(() => {
@@ -67,6 +100,9 @@ function ImportCsvCheck() {
         }
       </div>
       <div className='button-container'>
+        {!showDuplicatesMessage && <button className='cancel-button' onClick={handleCancelButtonClicked}>
+          Cancel
+        </button>}
         <button className='interaction-button' onClick={handleButtonClicked}>
           {showDuplicatesMessage ? "I Understand" : "Add"}
         </button>

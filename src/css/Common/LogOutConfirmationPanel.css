@@ -40,27 +40,27 @@
 
 .log-out-confirmation-panel .log-out-confirmation-panel-buttons .log-out-button-container .log-out-button
 {
-    font-size: 12px;
     background-color: #20F7C5;
     color: black;
-    width: 120px;
+    width: 140px;
     height: 50px;
     border-radius: 40px;
-    font-family: 'Gotham Bold';
-    box-shadow: 8px 8px 5px #010446;
-    border:0;
-
+    font-family: 'Gotham Medium';
+    font-size: 16px;
+    box-shadow: 2px 5px 5px #010446;
+    border: none;
 }
+
 
 .log-out-confirmation-panel .log-out-confirmation-panel-buttons .cancel-button-container .cancel-button
 {
-    font-size: 12px;
+    font-size: 16px;
     background-color: #FFDADA;
-    color: CC3C3C;
-    width: 120px;
+    color: #CC3C3C;
+    width: 140px;
     height: 50px;
     border-radius: 40px;
-    font-family: 'Gotham Bold';
+    font-family: 'Gotham Medium';
     border: 3px solid #CC3C3C;
-    box-shadow: 8px 8px 5px #010446;
+    box-shadow: 2px 5px 5px #010446;
 }
