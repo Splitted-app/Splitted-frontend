@@ -3,8 +3,15 @@ import '../../css/InsightsPage/StatisticsPanel.css';
 import useFetchStatistics from '../../hooks/useFetchStatistics';
 import useFetchCurrency from '../../hooks/useFetchCurrency';
 
+import { amountFormatter } from '../../utils';
 
-function StatisticsPanel() {
+
+interface StatisticsPanelInterface
+{
+    category:string;
+}
+
+function StatisticsPanel({category}:StatisticsPanelInterface) {
 
     const statistics = useFetchStatistics()
     const currency = useFetchCurrency();
@@ -15,7 +22,7 @@ function StatisticsPanel() {
             Statistics
         </div>
         <div className='statistics-panel-category'>
-            Category:All
+            Category:{category?category:'All'}
         </div>
         <div className='statistics-panel-main-content'>
             <div className='statistics-element'>
@@ -23,7 +30,7 @@ function StatisticsPanel() {
                     Max value:
                 </div>
                 <div className='statistics-element-amount'>
-                    {statistics.data.maxValue} {currency}
+                    {amountFormatter(statistics.data.maxValue)} {currency}
                 </div>
             </div>
             <div className='statistics-element'>
@@ -31,7 +38,7 @@ function StatisticsPanel() {
                     Q3:
                 </div>
                 <div className='statistics-element-amount'>
-                    {statistics.data.q3} {currency}
+                    {amountFormatter(statistics.data.q3)} {currency}
                 </div>
             </div>
             <div className='statistics-element'>
@@ -39,7 +46,7 @@ function StatisticsPanel() {
                     Mean:
                 </div>
                 <div className='statistics-element-amount'>
-                    {statistics.data.mean} {currency}
+                    {amountFormatter(statistics.data.mean)} {currency}
                 </div>
             </div>
             <div className='statistics-element'>
@@ -47,7 +54,7 @@ function StatisticsPanel() {
                     Q1:
                 </div>
                 <div className='statistics-element-amount'>
-                    {statistics.data.q1} {currency}
+                    {amountFormatter(statistics.data.q1)} {currency}
                 </div>
             </div>
             <div className='statistics-element'>
@@ -55,7 +62,7 @@ function StatisticsPanel() {
                     Min value:
                 </div>
                 <div className='statistics-element-amount'>
-                    {statistics.data.minValue} {currency}
+                    {amountFormatter(statistics.data.minValue)} {currency}
                 </div>
             </div>
         </div>
