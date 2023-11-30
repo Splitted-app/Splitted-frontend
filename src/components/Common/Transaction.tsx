@@ -89,7 +89,6 @@ function Transaction({
           .replace(/(?!^)-/, "");
         let numValue = Number(parsedValue);
         numValue = Math.round((numValue + Number.EPSILON) * 100) / 100; 
-        console.log(numValue);
         setAmount(numValue);
       }
       catch 

@@ -35,10 +35,11 @@ function HomePageContent() {
         const target: HTMLElement | null = document.getElementById("balance")
         if (target)
         {
-            // target.scrollLeft = 0;
+            // console.log("hello");
+            target.scrollLeft = 0;
             // target.scrollLeft = target.scrollWidth - target.clientWidth;
         }            
-    }, [])
+    }, [bankBalance])
 
 
     return (

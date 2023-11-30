@@ -50,9 +50,9 @@ function amountFormatter(amount : number | null)
     const absAmount = Math.abs(amount);
     const sign = Math.sign(amount);
     const tmp1 = `${sign < 0 ? '-' : ''}${(absAmount/1000).toFixed(2)}K`
-    const tmp2 = `${sign < 0 ? '-' : ''}${(absAmount/1000_000).toFixed(2)}M`
-    return absAmount <= 99_999 ? amount.toFixed(2) :
-        absAmount <= 9_999_999 ? tmp1 : tmp2
+    const tmp2 = `${sign < 0 ? '-' : ''}${(absAmount/1_000_000).toFixed(2)}M`
+    return absAmount <= 99_999.99 ? amount.toFixed(2) :
+        absAmount <= 999_999.99 ? tmp1 : tmp2
 }
 
 export {changeDay, changeWeek ,changeMonth, getStartOfWeek, getStartOfMonth, getEndOfMonth, amountFormatter}
