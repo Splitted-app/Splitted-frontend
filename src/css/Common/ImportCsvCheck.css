@@ -43,6 +43,7 @@
     flex: 1 1 auto;
     justify-content: center;
     align-items: end;
+    gap:10%;
 }
 
 .import-csv-check .button-container .interaction-button{
@@ -56,4 +57,17 @@
     box-shadow: 2px 5px 5px #010446;
     border: none;
 }
+
+.import-csv-check .button-container .cancel-button{
+    font-size: 16px;
+    background-color: #FFDADA;
+    color: #CC3C3C;
+    width: 140px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    border: 3px solid #CC3C3C;
+    box-shadow: 2px 5px 5px #010446;
+}
+
 
