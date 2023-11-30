@@ -1,12 +1,14 @@
 import '../../css/HomePage/HomePageContent.css'
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Overview from './Overview';
 import Reminders from './Reminders';
 
 import useFetchBalance from '../../hooks/useFetchBalance';
 import useFetchCurrency from '../../hooks/useFetchCurrency';
+
+import { amountFormatter } from '../../utils';
 
 import leftarrow from '../../assets/images/leftarrow.svg'
 import rightarrow from '../../assets/images/rightarrow.svg'
@@ -29,6 +31,17 @@ function HomePageContent() {
         setOverviewTypeId((overviewTypeId + 1) % overTypeCount);
     }
 
+    useEffect(() => {
+        const target: HTMLElement | null = document.getElementById("balance")
+        if (target)
+        {
+            // console.log("hello");
+            target.scrollLeft = 0;
+            // target.scrollLeft = target.scrollWidth - target.clientWidth;
+        }            
+    }, [bankBalance])
+
+
     return (
       <div className="home-page-content">
         <div className='reminders-container'>
@@ -39,8 +52,8 @@ function HomePageContent() {
                 Your balance:
             </div>
             <div className='amount'>
-                <div className='bankBalance'>
-                    {bankBalance}
+                <div id="balance" className='bankBalance'>
+                    {amountFormatter(bankBalance)}
                 </div>
                 <div className='currency'>
                     {currency}
