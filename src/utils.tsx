@@ -39,6 +39,20 @@ function getEndOfMonth(date: Date)
     return changeDay(getStartOfMonth(changeMonth(date, 1)), -1);
 }
 
+// function kFormatter(num) {
+//     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
+// }
 
+function amountFormatter(amount : number | null)
+{
+    if (!amount)
+        return amount
+    const absAmount = Math.abs(amount);
+    const sign = Math.sign(amount);
+    const tmp1 = `${sign < 0 ? '-' : ''}${(absAmount/1000).toFixed(2)}K`
+    const tmp2 = `${sign < 0 ? '-' : ''}${(absAmount/1000_000).toFixed(2)}M`
+    return absAmount <= 99_999 ? amount.toFixed(2) :
+        absAmount <= 9_999_999 ? tmp1 : tmp2
+}
 
-export {changeDay, changeWeek ,changeMonth, getStartOfWeek, getStartOfMonth, getEndOfMonth}
+export {changeDay, changeWeek ,changeMonth, getStartOfWeek, getStartOfMonth, getEndOfMonth, amountFormatter}

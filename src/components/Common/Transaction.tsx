@@ -12,6 +12,7 @@ import { UserTokenState } from '../../atoms/UserToken'
 import { NewTransactionsState } from '../../atoms/NewTransactions';
 
 import { TransactionTypes } from '../../enums';
+import { amountFormatter } from '../../utils';
 
 import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
 import EditTransactionIcon from '../../assets/images/edit_transaction.png'
@@ -235,7 +236,7 @@ function Transaction({
                       onInput={(e:any)=>{handleAmountChanged(e.currentTarget.textContent)}}
                       suppressContentEditableWarning={true}
                       onBlur={(e) => {adjustContent(e.target)}}>
-                    {transaction.amount}
+                    {editable ? transaction.amount.toFixed(2) : amountFormatter(transaction.amount)}
                 </div>
                 <div className='transaction-element' style={{minWidth: 'fit-content'}}>
                     {transaction.currency}
