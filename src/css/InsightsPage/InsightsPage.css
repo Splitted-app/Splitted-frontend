@@ -99,6 +99,13 @@
     overflow: inherit !important;
     }
 
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart .recharts-wrapper svg{
+    overflow: inherit !important;
+    }
+.insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses .recharts-wrapper svg{
+    overflow: inherit !important;
+    }
+    
 .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .pie-chart-title
 {
     color: white;

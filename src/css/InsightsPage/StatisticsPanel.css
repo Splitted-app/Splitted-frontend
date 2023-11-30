@@ -53,7 +53,7 @@
 .statistics-panel .statistics-panel-main-content .statistics-element
 {
     display: grid;
-    grid-template-columns: 10% 35% 10% 35% 10%;
+    grid-template-columns: 5% 40% 10% 40% 5%;
     grid-template-rows: 100%;
 
 }
