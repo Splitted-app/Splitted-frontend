@@ -2,8 +2,12 @@ import '../../css/HomePage/HomePageContent.css'
 
 import { useEffect, useState } from 'react';
 
+import { useSetRecoilState } from 'recoil';
+
 import Overview from './Overview';
 import Reminders from './Reminders';
+
+import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 
 import useFetchBalance from '../../hooks/useFetchBalance';
 import useFetchCurrency from '../../hooks/useFetchCurrency';
@@ -12,6 +16,7 @@ import { amountFormatter } from '../../utils';
 
 import leftarrow from '../../assets/images/leftarrow.svg'
 import rightarrow from '../../assets/images/rightarrow.svg'
+import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
 
 function HomePageContent() {
@@ -20,6 +25,8 @@ function HomePageContent() {
     const [overviewTypeId, setOverviewTypeId] = useState(0);
     const bankBalance = useFetchBalance();
     const currency = useFetchCurrency();
+    const budgetId= useFetchBudgetId();
+    const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
 
     function handleLeftArrowButton()
     {
@@ -35,11 +42,15 @@ function HomePageContent() {
         const target: HTMLElement | null = document.getElementById("balance")
         if (target)
         {
-            // console.log("hello");
             target.scrollLeft = 0;
-            // target.scrollLeft = target.scrollWidth - target.clientWidth;
-        }            
-    }, [bankBalance])
+        }
+
+        if (budgetId === undefined)
+            setSignUpFollowUpVisibility(true);
+        else
+            setSignUpFollowUpVisibility(false);
+
+    }, [bankBalance, budgetId])
 
 
     return (
