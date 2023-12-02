@@ -143,9 +143,7 @@ function TransactionPage() {
                     </div>
                 </div>
                 <div className='title'>
-                    <div className='main-title'>
                         Transactions
-                    </div>
                 </div>
             </div>
             <div className='transaction-page-show-filter-menu'>

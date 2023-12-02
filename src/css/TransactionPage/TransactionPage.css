@@ -26,14 +26,13 @@
     margin-right: 0;
     display:grid;
     grid-template-rows: 40% 60%;    
-    grid-template-columns: 30% 20% 50%;
+    grid-template-columns: 30% 20% 49% 1%;
 
 }
 .transaction-page .transaction-page-content .header .transaction-page-content-buttons
 {
     grid-column-start: 3;
     grid-column-end: 4;
-    padding-right: 3%;
     padding-top: 5%;
     display: flex;
     gap:3%;
@@ -69,23 +68,16 @@
 }
 .transaction-page .transaction-page-content .header .title
 {
-    padding-right: 3%;
     grid-column-start: 3;
     grid-column-end: 4;
     text-align: end;
     color: white;
     margin-top: 5%;
-}
-
-.transaction-page .transaction-page-content .header .title .main-title
-{
-
-
     font-family: 'Gotham Bold';
     font-size: 80px;
     text-shadow: 5px 5px 3px #180A45;
-
 }
+
 
 .transaction-page .transaction-page-content .header .insights-panel
 {

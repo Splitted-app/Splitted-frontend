@@ -41,7 +41,7 @@ function Navbar() {
             <NavbarItem name="HomePage" font="CeraPro light" fontSize="17px" link="/home" icon={HomePageIcon}></NavbarItem>
             <NavbarItem name="Transactions" font="CeraPro light" fontSize="17px" link="/transactions" icon={TransactionsIcon}></NavbarItem>
             <NavbarItem name="Insights" font="CeraPro light" fontSize="17px" link="/insights" icon={InsightsIcon}></NavbarItem>
-            <NavbarItem name="Goals" font="CeraPro light" fontSize="17px" link="/home" icon={GoalsIcon}></NavbarItem>
+            <NavbarItem name="Goals" font="CeraPro light" fontSize="17px" link="/goals" icon={GoalsIcon}></NavbarItem>
           </div>
           <div className='modes-panel'>
             <div className='modes-panel-title'>

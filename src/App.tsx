@@ -36,6 +36,7 @@ import { LogOutPanelVisibilityState } from './atoms/LogOutPanelVisibility';
 import { ManualAddTransactionsPanelVisibilityState } from './atoms/ManualAddTransactionsPanelVisbility';
 import { UserTokenState } from './atoms/UserToken';
 import FamilyModePage from './components/ModePages/FamilyModePage';
+import GoalsPage from './components/GoalsPage/GoalsPage';
 
 
 
@@ -108,7 +109,7 @@ function App() {
             <Route path="/insights" element ={<InsightsPage/>}/>
             <Route path="/settings" element={<SettingsPage/>}/>
             <Route path="/ConfirmEmail" element={<ConfirmEmailPage/>}/>
-            <Route path="/family" element={<FamilyModePage/>}/>
+            <Route path="/goals" element={<GoalsPage/>}/>
 
           </Routes>
         </div>
