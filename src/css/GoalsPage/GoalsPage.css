@@ -1,0 +1,132 @@
+.goals-page
+{
+    background: linear-gradient(0deg, rgba(16,3,43,1) 0%, rgba(16,3,43,1) 67%, rgba(182,176,207,1) 100%);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.goals-page .goals-page-content
+{
+    width: 85%;
+    height: 100%;
+    display: grid; 
+    grid-template-rows: 33% auto;
+    grid-template-columns: 100%;
+    position: relative;
+}
+
+.goals-page  .goals-page-content .header
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    width: 100%;
+    text-align: end;
+    margin-left: auto;
+    margin-right: 0;
+    display:grid;
+    grid-template-rows: 40% 60%;    
+    grid-template-columns:  2% 38% 30% 18% 10% 2%;
+
+}
+
+.goals-page  .goals-page-content .header .main-goal-container
+{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.goals-page  .goals-page-content .header .main-goal-container .main-goal-text
+{
+    height: 30%;
+    color: white;
+    font-family: 'Gotham Medium';
+    font-size: 30px;
+    text-align: start;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+.goals-page  .goals-page-content .header .add-goal-button-container
+{
+    grid-column-start:5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    align-items: center;
+}
+
+
+.goals-page  .goals-page-content .header .add-goal-button-container .add-goal-button
+{
+    font-size: 16px;
+    background-color: #20F7C5;
+    color: black;
+    width: 180px;
+    height: 50px;
+    border:none;
+    border-radius: 33px;
+    font-family: 'Gotham Bold';
+    box-shadow: 5px 5px 3px #180A45;
+}
+
+.goals-page  .goals-page-content .header .title
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 4;
+    grid-column-end: 6;
+    text-align: end;
+    color: white;
+    margin-top: 5%;
+    font-family: 'Gotham Bold';
+    font-size: 80px;
+    text-shadow: 5px 5px 3px #180A45;
+}
+
+.goals-page  .goals-page-content .goals-page-current-goals-panel
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.goals-page  .goals-page-content .goals-page-current-goals-panel .goals-page-current-goals-title
+{
+    color: white;
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-content: center;
+    padding-left: 2%;
+}
+
+
+.goals-page  .goals-page-content .goals-page-current-goals-panel .goals-page-current-goals
+{
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+
+.goals-page  .goals-page-content .goals-page-current-goals-panel .goals-page-current-goals .goals-page-goal-item
+{
+    display: inline-block;
+    padding: 4%;
+}

@@ -173,9 +173,7 @@ function InsightsPage() {
                 </ResponsiveContainer>
                 </div>         
                 <div className='title'>
-                    <div className='main-title'>
                         Insights
-                    </div>
                 </div>
             </div>
             <div className='insights-page-show-filter-menu'>
