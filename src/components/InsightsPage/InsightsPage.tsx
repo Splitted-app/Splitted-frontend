@@ -79,7 +79,8 @@ function InsightsPage() {
 
     const expensesHistogram = useFetchExpensesHistogram(dateRange,category,binRange);
 
-    const COLORS = ['#FF5EA4 ', '#FF7300', '#FFBF00', '#54498B ','#A30D0D '];
+    const COLORS = ['#FF5EA4' , '#FF7300' , '#54498B' , '#ECB81B' , '#7E0101' , '#20F7C5' , '#FF006F' , '#C9C6F8' , '#8E775B' , '#A30D0D',
+                    '#FF8623' , '#00B78D' , '#FF7FAA' , '#FCC625' , '#71339B' , '#679E8F' , '#6B1717' , '#FFE9A5' , '#9F5971' , '#0F684F'];
 
 
 
@@ -244,7 +245,7 @@ function InsightsPage() {
                     </div>
                     <ResponsiveContainer  width="100%" height="100%" >
                         <PieChart width={400} height={400} >
-                            <Legend 
+                            {{} && <Legend 
                                 layout="vertical" 
                                 verticalAlign="top" 
                                 align="left" 
@@ -256,7 +257,7 @@ function InsightsPage() {
                                             type: "circle",
                                             value: `${item.category?item.category:'none'}`,
                                             color: COLORS[index % COLORS.length]}))} 
-                                            wrapperStyle={{fontFamily: 'Gotham Medium' ,fontSize:'15px', lineHeight:'23px'}}/>
+                                            wrapperStyle={{fontFamily: 'Gotham Medium' ,fontSize:'15px', lineHeight:'23px'}}/>}
                             <Pie
                                 activeIndex={activeIndex}
                                 activeShape={renderActiveShape}
