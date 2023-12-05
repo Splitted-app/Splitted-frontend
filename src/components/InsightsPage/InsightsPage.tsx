@@ -243,7 +243,7 @@ function InsightsPage() {
                     </div>
                     <ResponsiveContainer  width="100%" height="100%" >
                         <PieChart width={400} height={400} >
-                            {{} && <Legend 
+                            {expensesBreakdown.data.length <= 8 && <Legend 
                                 layout="vertical" 
                                 verticalAlign="top" 
                                 align="left" 
