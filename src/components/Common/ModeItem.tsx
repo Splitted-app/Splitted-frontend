@@ -1,13 +1,36 @@
 import '../../css/Common/ModeItem.css';
 
+import FamilyModeIcon from '../../assets/images/family_mode.png'
+import PartnerModeIcon from '../../assets/images/partner_mode.png'
+import PartyModeIcon from '../../assets/images/party_mode.png'
 
 interface ModeItemInterface
 {
-    icon:string,
-    title:string
+    budget: any
 }
 
-function ModeItem({icon,title}:ModeItemInterface) {
+function ModeItem({budget}:ModeItemInterface) {
+
+    let icon = null;
+    let title = budget.budgetType;
+    switch (budget.budgetType)
+    {
+      case "Family":
+        icon=FamilyModeIcon
+        break;
+      case "Partner":
+        icon=PartnerModeIcon
+        break;
+      case "Temporary":
+        icon=PartyModeIcon
+        break;
+      default:
+        icon=PartyModeIcon
+        break;
+    }
+
+    console.log(budget.budgetType);
+
     return (
       <div className="mode-item">
         <div className='mode-item-icon'>
