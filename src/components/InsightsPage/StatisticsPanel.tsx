@@ -9,11 +9,12 @@ import { amountFormatter } from '../../utils';
 interface StatisticsPanelInterface
 {
     category:string;
+    dateRange:any;
 }
 
-function StatisticsPanel({category}:StatisticsPanelInterface) {
+function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
 
-    const statistics = useFetchStatistics()
+    const statistics = useFetchStatistics(dateRange, category)
     const currency = useFetchCurrency();
 
     return (
