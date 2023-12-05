@@ -303,7 +303,7 @@ function InsightsPage() {
                     </ResponsiveContainer>
                 </div>
                 <div className='insights-page-main-charts-statistics-panel'>
-                    <StatisticsPanel category={category}/>
+                    <StatisticsPanel category={category} dateRange={dateRange}/>
                 </div>
             </div>
         </div>
