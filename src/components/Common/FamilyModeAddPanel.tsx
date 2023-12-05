@@ -1,24 +1,28 @@
 import '../../css/Common/FamilyModeAddPanel.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useSetRecoilState } from 'recoil';
+import Select from 'react-select';
 
 import CloseButton from './CloseButton';
 
 import { AddFamilyModePanelVisibilityState } from '../../atoms/AddFamilyModePanelVisibility';
+
+import useFetchSearchUsers from '../../hooks/useFetchSearchUsers';
 
 import FamilyModeIcon from '../../assets/images/family_mode_add.png';
 import SearchIcon from '../../assets/images/search.png'
 
 
 function FamilyModeAddPanel() {
-    const [searchInput, setSearchInput] = useState("");
     const setAddFamilyModePanelVisibility = useSetRecoilState(AddFamilyModePanelVisibilityState);
+    const [query, setQuery] = useState<string>("");
+    const searchResult = useFetchSearchUsers(query);
 
     return (
       <div className="family-mode-add-panel">
-        <div style={{gridColumnStart: 2, padding: '0 30px 0 30px'}}>
+        <div style={{gridColumnStart: 3, padding: '0 30px 0 30px'}}>
           <CloseButton setVisibility={setAddFamilyModePanelVisibility}/>
         </div>
         <div className='title'>
@@ -34,12 +38,14 @@ function FamilyModeAddPanel() {
                 Let's find your family:
             </label>
             <div className="search-container">
-                <form >
-                    <input type="text" placeholder="Search.." name="search"/>
-                    <button type="submit">
-                        <img src={SearchIcon}></img>
-                    </button>
-                </form>
+                <Select
+                  className="search-select"
+                  options={searchResult.users}
+                  isLoading={searchResult.loading}
+                  isSearchable
+                  onInputChange={setQuery}
+                  placeholder="Search users..."
+                />
             </div>
         </div>
         <div className='integrate-accounts-button'>
