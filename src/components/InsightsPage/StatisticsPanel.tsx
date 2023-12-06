@@ -1,9 +1,12 @@
 import '../../css/InsightsPage/StatisticsPanel.css';
 
+import LoadingPanel from '../Common/LoadingPanel';
+
 import useFetchStatistics from '../../hooks/useFetchStatistics';
 import useFetchCurrency from '../../hooks/useFetchCurrency';
 
 import { amountFormatter } from '../../utils';
+
 
 
 interface StatisticsPanelInterface
@@ -18,6 +21,9 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
     const currency = useFetchCurrency();
 
     return (
+      <>
+      {statistics.loading && <LoadingPanel error={statistics.error}/>}
+      {!statistics.loading &&
       <div className="statistics-panel">
         <div className='statistics-panel-title'>
             Statistics
@@ -68,6 +74,8 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
             </div>
         </div>
       </div>
+      }
+      </>
     );
   }
   

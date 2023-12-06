@@ -41,7 +41,7 @@ function LoadingPanel({error}: LoadingPanelInterface)
                 {error && showError && "Oops, something went wrong!"}
             </div>
             <div className='secondary-message'>
-                {longwait && !error && "Looks like this might take a while :("}
+                {/* {longwait && !error && "Looks like this might take a while :("} */}
             </div>
         </div>
     );
