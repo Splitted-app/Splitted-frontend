@@ -7,6 +7,7 @@ import { useSetRecoilState } from 'recoil';
 
 import Navbar from "../Common/Navbar"
 import StatisticsPanel from './StatisticsPanel';
+import LoadingPanel from '../Common/LoadingPanel';
 
 
 import { BarChart,LineChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, LabelList ,Line ,PieChart, Pie, Sector, Legend, ReferenceLine} from 'recharts';
@@ -20,6 +21,7 @@ import useFetchIncomeExpensesOverTime from '../../hooks/useFetchIncomeExpensesOv
 import useFetchExpensesHistogram from '../../hooks/useFetchExpensesHistogram';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+
 
 
 function InsightsPage() {
@@ -145,6 +147,8 @@ function InsightsPage() {
         <div className='insights-page-content'  style={gridStyle}>
             <div className='header'>
                 <div className='income-expenses-chart'>
+                {incomeExpenses.loading && <LoadingPanel error={incomeExpenses.error}/>}
+                {!incomeExpenses.loading &&
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart width={500} height={300} data={incomeExpenses.data} layout="vertical" margin={{top: 20, right: 100,left: 0, bottom: 15}}  barGap={0}>
                         <XAxis type="number" hide />
@@ -171,6 +175,7 @@ function InsightsPage() {
                         </Bar>
                     </BarChart>
                 </ResponsiveContainer>
+                }
                 </div>         
                 <div className='title'>
                         Insights
@@ -229,6 +234,8 @@ function InsightsPage() {
                     <div className='line-chart-title'>
                         Balance
                     </div>
+                    {balanceHistory.loading && <LoadingPanel error={balanceHistory.error}/>}
+                    {!balanceHistory.loading &&
                     <ResponsiveContainer  width="100%" height="100%">
                             <LineChart width={500} height={200}  data={balanceHistory.data}>
                             <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
@@ -236,11 +243,14 @@ function InsightsPage() {
                             <Line type="monotone" dataKey="balance" stroke="#D80088" />
                         </LineChart>
                     </ResponsiveContainer>
+                    }
                 </div>
                 <div className='insights-page-main-charts-pie-chart'>
                     <div className='pie-chart-title'>
                         Expenses in Categories Distribution
                     </div>
+                    {expensesBreakdown.loading && <LoadingPanel error={expensesBreakdown.error}/>}
+                    {!expensesBreakdown.loading &&
                     <ResponsiveContainer  width="100%" height="100%" >
                         <PieChart width={400} height={400} >
                             {expensesBreakdown.data.length <= 8 && <Legend 
@@ -275,11 +285,14 @@ function InsightsPage() {
                             </Pie>
                         </PieChart>
                     </ResponsiveContainer>
+                    }
                 </div>
                 <div className='insights-page-main-charts-income-expenses'>
                     <div className='bar-chart-title'>
                         Income & Expenses
                     </div>
+                    {incomeExpensesOverTime.loading && <LoadingPanel error={incomeExpensesOverTime.error}/>}
+                    {!incomeExpensesOverTime.loading &&
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart width={500} height={300} data={incomeExpensesOverTime.data} stackOffset="sign">
                         <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
@@ -289,11 +302,14 @@ function InsightsPage() {
                         <Bar dataKey="expenses" fill="#A30D0D" stackId="stack" />
                         </BarChart>
                     </ResponsiveContainer>
+                    }
                 </div>
                 <div className='insights-page-main-charts-expenses-distribution'>
                     <div className='expenses-chart-title'>
                         Expenses Distribution
                     </div>
+                    {expensesHistogram.loading && <LoadingPanel error={expensesHistogram.error}/>}
+                    {!expensesHistogram.loading &&
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart width={150} height={40} data={expensesHistogram.data}>
                             <XAxis dataKey="range" stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
@@ -301,6 +317,7 @@ function InsightsPage() {
                             <Bar dataKey="count" fill="#FF7300" />
                         </BarChart>
                     </ResponsiveContainer>
+                    }
                 </div>
                 <div className='insights-page-main-charts-statistics-panel'>
                     <StatisticsPanel category={category} dateRange={dateRange}/>

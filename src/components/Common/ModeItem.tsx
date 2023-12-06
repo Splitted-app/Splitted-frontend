@@ -29,8 +29,6 @@ function ModeItem({budget}:ModeItemInterface) {
         break;
     }
 
-    console.log(budget.budgetType);
-
     return (
       <div className="mode-item">
         <div className='mode-item-icon'>

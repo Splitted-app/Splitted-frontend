@@ -6,6 +6,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import CloseButton from './CloseButton';
 import FormInfo  from './FormInfo';
+import LoadingPanel from './LoadingPanel';
 
 import { ImportCsvPanelVisibilityState } from '../../atoms/ImportCsvPanelVisbility';
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
@@ -17,6 +18,7 @@ import useFetchBankName from '../../hooks/useFetchBankName';
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
 import { BankNames } from '../../enums';
+
 
 
 function ImportCsvPanel() {
@@ -206,9 +208,10 @@ function ImportCsvPanel() {
           }
           {
             loading && !uploadError &&
-            <div className='uploading-message'>
-              Uploading...
-            </div>
+            <LoadingPanel error={uploadError}/>
+            // <div className='uploading-message'>
+            //   Uploading...
+            // </div>
           }
           
         </form>

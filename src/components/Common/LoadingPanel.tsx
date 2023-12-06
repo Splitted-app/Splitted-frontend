@@ -11,9 +11,11 @@ interface LoadingPanelInterface
 function LoadingPanel({error}: LoadingPanelInterface)
 {
     const [longwait, setLongwait] = useState<boolean>(false);
+    const [showError, setShowError] = useState<boolean>(false);
 
     useEffect(() => {
         setTimeout(() => setLongwait(true), 3000)
+        setTimeout(() => setShowError(true), 1000)
     })
     
     return (
@@ -36,10 +38,10 @@ function LoadingPanel({error}: LoadingPanelInterface)
                         <div className="sk-circle12 sk-child"></div>
                     </div>
                 </div>}
-                {error && "Oops, something went wrong!"}
+                {error && showError && "Oops, something went wrong!"}
             </div>
             <div className='secondary-message'>
-                {longwait && !error && "Looks like this might take a while :("}
+                {/* {longwait && !error && "Looks like this might take a while :("} */}
             </div>
         </div>
     );
