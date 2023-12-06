@@ -1,10 +1,20 @@
 import '../../css/HomePage/StatisticsPanelInsightsOverview.css';
 
+import useFetchCurrency from '../../hooks/useFetchCurrency';
+import useFetchStatistics from '../../hooks/useFetchStatistics';
 
+import { amountFormatter } from '../../utils';
 
+interface StatisticsOverviewInterface
+{
+  dateRange:any
+}
 
+function StatisticsPanelInsightsOverview({dateRange}: StatisticsOverviewInterface) {
 
-function StatisticsPanelInsightsOverview() {
+    const statistics = useFetchStatistics(dateRange, "")
+    const currency = useFetchCurrency();
+
     return (
       <div className="statistics-panel-insights-overview">
         <div className='statistics-panel-header'>
@@ -12,7 +22,7 @@ function StatisticsPanelInsightsOverview() {
                 Statistics
             </div>
             <div className='statistics-panel-category'>
-                Category:All
+                Category: All
             </div>
         </div>
         <div className='statistics-panel-main-content'>
@@ -21,7 +31,7 @@ function StatisticsPanelInsightsOverview() {
                     Max value:
                 </div>
                 <div className='statistics-element-amount'>
-                    3250 PLN
+                    {amountFormatter(statistics.data.maxValue)} {currency}
                 </div>
             </div>
             <div className='statistics-element'>
@@ -29,7 +39,7 @@ function StatisticsPanelInsightsOverview() {
                     Mean:
                 </div>
                 <div className='statistics-element-amount'>
-                    140 PLN
+                    {amountFormatter(statistics.data.mean)} {currency}
                 </div>
             </div>
             <div className='statistics-element'>
@@ -37,7 +47,7 @@ function StatisticsPanelInsightsOverview() {
                     Min value:
                 </div>
                 <div className='statistics-element-amount'>
-                    0.99 PLN
+                    {amountFormatter(statistics.data.minValue)} {currency}
                 </div>
             </div>
         </div>

@@ -77,7 +77,7 @@ const renderActiveShape = (props:any) => {
         </div>
         <div className='insights-overview-content'>
           <div className='insights-overview-statistics-panel'>
-            <StatisticsPanelInsightsOverview/>
+            <StatisticsPanelInsightsOverview dateRange={dateRange}/>
           </div>
           <div className='insights-overview-category-expenses-distribution'>
             <ResponsiveContainer  width="100%" height="65%" >

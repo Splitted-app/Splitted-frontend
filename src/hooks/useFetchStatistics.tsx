@@ -19,7 +19,7 @@ export default function useFetchStatistics(
     const budgetId = useFetchBudgetId()
     const transactionUpdater = useRecoilValue(TransactionUpdaterState);
     const token = useRecoilValue(UserTokenState);
-    const [data, setData] = useState<any>([]);
+    const [data, setData] = useState<any>({});
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
 
@@ -45,6 +45,7 @@ export default function useFetchStatistics(
             },   
         })
         .then(res => {
+            console.log(res.data);
             setData(res.data);
         })
         .catch(error => {
