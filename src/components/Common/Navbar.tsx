@@ -14,14 +14,11 @@ import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibil
 import useFetchUserBudgets from '../../hooks/useFetchUserBudgets';
 
 import AddNewModeIcon from '../../assets/images/add_new_mode.png'
-import FamilyModeIcon from '../../assets/images/family_mode.png'
 import GoalsIcon from '../../assets/images/goals.png'
 import HomePageIcon from '../../assets/images/home_page.png'
 import InsightsIcon from '../../assets/images/insights.png'
 import LogOutIcon from '../../assets/images/log-out.png'
 import MenuIcon from '../../assets/images/main-menu.png'
-import PartnerModeIcon from '../../assets/images/partner_mode.png'
-import PartyModeIcon from '../../assets/images/party_mode.png'
 import SettingsIcon from '../../assets/images/settings.png'
 import SplitIcon from '../../assets/images/split.png'
 import TransactionsIcon from '../../assets/images/transactions.png'
@@ -55,25 +52,10 @@ function Navbar() {
               Your modes
             </div>
             <div className='your-modes-panel'>
-              {userBudgets.map((budget:any)=>{
-                if(budget.budgetType == "Family")
-                {
-                  return <ModeItem icon={FamilyModeIcon} title={budget.budgetType}/>
-
-                }else if(budget.budgetType == "Partner")
-                {
-                  return <ModeItem icon={PartnerModeIcon} title={budget.budgetType}/>
-
-                }else if(budget.budgetType == "Temporary")
-                {
-                  return <ModeItem icon={PartyModeIcon} title={budget.budgetType}/>
-
-                }else{
-                  return <ModeItem icon={PartyModeIcon} title={budget.budgetType}/>
-                }
-              })}
+              {userBudgets.map((budget: any, i: number)=>(
+                <ModeItem budget={budget} key={i}/>)
+              )}
             </div>
-            {/* <button className='add-new-mode-button' onClick={()=>setAddModesPanelVisibility(true)}> */}
               <div className='add-new-mode-button-container' onClick={()=>{setAddModesPanelVisibility(true)}}>
                 <div className='add-new-mode-icon'>
                   <img src={AddNewModeIcon}></img>
@@ -82,7 +64,6 @@ function Navbar() {
                   Add new mode
                 </div>
               </div>
-            {/* </button> */}
           </div>
         </div>
         <div className="navbar-footer">          

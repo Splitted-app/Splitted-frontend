@@ -3,24 +3,25 @@ import '../../css/Common/PartnerModeAddPanel.css';
 import { useState } from 'react';
 
 import { useSetRecoilState } from 'recoil';
+import Select from 'react-select';
 
 import CloseButton from './CloseButton';
 
 import { AddPartnerModePanelVisibilityState } from '../../atoms/AddPartnerModePanelVisibility';
+import useFetchSearchUsers from '../../hooks/useFetchSearchUsers';
 
 import PartnerModeIcon from '../../assets/images/partner_mode_add.png'
 import SearchIcon from '../../assets/images/search.png'
 
 
-
-
 function PartnerModeAddPanel() {
-    const [searchInput, setSearchInput] = useState("");
-    const setAddPartnerModePanelVisibility = useSetRecoilState(AddPartnerModePanelVisibilityState)
+    const setAddPartnerModePanelVisibility = useSetRecoilState(AddPartnerModePanelVisibilityState);
+    const [query, setQuery] = useState<string>("");
+    const searchResult = useFetchSearchUsers(query);
 
     return (
       <div className="partner-mode-add-panel">
-        <div style={{gridColumnStart: 2, padding: '0 30px 0 30px'}}>
+        <div style={{gridColumnStart: 3, padding: '0 30px 0 30px'}}>
           <CloseButton setVisibility={setAddPartnerModePanelVisibility}/>
         </div>
         <div className='title'>
@@ -36,14 +37,15 @@ function PartnerModeAddPanel() {
                 Let's find your partner:
             </label>
             <div className="search-container">
-                <form >
-                    <input type="text" placeholder="Search.." name="search"/>
-                    <button type="submit">
-                        <img src={SearchIcon}></img>
-                    </button>
-                </form>
+                <Select
+                    className="search-select"
+                    options={searchResult.users}
+                    isLoading={searchResult.loading}
+                    isSearchable
+                    onInputChange={setQuery}
+                    placeholder="Search users..."
+                />
             </div>
-            {/* <input type="text" placeholder="Search.." value={searchInput} /> */}
         </div>
         <div className='integrate-accounts-button'>
             <button className='button'>Integrate accounts</button>

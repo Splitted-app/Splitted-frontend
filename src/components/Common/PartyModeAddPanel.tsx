@@ -3,19 +3,24 @@ import '../../css/Common/PartyModeAddPanel.css';
 import { useState } from 'react';
 
 import { useSetRecoilState } from 'recoil';
+import Select from 'react-select';
 
 import CloseButton from './CloseButton';
 
 import { AddPartyModePanelVisibilityState } from '../../atoms/AddPartyModePanelVisibility';
+
+import useFetchSearchUsers from '../../hooks/useFetchSearchUsers';
 
 import PartyModeIcon from '../../assets/images/party_mode_add.png'
 import SearchIcon from '../../assets/images/search.png'
 
 
 
+
 function PartyModeAddPanel() {
-  const [searchInput, setSearchInput] = useState("");
   const setAddPartyModePanelVisibility = useSetRecoilState(AddPartyModePanelVisibilityState);
+  const [query, setQuery] = useState<string>("");
+  const searchResult = useFetchSearchUsers(query);
 
     return (
       <div className="party-mode-add-panel">
@@ -31,7 +36,7 @@ function PartyModeAddPanel() {
           <div className='party-mode-add-icon'>
             <img src={PartyModeIcon}></img>
           </div>
-          <div style={{padding: "30px 10px 0 0"}}>
+          <div style={{padding: "40px 0 0 0"}}>
             <CloseButton setVisibility={setAddPartyModePanelVisibility}/>
           </div>
         </div>
@@ -40,14 +45,15 @@ function PartyModeAddPanel() {
                 Let's find your friends:
             </label>
             <div className="search-container">
-                <form >
-                    <input type="text" placeholder="Search.." name="search"/>
-                    <button type="submit">
-                        <img src={SearchIcon}></img>
-                    </button>
-                </form>
+                <Select
+                    className="search-select"
+                    options={searchResult.users}
+                    isLoading={searchResult.loading}
+                    isSearchable
+                    onInputChange={setQuery}
+                    placeholder="Search users..."
+                />
             </div>
-            {/* <input type="text" placeholder="Search.." value={searchInput} /> */}
         </div>
         <div className='integrate-accounts-button'>
             <button className='button'>Integrate accounts</button>

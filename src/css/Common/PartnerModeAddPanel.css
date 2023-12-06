@@ -7,18 +7,16 @@
     box-shadow: 10px 10px 5px #262626;
     border-radius: 50px;
     padding-top: 5%;
-    padding-left: 2%;
-    padding-right: 2%;
     display:grid;
     grid-template-rows: 5% 25% 20% 50%;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 5% 35% 55% 5%;
 }
 
 
 .partner-mode-add-panel .title 
 {
-    grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
     text-align: center;
@@ -42,21 +40,25 @@
 {
     grid-row-start: 3;
     grid-row-end: 4;
-    grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
     margin-top: auto;
     margin-bottom: auto;
     margin-right: auto;
     margin-left: auto;
     font-family: 'Gotham Light';
     font-size: 15px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap:5%;
 }
 .partner-mode-add-panel .integrate-accounts-button
 {
     grid-row-start: 4;
     grid-row-end: 5;
-    grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
     margin-top: auto;
     margin-bottom: auto;
 } 
@@ -65,13 +67,13 @@
 {
     grid-row-start: 4;
     grid-row-end: 5;
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
     margin-top: auto;
     margin-bottom: 0;
-    padding-right: 10%;
     display: flex;
     align-items: flex-end;
+    padding-right: 5%;
 }
 
 
@@ -99,37 +101,16 @@
     margin-bottom: 0;
 }
 
-.partner-mode-add-panel .find-your-partner-panel label{
-    padding-right: 10px;
+.partner-mode-add-panel .find-your-partner-panel .search-select {
+    width: 100%;
+    font-family: 'Gotham Light';
 
 }
 
 
 
 .partner-mode-add-panel .find-your-partner-panel .search-container {
+    width: 50%;
     float: right;
   }
   
-.partner-mode-add-panel .find-your-partner-panel input[type=text] {
-    padding: 6px;
-    border:none;
-}
-  
-  .partner-mode-add-panel .find-your-partner-panel .search-container button {
-    float: right;
-    padding: 6px 10px;
-    background: #ddd;
-    border: none;
-    cursor: pointer;
-}
-  
-.partner-mode-add-panel .find-your-partner-panel .search-container button:hover {
-    background: #ccc;
-}
-
-
-.partner-mode-add-panel .find-your-partner-panel .search-container img
-{
-    width: 15px;
-    height: 15px;
-}
