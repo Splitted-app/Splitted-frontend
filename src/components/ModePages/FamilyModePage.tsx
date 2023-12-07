@@ -1,13 +1,15 @@
 import '../../css/ModePages/FamilyModePage.css';
 
+import { useParams } from 'react-router';
+
 import Navbar from "../Common/Navbar";
 
 import FamilyModeIcon from '../../assets/images/family_mode_add.png'
 
 
-
-
 function FamilyModePage() {
+    const { id } = useParams();
+
     return (
       <div className="family-mode-page">
         <Navbar></Navbar>

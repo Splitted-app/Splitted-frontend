@@ -2,23 +2,50 @@ import '../../css/Common/FamilyModeAddPanel.css';
 
 import { useEffect, useState } from 'react';
 
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import Select from 'react-select';
 
 import CloseButton from './CloseButton';
 
 import { AddFamilyModePanelVisibilityState } from '../../atoms/AddFamilyModePanelVisibility';
+import { FamilyMemberIdState } from '../../atoms/FamilyMemberId';
 
 import useFetchSearchUsers from '../../hooks/useFetchSearchUsers';
 
 import FamilyModeIcon from '../../assets/images/family_mode_add.png';
 import SearchIcon from '../../assets/images/search.png'
+import { FamilyModeFollowUpVisibilityState } from '../../atoms/FamilyModeFollowUp';
+
 
 
 function FamilyModeAddPanel() {
     const setAddFamilyModePanelVisibility = useSetRecoilState(AddFamilyModePanelVisibilityState);
+    const setFamilyModeFollowUpVisibility = useSetRecoilState(FamilyModeFollowUpVisibilityState);
+
     const [query, setQuery] = useState<string>("");
     const searchResult = useFetchSearchUsers(query);
+    const [familyMemberId, setFamilyMemberId] = useRecoilState(FamilyMemberIdState)
+
+    function onSelectChange(option: any) 
+    {
+      if (!option)
+      {
+        setFamilyMemberId("")
+      }
+      else
+      {
+        setFamilyMemberId(searchResult.users[option.value].id);
+      }
+      
+    }
+
+    function handleIntegrateButton()
+    {
+      if (familyMemberId == "")
+        return;
+      setAddFamilyModePanelVisibility(false);
+      setFamilyModeFollowUpVisibility(true);
+    }
 
     return (
       <div className="family-mode-add-panel">
@@ -40,7 +67,8 @@ function FamilyModeAddPanel() {
             <div className="search-container">
                 <Select
                   className="search-select"
-                  options={searchResult.users}
+                  onChange={onSelectChange}
+                  options={searchResult.selectOptions}
                   isLoading={searchResult.loading}
                   isSearchable
                   onInputChange={setQuery}
@@ -49,7 +77,9 @@ function FamilyModeAddPanel() {
             </div>
         </div>
         <div className='integrate-accounts-button'>
-            <button className='button'>Integrate accounts</button>
+            <button className='button'
+              disabled={familyMemberId==""}
+              onClick={handleIntegrateButton}>Integrate accounts</button>
         </div>
         <div className='family-mode-icon'>
             <img src={FamilyModeIcon}></img>
