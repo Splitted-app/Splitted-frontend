@@ -1,0 +1,92 @@
+.train-ai-page
+{
+    width: 85%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 33% 67%;    
+    grid-template-columns: 100%;
+}
+
+.train-ai-page .train-ai-page-header
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 25% 75% ;
+    grid-template-columns: auto 35% 5%;
+}
+
+.train-ai-page .train-ai-page-header .train-ai-page-title
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.train-ai-page .train-ai-page-header .train-ai-page-title .train-ai-page-maintitle
+{
+    font-family: 'Gotham Bold';
+    font-size: 70px;
+    text-shadow: 2px 2px 5px #10032B;
+    text-align:right;
+
+}
+
+.train-ai-page .train-ai-page-content
+{
+    grid-row-start:2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 100%;
+    border-top: 1px solid white;
+    display: grid;
+    grid-template-columns: 5% 55% 35% 5%;
+    grid-template-rows: 5% 90% 5%;
+}
+
+.train-ai-page .train-ai-page-content .train-ai-page-content-description
+{
+    grid-row-start:2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Gotham Medium';
+    font-size: 20px
+}
+
+.train-ai-page .train-ai-page-content .train-ai-page-content-button-container
+{
+    grid-row-start:2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.train-ai-page .train-ai-page-content .train-ai-page-content-button-container .train-ai-button
+{
+    font-size: 12px;
+    background-color: #20F7C5;
+    color: black;
+    width: 120px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Bold';
+    box-shadow: 8px 8px 5px #010446;
+    border:0;
+}

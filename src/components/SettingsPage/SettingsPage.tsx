@@ -9,6 +9,7 @@ import DeleteAccountConfirmationPanel from './DeleteAccountConfirmationPanel'
 import FriendsPage from './FriendsPage';
 import Navbar from '../Common/Navbar';
 import SettingsPageNavbar from './SettingsPageNavbar';
+import TrainAIPage from './TrainAIPage';
 
 
 import { DeleteAccountPanelVisibilityState } from '../../atoms/DeleteAccountPanelVisibility';
@@ -22,6 +23,7 @@ import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibil
 function SettingsPage() {
     const [accountPageVisibility, setAccountPageVisibility] = useState(true);
     const [friendsPageVisibility, setFriendsPageVisibility] = useState(false);
+    const [trainAIPageVisibility, setTrainAIPageVisibility] = useState(false);
     const navbarVisibility = useRecoilValue(NavbarVisibilityState);
     const settingsNavbarVisibility = useRecoilValue(SettingsNavbarVisibilityState);
     const setMenuIconVisibility = useSetRecoilState(MenuIconVisibilityState);
@@ -42,9 +44,10 @@ function SettingsPage() {
       <div className="settings-page">
       <div className='settings-page-content' style={{filter:(deleteAccountPanelVisibility)?'brightness(50%)': 'brightness(100%'}}>
         {navbarVisibility && <Navbar/>}
-        {settingsNavbarVisibility && <SettingsPageNavbar setAccountPageVisibility={setAccountPageVisibility} setFriendsPageVisibility={setFriendsPageVisibility}/>}
+        {settingsNavbarVisibility && <SettingsPageNavbar setAccountPageVisibility={setAccountPageVisibility} setTrainAIPageVisibility={setTrainAIPageVisibility} setFriendsPageVisibility={setFriendsPageVisibility}/>}
         {accountPageVisibility && <AccountPage/>}
         {friendsPageVisibility && <FriendsPage/>}
+        {trainAIPageVisibility && <TrainAIPage/>}
       </div>
         <div className='settings-page-popup' style={{'display': deleteAccountPanelVisibility ? 'flex' : 'none'}}>
           {deleteAccountPanelVisibility && <DeleteAccountConfirmationPanel/>}

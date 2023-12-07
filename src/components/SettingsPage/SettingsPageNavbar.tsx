@@ -16,12 +16,13 @@ import SplitIcon from '../../assets/images/split.png'
 
 interface SettingsPageNavbarInterface
 {
-  setAccountPageVisibility:Function,
+    setAccountPageVisibility:Function,
+    setTrainAIPageVisibility:Function,
     setFriendsPageVisibility:Function;
 
 }
 
-function SettingsPageNavbar({setAccountPageVisibility, setFriendsPageVisibility} : SettingsPageNavbarInterface) {
+function SettingsPageNavbar({setAccountPageVisibility,setTrainAIPageVisibility, setFriendsPageVisibility} : SettingsPageNavbarInterface) {
   
   const setNavbarVisibility = useSetRecoilState(NavbarVisibilityState);
   const setSettingsNavbarVisibility = useSetRecoilState(SettingsNavbarVisibilityState);
@@ -41,10 +42,13 @@ function SettingsPageNavbar({setAccountPageVisibility, setFriendsPageVisibility}
             Settings
           </div>
           <div className='settings-page-navbar-subsides'>
-            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(true); setFriendsPageVisibility(false)}}>
+            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(true); setFriendsPageVisibility(false); setTrainAIPageVisibility(false)}}>
               <SettingsPageNavbarItem title="Account"/>
             </button>
-            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(false); setFriendsPageVisibility(true)}}>
+            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(false); setFriendsPageVisibility(false); setTrainAIPageVisibility(true)}}>
+              <SettingsPageNavbarItem title="AI Model"/>
+            </button>
+            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(false); setFriendsPageVisibility(true); setTrainAIPageVisibility(false)}}>
               <SettingsPageNavbarItem title="Friends"/>
             </button>
           </div>
