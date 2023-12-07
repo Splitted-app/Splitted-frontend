@@ -49,3 +49,91 @@
     height: 250px;
     
 }
+
+@media screen and (max-width:1100px)
+{
+    .feature-panel
+    {
+        height: 400px;
+    }
+
+    .feature-panel .feature-text .feature-title 
+    {
+        padding-top: 25px;
+        padding-bottom: 40px;
+        font-size: 30px;
+    }
+    .feature-panel .feature-text .feature-description 
+    {
+        width: 90%;
+    }
+    
+    .feature-panel .feature-text .feature-description p
+    {
+        font-size: 20px;
+        line-height: 30px;
+
+    }
+    .feature-panel .feature-image img
+    {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width:950px)
+{
+    .feature-panel
+    {
+        height: 250px;
+    }
+
+    .feature-panel .feature-text .feature-title 
+    {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        font-size: 30px;
+    }
+
+    .feature-panel .feature-text .feature-description p
+    {
+        font-size: 15px;
+        line-height: 20px;
+
+    }
+    .feature-panel .feature-image img
+    {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width:700px)
+{
+    .feature-panel {
+        display: block;
+        height: fit-content;
+    }
+
+    .feature-panel .feature-image {
+        padding-top: 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .feature-panel .feature-text 
+    {
+        text-align: center;
+    }
+
+    .feature-panel .feature-text .feature-description 
+    {
+        width: 100%;
+        margin: 0;
+    }
+    .feature-panel .feature-image img
+    {
+        width: 100px;
+        height: 100px;
+    }
+}

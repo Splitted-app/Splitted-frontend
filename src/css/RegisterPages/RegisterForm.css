@@ -62,5 +62,51 @@
     font-family: 'Gotham Medium';
 }
 
+@media screen and (max-width:1150px){
 
+    .register-form .form-fields .form-element
+    {
+        width: 220px;
+    }
+}
+
+
+@media screen and (max-width:950px){
+
+    .register-button
+    {
+        font-size: 18px;
+        width: 140px;
+        height: 65px;
+
+    }
+    .register-form .form-fields .form-element
+    {
+        width: 200px;
+    }
+    .register-form .form-fields input
+    {
+        height: 33px;
+    }
+}
+
+
+
+@media screen and (max-width:700px){
+    .register-form .form-fields .form-element
+    {
+        width: 170px;
+    }
+    .register-button
+    {
+        font-size: 16px;
+        width: 130px;
+        height: 60px;
+
+    }
+    .register-form .form-fields input
+    {
+        height: 30px;
+    }
+}
 
