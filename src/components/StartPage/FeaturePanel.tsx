@@ -1,4 +1,5 @@
 import '../../css/StartPage/FeaturePanel.css'
+import { useMediaQuery } from 'react-responsive'
 
 interface FeaturePanelProps
 {
@@ -10,9 +11,9 @@ interface FeaturePanelProps
 
 function FeaturePanel({title, align, icon} : FeaturePanelProps ) {
 
-  const imageSecond=(align==='right')? false:true;
-  const imageFirst=(align==='right')? true:false;
-
+  const forceImageFirst = useMediaQuery({ query: '(max-width: 700px)' })
+  const imageSecond = (align !== 'right' && !forceImageFirst) ? true : false;
+  const imageFirst = (align === 'right' || forceImageFirst) ? true : false;
 
     return (
       <div className="feature-panel" style={{textAlign: align}}>
