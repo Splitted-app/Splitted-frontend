@@ -3,16 +3,23 @@ import '../../css/ModePages/FamilyModePage.css';
 import { useParams } from 'react-router';
 
 import Navbar from "../Common/Navbar";
+import LoadingPanel from '../Common/LoadingPanel';
+
+import useFetchBudget from '../../hooks/useFetchBudget';
 
 import FamilyModeIcon from '../../assets/images/family_mode_add.png'
 
 
+
 function FamilyModePage() {
     const { id } = useParams();
+    const budget = useFetchBudget(id);
 
     return (
       <div className="family-mode-page">
         <Navbar></Navbar>
+        {(budget.loading || budget.error) &&<LoadingPanel error={budget.error}/>}
+        {!budget.loading &&
         <div className='family-mode-content'>
             <div className='header'>
                 <div className='title'>
@@ -34,6 +41,7 @@ function FamilyModePage() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae nisi dolores earum libero voluptatem quam voluptates architecto doloremque quasi provident molestias numquam voluptatibus deserunt, mollitia quos ut. Impedit, eius.           
             </div>
         </div>
+        }
       </div>
     );
   }
