@@ -15,7 +15,7 @@
     grid-column-end: 2;
     width: 100%;
     display: grid;
-    grid-template-rows: 25% 80% 5%;
+    grid-template-rows: 25% 75% ;
     grid-template-columns: 5% 35% 20% 35% 5%;
 }
 
