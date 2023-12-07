@@ -8,6 +8,7 @@ import { UserTokenState } from "../atoms/UserToken";
 export default function useFetchSearchUsers(query: string) {
     const token = useRecoilValue(UserTokenState);
     const [users, setUsers] = useState<any>([]);
+    const [selectOptions, setSelectOptions] = useState<any>([]);
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
@@ -25,7 +26,8 @@ export default function useFetchSearchUsers(query: string) {
             },
         })
         .then((res) => {
-            setUsers(res.data.map((user: any) => ({value: user.username, label: user.username})));
+            setSelectOptions(res.data.map((user: any, i: number) => ({value: i, label: user.username})));
+            setUsers(res.data);
         })
         .catch(error => {
             console.error(error);
@@ -36,5 +38,5 @@ export default function useFetchSearchUsers(query: string) {
         })
     }, [query])
 
-    return {users, loading};
+    return {selectOptions, users, loading};
 }

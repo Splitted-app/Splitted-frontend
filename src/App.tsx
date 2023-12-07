@@ -35,8 +35,12 @@ import { ImportCsvPanelVisibilityState } from './atoms/ImportCsvPanelVisbility';
 import { LogOutPanelVisibilityState } from './atoms/LogOutPanelVisibility';
 import { ManualAddTransactionsPanelVisibilityState } from './atoms/ManualAddTransactionsPanelVisbility';
 import { UserTokenState } from './atoms/UserToken';
+import { FamilyModeFollowUpVisibilityState } from './atoms/FamilyModeFollowUp';
+
 import FamilyModePage from './components/ModePages/FamilyModePage';
 import GoalsPage from './components/GoalsPage/GoalsPage';
+import FamilyModeFollowUp from './components/Common/FamilyModeFollowUp';
+
 
 
 
@@ -44,13 +48,24 @@ function App() {
   const logOutPanelVisibility = useRecoilValue(LogOutPanelVisibilityState);
   const addModesPanelVisibility = useRecoilValue(AddModesPanelVisibilityState);
   const addFamilyModePanelVisibility = useRecoilValue(AddFamilyModePanelVisibilityState);
+  const familyModeFollowUpVisibility = useRecoilValue(FamilyModeFollowUpVisibilityState)
   const addPartnerModePanelVisibility = useRecoilValue(AddPartnerModePanelVisibilityState);
   const addPartyModePanelVisibility = useRecoilValue(AddPartyModePanelVisibilityState);
   const addTransactionsPanelVisibility = useRecoilValue(AddTransactionsPanelVisibilityState);
   const importCsvPanelVisibility = useRecoilValue(ImportCsvPanelVisibilityState)
   const importCsvCheckPanelVisibility = useRecoilValue(ImportCsvCheckPanelVisibilityState);
   const manualAddTransactionsPanelVisibility = useRecoilValue(ManualAddTransactionsPanelVisibilityState);
-  const popupVisible = logOutPanelVisibility || addModesPanelVisibility || addFamilyModePanelVisibility || addPartnerModePanelVisibility || addPartyModePanelVisibility || addTransactionsPanelVisibility || importCsvPanelVisibility ||importCsvCheckPanelVisibility || manualAddTransactionsPanelVisibility ;
+  const popupVisible = 
+    logOutPanelVisibility || 
+    addModesPanelVisibility || 
+    addFamilyModePanelVisibility || 
+    addPartnerModePanelVisibility || 
+    addPartyModePanelVisibility || 
+    addTransactionsPanelVisibility || 
+    importCsvPanelVisibility || 
+    importCsvCheckPanelVisibility || 
+    manualAddTransactionsPanelVisibility ||
+    familyModeFollowUpVisibility ;
   const [token, setToken] = useRecoilState(UserTokenState);
   const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState)
 
@@ -110,6 +125,7 @@ function App() {
             <Route path="/settings" element={<SettingsPage/>}/>
             <Route path="/ConfirmEmail" element={<ConfirmEmailPage/>}/>
             <Route path="/goals" element={<GoalsPage/>}/>
+            <Route path="/family/:id" element={<FamilyModePage/>}/>
 
           </Routes>
         </div>
@@ -123,6 +139,7 @@ function App() {
           {importCsvPanelVisibility && <ImportCsvPanel/>}
           {importCsvCheckPanelVisibility && <ImportCsvCheck/>}
           {manualAddTransactionsPanelVisibility && <ManualAddTransactionPanel/>}
+          {familyModeFollowUpVisibility && <FamilyModeFollowUp/>}
         </div>
       </div>
     </div>

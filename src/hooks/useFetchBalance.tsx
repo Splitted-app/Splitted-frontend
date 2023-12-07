@@ -16,7 +16,7 @@ export default function useFetchBalance() {
     useEffect(() => {
         if (loginUpdater === 0)
             return;
-        axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal', {
+        axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal,Family', {
             headers: {
                 'Accept': '*',
                 'Content-Type': 'application/json',

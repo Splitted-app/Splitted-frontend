@@ -19,7 +19,7 @@ export default function useFetchBudgetId()
         if (loginUpdater === 0)
             return;
         setLoading(true);
-        axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal', {
+        axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal,Family', {
             headers: {
                 'Accept': '*',
                 'Content-Type': 'application/json',

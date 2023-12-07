@@ -1,0 +1,176 @@
+.family-mode-followup
+{
+    height: 100%;
+    width: 60%;
+    background-color: white;
+    border: solid 1px black;
+    box-shadow: 10px 10px 5px #262626;
+    border-radius: 50px;
+    padding-top: 5%;
+    display:grid;
+    grid-template-rows: 5% 25% auto 5%;
+    grid-template-columns: 5% 90% 5%;
+}
+
+.family-mode-followup .title
+{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+}
+
+.family-mode-followup  .title .main-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: #3C3C3C;
+}
+
+
+.family-mode-followup  .title .subtitle
+{
+    padding-top: 3%;
+    font-family: 'Gotham Light';
+    font-size: 20px;
+}
+
+.family-mode-followup .family-mode-followup-form
+{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 20%;
+} 
+
+.family-mode-followup .family-mode-followup-form .form-elements
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.family-mode-followup .family-mode-followup-form .form-elements .information-fields
+{
+    padding-top: 15px;
+}
+
+.family-mode-followup .family-mode-followup-form .form-elements .information-fields
+{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: [start] 50% [middle] auto [end];
+    grid-template-rows: [line1] 33% [line2] 33% [line3] 34% [line4];
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+
+.family-mode-followup .family-mode-followup-form .form-elements .information-fields label
+{
+    font-family: 'Gotham Medium';
+    font-size: 20px;
+    align-self: center;
+    justify-self: left;
+    text-align: left;
+}
+
+.family-mode-followup .family-mode-followup-form .form-elements .information-fields .input-container
+{
+    align-self: center;
+    display: flex;
+    align-items: center;
+}
+
+.family-mode-followup .family-mode-followup-form .form-elements .information-fields input, select
+{
+    justify-self: right;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.family-mode-followup .family-mode-followup-form .form-elements .information-fields .field-style
+{
+    font-family: 'Gotham Medium';
+    font-size: 19px;
+    display: block;
+    overflow: hidden;
+    height: 50px;
+    width: 100%;
+    float:right;
+}
+
+.family-mode-followup .family-mode-followup-form .form-elements .information-fields .avatar-input-container
+{
+    display: flex;
+    align-items: center;
+    font-family: 'Gotham Light';
+    height: 100%;
+}
+
+.family-mode-followup .family-mode-followup-form .form-elements .information-fields .avatar-input-button
+{
+    align-self: center;
+    background-color: #20F7C5;
+    border: 1px solid #010446;
+    width: 40%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.family-mode-followup .family-mode-followup-form .form-elements .information-fields .avatar-input-button label
+{
+    cursor: pointer;
+    height: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.family-mode-followup .family-mode-followup-form .form-elements .information-fields span
+{
+    margin: 10px;
+    max-width: 50%;
+    overflow: hidden;
+}
+
+
+.family-mode-followup .button-container 
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    align-self: center;
+    flex-grow: 1;
+}
+
+.family-mode-followup .button-container input
+{
+    background-color: #20F7C5;
+    color: black;
+    width: 100px;
+    height: 50px;
+    border: 1px solid #010446;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    font-size: 14px;
+    box-shadow: 2px 5px 5px #010446;
+}
