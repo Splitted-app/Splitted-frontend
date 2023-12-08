@@ -5,4 +5,39 @@
     color: #C9C6F8;
     text-shadow: 5px 5px 5px #180A45;
     width:max-content;
+
+}
+
+@media screen and (max-width: 1300px)
+{
+    
+    .date-display
+    {
+        font-size: 26px;
+        display: grid;
+        align-items: center;
+    }
+
+}
+
+@media screen and (max-width: 800px)
+{
+    
+    .date-display
+    {
+        font-size: 22px;
+
+    }
+
+}
+
+@media screen and (max-width: 700px)
+{
+    
+    .date-display
+    {
+        font-size: 20px;
+
+    }
+
 }

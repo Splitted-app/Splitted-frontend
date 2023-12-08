@@ -71,13 +71,12 @@
 }
 .transaction .transaction-edit-button-container button img
 {
-    width: 80%;
-    height: 80%;
+    width: 15px;
+    height: 15px;
 }
 
 .transaction .transaction-delete-button-container 
 {
-    width: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,8 +88,8 @@
 }
 .transaction .transaction-delete-button-container button img
 {
-    width: 80%;
-    height: 80%;
+    width: 15px;
+    height: 15px;
 }
 
 .delete-transaction-checkbox-container

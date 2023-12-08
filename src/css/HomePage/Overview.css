@@ -39,3 +39,60 @@
     grid-column-start: 1;
     grid-column-end: 4;
 }
+
+.overview .navigation-arrow
+{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    opacity: 0.2;
+}
+
+.overview .arrow-button:hover
+{
+    padding: 0;
+    transition: none
+}
+
+@media screen and (max-width: 1300px)
+{
+    
+    .overview .navigation-arrow
+    {
+        width: 20px;
+        height: 20px;
+
+    }
+
+}
+
+@media screen and (max-width: 800px)
+{
+    .overview .time-scale-selector-container
+    {
+        align-items: center;
+    }
+
+    .overview .navigation-arrow
+    {
+        width: 17px;
+        height: 17px;
+
+    }
+
+}
+@media screen and (max-width: 700px)
+{
+    .overview .time-scale-selector-container
+    {
+        align-items: center;
+    }
+
+    .overview .navigation-arrow
+    {
+        width: 15px;
+        height: 15px;
+
+    }
+
+}
