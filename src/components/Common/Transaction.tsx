@@ -2,6 +2,7 @@ import '../../css/Common/Transaction.css';
 
 import { useState } from 'react';
 
+import { useMediaQuery } from 'react-responsive'
 import axios from 'axios';
 import Moment from 'moment';
 import { useRecoilValue , useRecoilState} from 'recoil';
@@ -54,9 +55,7 @@ function Transaction({
   showDeleteTransactionRadioButton, 
   markDuplicate}: TransactionPropsInterface) {
     const [amount, setAmount] = useState(transaction.amount);
-    // const [category, setCategory] = useState((transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory);
     const [userCategory, setUserCategory] = useState(transaction.userCategory);
-    // const currency = useRecoilValue(CurrencyState);
     const [transactionType, setTransactionType] = useState(transaction.transactionType);
     const [description, setDescription] = useState(transaction.description);
     const transactionId: string = transaction.id;
@@ -65,14 +64,16 @@ function Transaction({
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
     const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
     const [newTransactions, setNewTransactions] = useRecoilState<any>(NewTransactionsState);
+
+    const minified = useMediaQuery({ query: '(max-width: 1300px)' })
     let gridTemplateColumns = '';
     gridTemplateColumns += showDeleteTransactionRadioButton ? '5% ' : ''; // delete checkbox
     gridTemplateColumns += '20% '; // category
-    gridTemplateColumns += showTransactionType ? '10% ' : ''; // transaction type
-    gridTemplateColumns += showDate ? '15% ' : ''; // date
-    gridTemplateColumns += showUser ? '15% ' : ''; // user
+    gridTemplateColumns += showTransactionType && !minified ? '10% ' : ''; // transaction type
+    gridTemplateColumns += showDate && !minified ? '15% ' : ''; // date
+    gridTemplateColumns += showUser && !minified ? '15% ' : ''; // user
     gridTemplateColumns += 'auto '; // description
-    gridTemplateColumns += '150px'; // amount
+    gridTemplateColumns += minified ? '100px' : '150px'; // amount
 
     const gridStyle = {
       gridTemplateColumns: gridTemplateColumns
@@ -200,7 +201,7 @@ function Transaction({
                   onBlur={(e) => {adjustContent(e.target)}}>
                 {(transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory}
             </div>
-            {showTransactionType &&
+            {showTransactionType && !minified &&
             <div className={`transactionType transaction-element element-margin ${editable ? "editable-content" : ""}`}>
                 {!editable && transaction.transactionType}
                 {editable && 
@@ -212,11 +213,11 @@ function Transaction({
                 </select>}
             </div>
             }
-            {showDate &&
+            {showDate && !minified &&
             <div className='date transaction-element'>
               {Moment(transaction.date).format('DD.MM.yyyy')}
             </div>}
-            {showUser &&
+            {showUser && !minified &&
             <div className='user transaction-element'>
                 User
             </div>

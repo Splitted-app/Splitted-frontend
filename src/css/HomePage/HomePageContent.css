@@ -128,7 +128,7 @@
 
 }
 
-@media screen and (max-width: 1300px)
+@media screen and (max-width: 1250px)
 {
     .home-page-content .information-panel .amount
     {
@@ -137,11 +137,34 @@
 
     .home-page-content .information-panel .your-balance
     {
+        font-size: 22px;
+    }
+    .home-page-content .information-panel .amount .bankBalance
+    {    
+        margin-right: 5%;
+        font-size: 65px;
+    }
+    .home-page-content .information-panel .amount .currency
+    {
+        font-size: 65px;
+    }
+
+}
+
+@media screen and (max-width: 1150px)
+{
+    .home-page-content .information-panel .amount
+    {
+        grid-template-columns: auto 130px;
+    }
+
+    .home-page-content .information-panel .your-balance
+    {
         font-size: 20px;
     }
     .home-page-content .information-panel .amount .bankBalance
     {    
-        margin-right: 0;
+        margin-right: 3%;
         font-size: 60px;
     }
     .home-page-content .information-panel .amount .currency
@@ -150,6 +173,7 @@
     }
 
 }
+
 
 
 @media screen and (max-width: 1050px)
@@ -161,15 +185,16 @@
 
     .home-page-content .information-panel .your-balance
     {
-        font-size: 15px;
+        font-size: 18px;
     }
     .home-page-content .information-panel .amount .bankBalance
     {    
-        font-size: 50px;
+        margin-right: 0;
+        font-size: 53px;
     }
     .home-page-content .information-panel .amount .currency
     {
-        font-size: 50px;
+        font-size: 53px;
     }
 
 }

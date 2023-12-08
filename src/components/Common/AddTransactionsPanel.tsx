@@ -29,7 +29,7 @@ function AddTransactionsPanel() {
 
     return (
       <div className="add-transactions-panel">
-        <div style={{padding: '0 30px 0 30px'}}>
+        <div className="close-button-container">
           <CloseButton setVisibility={setAddTransactionsPanelVisibility}/>
         </div>
         <div className='title'>

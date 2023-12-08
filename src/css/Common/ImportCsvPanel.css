@@ -155,3 +155,279 @@
     font-size: 16px;
     font-family: 'Gotham Medium';
 }
+
+.import-csv-panel .close-button-container
+{
+    padding: 0 8%;
+}
+
+@media screen and (max-width:1300px)
+{
+    .import-csv-panel
+    {
+        padding-top: 5%;
+        height: 95%;
+        width: 65%;
+    }
+
+    .import-csv-panel .title .main-title
+    {
+        font-size: 26px;
+    }
+
+
+    .import-csv-panel .title .subtitle
+    {
+        font-size: 18px;
+    }
+
+    .import-csv-panel .next-button-container .next-button
+    {
+        font-size: 14px;
+        width: 120px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+
+    .import-csv-panel
+    {
+        padding-top: 5%;
+        height: 85%;
+        width: 67%;
+    }
+
+    .import-csv-panel .main-content label
+    {
+        font-size: 16px
+    }
+
+    .import-csv-panel .filename
+    {
+        font-size: 12px;
+    }
+
+    .import-csv-panel .main-content .bank-select-container select
+    {
+        height: 32px;       
+    }
+}
+
+
+
+@media screen and (max-width:1050px)
+{
+    .import-csv-panel
+    {
+        height: 85%;
+        width: 70%;
+    }
+    .import-csv-panel .title 
+    {
+        padding-top: 15px;
+    }
+    .import-csv-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .import-csv-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+
+    .import-csv-panel .next-button-container .next-button
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 45px;
+    }
+
+}
+
+
+@media screen and (max-width:950px)
+{
+    .import-csv-panel
+    {
+        height: 90%;
+        width: 80%;
+    }
+    .import-csv-panel .title 
+    {
+        padding-top: 18px;
+    }
+    .import-csv-panel .title .main-title
+    {
+        font-size: 24px;
+    }
+
+    .import-csv-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+
+    .import-csv-panel .next-button-container .next-button
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 45px;
+    }
+}
+
+
+@media screen and (max-width:850px)
+{
+    .import-csv-panel
+    {
+        height: 85%;
+        width: 90%;
+    }
+    .import-csv-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .import-csv-panel .title .subtitle
+    {
+        font-size: 14px;
+    }
+    
+    .import-csv-panel .next-button-container .next-button
+    {
+        font-size: 10px;
+        width: 100px;
+        height: 40px;
+    }
+
+    .import-csv-panel .main-content label
+    {
+        font-size: 14px
+    }
+
+    .import-csv-panel .main-content .bank-select-container select
+    {
+        height: 28px;       
+    }
+
+}
+
+
+@media screen and (max-width:700px)
+{
+    .import-csv-panel
+    {
+        height: 80%;
+        width: 195%;
+
+    }
+    .import-csv-panel .title .main-title
+    {
+        font-size: 20px;
+    }
+
+    .import-csv-panel .title .subtitle
+    {
+        font-size: 12px;
+    }
+
+    .import-csv-panel .next-button-container .next-button
+    {
+        font-size: 9px;
+        width: 80px;
+        height: 35px;
+    }
+    .import-csv-panel .main-content label
+    {
+        font-size: 12px
+    }
+    .import-csv-panel .filename
+    {
+        font-size: 10px;
+    }
+
+    .import-csv-panel .main-content .bank-select-container select
+    {
+        height: 24px;       
+    }
+
+}
+
+
+@media screen and (max-width:600px)
+{
+    .import-csv-panel
+    {
+        width: 100%;
+        height: 60%;
+    }
+    .import-csv-panel .title .main-title
+    {
+        font-size: 18px;
+    }
+    .import-csv-panel .title .subtitle
+    {
+        font-size: 10px;
+    }
+
+    .import-csv-panel .main-content
+    {
+        padding: 15%;
+    }
+
+    .import-csv-panel .main-content .bank-select-container
+    {
+        margin-bottom: 30px;
+        grid-template-columns: auto;
+    }
+
+    .import-csv-panel .main-content .import-csv-container
+    {
+        margin-bottom: 30px;
+        grid-template-columns: auto;
+    }
+
+    .import-csv-panel .main-content label
+    {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width:450px)
+{
+    .import-csv-panel
+    {
+        height: 50%;
+        border-radius: 30px;
+
+    }
+    .import-csv-panel .title .main-title
+    {
+        font-size: 15px;
+    }
+    .import-csv-panel .title .subtitle
+    {
+        font-size: 8px;
+    }
+
+    .import-csv-panel .next-button-container .next-button
+    {
+        font-size: 8px;
+        width: 65px;
+        height: 30px;
+        margin-bottom: 40px;
+    }
+
+    .import-csv-panel .main-content .bank-select-container
+    {
+        margin-bottom: 20px;   
+    }
+
+    .import-csv-panel .main-content .import-csv-container
+    {
+        margin-bottom: 20px;
+    }
+
+}

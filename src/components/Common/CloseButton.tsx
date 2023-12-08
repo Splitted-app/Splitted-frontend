@@ -9,7 +9,7 @@ interface CloseButtonInterface
 
 function CloseButton({setVisibility} : CloseButtonInterface) {
     return (
-        <div className='close-button-container'>
+        <div className='close-button'>
             <button onClick={()=>setVisibility(false)}>
                 <img src={CloseButtonIcon}/>
             </button>
