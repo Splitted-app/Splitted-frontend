@@ -126,3 +126,87 @@
 {
     font-size: 12px;
 }
+
+
+
+@media screen and (max-width: 1300px)
+{
+    
+    .date-range-selector-container .date-range-selector-button
+    {
+
+        width: 130px;
+        height: 35px;
+        font-size: 16px;
+
+    }
+    .date-range-selector-container .date-range-selector .select-field-button
+    { 
+        font-size: 14px;
+    }
+    .date-range-selector .text-container
+    {
+        font-size: 14px;
+    }
+}
+
+
+@media screen and (max-width: 800px)
+{
+    
+    .date-range-selector-container .date-range-selector-button
+    {
+
+        width: 100px;
+        height: 30px;
+        font-size: 14px;
+
+    }
+    .date-range-selector-container .date-range-selector .select-field-button
+    { 
+        font-size: 12px;
+    }
+    .date-range-selector .text-container
+    {
+        font-size: 12px;
+    }
+    
+    .date-range-selector .rdrMonth
+    {
+        width: 250px;
+    }
+    .date-range-selector .rdrMonthPicker select, .rdrYearPicker select
+    {
+        font-size: 11px;
+    }
+}
+
+
+@media screen and (max-width: 700px)
+{
+    .date-range-selector-container .date-range-selector-button
+    {
+
+        width: 80px;
+        height: 25px;
+        font-size: 12px;
+
+    }
+    .date-range-selector-container .date-range-selector .select-field-button
+    { 
+        font-size: 10px;
+    }
+    .date-range-selector .text-container
+    {
+        font-size: 10px;
+    }
+    
+    .date-range-selector .rdrMonth
+    {
+        width: 200px;
+    }
+    .date-range-selector .rdrMonthPicker select, .rdrYearPicker select
+    {
+        font-size: 10px;
+    }
+}

@@ -72,7 +72,7 @@ function Transaction({
     gridTemplateColumns += showDate ? '15% ' : ''; // date
     gridTemplateColumns += showUser ? '15% ' : ''; // user
     gridTemplateColumns += 'auto '; // description
-    gridTemplateColumns += '20%'; // amount
+    gridTemplateColumns += '150px'; // amount
 
     const gridStyle = {
       gridTemplateColumns: gridTemplateColumns
@@ -244,7 +244,7 @@ function Transaction({
         </div>
         <div className='transaction-edit-button-container' >
             <button onClick={handleEditTransactionButton}>
-                <img src={(editable)?UpdateTransactionIcon:EditTransactionIcon} style={{width:(showDeleteIcon)?"80%" : "50%"}}></img>
+                <img src={(editable)?UpdateTransactionIcon:EditTransactionIcon} /*style={{width:(showDeleteIcon)?"80%" : "50%"}}*/></img>
             </button>
         </div>
         {showDeleteIcon && <div className='transaction-delete-button-container'>

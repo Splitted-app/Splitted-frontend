@@ -10,8 +10,6 @@ a{
 
 .navbar-item .icon
 {
-    /* padding-top: auto;
-    padding-bottom: auto; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,8 +18,6 @@ a{
 {
     width: 30px;
     height: 30px; 
-    /* margin-top: auto;
-    margin-bottom: auto; */
 }
 
 .navbar-item .text
