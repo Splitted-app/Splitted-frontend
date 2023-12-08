@@ -72,3 +72,54 @@
     width: 100%;
     height: 100%;
 }
+
+
+@media screen and (max-width: 1500px)
+{
+    .reminders
+    {
+        height: 70%;
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width: 1300px)
+{
+    .reminders .content .icon img
+    {
+        height: 65%;
+    }
+
+}
+
+
+
+@media screen and (max-width: 1200px)
+{
+    .reminders
+    {
+        height: 65%;
+        width: 90%;
+    }
+    .reminders .content .icon img
+    {
+        height: 60%;
+    }
+}
+
+
+
+@media screen and (max-width: 1050px)
+{
+    .reminders
+    {
+        height: 55%;
+        width: 90%;
+    }
+
+    .reminders .content .icon img
+    {
+        width: 75%;
+    }
+}
