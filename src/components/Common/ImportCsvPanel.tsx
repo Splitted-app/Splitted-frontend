@@ -134,7 +134,7 @@ function ImportCsvPanel() {
   }
   return (
     <div className="import-csv-panel">
-      <div style={{padding: '0 30px 0 30px'}}>
+      <div className='close-button-container'>
         <CloseButton setVisibility={setImportCsvPanelVisibility}/>
       </div>
       <div className='title'>
@@ -168,7 +168,7 @@ function ImportCsvPanel() {
               <input type="file" className='file-input' id='csv-import-input' style={{ display: 'none' }}
                 onChange={(e) => { handleFileChange(e) }}></input>
               <label htmlFor='csv-import-input'>
-                <div>
+                <div className='filename'>
                   {filePath}
                 </div>
               </label>
@@ -191,11 +191,6 @@ function ImportCsvPanel() {
             </div>
             }
           </div>
-          {/* <div className="form-error-container" 
-            style={{ display: `${errors.invalidBankName ? "block" : "none"}`}}>
-            {errors.invalidBankName && 
-              <FormInfo message="Sorry, we only support this functionality with specified banks. But if you're from other bank don't worry, you can still add transactions manually." details="" textColor="darkgray" infoLevel={InfoLevel.None}/>}
-          </div> */}
           {
             loading
           }
@@ -209,9 +204,6 @@ function ImportCsvPanel() {
           {
             loading && !uploadError &&
             <LoadingPanel error={uploadError}/>
-            // <div className='uploading-message'>
-            //   Uploading...
-            // </div>
           }
           
         </form>

@@ -34,7 +34,6 @@
 
 .manual-add-transaction-panel  .main-content
 {
-    padding-top: 20px;
     height: 100%;
 }
 
@@ -105,5 +104,260 @@
     font-size: 19px;
     box-shadow: 2px 5px 5px #010446;
     border: none;
+}
+
+.manual-add-transaction-panel .close-button-container
+{
+    padding: 0;
+}
+
+@media screen and (max-width:1300px)
+{
+    .manual-add-transaction-panel
+    {
+        padding-top: 5%;
+        height: 90%;
+        width: 55%;
+    }
+
+    .manual-add-transaction-panel .title .main-title
+    {
+        font-size: 26px;
+    }
+
+
+    .manual-add-transaction-panel .title .subtitle
+    {
+        font-size: 18px;
+    }
+
+    .manual-add-transaction-panel .add-button-container .add-button
+    {
+        font-size: 14px;
+        width: 120px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    .manual-add-transaction-panel
+    {
+        width: 60%;
+    }
+    .manual-add-transaction-panel .main-content .field-style
+    {
+        height: 35px;
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width:1050px)
+{
+    .manual-add-transaction-panel
+    {
+        height: 80%;
+        width: 65%;
+    }
+    .manual-add-transaction-panel .title 
+    {
+        padding-top: 15px;
+    }
+    .manual-add-transaction-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .manual-add-transaction-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+
+    .manual-add-transaction-panel .add-button-container .add-button
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 45px;
+    }
+
+    .manual-add-transaction-panel .main-content .field-style
+    {
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .manual-add-transaction-panel .main-content label
+    {
+        font-size: 16px;
+    }
+
+}
+
+
+@media screen and (max-width:950px)
+{
+    .manual-add-transaction-panel
+    {
+        height: 90%;
+        width: 75%;
+    }
+    .manual-add-transaction-panel .title 
+    {
+        padding-top: 18px;
+    }
+    .manual-add-transaction-panel .title .main-title
+    {
+        font-size: 24px;
+    }
+
+    .manual-add-transaction-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+
+    .manual-add-transaction-panel .add-button-container .add-button
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 45px;
+    }
+}
+
+
+@media screen and (max-width:850px)
+{
+    .manual-add-transaction-panel
+    {
+        height: 85%;
+        width: 80%;
+    }
+    .manual-add-transaction-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .manual-add-transaction-panel .title .subtitle
+    {
+        font-size: 14px;
+    }
+    
+    .manual-add-transaction-panel .add-button-container .add-button
+    {
+        font-size: 10px;
+        width: 100px;
+        height: 40px;
+    }
+
+}
+
+
+@media screen and (max-width:700px)
+{
+    .manual-add-transaction-panel
+    {
+        height: 75%;
+        width: 95%;
+
+    }
+    .manual-add-transaction-panel .title .main-title
+    {
+        font-size: 20px;
+    }
+
+    .manual-add-transaction-panel .title .subtitle
+    {
+        font-size: 12px;
+    }
+
+    .manual-add-transaction-panel .add-button-container .add-button
+    {
+        font-size: 9px;
+        width: 80px;
+        height: 35px;
+    }
+
+    .manual-add-transaction-panel .main-content .field-style
+    {
+        height: 22px;
+        font-size: 12px;
+    }
+
+    .manual-add-transaction-panel .main-content label
+    {
+        font-size: 14px;
+    }
+
+}
+
+
+@media screen and (max-width:600px)
+{
+    .manual-add-transaction-panel
+    {
+        width: 100%;
+        height: 60%;
+    }
+    .manual-add-transaction-panel .title .main-title
+    {
+        font-size: 18px;
+    }
+    .manual-add-transaction-panel .title .subtitle
+    {
+        font-size: 10px;
+    }
+
+    .manual-add-transaction-panel .main-content
+    {
+        padding: 15%;
+    }
+
+    .manual-add-transaction-panel .main-content .field-style
+    {
+        margin-bottom: 15px;
+    }
+
+    .manual-add-transaction-panel .main-content form
+    {
+        display: block;
+    }
+
+    .manual-add-transaction-panel .main-content label
+    {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width:450px)
+{
+    .manual-add-transaction-panel
+    {
+        height: 50%;
+        border-radius: 30px;
+
+    }
+    .manual-add-transaction-panel .title .main-title
+    {
+        font-size: 13px;
+    }
+    .manual-add-transaction-panel .title .subtitle
+    {
+        display: none;
+    }
+
+    .manual-add-transaction-panel .add-button-container .add-button
+    {
+        font-size: 8px;
+        width: 55px;
+        height: 25px;
+        margin-bottom: 40px;
+    }
+    .manual-add-transaction-panel .main-content .field-style
+    {
+        height: 16px;
+        font-size: 8px;
+    }
+
 }
 

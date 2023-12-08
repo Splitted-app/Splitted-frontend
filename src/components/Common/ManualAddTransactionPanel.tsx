@@ -13,22 +13,6 @@ import { UserTokenState } from '../../atoms/UserToken'
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
 
-
-// function getDate() {
-//   const today = new Date();
-//   let month = today.getMonth() + 1;
-//   let longMonth = month + '';
-//   if (month < 10)
-//     longMonth = '' + 0 + month;
-//   const year = today.getFullYear();
-//   const date = today.getDate();
-//   let longDate = date + '';
-//   if (date < 10)
-//     longDate = '' + 0 + date;
-//   return `${longDate}.${longMonth}.${year}`;
-// }
-
-
 interface ManualAddTransactionPanelInterface {
   amount: number,
   currency: string,
@@ -91,7 +75,10 @@ function ManualAddTransactionPanel() {
 
   return (
     <div className="manual-add-transaction-panel">
-      <CloseButton setVisibility={setManualAddTransactionsPanelVisibility}/>
+      <div className='close-button-container'>
+        <CloseButton setVisibility={setManualAddTransactionsPanelVisibility}/>
+      </div>
+      
       <div className='title'>
         <div className='main-title'>
           Add transactions

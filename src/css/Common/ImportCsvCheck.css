@@ -71,3 +71,160 @@
 }
 
 
+@media screen and (max-width:1300px)
+{
+    .import-csv-check
+    {
+        height: 85%;
+        width: 90%;
+    }
+    .import-csv-check .title
+    {
+        font-size: 26px;
+    }
+    .import-csv-check .button-container .interaction-button{
+
+        width: 130px;
+        height: 45px;
+        font-size: 14px;
+
+    }
+    
+    .import-csv-check .button-container .cancel-button{
+        width: 130px;
+        height: 45px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    .import-csv-check
+    {
+        height: 75%;
+        width: 90%;
+    }
+    .import-csv-check .title
+    {
+        font-size: 26px;
+    }
+    .import-csv-check .button-container .interaction-button{
+
+        width: 110px;
+        height: 40px;
+        font-size: 13px;
+
+    }
+    
+    .import-csv-check .button-container .cancel-button{
+        width: 110px;
+        height: 40px;
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width:1050px)
+{
+    .import-csv-check
+    {
+        height: 65%;
+        width: 90%;
+    }
+    .import-csv-check .title
+    {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .import-csv-check .button-container{
+        margin-top: 20px;
+    }
+
+    .import-csv-check .button-container .interaction-button{
+
+        width: 90px;
+        height: 35px;
+        font-size: 12px;
+
+    }
+    
+    .import-csv-check .button-container .cancel-button{
+        width: 90px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+}
+
+
+@media screen and (max-width:950px)
+{
+    .import-csv-check
+    {
+        height: 55%;
+        width: 100%;
+    }
+    .import-csv-check .title
+    {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .import-csv-check .button-container{
+        margin-top: 20px;
+    }
+
+    .import-csv-check .button-container .interaction-button{
+
+        width: 75px;
+        height: 30px;
+        font-size: 10px;
+
+    }
+    
+    .import-csv-check .button-container .cancel-button{
+        width: 75px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+
+}
+
+@media screen and (max-width:850px)
+{
+
+    .import-csv-check
+    {
+        height: 50%;
+    }
+    .import-csv-check .button-container{
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width:470px)
+{
+    .import-csv-check
+    {
+        height: 45%;
+    }
+    .import-csv-check .button-container{
+        margin-top: 10px;
+    }
+
+    .import-csv-check .button-container .interaction-button{
+
+        width: 65px;
+        height: 25px;
+        font-size: 8px;
+
+    }
+    
+    .import-csv-check .button-container .cancel-button{
+        width: 65px;
+        height: 25px;
+        font-size: 8px;
+    }
+}
