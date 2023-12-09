@@ -55,31 +55,6 @@ function TransactionPage() {
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
     const [filterMenuVisibility, setFilterMenuVisibility] = useState(false);
 
-    const ConfirmDeleteTransactionsButtonStyle={
-        fontSize: "16px",
-        backgroundColor: "#FFDADA",
-        color: "#CC3C3C",   
-        width: "180px",
-        height: "50px",
-        border: "3px solid #CC3C3C",
-        borderRadius: "33px",
-        fontFamily: 'Gotham Bold',
-        boxShadow: "5px 5px 3px #180A45"
-    }
-
-    const DeleteTransactionsButtonStyle={
-        fontSize: "16px",
-        backgroundColor: "#20F7C5",
-        color: "black",
-        width: "180px",
-        height: "50px",
-        border: "none",
-        borderRadius: "33px",
-        fontFamily: 'Gotham Bold',
-        boxShadow: "5px 5px 3px #180A45"
-     
-    }
-
     const gridStyle = {
         gridTemplateRows: filterMenuVisibility
         ? '33% 15% 25% auto':
@@ -139,7 +114,7 @@ function TransactionPage() {
                         <button className='add-transactions-button' onClick={()=>{setAddTransactionsPanelVisibility(true)}}> Add Transactions</button>
                     </div>
                     <div className="delete-transactions-button-container">
-                        <button className='delete-transactions-button' onClick={handleDeleteTransactions} style={(showDeleteTransactionRadioButton)?ConfirmDeleteTransactionsButtonStyle:DeleteTransactionsButtonStyle}>Delete Transactions</button>
+                        <button className={`${showDeleteTransactionRadioButton ? "active-delete-transactions-button": "delete-transactions-button"}`} onClick={handleDeleteTransactions} /*style={(showDeleteTransactionRadioButton)?ConfirmDeleteTransactionsButtonStyle:DeleteTransactionsButtonStyle}*/>Delete Transactions</button>
                     </div>
                 </div>
                 <div className='title'>

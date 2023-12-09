@@ -1,5 +1,6 @@
 import '../../css/TransactionPage/TransactionsInsightsPanel.css'
 
+import { useMediaQuery } from 'react-responsive'
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, LabelList } from 'recharts';
 
 interface TransactionsInsightsPanelInterface
@@ -15,6 +16,11 @@ function TransactionsInsightsPanel({expenses,income}:TransactionsInsightsPanelIn
         income:income
       }
     ]
+
+    const useMediumFontSize = useMediaQuery({ query: '(max-width: 1150px)' })
+    const useSmallFontSize = useMediaQuery({ query: '(max-width: 1050px)' })
+    const fontSize = useSmallFontSize ? "10px" : useMediumFontSize ? "12px" : "15px"
+
     return (
       <div className="transactions-insights-panel">
         <div className='transactions-insights-panel-title'>
@@ -33,7 +39,7 @@ function TransactionsInsightsPanel({expenses,income}:TransactionsInsightsPanelIn
               }}
             />
             ))}
-            <LabelList position="right" dataKey="expenses" style={{textShadow:'none', fill:'#545454', fontFamily:'Gotham Medium', fontSize:'15'}}/>
+            <LabelList position="right" dataKey="expenses" style={{textShadow:'none', fill:'#545454', fontFamily:'Gotham Medium', fontSize: fontSize}}/>
             </Bar>
             <Bar dataKey="income" barSize={30} fill="#20F7C5" >
             {data.map((_, index) => (
@@ -43,7 +49,7 @@ function TransactionsInsightsPanel({expenses,income}:TransactionsInsightsPanelIn
             }}
           />
             ))}
-            <LabelList position="right" dataKey="income" style={{textShadow:'none', fill:'#545454',fontFamily:'Gotham Medium', fontSize:'15'}}/>
+            <LabelList position="right" dataKey="income" style={{textShadow:'none', fill:'#545454',fontFamily:'Gotham Medium', fontSize: fontSize}}/>
             </Bar>
           </BarChart>
         </ResponsiveContainer>
