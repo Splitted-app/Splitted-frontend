@@ -4,7 +4,6 @@
     height: 100vh;
     width: 100%;
     display: flex;
-    align-items: center;
 }
 
 .goals-page .goals-page-content
@@ -129,4 +128,25 @@
 {
     display: inline-block;
     padding: 4%;
+}
+
+
+@media screen and (max-width: 1500px)
+{
+    .goals-page  .goals-page-content .header .title
+    {
+        font-size: 70px;
+    }
+
+    .goals-page  .goals-page-content .header .add-goal-button-container .add-goal-button
+    {
+        font-size: 14px;
+        width: 160px;
+        height: 45px;
+
+    }
+    .goals-page  .goals-page-content .header .main-goal-container .main-goal-text
+    {
+        font-size: 28px;
+    }
 }

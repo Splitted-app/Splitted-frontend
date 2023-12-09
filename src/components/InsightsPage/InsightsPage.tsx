@@ -140,8 +140,6 @@ function InsightsPage() {
       );
 
     return (
-
-
       <div className="insights-page">
         <Navbar></Navbar>
         <div className='insights-page-content'  style={gridStyle}>
