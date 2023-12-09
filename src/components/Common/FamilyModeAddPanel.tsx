@@ -49,7 +49,7 @@ function FamilyModeAddPanel() {
 
     return (
       <div className="family-mode-add-panel">
-        <div style={{gridColumnStart: 3, padding: '0 30px 0 30px'}}>
+        <div className='close-button-container'>
           <CloseButton setVisibility={setAddFamilyModePanelVisibility}/>
         </div>
         <div className='title'>

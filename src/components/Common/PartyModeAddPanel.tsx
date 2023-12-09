@@ -36,7 +36,7 @@ function PartyModeAddPanel() {
           <div className='party-mode-add-icon'>
             <img src={PartyModeIcon}></img>
           </div>
-          <div style={{padding: "40px 0 0 0"}}>
+          <div className='close-button-container'>
             <CloseButton setVisibility={setAddPartyModePanelVisibility}/>
           </div>
         </div>
