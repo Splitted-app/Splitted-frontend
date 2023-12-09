@@ -96,3 +96,157 @@
     z-index: 1;
 
 }
+
+
+@media screen and (max-width: 1500px)
+{
+    .goal
+    {
+        width: 250px;
+        height: 100px;
+        border-radius: 35px;
+    }
+
+    .goal .goal-title
+    {
+        font-size: 12px;
+    }
+
+    .goal .goal-amount
+    {
+        font-size: 20px;
+    }
+
+    .goal .goal-deadline
+    {
+        font-size: 12px;
+    }
+
+    .goal .goal-progress
+    {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 1150px)
+{
+    .goal
+    {
+        width: 220px;
+        height: 90px;
+        border-radius: 30px;
+    }
+
+    .goal .goal-title
+    {
+        font-size: 10px;
+    }
+
+    .goal .goal-amount
+    {
+        font-size: 18px;
+    }
+
+    .goal .goal-deadline
+    {
+        font-size: 10px;
+    }
+
+    .goal .goal-progress
+    {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 1000px)
+{
+    .goal
+    {
+        width: 250px;
+        height: 100px;
+        border-radius: 35px;
+    }
+
+    .goal .goal-title
+    {
+        font-size: 12x;
+    }
+
+    .goal .goal-amount
+    {
+        font-size: 20px;
+    }
+
+    .goal .goal-deadline
+    {
+        font-size: 12px;
+    }
+
+    .goal .goal-progress
+    {
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 750px)
+{
+    .goal
+    {
+        width: 220px;
+        height: 90px;
+        border-radius: 30px;
+    }
+
+    .goal .goal-title
+    {
+        font-size: 10x;
+    }
+
+    .goal .goal-amount
+    {
+        font-size: 18px;
+    }
+
+    .goal .goal-deadline
+    {
+        font-size: 10px;
+    }
+
+    .goal .goal-progress
+    {
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 550px)
+{
+    .goal
+    {
+        width: 200px;
+        height: 80px;
+        border-radius: 25px;
+    }
+
+    .goal .goal-title
+    {
+        font-size: 10x;
+    }
+
+    .goal .goal-amount
+    {
+        font-size: 12px;
+    }
+
+    .goal .goal-deadline
+    {
+        font-size: 10px;
+    }
+
+    .goal .goal-progress
+    {
+        font-size: 10px;
+    }
+}
