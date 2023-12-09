@@ -22,7 +22,7 @@ function GoalsPage() {
                         <Goal title={"Account Balance:"} amount={"100 000 PLN"} deadline={"01.01.2025"} progress={90} icon={WalletIcon} goalBackgroundColour='#81A8C7' progressColor='#3C557E' color='white'></Goal>
                     </div>
                 </div>
-                <div className="add-goal-button-container">
+                <div className='add-goal-button-container'>
                     <button className='add-goal-button'> Add new goal</button>
                 </div>
                 <div className='title'>

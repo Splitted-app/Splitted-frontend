@@ -99,3 +99,182 @@
     grid-column-start: 4;
     grid-column-end: 5;
 }
+
+@media screen and (max-width: 1300px)
+{
+    .statistics-panel
+    {
+        width: 50%;
+        height: 100%;
+    }
+    .statistics-panel .statistics-panel-title
+    {
+        font-size: 26px;
+    }
+    
+    .statistics-panel .statistics-panel-category
+    {
+        font-size: 18px;
+    }
+    
+    .statistics-panel .statistics-panel-main-content
+    {
+        font-size: 18px;
+    }
+    
+}
+
+
+@media screen and (max-width: 1050px)
+{
+    .statistics-panel
+    {
+        width: 60%;
+        height: 100%;
+    }
+    .statistics-panel .statistics-panel-title
+    {
+        font-size: 22px;
+    }
+    
+    .statistics-panel .statistics-panel-category
+    {
+        font-size: 16px;
+    }
+    
+    .statistics-panel .statistics-panel-main-content
+    {
+        font-size: 16px;
+    }
+    
+}
+
+
+@media screen and (max-width: 1000px)
+{
+    .statistics-panel
+    {
+        width: 50%;
+    }
+    .statistics-panel .statistics-panel-title
+    {
+        font-size: 24px;
+    }
+    
+    .statistics-panel .statistics-panel-category
+    {
+        font-size: 18px;
+    }
+    
+    .statistics-panel .statistics-panel-main-content
+    {
+        font-size: 18px;
+    }
+    
+}
+
+
+@media screen and (max-width: 850px)
+{
+    .statistics-panel
+    {
+        width: 55%;
+    }
+    .statistics-panel .statistics-panel-title
+    {
+        font-size: 20px;
+    }
+    
+    .statistics-panel .statistics-panel-category
+    {
+        font-size: 14px;
+    }
+    
+    .statistics-panel .statistics-panel-main-content
+    {
+        font-size: 14px;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 750px)
+{
+    .statistics-panel
+    {
+        height: 85%;
+    }
+    .statistics-panel .statistics-panel-title
+    {
+        font-size: 18px;
+    }
+    
+    .statistics-panel .statistics-panel-category
+    {
+        font-size: 12px;
+    }
+    
+    .statistics-panel .statistics-panel-main-content
+    {
+        font-size: 12px;
+    }
+    
+}
+
+
+@media screen and (max-width: 550px)
+{
+    .statistics-panel
+    {
+        height: 65%;
+        border-radius: 30px;
+    }
+
+
+
+    .statistics-panel .statistics-panel-title
+    {
+        font-size: 14px;
+    }
+    
+    .statistics-panel .statistics-panel-category
+    {
+        font-size: 10px;
+    }
+    
+    .statistics-panel .statistics-panel-main-content
+    {
+        font-size: 10px;
+    }
+    
+}
+
+
+@media screen and (max-width: 450px)
+{
+    .statistics-panel
+    {
+        height: 60%;
+        width: 60%;
+        border-radius: 20px;
+    }
+
+
+
+    .statistics-panel .statistics-panel-title
+    {
+        font-size: 12px;
+    }
+    
+    .statistics-panel .statistics-panel-category
+    {
+        font-size: 8px;
+    }
+    
+    .statistics-panel .statistics-panel-main-content
+    {
+        font-size: 8px;
+    }
+    
+}
