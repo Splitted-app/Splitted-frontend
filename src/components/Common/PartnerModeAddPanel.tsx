@@ -21,7 +21,7 @@ function PartnerModeAddPanel() {
 
     return (
       <div className="partner-mode-add-panel">
-        <div style={{gridColumnStart: 3, padding: '0 30px 0 30px'}}>
+        <div className='close-button-container'>
           <CloseButton setVisibility={setAddPartnerModePanelVisibility}/>
         </div>
         <div className='title'>

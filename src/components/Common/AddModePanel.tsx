@@ -26,7 +26,7 @@ function AddModePanel() {
   const setAddModesPanelVisibility = useSetRecoilState(AddModesPanelVisibilityState);
     return (
       <div className="add-mode-panel">
-        <div style={{padding: '20px 20px 0px 20px'}}>
+        <div className='close-button-container'>
           <CloseButton setVisibility={setAddModesPanelVisibility}/>
         </div>
         <div className='title'>

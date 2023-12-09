@@ -108,3 +108,240 @@
     width: 55%;
     float: right;
 }
+
+.family-mode-add-panel .close-button-container
+{
+    padding: 0% 8%; /* style={{gridColumnStart: 3, padding: '0 30px 0 30px'}}*/
+    grid-column-start: 3;
+}
+
+
+@media screen and (max-width:1300px)
+{
+    .family-mode-add-panel
+    {
+        padding-top: 5%;
+        height: 95%;
+        width: 65%;
+    }
+
+    .family-mode-add-panel .title .main-title
+    {
+        font-size: 26px;
+    }
+
+
+    .family-mode-add-panel .title .subtitle
+    {
+        font-size: 18px;
+    }
+
+    .family-mode-add-panel .close-button-container
+    {
+        padding: 0 5% 0 5%; /* style={{padding: '20px 20px 0px 20px'}}*/
+    }
+}
+
+@media screen and (max-width: 1200px){
+
+    .family-mode-add-panel
+    {
+        padding-top: 5%;
+        height: 85%;
+        width: 67%;
+    }
+    .family-mode-add-panel .title .subtitle
+    {
+        font-size: 16px;
+    }
+    .family-mode-add-panel .integrate-accounts-button .button
+    {
+        width: 100px;
+        height: 40px;
+        font-size: 10px;
+    } 
+    .family-mode-add-panel .family-mode-icon
+    {
+        padding-right: 5%;
+    }
+
+}
+
+
+
+@media screen and (max-width:1050px)
+{
+    .family-mode-add-panel
+    {
+        height: 85%;
+        width: 75%;
+    }
+    .family-mode-add-panel .title 
+    {
+        padding-top: 15px;
+    }
+    .family-mode-add-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .family-mode-add-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+
+}
+
+
+@media screen and (max-width:950px)
+{
+    .family-mode-add-panel
+    {
+        height: 90%;
+        width: 85%;
+    }
+    .family-mode-add-panel .title 
+    {
+        padding-top: 18px;
+    }
+    .family-mode-add-panel .title .main-title
+    {
+        font-size: 24px;
+    }
+
+    .family-mode-add-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+
+    .family-mode-add-panel .integrate-accounts-button .button
+    {
+        width: 85px;
+        height: 35px;
+        font-size: 9px;
+    } 
+}
+
+
+@media screen and (max-width:850px)
+{
+    .family-mode-add-panel
+    {
+        height: 85%;
+        width: 90%;
+    }
+    .family-mode-add-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .family-mode-add-panel .title .subtitle
+    {
+        font-size: 14px;
+    }
+
+    .family-mode-add-panel .find-your-family-panel .search-container {
+        font-size: 12px;
+    }
+    
+}
+
+
+@media screen and (max-width:700px)
+{
+    .family-mode-add-panel
+    {
+        height: 80%;
+        width: 195%;
+
+    }
+    .family-mode-add-panel .title .main-title
+    {
+        font-size: 20px;
+    }
+
+    .family-mode-add-panel .title .subtitle
+    {
+        font-size: 12px;
+    }
+
+    .family-mode-add-panel .family-mode-icon
+    {
+        display: none;
+    }
+
+    .family-mode-add-panel .integrate-accounts-button
+    {
+        grid-column-end: 4;
+        justify-self: center;
+    } 
+
+    .family-mode-add-panel .integrate-accounts-button .button
+    {
+        margin-right: 0;
+    } 
+
+    .family-mode-add-panel .find-your-family-panel .search-container {
+        font-size: 10px;
+    }
+    .family-mode-add-panel .integrate-accounts-button .button
+    {
+        width: 90px;
+        height: 40px;
+        font-size: 10px;
+    } 
+}
+
+
+@media screen and (max-width:600px)
+{
+    .family-mode-add-panel
+    {
+        width: 100%;
+        height: 60%;
+    }
+    .family-mode-add-panel .title .main-title
+    {
+        font-size: 18px;
+    }
+    .family-mode-add-panel .title .subtitle
+    {
+        font-size: 10px;
+    }
+
+    .family-mode-add-panel .find-your-family-panel label
+    {
+        display: none;
+    }
+    
+    .family-mode-add-panel .find-your-family-panel .search-container
+    {
+        width: 80%;
+        padding: 0 10%;
+    }
+}
+
+@media screen and (max-width:450px)
+{
+    .family-mode-add-panel
+    {
+        height: 50%;
+        border-radius: 30px;
+
+    }
+    .family-mode-add-panel .title .main-title
+    {
+        font-size: 15px;
+    }
+    .family-mode-add-panel .title .subtitle
+    {
+        font-size: 8px;
+    }
+    .family-mode-add-panel .integrate-accounts-button .button
+    {
+        width: 75px;
+        height: 30px;
+        font-size: 8px;
+    } 
+
+}

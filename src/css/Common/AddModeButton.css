@@ -41,3 +41,37 @@
     width: 90%;
     height: 90%;
 }
+
+@media screen and (max-width: 850px) {
+    .add-mode-button .description
+    {
+        display: none;
+    }
+
+    .add-mode-button .add-mode-button-title
+    {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        align-self: flex-start;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .add-mode-button .add-mode-button-title
+    {
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    .add-mode-button .add-mode-button-title
+    {
+        font-size: 10px;
+    }
+    .add-mode-button .icon img
+    {
+        width: 75%;
+        height: 80%;
+    }
+}
