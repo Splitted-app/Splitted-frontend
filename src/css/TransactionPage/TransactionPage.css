@@ -5,7 +5,6 @@
     height: 100vh;
     width: 100%;
     display: flex;
-    align-items: center;
 }
 
 .transaction-page .transaction-page-content
@@ -66,6 +65,20 @@
     font-family: 'Gotham Bold';
     box-shadow: 5px 5px 3px #180A45;
 }
+
+.transaction-page .transaction-page-content .header .delete-transactions-button-container .active-delete-transactions-button
+{
+    font-size: 16px;
+    background-color: #FFDADA;
+    color: #CC3C3C;
+    width: 180px;
+    height: 50px;
+    border: 3px solid #CC3C3C;
+    border-radius: 33px;
+    font-family: 'Gotham Bold';
+    box-shadow: 5px 5px 3px #180A45;
+}
+
 .transaction-page .transaction-page-content .header .title
 {
     grid-column-start: 3;
@@ -220,4 +233,326 @@
     border-radius: 33px;
     font-family: 'Gotham Bold';
     box-shadow: 5px 5px 3px #180A45;
+}
+
+
+@media screen and (max-width: 1500px)
+{
+    .transaction-page .transaction-page-content .header .title
+    {
+        font-size: 70px;
+    }
+
+    .transaction-page .transaction-page-content .header .add-transactions-button-container .add-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .delete-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .active-delete-transactions-button
+    {
+        font-size: 14px;
+        width: 160px;
+        height: 45px;
+
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu
+    {
+        font-size: 26px;
+    }
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu .transaction-page-show-filter-menu-icon img{
+        width: 90%;
+        height: 90%;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element
+    {
+        font-size: 18px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element label
+    {
+        font-size: 16px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-button-container .transaction-page-filter-menu-button
+    {
+        font-size: 14px;
+        width: 160px;
+        height: 45px;
+    }
+
+}
+
+@media screen and (max-width: 1150px)
+{
+    .transaction-page .transaction-page-content .header .title
+    {
+        font-size: 65px;
+    }
+
+    .transaction-page .transaction-page-content .header .add-transactions-button-container .add-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .delete-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .active-delete-transactions-button
+    {
+        font-size: 12px;
+        width: 150px;
+        height: 40px;
+
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu
+    {
+        font-size: 20px;
+    }
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu .transaction-page-show-filter-menu-icon img{
+        width: 70%;
+        height: 70%;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element
+    {
+        font-size: 16px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element label
+    {
+        font-size: 14px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element input
+    {
+        font-size: 10px;
+    }
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element select
+    {
+        font-size: 10px;
+    }
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-button-container .transaction-page-filter-menu-button
+    {
+        font-size: 12px;
+        width: 150px;
+        height: 40px;
+    }
+
+}
+
+
+@media screen and (max-width: 1050px)
+{
+    .transaction-page .transaction-page-content .header .title
+    {
+        font-size: 55px;
+    }
+    .transaction-page .transaction-page-content .header .add-transactions-button-container .add-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .delete-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .active-delete-transactions-button
+    {
+        font-size: 10px;
+        width: 130px;
+        height: 35px;
+
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element
+    {
+        font-size: 14px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element label
+    {
+        font-size: 12px;
+    }
+
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-button-container .transaction-page-filter-menu-button
+    {
+        font-size: 10px;
+        width: 130px;
+        height: 35px;
+    }
+}
+
+
+@media screen and (max-width: 1000px)
+{
+    .transaction-page .transaction-page-content .header .title
+    {
+        font-size: 65px;
+    }
+
+    .transaction-page .transaction-page-content
+    {
+        width: 100%;
+    }
+    .transaction-page .transaction-page-content .header .insights-panel
+    {
+        display: none;
+    }
+    .transaction-page .transaction-page-content .header .title
+    {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu
+    {
+        font-size: 22px;
+    }
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu .transaction-page-show-filter-menu-icon img{
+        width: 80%;
+        height: 80%;
+    }
+    .transaction-page .transaction-page-content .header
+    {
+        margin-top: 50px;
+    }
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element
+    {
+        font-size: 16px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element label
+    {
+        font-size: 14px;
+    }
+
+}
+
+
+@media screen and (max-width: 850px)
+{
+
+
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu
+    {
+        font-size: 18px;
+    }
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu .transaction-page-show-filter-menu-icon img{
+        width: 70%;
+        height: 70%;
+    }
+
+
+}
+
+@media screen and (max-width: 750px)
+{    
+    .transaction-page .transaction-page-content .header .title
+    {
+        font-size: 55px;
+    }
+
+    .transaction-page .transaction-page-content .header .add-transactions-button-container .add-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .delete-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .active-delete-transactions-button
+    {
+        font-size: 10px;
+        width: 120px;
+        height: 35px;
+
+    }
+
+
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu
+    {
+        font-size: 14px;
+    }
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu .transaction-page-show-filter-menu-icon img{
+        width: 60%;
+        height: 60%;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element
+    {
+        font-size: 12px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element label
+    {
+        font-size: 11px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-button-container .transaction-page-filter-menu-button
+    {
+        font-size: 10px;
+        width: 120px;
+        height: 35px;
+    }
+
+}
+
+@media screen and (max-width: 550px)
+{    
+    .transaction-page .transaction-page-content .header .title
+    {
+        font-size: 45px;
+    }
+
+    .transaction-page .transaction-page-content .header .add-transactions-button-container .add-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .delete-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .active-delete-transactions-button
+    {
+        font-size: 8px;
+        width: 80px;
+        height: 30px;
+
+    }
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element
+    {
+        font-size: 10px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element label
+    {
+        font-size: 8px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element input
+    {
+        font-size: 7px;
+        width: 45%;
+
+    }
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element select
+    {
+        font-size: 7px;
+    }
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-button-container .transaction-page-filter-menu-button
+    {
+        font-size: 8px;
+        width: 80px;
+        height: 30px;
+    }
+    /* .transaction-page .transaction-page-content .transaction-page-filter-menu
+    {
+        grid-template-columns: 80% 20%;
+    } */
+}
+
+
+@media screen and (max-width: 450px)
+{
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element
+    {
+        font-size: 8px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element label
+    {
+        font-size: 6px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element input
+    {
+        font-size: 6px;
+        width: 50%;
+
+    }
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element select
+    {
+        font-size: 6px;
+    }
+    .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-button-container .transaction-page-filter-menu-button
+    {
+        font-size: 6px;
+        width: 60px;
+        height: 20px;
+    }
 }

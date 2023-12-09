@@ -28,3 +28,63 @@
     height: 80%;
 }
 
+@media screen and (max-width: 1500px)
+{
+    .transactions-insights-panel
+    {
+        width:300px;
+        height:100px;
+    }
+
+    .transactions-insights-panel .transactions-insights-panel-title
+    {
+        font-size: 22px;
+    }
+
+}
+
+@media screen and (max-width: 1500px)
+{
+    .transactions-insights-panel
+    {
+        width:300px;
+        height:120px;
+    }
+
+    .transactions-insights-panel .transactions-insights-panel-title
+    {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 1150px)
+{
+    .transactions-insights-panel
+    {
+        width:240px;
+        height:100px;
+    }
+
+    .transactions-insights-panel .transactions-insights-panel-title
+    {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 1050px)
+{
+    .transactions-insights-panel
+    {
+        width:200px;
+        height: 80px;
+        border-radius: 25px;
+
+    }
+
+    .transactions-insights-panel .transactions-insights-panel-title
+    {
+        font-size: 12px;
+    }
+}

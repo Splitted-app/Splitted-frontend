@@ -1,6 +1,6 @@
 .navbar {
     background-color: #0D071F;
-    width: 200px;
+    width: 230px;
     height: 100%;
     display:grid;
     grid-template-rows: 10% 90%;
@@ -128,7 +128,7 @@
     line-height: 50px; 
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1000px) {
     .navbar {
         height: 50px;
         position: absolute;
