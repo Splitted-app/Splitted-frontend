@@ -119,11 +119,11 @@
     }
     .home-page-content .information-panel .amount .bankBalance
     {
-        font-size: 70px;
+        font-size: 65px;
     }
     .home-page-content .information-panel .amount .currency
     {
-        font-size: 70px;
+        font-size: 65px;
     }
 
 }
@@ -142,11 +142,11 @@
     .home-page-content .information-panel .amount .bankBalance
     {    
         margin-right: 5%;
-        font-size: 65px;
+        font-size: 60px;
     }
     .home-page-content .information-panel .amount .currency
     {
-        font-size: 65px;
+        font-size: 60px;
     }
 
 }
@@ -165,11 +165,11 @@
     .home-page-content .information-panel .amount .bankBalance
     {    
         margin-right: 3%;
-        font-size: 60px;
+        font-size: 55px;
     }
     .home-page-content .information-panel .amount .currency
     {
-        font-size: 60px;
+        font-size: 55px;
     }
 
 }
@@ -190,11 +190,11 @@
     .home-page-content .information-panel .amount .bankBalance
     {    
         margin-right: 0;
-        font-size: 53px;
+        font-size: 50px;
     }
     .home-page-content .information-panel .amount .currency
     {
-        font-size: 53px;
+        font-size: 50px;
     }
 
 }
@@ -247,6 +247,23 @@
     }
 }
 
+@media screen and (max-width: 650px)
+{
+    .home-page-content .information-panel .your-balance
+    {
+        font-size: 18px;
+    }
+    .home-page-content .information-panel .amount .bankBalance
+    {    
+        margin-right: 0;
+        font-size: 55px;
+    }
+    .home-page-content .information-panel .amount .currency
+    {
+        font-size: 55px;
+    }
+}
+
 @media screen and (max-width: 520px)
 {
 
@@ -265,6 +282,24 @@
     .home-page-content .information-panel .amount
     {
         grid-template-columns: auto 110px;
+    }
+
+}
+
+@media screen and (max-width: 450px)
+{
+
+    .home-page-content .information-panel .your-balance
+    {
+        font-size: 12px;
+    }
+    .home-page-content .information-panel .amount .bankBalance
+    {
+        font-size: 35px;
+    }
+    .home-page-content .information-panel .amount .currency
+    {
+        font-size: 35px;
     }
 
 }
