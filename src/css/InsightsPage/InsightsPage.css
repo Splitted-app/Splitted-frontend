@@ -4,7 +4,7 @@
     height: 100vh;
     width: 100%;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .insights-page .insights-page-content
@@ -288,4 +288,454 @@
     border-radius: 33px;
     font-family: 'Gotham Bold';
     box-shadow: 5px 5px 3px #180A45;
+}
+
+
+@media screen and (max-width: 1500px)
+{
+    .insights-page  .insights-page-content .header .title
+    {
+        font-size: 70px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-show-filter-menu
+    {
+        font-size: 26px;
+    }
+    .insights-page  .insights-page-content .insights-page-show-filter-menu .insights-page-show-filter-menu-icon img{
+        width: 90%;
+        height: 90%;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element
+    {
+        font-size: 18px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element label
+    {
+        font-size: 16px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-button-container .insights-page-filter-menu-button
+    {
+        font-size: 14px;
+        width: 160px;
+        height: 45px;
+    }
+
+}
+
+@media screen and (max-width: 1300px)
+{
+    .insights-page  .insights-page-content .insights-page-main-charts
+    {
+        grid-template-rows:  10% 45% 30% 55% 30% 55% 30% 55% 30% 55% 10%;
+        grid-template-columns: 5% 90% 5%;
+    }
+
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart
+    {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart
+    {
+        grid-row-start: 4;
+        grid-row-end: 5;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses
+    {
+        grid-row-start: 6;
+        grid-row-end: 7;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution
+    {
+        grid-row-start: 8;
+        grid-row-end: 9;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-statistics-panel
+    {
+        grid-row-start: 10;
+        grid-row-end: 11;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        
+    }
+
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart .line-chart-title
+    {
+        font-size: 22px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .pie-chart-title
+    {
+        font-size: 22px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses .bar-chart-title
+    {
+        font-size: 22px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution .expenses-chart-title
+    {
+        font-size: 22px;
+    }
+            
+}
+
+@media screen and (max-width: 1150px)
+{
+
+    
+    .insights-page  .insights-page-content .header .title
+    {
+        font-size: 65px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-show-filter-menu
+    {
+        font-size: 20px;
+    }
+    .insights-page  .insights-page-content .insights-page-show-filter-menu .insights-page-show-filter-menu-icon img{
+        width: 70%;
+        height: 70%;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element
+    {
+        font-size: 16px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element label
+    {
+        font-size: 14px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element input
+    {
+        font-size: 10px;
+    }
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element select
+    {
+        font-size: 10px;
+    }
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-button-container .insights-page-filter-menu-button
+    {
+        font-size: 12px;
+        width: 150px;
+        height: 40px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart .line-chart-title
+    {
+        font-size: 20px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .pie-chart-title
+    {
+        font-size: 20px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses .bar-chart-title
+    {
+        font-size: 20px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution .expenses-chart-title
+    {
+        font-size: 20px;
+    }
+}
+
+
+@media screen and (max-width: 1050px)
+{
+    .insights-page  .insights-page-content .header .title
+    {
+        font-size: 55px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element
+    {
+        font-size: 14px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element label
+    {
+        font-size: 12px;
+    }
+
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-button-container .insights-page-filter-menu-button
+    {
+        font-size: 10px;
+        width: 130px;
+        height: 35px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart .line-chart-title
+    {
+        font-size: 18px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .pie-chart-title
+    {
+        font-size: 18px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses .bar-chart-title
+    {
+        font-size: 18px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution .expenses-chart-title
+    {
+        font-size: 18px;
+    }
+}
+
+
+@media screen and (max-width: 1000px)
+{
+    .insights-page  .insights-page-content .header .title
+    {
+        font-size: 65px;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    .insights-page .insights-page-content
+    {
+        width: 100%;
+    }
+    .insights-page  .insights-page-content .header .income-expenses-chart
+    {
+        display: none;
+    }
+
+    .insights-page  .insights-page-content .insights-page-show-filter-menu
+    {
+        font-size: 22px;
+    }
+    .insights-page  .insights-page-content .insights-page-show-filter-menu .insights-page-show-filter-menu-icon img{
+        width: 80%;
+        height: 80%;
+    }
+    .insights-page  .insights-page-content .header
+    {
+        margin-top: 50px;
+    }
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element
+    {
+        font-size: 16px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element label
+    {
+        font-size: 14px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart .line-chart-title
+    {
+        font-size: 20px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .pie-chart-title
+    {
+        font-size: 20px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses .bar-chart-title
+    {
+        font-size: 20px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution .expenses-chart-title
+    {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 850px)
+{
+
+
+    .insights-page  .insights-page-content .insights-page-show-filter-menu
+    {
+        font-size: 18px;
+    }
+    .insights-page  .insights-page-content .insights-page-show-filter-menu .insights-page-show-filter-menu-icon img{
+        width: 70%;
+        height: 70%;
+    }
+
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart .line-chart-title
+    {
+        font-size: 18px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .pie-chart-title
+    {
+        font-size: 18px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses .bar-chart-title
+    {
+        font-size: 18px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution .expenses-chart-title
+    {
+        font-size: 18px;
+    }
+}
+
+
+
+@media screen and (max-width: 750px)
+{    
+    .insights-page  .insights-page-content .header .title
+    {
+        font-size: 55px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-show-filter-menu
+    {
+        font-size: 14px;
+    }
+    .insights-page  .insights-page-content .insights-page-show-filter-menu .insights-page-show-filter-menu-icon img{
+        width: 60%;
+        height: 60%;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element
+    {
+        font-size: 12px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element label
+    {
+        font-size: 11px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-button-container .insights-page-filter-menu-button
+    {
+        font-size: 10px;
+        width: 120px;
+        height: 35px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart .line-chart-title
+    {
+        font-size: 16px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .pie-chart-title
+    {
+        font-size: 16px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses .bar-chart-title
+    {
+        font-size: 16px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution .expenses-chart-title
+    {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 550px)
+{    
+    .insights-page  .insights-page-content .header .title
+    {
+        font-size: 45px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element
+    {
+        font-size: 10px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element label
+    {
+        font-size: 8px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element input
+    {
+        font-size: 7px;
+        width: 45%;
+
+    }
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element select
+    {
+        font-size: 7px;
+    }
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-button-container .insights-page-filter-menu-button
+    {
+        font-size: 8px;
+        width: 80px;
+        height: 30px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart .line-chart-title
+    {
+        font-size: 14px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .pie-chart-title
+    {
+        font-size: 14px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses .bar-chart-title
+    {
+        font-size: 14px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution .expenses-chart-title
+    {
+        font-size: 14px;
+    }
+}
+
+
+@media screen and (max-width: 450px)
+{
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element
+    {
+        font-size: 8px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element label
+    {
+        font-size: 6px;
+    }
+
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element input
+    {
+        font-size: 6px;
+        width: 50%;
+
+    }
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-element select
+    {
+        font-size: 6px;
+    }
+    .insights-page  .insights-page-content .insights-page-filter-menu .insights-page-filter-menu-button-container .insights-page-filter-menu-button
+    {
+        font-size: 6px;
+        width: 60px;
+        height: 20px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-linear-balance-chart .line-chart-title
+    {
+        font-size: 12px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-pie-chart .pie-chart-title
+    {
+        font-size: 12px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-income-expenses .bar-chart-title
+    {
+        font-size: 12px;
+    }
+    .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution .expenses-chart-title
+    {
+        font-size: 12px;
+    }
 }
