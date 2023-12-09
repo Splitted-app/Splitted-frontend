@@ -505,7 +505,6 @@
     {
         font-size: 65px;
         grid-column-start: 1;
-        grid-column-end: 4;
     }
 
     .insights-page .insights-page-content
@@ -638,6 +637,11 @@
     {
         font-size: 16px;
     }
+
+    .insights-page .insights-page-main-charts-pie-chart svg
+    {
+        height: 180px;
+    }
 }
 
 
@@ -691,6 +695,11 @@
     {
         font-size: 14px;
     }
+
+    .insights-page .insights-page-main-charts-pie-chart svg
+    {
+        height: 150px;
+    }
 }
 
 
@@ -737,5 +746,9 @@
     .insights-page  .insights-page-content .insights-page-main-charts .insights-page-main-charts-expenses-distribution .expenses-chart-title
     {
         font-size: 12px;
+    }
+    .insights-page .insights-page-main-charts-pie-chart svg
+    {
+        height: 120px;
     }
 }

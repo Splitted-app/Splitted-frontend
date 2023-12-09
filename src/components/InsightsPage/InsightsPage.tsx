@@ -3,6 +3,7 @@ import '../../css/InsightsPage/InsightsPage.css'
 import { useEffect,  useCallback, useState } from 'react';
 
 import Moment from 'moment';
+import { useMediaQuery } from 'react-responsive'
 import { useSetRecoilState } from 'recoil';
 
 import Navbar from "../Common/Navbar"
@@ -39,6 +40,11 @@ function InsightsPage() {
         '33% 15% auto'
 
     }
+    const useMediumFontSize = useMediaQuery({ query: '(max-width: 1150px)' });
+    const useSmallFontSize = useMediaQuery({ query: '(max-width: 1050px)' });
+    const fontSize = useSmallFontSize ? "10px" : useMediumFontSize ? "12px" : "15px";
+    const barWidth = useSmallFontSize ? 25 : useMediumFontSize ? 30 : 40;
+
     const [filterData, setFilterData] = useState<any>({
         startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
         endDate: new Date(),
@@ -124,8 +130,8 @@ function InsightsPage() {
             />
             <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
             <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="white" fontFamily='Gotham Medium' fontSize='15px'>{` ${category?category:'none'}`}</text>
-            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="white"  fontFamily='Gotham Medium' fontSize='15px'>
+            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="white" fontFamily='Gotham Medium' fontSize={fontSize}>{` ${category?category:'none'}`}</text>
+            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="white"  fontFamily='Gotham Medium' fontSize={fontSize}>
               {`(Rate ${(percent * 100).toFixed(2)}%)`}
             </text>
           </g>
@@ -151,7 +157,7 @@ function InsightsPage() {
                     <BarChart width={500} height={300} data={incomeExpenses.data} layout="vertical" margin={{top: 20, right: 100,left: 0, bottom: 15}}  barGap={0}>
                         <XAxis type="number" hide />
                         <YAxis dataKey="name" type="category" hide/>
-                        <Bar dataKey="expenses" barSize={40} fill="#A30D0D" >
+                        <Bar dataKey="expenses" barSize={barWidth} fill="#A30D0D" >
                             {incomeExpenses.data.map((_: any, index: number) => (
                                 <Cell key={index}
                                 style={{
@@ -159,9 +165,9 @@ function InsightsPage() {
                                 }}
                                 />
                             ))}
-                            <LabelList position="right" dataKey="expenses" style={{textShadow:'none', fill:'white', fontFamily:'Gotham Medium', fontSize:'15'}}/>
+                            <LabelList position="right" dataKey="expenses" style={{textShadow:'none', fill:'white', fontFamily:'Gotham Medium', fontSize:fontSize}}/>
                         </Bar>
-                        <Bar dataKey="income" barSize={40} fill="#20F7C5" >
+                        <Bar dataKey="income" barSize={barWidth} fill="#20F7C5" >
                             {incomeExpenses.data.map((_: any, index: number) => (
                             <Cell key={index}
                             style={{
@@ -169,7 +175,7 @@ function InsightsPage() {
                             }}
                             />
                             ))}
-                            <LabelList position="right" dataKey="income" style={{textShadow:'none', fill:'white',fontFamily:'Gotham Medium', fontSize:'15'}}/>
+                            <LabelList position="right" dataKey="income" style={{textShadow:'none', fill:'white',fontFamily:'Gotham Medium', fontSize:fontSize}}/>
                         </Bar>
                     </BarChart>
                 </ResponsiveContainer>
@@ -236,8 +242,8 @@ function InsightsPage() {
                     {!balanceHistory.loading &&
                     <ResponsiveContainer  width="100%" height="100%">
                             <LineChart width={500} height={200}  data={balanceHistory.data}>
-                            <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
-                            <YAxis stroke="white" fontFamily='Gotham Medium' fontSize='15px' />
+                            <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize={fontSize} minTickGap={50}/>
+                            <YAxis stroke="white" fontFamily='Gotham Medium' fontSize={fontSize} />
                             <Line type="monotone" dataKey="balance" stroke="#D80088" />
                         </LineChart>
                     </ResponsiveContainer>
@@ -263,7 +269,7 @@ function InsightsPage() {
                                             type: "circle",
                                             value: `${item.category?item.category:'none'}`,
                                             color: COLORS[index % COLORS.length]}))} 
-                                            wrapperStyle={{fontFamily: 'Gotham Medium' ,fontSize:'15px', lineHeight:'23px'}}/>}
+                                            wrapperStyle={{fontFamily: 'Gotham Medium' ,fontSize:fontSize, lineHeight:'23px'}}/>}
                             <Pie
                                 activeIndex={activeIndex}
                                 activeShape={renderActiveShape}
@@ -293,8 +299,8 @@ function InsightsPage() {
                     {!incomeExpensesOverTime.loading &&
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart width={500} height={300} data={incomeExpensesOverTime.data} stackOffset="sign">
-                        <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
-                        <YAxis stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
+                        <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize={fontSize}/>
+                        <YAxis stroke="white" fontFamily='Gotham Medium' fontSize={fontSize}/>
                         <ReferenceLine y={0} stroke="white" />
                         <Bar dataKey="income" fill="#20F7C5" stackId="stack" />
                         <Bar dataKey="expenses" fill="#A30D0D" stackId="stack" />
@@ -310,8 +316,8 @@ function InsightsPage() {
                     {!expensesHistogram.loading &&
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart width={150} height={40} data={expensesHistogram.data}>
-                            <XAxis dataKey="range" stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
-                            <YAxis stroke="white" fontFamily='Gotham Medium' fontSize='15px'/>
+                            <XAxis dataKey="range" stroke="white" fontFamily='Gotham Medium' fontSize={fontSize}/>
+                            <YAxis stroke="white" fontFamily='Gotham Medium' fontSize={fontSize}/>
                             <Bar dataKey="count" fill="#FF7300" />
                         </BarChart>
                     </ResponsiveContainer>

@@ -78,25 +78,25 @@ function App() {
         return;
     tokenUpdatedRef.current = true;
     
-    const refreshAuthLogic = (failedRequest: any) =>
-    {
-      return axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`, null , {withCredentials:true})
-      .then((tokenRefreshResponse) => {
-        setToken(tokenRefreshResponse.data.token);
-        failedRequest.response.config.headers['Authorization'] = 'Bearer ' + tokenRefreshResponse.data.token;
-        return Promise.resolve();
-      })
-      .catch((error)=>{
-        console.error(error);
-      });
-    }
+    // const refreshAuthLogic = (failedRequest: any) =>
+    // {
+    //   return axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`, null , {withCredentials:true})
+    //   .then((tokenRefreshResponse) => {
+    //     setToken(tokenRefreshResponse.data.token);
+    //     failedRequest.response.config.headers['Authorization'] = 'Bearer ' + tokenRefreshResponse.data.token;
+    //     return Promise.resolve();
+    //   })
+    //   .catch((error)=>{
+    //     console.error(error);
+    //   });
+    // }
     const refreshRequest = () => 
     axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`, null , {withCredentials:true})
       .then((tokenRefreshResponse) => {
         setToken(tokenRefreshResponse.data.token);
       })
       .then(() => {
-        createAuthRefreshInterceptor(axios, refreshAuthLogic);
+        // createAuthRefreshInterceptor(axios, refreshAuthLogic);
         setUpdater(updater + 1);
       })
       .catch((error)=>{
@@ -110,7 +110,7 @@ function App() {
     setInterval(() => {
       console.log("Refreshing token...")
       refreshRequest();
-    }, 540000);
+    }, 120000);
   },[])
 
   return (
