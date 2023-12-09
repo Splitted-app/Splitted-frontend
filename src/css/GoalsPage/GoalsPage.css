@@ -250,7 +250,6 @@
     {
 
         grid-template-columns:  2% 38% 30% 13% 15% 2%;
-
     }
     .goals-page  .goals-page-content .header .title
     {
@@ -273,18 +272,26 @@
 
 @media screen and (max-width: 550px)
 {
+    .goals-page  .goals-page-content .header
+    {
+        grid-template-columns:  2% 38% auto 13% 100px 20px;
+    }
 
     .goals-page  .goals-page-content .header .title
     {
         font-size: 45px;
     }
+
+    .goals-page  .goals-page-content .header .add-goal-button-container
+    {
+        justify-content: end;
+    }
+
     .goals-page  .goals-page-content .header .add-goal-button-container .add-goal-button
     {
         font-size: 8px;
         width: 80px;
         height: 30px;
-
-
     }
 
     .goals-page  .goals-page-content .goals-page-current-goals-panel .goals-page-current-goals-title
