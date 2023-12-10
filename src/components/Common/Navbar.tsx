@@ -72,7 +72,7 @@ function Navbar() {
                 Your modes
               </div>
               <div className='your-modes-panel'>
-                {userBudgets.map((budget: any, i: number)=>(
+                {userBudgets.filter((budget: any)=> budget.budgetType !== 'Personal').map((budget: any, i: number)=>(
                   <ModeItem budget={budget} key={i}/>)
                 )}
               </div>

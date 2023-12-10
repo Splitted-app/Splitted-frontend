@@ -4,7 +4,7 @@
     background: linear-gradient(0deg, rgba(16,3,43,1) 0%, rgba(16,3,43,1) 67%, rgba(182,176,207,1) 100%);    height: 100vh;
     width: 100%;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .family-mode-page .family-mode-content

@@ -34,6 +34,7 @@ function TransactionsOverview({dateRange}:TransactionsOverviewInterface) {
                   showDate={false} 
                   showDeleteIcon={true} 
                   showDeleteTransactionRadioButton={false}
+                  showSplitItIcon={false}
                   markDuplicates={false}></TransactionList>
               }
               {loading &&

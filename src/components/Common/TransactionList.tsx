@@ -10,6 +10,7 @@ interface TransactionListInterface
   showDate:boolean,
   showDeleteIcon:boolean,
   showDeleteTransactionRadioButton:boolean,
+  showSplitItIcon:boolean,
   markDuplicates:boolean,
 }
 
@@ -20,6 +21,7 @@ function TransactionList({
   showDate, 
   showDeleteIcon, 
   showDeleteTransactionRadioButton, 
+  showSplitItIcon,
   markDuplicates}:TransactionListInterface) {
     return (
       <div className={`transaction-list ${shadow ? 'transaction-list-shadow' : ''}`}>
@@ -32,6 +34,7 @@ function TransactionList({
               showDate={showDate} 
               showDeleteIcon={showDeleteIcon} 
               showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}
+              showSplitItIcon={showSplitItIcon}
               markDuplicate={markDuplicates}/>
           )}
 

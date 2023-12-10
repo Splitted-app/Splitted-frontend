@@ -17,8 +17,10 @@ import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 
 import useFetchTransactions from '../../hooks/useFetchTransactions';
+import useFetchUserBudgets from '../../hooks/useFetchUserBudgets';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+
 
 
 function TransactionPage() {
@@ -42,9 +44,18 @@ function TransactionPage() {
         maxAmount: "",
     })
 
+
+
     useEffect(()=>{
         setMenuIconVisibility(false);
     },[])
+
+    const userBudgets = useFetchUserBudgets()
+    const [userIsInPartnerBudget, setUserIsInPartnerBudget] = useState<boolean>(false);
+    useEffect(()=>{
+        if (userBudgets.find((budget: any) => budget.budgetType === 'Partner'))
+            setUserIsInPartnerBudget(true);
+    }, [userBudgets])
       
     
     const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
@@ -179,6 +190,7 @@ function TransactionPage() {
                         showDate={true} 
                         showDeleteIcon={false} 
                         showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}
+                        showSplitItIcon={userIsInPartnerBudget}
                         markDuplicates={false}></TransactionList>
                 }
                 {loading &&

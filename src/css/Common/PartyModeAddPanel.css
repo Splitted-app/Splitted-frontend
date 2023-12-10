@@ -9,7 +9,7 @@
     padding-left: 2%;
     padding-right: 2%;
     display:grid;
-    grid-template-rows: 50% 20% 30%;
+    grid-template-rows: 40% 10% 35% 15%;
     grid-template-columns: 5% 90% 5%;
 }
 
@@ -65,10 +65,35 @@
     gap:5%;
 }
 
-.party-mode-add-panel  .integrate-accounts-button
+.party-mode-add-panel .friends-list-container
 {
     grid-row-start: 3;
     grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    height: 90%;
+    width: 100%;
+    background-color: #BBB9DD;
+    border-radius: 20px 20px 10px 10px;    
+    align-self: center;
+    display: block;
+    align-items: center;
+}
+
+.party-mode-add-panel .friends-list-container .list-title
+{
+    height: 20px;
+    font-family: 'Gotham Medium';
+    font-size: 12px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.party-mode-add-panel  .integrate-accounts-button
+{
+    grid-row-start: 4;
+    grid-row-end: 5;
     grid-column-start: 2;
     grid-column-end: 3;
     margin-top: auto;
@@ -120,12 +145,57 @@
 
 }
 
-
-
 .party-mode-add-panel .find-your-friends-panel .search-container {
     width: 55%;
     float: right;
-  }
+}
+
+.party-mode-add-panel .party-friends-list
+{
+    background-color: white;
+    height: calc(100% - 30px);
+    /* transform: translateY(5px); */
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: inset 0 0 5px #404040;
+}
+
+.party-mode-add-panel .party-friends-list .party-friend
+{
+    font-family: 'Gotham Light';
+    font-size: 16px;
+    height: 32px;;
+    display: grid;
+    grid-template-columns: 200px auto;
+    align-items: center;
+    padding: 0 15px;
+    border-bottom: 2px solid #bfbfbf;
+}
+
+.party-mode-add-panel .party-friends-list .party-friend .delete-party-friend-button-container
+{
+    justify-self: flex-end;
+}
+
+.party-mode-add-panel .party-friends-list .party-friend .delete-party-friend-button-container button
+{
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.party-mode-add-panel .party-friends-list .party-friend .delete-party-friend-button-container button img
+{
+    width: 15px;
+    height: 15px;
+}
+
+.party-friends-list::-webkit-scrollbar-thumb
+{
+    background-color: #BBB9DD;
+}
   
 .party-mode-add-panel .close-button-container
 {
