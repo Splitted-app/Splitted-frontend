@@ -29,7 +29,10 @@ import PartyModeAddPanel from './components/Common/PartyModeAddPanel';
 import RegisterPage from './components/RegisterPages/RegisterPage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
 import StartPage from './components/StartPage/StartPage';
+import SplitItPanel from './components/TransactionPage/SplitItPanel';
 import TransactionPage from './components/TransactionPage/TransactionPage';
+import PartnerModePage from './components/ModePages/PartnerModePage';
+import PartyModePage from './components/ModePages/PartyModePage';
 
 import { AddFamilyModePanelVisibilityState } from './atoms/AddFamilyModePanelVisibility';
 import { AddModesPanelVisibilityState } from './atoms/AddModesPanelVisibility';
@@ -44,9 +47,8 @@ import { LogOutPanelVisibilityState } from './atoms/LogOutPanelVisibility';
 import { ManualAddTransactionsPanelVisibilityState } from './atoms/ManualAddTransactionsPanelVisbility';
 import { PartnerModeFollowUpVisibilityState } from './atoms/PartnerModeFollowUp';
 import { PartyModeFollowUpVisibilityState } from './atoms/PartyModeFollowUp';
+import { SplitItPanelState } from './atoms/SplitItPanel';
 import { UserTokenState } from './atoms/UserToken';
-import PartnerModePage from './components/ModePages/PartnerModePage';
-import PartyModePage from './components/ModePages/PartyModePage';
 
 
 function App() {
@@ -62,6 +64,7 @@ function App() {
   const importCsvPanelVisibility = useRecoilValue(ImportCsvPanelVisibilityState)
   const importCsvCheckPanelVisibility = useRecoilValue(ImportCsvCheckPanelVisibilityState);
   const manualAddTransactionsPanelVisibility = useRecoilValue(ManualAddTransactionsPanelVisibilityState);
+  const splitItPanel = useRecoilValue (SplitItPanelState);
   const popupVisible = 
     logOutPanelVisibility || 
     addModesPanelVisibility || 
@@ -74,7 +77,8 @@ function App() {
     manualAddTransactionsPanelVisibility ||
     familyModeFollowUpVisibility ||
     partnerModeFollowUpVisibility ||
-    partyModeFollowUpVisibility;
+    partyModeFollowUpVisibility ||
+    splitItPanel.visible;
   const [token, setToken] = useRecoilState(UserTokenState);
   const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState)
 
@@ -100,11 +104,9 @@ function App() {
     // }
     const refreshRequest = () => 
     axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`, null , {withCredentials:true})
-      .then((tokenRefreshResponse) => {
-        setToken(tokenRefreshResponse.data.token);
-      })
-      .then(() => {
-        // createAuthRefreshInterceptor(axios, refreshAuthLogic);
+      .then((res) => {
+        setToken(res.data.token);
+        console.log(res.data.token)
         setUpdater(updater + 1);
       })
       .catch((error)=>{
@@ -155,6 +157,7 @@ function App() {
           {familyModeFollowUpVisibility && <FamilyModeFollowUp/>}
           {partnerModeFollowUpVisibility && <PartnerModeFollowUp/>}
           {partyModeFollowUpVisibility && <PartyModeFollowUp/>}
+          {splitItPanel.visible && <SplitItPanel/>}
         </div>
       </div>
     </div>

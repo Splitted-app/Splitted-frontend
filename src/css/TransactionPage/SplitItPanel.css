@@ -1,0 +1,258 @@
+.split-it-panel
+{
+    height: 100%;
+    width: 60%;
+    background-color: white;
+    border: solid 1px black;
+    box-shadow: 10px 10px 5px #262626;
+    border-radius: 50px;
+    padding: 2%;
+
+}
+.split-it-panel .title 
+{
+    padding-top: 5%;
+    text-align: center;
+}
+
+.split-it-panel .title .main-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: #3C3C3C;
+}
+
+
+.split-it-panel .title .subtitle
+{
+    font-family: 'Gotham Light';
+    font-size: 20px;
+    padding-top: 2%;
+
+}
+.split-it-panel .budgets
+{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-top: 10%;
+    height: min(250px, 50%);
+}
+
+.split-it-panel .budgets button{
+    all: unset;
+}
+.split-it-panel .budgets button:hover{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 9px rgba(216,216,216,1),
+    0px 15px 12px 0px rgba(0,0,0,0.22);
+}
+
+.split-it-panel .close-button-container
+{
+    padding: 5% 5% 0 5%; /* style={{padding: '20px 20px 0px 20px'}}*/
+}
+
+
+@media screen and (max-width:1300px)
+{
+    .split-it-panel
+    {
+        padding-top: 5%;
+        height: 95%;
+        width: 65%;
+    }
+
+    .split-it-panel .title .main-title
+    {
+        font-size: 26px;
+    }
+
+
+    .split-it-panel .title .subtitle
+    {
+        font-size: 18px;
+    }
+
+    .split-it-panel .close-button-container
+    {
+        padding: 0 5% 0 5%; /* style={{padding: '20px 20px 0px 20px'}}*/
+    }
+}
+
+@media screen and (max-width: 1200px){
+
+    .split-it-panel
+    {
+        padding-top: 5%;
+        height: 85%;
+        width: 67%;
+    }
+}
+
+
+
+@media screen and (max-width:1050px)
+{
+    .split-it-panel
+    {
+        height: 85%;
+        width: 70%;
+    }
+    .split-it-panel .title 
+    {
+        padding-top: 15px;
+    }
+    .split-it-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .split-it-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+    .split-it-panel .budgets
+    {
+        padding-top: 15%;
+    }
+
+
+}
+
+
+@media screen and (max-width:950px)
+{
+    .split-it-panel
+    {
+        height: 85%;
+        width: 80%;
+    }
+    .split-it-panel .title 
+    {
+        padding-top: 18px;
+    }
+    .split-it-panel .title .subtitle
+    {
+        font-family: 'Gotham Light';
+        font-size: 20px;
+        padding-top: 3%;
+
+    }
+    .split-it-panel .title .main-title
+    {
+        font-size: 24px;
+    }
+
+    .split-it-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width:850px)
+{
+    .split-it-panel
+    {
+        height: 85%;
+        width: 87%;
+    }
+    .split-it-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .split-it-panel .title .subtitle
+    {
+        font-size: 14px;
+    }
+    .split-it-panel .budgets
+    {
+        padding-top: 14%;
+    }
+    
+}
+
+
+@media screen and (max-width:700px)
+{
+    .split-it-panel
+    {
+        height: 80%;
+        width: 195%;
+
+    }
+    .split-it-panel .title .main-title
+    {
+        font-size: 20px;
+    }
+
+    .split-it-panel .title .subtitle
+    {
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width:600px)
+{
+    .split-it-panel
+    {
+        width: 100%;
+        height: 60%;
+    }
+    .split-it-panel .title .main-title
+    {
+        font-size: 18px;
+    }
+    .split-it-panel .title .subtitle
+    {
+        font-size: 10px;
+    }
+    .split-it-panel .budgets
+    {
+        padding-top: 5%;
+    }
+    .split-it-panel .title 
+    {
+        padding-top: 10px;
+    }
+    
+}
+
+@media screen and (max-width:450px)
+{
+
+    .split-it-panel .title 
+    {
+        padding-top: 0;
+    }
+    
+    .split-it-panel
+    {
+        height: 45%;
+        border-radius: 30px;
+
+    }
+    .split-it-panel .title .main-title
+    {
+        font-size: 15px;
+    }
+    .split-it-panel .title .subtitle
+    {
+        font-size: 8px;
+    }
+    .split-it-panel .budgets
+    {
+        padding-top: 10%;
+    }
+
+    .split-it-panel .budgets button:hover{
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 2px rgba(216,216,216,1),
+        0px 5px 8px 0px rgba(0,0,0,0.22);
+    }
+}
