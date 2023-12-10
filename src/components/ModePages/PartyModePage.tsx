@@ -69,7 +69,7 @@ function PartyModePage() {
         <div className='party-mode-page-content' style={gridStyle}>
             <div className='header'>
                 <div className='party-mode-debt-panel'>
-                    <DebtPanel/>
+                    {/* <DebtPanel/> */}
                 </div>
                 <div className='title'>
                     <div className='subtitle'>

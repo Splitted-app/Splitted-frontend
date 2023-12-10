@@ -1,10 +1,13 @@
 import '../../css/ModePages/DebtPanel.css';
 
 
+interface DebtPanelInterface
+{
+  amount: number,
+  currency: string,
+}
 
-
-function DebtPanel() {
-    const amount = -500;
+function DebtPanel({amount, currency}: DebtPanelInterface) {
     return (
       <div className="debt-panel">
         <div className='debt-panel-title'>
@@ -15,7 +18,7 @@ function DebtPanel() {
                 {amount}
             </div>
             <div className='debt-panel-currency'>
-                pln
+                {currency}
             </div>
         </div>
       </div>

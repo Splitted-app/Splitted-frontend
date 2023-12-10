@@ -8,11 +8,13 @@ import { useParams } from 'react-router';
 import DebtPanel from './DebtPanel';
 import Navbar from "../Common/Navbar";
 import LoadingPanel from '../Common/LoadingPanel';
+import TransactionList from '../Common/TransactionList';
 
 import useFetchBudget from '../../hooks/useFetchBudget';
 import useFetchTransactions from '../../hooks/useFetchTransactions';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+
 
 
 function PartnerModePage() {
@@ -29,7 +31,7 @@ function PartnerModePage() {
         minAmount: "",
         maxAmount: "",
     })
-    const {data, loading, error } = useFetchTransactions(dateRange, category, amountRange);
+    const transactions = useFetchTransactions(dateRange, category, amountRange, id);
 
     const [filterData, setFilterData] = useState<any>({
         startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
@@ -69,7 +71,13 @@ function PartnerModePage() {
         <div className='partner-mode-page-content' style={gridStyle}>
             <div className='header'>
                 <div className='partner-mode-debt-panel'>
-                    <DebtPanel/>
+                    {(budget.loading || budget.error || transactions.loading || transactions.loading) && 
+                        <LoadingPanel error={budget.error || transactions.loading}/>
+                    }
+                    {!budget.loading && !budget.error && !transactions.loading && !transactions.loading &&
+                        <DebtPanel amount={transactions.data.debt} currency={budget.data.currency}/>
+                    }
+                    
                 </div>
                 <div className='title'>
                     <div className='subtitle'>
@@ -129,6 +137,22 @@ function PartnerModePage() {
                     </button>
                 </div>
             </div>}
+            <div className='transactions-list'>
+                {!transactions.loading &&
+                    <TransactionList 
+                        transactions={transactions.data.transactions} 
+                        shadow={false} 
+                        showTransactionType={true} 
+                        showDate={true} 
+                        showDeleteIcon={false} 
+                        showDeleteTransactionRadioButton={false}
+                        showSplitItIcon={false}
+                        markDuplicates={false}></TransactionList>
+                }
+                {transactions.loading &&
+                    <LoadingPanel error={transactions.error}/>
+                }
+            </div>
         </div>
         }
       </div>

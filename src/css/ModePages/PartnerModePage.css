@@ -190,3 +190,12 @@
     font-family: 'Gotham Bold';
     box-shadow: 5px 5px 3px #180A45;
 }
+
+.partner-mode-page .partner-mode-page-content .transactions-list
+{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

@@ -15,9 +15,11 @@ export default function useFetchTransactions(
     dateRange: any = null,
     category: string|null = null,
     amountRange: any = null,
+    providedBudgetId: string = "",
 ) 
 {
-    const budgetId = useFetchBudgetId()
+    const fetchedBudgetId = useFetchBudgetId();
+    const usedBudgetId = providedBudgetId ? providedBudgetId : fetchedBudgetId;
     const transactionUpdater = useRecoilValue(TransactionUpdaterState);
     const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>([]);
@@ -44,10 +46,10 @@ export default function useFetchTransactions(
     
 
     useEffect(() => {
-        if (budgetId === undefined)
+        if (usedBudgetId === undefined)
             return;
         setLoading(true);
-        axios.get(process.env.REACT_APP_API_URL + `/api/budgets/${budgetId}/transactions/${query}`, {
+        axios.get(process.env.REACT_APP_API_URL + `/api/budgets/${usedBudgetId}/transactions/${query}`, {
             headers: {
                 'Accept': '*',
                 'Authorization': `Bearer ${token}`
@@ -64,7 +66,7 @@ export default function useFetchTransactions(
         .finally(() => {
             setLoading(false);
         })
-    }, [budgetId, transactionUpdater, dateRange])
+    }, [usedBudgetId, transactionUpdater, dateRange])
 
 
     return {data, loading, error}
