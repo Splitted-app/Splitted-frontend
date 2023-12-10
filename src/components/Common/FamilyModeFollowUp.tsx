@@ -13,6 +13,7 @@ import CurrencyDropdown from "../HomePage/CurrencyDropdown";
 interface FormDataInterface {
     bank: string | null,
     currency: string,
+    budgetName: string,
 }
 
 
@@ -21,6 +22,7 @@ function FamilyModeFollowUp()
     const [data, setData] = useState<FormDataInterface>({
         bank: BankNames.Pko,
         currency: "PLN",
+        budgetName: ""
     })
     const [familyMemberId, setFamilyMemberId] = useRecoilState(FamilyMemberIdState)
     const token = useRecoilValue(UserTokenState);
@@ -32,6 +34,7 @@ function FamilyModeFollowUp()
         JSON.stringify({
             bank: data.bank,
             currency: data.currency,
+            budgetName: data.budgetName,
         }),
         {
             headers: {
@@ -56,7 +59,7 @@ function FamilyModeFollowUp()
                 Before you begin
             </div>
             <div className='subtitle'>
-                Choose default currency and bank for your new joint account          
+                Name your new joint account and choose default currency and bank          
             </div>
             </div>
             <div className='family-mode-followup-form'>
@@ -83,10 +86,17 @@ function FamilyModeFollowUp()
                                 <CurrencyDropdown currency={data.currency}
                                     setCurrency={(e: any) => setData({ ...data, currency: e.target.value })} />
                             </div>
+                            <label>
+                                Budget name:
+                            </label>
+                            <div className="input-container">
+                                <input type="text" placeholder='Budget name' className='budget-input' 
+                                    onChange={(e: any) => setData({ ...data, budgetName: e.target.value })}/>
+                            </div>
                         </div>
-                        <div className='button-container'>
-                            <input type="submit" value="Finish" />
-                        </div>
+                    </div>
+                    <div className='button-container'>
+                        <input type="submit" value="Finish" />
                     </div>
                 </form>
             </div>

@@ -16,7 +16,7 @@ import { BankNames } from '../../enums'
 
 interface FormDataInterface {
     bank: string | null,
-    budgetType: string,
+    name: string,
     currency: string,
     budgetBalance: number,
 }
@@ -29,7 +29,7 @@ function SignUpFollowUp() {
     const navigate = useNavigate();
     const [data, setData] = useState<FormDataInterface>({
         bank: BankNames.Pko,
-        budgetType: "Personal",
+        name: "Personal Budget",
         currency: "PLN",
         budgetBalance: 0,
     })
@@ -48,7 +48,7 @@ function SignUpFollowUp() {
             },
             body: JSON.stringify({
                 bank: data.bank,
-                budgetType: data.budgetType,
+                name: data.name,
                 currency: data.currency,
                 budgetBalance: data.budgetBalance
             })

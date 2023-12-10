@@ -1,4 +1,4 @@
-.family-mode-followup
+.party-mode-followup
 {
     height: 100%;
     width: 60%;
@@ -12,7 +12,7 @@
     grid-template-columns: 5% 90% 5%;
 }
 
-.family-mode-followup .title
+.party-mode-followup .title
 {
     grid-column-start: 2;
     grid-column-end: 3;
@@ -21,7 +21,7 @@
     text-align: center;
 }
 
-.family-mode-followup  .title .main-title
+.party-mode-followup  .title .main-title
 {
     font-family: 'Gotham Bold';
     font-size: 30px;
@@ -29,14 +29,14 @@
 }
 
 
-.family-mode-followup  .title .subtitle
+.party-mode-followup  .title .subtitle
 {
     padding-top: 3%;
     font-family: 'Gotham Light';
     font-size: 20px;
 }
 
-.family-mode-followup .family-mode-followup-form
+.party-mode-followup .party-mode-followup-form
 {
     grid-column-start: 2;
     grid-column-end: 3;
@@ -47,7 +47,7 @@
     grid-template-rows: 80% 20%;
 } 
 
-.family-mode-followup .family-mode-followup-form .form-elements
+.party-mode-followup .party-mode-followup-form .form-elements
 {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -58,12 +58,12 @@
     height: 100%;
 }
 
-.family-mode-followup .family-mode-followup-form .form-elements .information-fields
+.party-mode-followup .party-mode-followup-form .form-elements .information-fields
 {
     padding-top: 15px;
 }
 
-.family-mode-followup .family-mode-followup-form .form-elements .information-fields
+.party-mode-followup .party-mode-followup-form .form-elements .information-fields
 {
     display: grid;
     grid-auto-flow: row;
@@ -74,7 +74,7 @@
 }
 
 
-.family-mode-followup .family-mode-followup-form .form-elements .information-fields label
+.party-mode-followup .party-mode-followup-form .form-elements .information-fields label
 {
     font-family: 'Gotham Medium';
     font-size: 20px;
@@ -83,14 +83,14 @@
     text-align: left;
 }
 
-.family-mode-followup .family-mode-followup-form .form-elements .information-fields .input-container
+.party-mode-followup .party-mode-followup-form .form-elements .information-fields .input-container
 {
     align-self: center;
     display: flex;
     align-items: center;
 }
 
-.family-mode-followup .family-mode-followup-form .form-elements .information-fields input, select
+.party-mode-followup .party-mode-followup-form .form-elements .information-fields input, select
 {
     justify-self: right;
     width: 100%;
@@ -99,7 +99,7 @@
             box-sizing: border-box;
 }
 
-.family-mode-followup .family-mode-followup-form .form-elements .information-fields .field-style
+.party-mode-followup .party-mode-followup-form .form-elements .information-fields .field-style
 {
     font-family: 'Gotham Medium';
     font-size: 19px;
@@ -110,7 +110,7 @@
     float:right;
 }
 
-.family-mode-followup .family-mode-followup-form .form-elements .information-fields span
+.party-mode-followup .party-mode-followup-form .form-elements .information-fields span
 {
     margin: 10px;
     max-width: 50%;
@@ -118,7 +118,7 @@
 }
 
 
-.family-mode-followup .button-container 
+.party-mode-followup .button-container 
 {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -131,7 +131,7 @@
     flex-grow: 1;
 }
 
-.family-mode-followup .button-container input
+.party-mode-followup .button-container input
 {
     background-color: #20F7C5;
     color: black;
@@ -145,7 +145,7 @@
 }
 
 
-.family-mode-followup .budget-input
+.party-mode-followup .budget-input
 {
     outline: 1px solid #828A8C;
     font-family: 'Gotham Light';

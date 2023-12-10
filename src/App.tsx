@@ -8,10 +8,14 @@ import { Route,Routes, useNavigate } from "react-router-dom"
 import { useRecoilState, useRecoilValue } from 'recoil';
 import {Helmet} from "react-helmet";
 
+
 import AddModePanel from './components/Common/AddModePanel';
 import AddTransactionsPanel from './components/Common/AddTransactionsPanel';
 import ConfirmEmailPage from './components/RegisterPages/ConfirmEmailPage';
 import FamilyModeAddPanel from './components/Common/FamilyModeAddPanel';
+import FamilyModeFollowUp from './components/Common/FamilyModeFollowUp';
+import FamilyModePage from './components/ModePages/FamilyModePage';
+import GoalsPage from './components/GoalsPage/GoalsPage';
 import HomePage from './components/HomePage/HomePage';
 import ImportCsvCheck from './components/Common/ImportCsvCheck';
 import ImportCsvPanel from './components/Common/ImportCsvPanel';
@@ -19,6 +23,8 @@ import InsightsPage from './components/InsightsPage/InsightsPage';
 import LogOutConfirmationPanel from './components/Common/LogOutConfirmationPanel';
 import ManualAddTransactionPanel from './components/Common/ManualAddTransactionPanel';
 import PartnerModeAddPanel from './components/Common/PartnerModeAddPanel';
+import PartnerModeFollowUp from './components/Common/PartnerModeFollowUp';
+import PartyModeFollowUp from './components/Common/PartyModeFollowUp';
 import PartyModeAddPanel from './components/Common/PartyModeAddPanel';
 import RegisterPage from './components/RegisterPages/RegisterPage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
@@ -30,26 +36,26 @@ import { AddModesPanelVisibilityState } from './atoms/AddModesPanelVisibility';
 import { AddPartnerModePanelVisibilityState } from './atoms/AddPartnerModePanelVisibility';
 import { AddPartyModePanelVisibilityState } from './atoms/AddPartyModePanelVisibility';
 import { AddTransactionsPanelVisibilityState } from './atoms/AddTransactionsPanelVisbility';
+import { FamilyModeFollowUpVisibilityState } from './atoms/FamilyModeFollowUp';
 import { FullLoginUpdaterState } from './atoms/FullLoginUpdater';
 import { ImportCsvCheckPanelVisibilityState } from './atoms/ImportCsvCheckPanelVisibility';
 import { ImportCsvPanelVisibilityState } from './atoms/ImportCsvPanelVisbility';
 import { LogOutPanelVisibilityState } from './atoms/LogOutPanelVisibility';
 import { ManualAddTransactionsPanelVisibilityState } from './atoms/ManualAddTransactionsPanelVisbility';
+import { PartnerModeFollowUpVisibilityState } from './atoms/PartnerModeFollowUp';
+import { PartyModeFollowUpVisibilityState } from './atoms/PartyModeFollowUp';
 import { UserTokenState } from './atoms/UserToken';
-import { FamilyModeFollowUpVisibilityState } from './atoms/FamilyModeFollowUp';
-
-import FamilyModePage from './components/ModePages/FamilyModePage';
-import GoalsPage from './components/GoalsPage/GoalsPage';
-import FamilyModeFollowUp from './components/Common/FamilyModeFollowUp';
-
-
+import PartnerModePage from './components/ModePages/PartnerModePage';
+import PartyModePage from './components/ModePages/PartyModePage';
 
 
 function App() {
   const logOutPanelVisibility = useRecoilValue(LogOutPanelVisibilityState);
   const addModesPanelVisibility = useRecoilValue(AddModesPanelVisibilityState);
   const addFamilyModePanelVisibility = useRecoilValue(AddFamilyModePanelVisibilityState);
-  const familyModeFollowUpVisibility = useRecoilValue(FamilyModeFollowUpVisibilityState)
+  const familyModeFollowUpVisibility = useRecoilValue(FamilyModeFollowUpVisibilityState);
+  const partnerModeFollowUpVisibility = useRecoilValue(PartnerModeFollowUpVisibilityState);
+  const partyModeFollowUpVisibility = useRecoilValue(PartyModeFollowUpVisibilityState);
   const addPartnerModePanelVisibility = useRecoilValue(AddPartnerModePanelVisibilityState);
   const addPartyModePanelVisibility = useRecoilValue(AddPartyModePanelVisibilityState);
   const addTransactionsPanelVisibility = useRecoilValue(AddTransactionsPanelVisibilityState);
@@ -66,7 +72,9 @@ function App() {
     importCsvPanelVisibility || 
     importCsvCheckPanelVisibility || 
     manualAddTransactionsPanelVisibility ||
-    familyModeFollowUpVisibility ;
+    familyModeFollowUpVisibility ||
+    partnerModeFollowUpVisibility ||
+    partyModeFollowUpVisibility;
   const [token, setToken] = useRecoilState(UserTokenState);
   const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState)
 
@@ -130,7 +138,8 @@ function App() {
             <Route path="/ConfirmEmail" element={<ConfirmEmailPage/>}/>
             <Route path="/goals" element={<GoalsPage/>}/>
             <Route path="/family/:id" element={<FamilyModePage/>}/>
-
+            <Route path="/partner/:id" element={<PartnerModePage/>}/>
+            <Route path="/party/:id" element={<PartyModePage/>}/>
           </Routes>
         </div>
         <div className='global-popup' style={{'display': popupVisible ? 'flex' : 'none'}}>
@@ -144,6 +153,8 @@ function App() {
           {importCsvCheckPanelVisibility && <ImportCsvCheck/>}
           {manualAddTransactionsPanelVisibility && <ManualAddTransactionPanel/>}
           {familyModeFollowUpVisibility && <FamilyModeFollowUp/>}
+          {partnerModeFollowUpVisibility && <PartnerModeFollowUp/>}
+          {partyModeFollowUpVisibility && <PartyModeFollowUp/>}
         </div>
       </div>
     </div>

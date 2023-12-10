@@ -57,6 +57,17 @@
     font-size: 80%;
 }
 
+.transaction .split-it
+{
+    width: max(25px, 100%);
+    justify-content: right;
+}
+
+.transaction .split-it img
+{
+    width: 20px;
+    height: 20px;
+}
 
 .transaction .transaction-edit-button-container 
 {
@@ -104,6 +115,14 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+.delete-checkbox-as-rows
+{
+    width: 50px;
+    padding-left: 25px;
+}
+
+
 
 .delete-transaction-checkbox-container input
 {

@@ -17,7 +17,9 @@ import { amountFormatter } from '../../utils';
 
 import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
 import EditTransactionIcon from '../../assets/images/edit_transaction.png'
+import SplitItIcon from '../../assets/images/split.png'
 import UpdateTransactionIcon from '../../assets/images/update.png'
+
 
 interface TransactionInterface
 {
@@ -42,6 +44,7 @@ interface TransactionPropsInterface
     showDate:boolean
     showDeleteIcon:boolean,
     showDeleteTransactionRadioButton:boolean,
+    showSplitItIcon:boolean,
     markDuplicate:boolean,
 }
 
@@ -53,6 +56,7 @@ function Transaction({
   showDate, 
   showDeleteIcon, 
   showDeleteTransactionRadioButton, 
+  showSplitItIcon,
   markDuplicate}: TransactionPropsInterface) {
     const [amount, setAmount] = useState(transaction.amount);
     const [userCategory, setUserCategory] = useState(transaction.userCategory);
@@ -65,7 +69,8 @@ function Transaction({
     const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
     const [newTransactions, setNewTransactions] = useRecoilState<any>(NewTransactionsState);
 
-    const minified = useMediaQuery({ query: '(max-width: 1300px)' })
+    const minified = useMediaQuery({ query: '(max-width: 1300px)'})
+    const showAsRows = useMediaQuery({ query: '(max-width: 850px)'})
     let gridTemplateColumns = '';
     gridTemplateColumns += showDeleteTransactionRadioButton ? '5% ' : ''; // delete checkbox
     gridTemplateColumns += '20% '; // category
@@ -73,8 +78,8 @@ function Transaction({
     gridTemplateColumns += showDate && !minified ? '15% ' : ''; // date
     gridTemplateColumns += showUser && !minified ? '15% ' : ''; // user
     gridTemplateColumns += 'auto '; // description
-    gridTemplateColumns += minified ? '100px' : '150px'; // amount
-
+    gridTemplateColumns += minified ? '100px ' : '150px '; // amount
+    gridTemplateColumns += showSplitItIcon ? '5% ' : ''; //split it icon
     const gridStyle = {
       gridTemplateColumns: gridTemplateColumns
     };
@@ -184,8 +189,18 @@ function Transaction({
 
     return (
       <div className={`transaction ${transaction.duplicatedTransaction && markDuplicate ? "duplicate" : ""}`}>
+        {showDeleteTransactionRadioButton && showAsRows &&
+            <label className='delete-transaction-checkbox-container delete-checkbox-as-rows '>
+              <input type="checkbox" 
+                      className='delete-transaction-checkbox' 
+                      onChange={(e)=>handleDeleteMultipleTransactionsButton(e.target.checked)}>
+              </input>
+              <span className="checkmark">
+              </span>
+            </label>
+        }
         <div className='transaction-content' style={gridStyle}>
-            {showDeleteTransactionRadioButton && 
+            {showDeleteTransactionRadioButton && !showAsRows &&
             <label className='delete-transaction-checkbox-container '>
               <input type="checkbox" 
                       className='delete-transaction-checkbox' 
@@ -242,7 +257,17 @@ function Transaction({
                     {transaction.currency}
                 </div>
             </div>
+            {showSplitItIcon && !showAsRows &&
+            <div className='split-it transaction-element'>
+                <img src={SplitItIcon}></img>
+            </div>
+            }
         </div>
+        {showSplitItIcon && showAsRows &&
+          <div className='split-it transaction-element'>
+              <img src={SplitItIcon}></img>
+          </div>  
+        }
         <div className='transaction-edit-button-container' >
             <button onClick={handleEditTransactionButton}>
                 <img src={(editable)?UpdateTransactionIcon:EditTransactionIcon} /*style={{width:(showDeleteIcon)?"80%" : "50%"}}*/></img>
