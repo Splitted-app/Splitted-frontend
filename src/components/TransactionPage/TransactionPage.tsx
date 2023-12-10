@@ -53,8 +53,7 @@ function TransactionPage() {
     const userBudgets = useFetchUserBudgets()
     const [userIsInPartnerBudget, setUserIsInPartnerBudget] = useState<boolean>(false);
     useEffect(()=>{
-        if (userBudgets.find((budget: any) => budget.budgetType === 'Partner'))
-            setUserIsInPartnerBudget(true);
+        setUserIsInPartnerBudget(userBudgets.find((budget: any) => budget.budgetType === 'Partner'));
     }, [userBudgets])
       
     

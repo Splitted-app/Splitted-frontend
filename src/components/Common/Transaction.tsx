@@ -5,12 +5,16 @@ import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive'
 import axios from 'axios';
 import Moment from 'moment';
-import { useRecoilValue , useRecoilState} from 'recoil';
+import { useRecoilValue , useRecoilState, useSetRecoilState} from 'recoil';
 
 import { TransactionsToDeleteState } from '../../atoms/TransactionsToDelete';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 import { NewTransactionsState } from '../../atoms/NewTransactions';
+import { SplitItPanelState } from '../../atoms/SplitItPanel';
+
+
+import useFetchUserBudgets from '../../hooks/useFetchUserBudgets';
 
 import { TransactionTypes } from '../../enums';
 import { amountFormatter } from '../../utils';
@@ -19,6 +23,7 @@ import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
 import EditTransactionIcon from '../../assets/images/edit_transaction.png'
 import SplitItIcon from '../../assets/images/split.png'
 import UpdateTransactionIcon from '../../assets/images/update.png'
+
 
 
 interface TransactionInterface
@@ -68,6 +73,7 @@ function Transaction({
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
     const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
     const [newTransactions, setNewTransactions] = useRecoilState<any>(NewTransactionsState);
+    const setSplitItPanel = useSetRecoilState(SplitItPanelState);
 
     const minified = useMediaQuery({ query: '(max-width: 1300px)'})
     const showAsRows = useMediaQuery({ query: '(max-width: 850px)'})
@@ -179,6 +185,50 @@ function Transaction({
         }
     }
 
+    function handleSplitIt()
+    {
+      let availableBudgets: any = []
+      axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Partner,Temporary', {
+          headers: {
+              'Accept': '*',
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+          },
+      })
+      .then((res) => {
+          availableBudgets = res.data
+          const userIsInPartnerBudget = availableBudgets.find((budget: any) => budget.budgetType === 'Partner');
+          const userIsInPartyBudget = availableBudgets.find((budget: any) => budget.budgetType === 'Temporary');
+
+          if (availableBudgets.length === 0)
+            return;
+          if (userIsInPartnerBudget && !userIsInPartyBudget)
+          {
+            axios.post(process.env.REACT_APP_API_URL + 
+              `/api/budgets/${availableBudgets[0].id}/transactions/${transaction.id}`,null,
+            {
+                headers: {
+                    'Accept': '*',
+                    'Authorization': `Bearer ${token}`
+                },
+            })
+            .catch((error)=>{
+                console.log(error);
+            })
+            return;
+          }
+          setSplitItPanel({
+            visible: true,
+            transactionId: transaction.id,
+            availableBudgets: availableBudgets,
+          })
+
+      })
+      .catch(error => {
+          console.error(error);
+      })
+    }
+
     function adjustContent(target: any, toLeft: boolean = true)
     {
       if (toLeft)
@@ -258,13 +308,13 @@ function Transaction({
                 </div>
             </div>
             {showSplitItIcon && !showAsRows &&
-            <div className='split-it transaction-element'>
+            <div className='split-it transaction-element' onClick={handleSplitIt}>
                 <img src={SplitItIcon}></img>
             </div>
             }
         </div>
         {showSplitItIcon && showAsRows &&
-          <div className='split-it transaction-element'>
+          <div className='split-it transaction-element' onClick={handleSplitIt}>
               <img src={SplitItIcon}></img>
           </div>  
         }
