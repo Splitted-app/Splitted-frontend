@@ -3,7 +3,11 @@ import '../../css/SettingsPage/AccountPage.css'
 import UserAccountMainPanel from './UserAccoutMainPanel';
 import UserAccountPanel from './UserAccountPanel';
 
+import useFetchUser from '../../hooks/useFetchUser';
+
 function AccountPage() {
+    const user = useFetchUser();
+
     return (
       <div className="account-page">
         <div className='account-page-header'>
@@ -24,7 +28,7 @@ function AccountPage() {
             Your account
           </div>
           <div className='user-account-main-panel-container'>
-            <UserAccountMainPanel/>
+            <UserAccountMainPanel data={user.data} loading={user.loading} error={user.error}/>
           </div>
         </div>
       </div>
