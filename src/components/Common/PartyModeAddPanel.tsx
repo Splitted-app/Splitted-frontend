@@ -47,7 +47,7 @@ function PartyModeAddPanel() {
             <div className="search-container">
                 <Select
                     className="search-select"
-                    options={searchResult.users}
+                    options={searchResult.selectOptions}
                     isLoading={searchResult.loading}
                     isSearchable
                     onInputChange={setQuery}
