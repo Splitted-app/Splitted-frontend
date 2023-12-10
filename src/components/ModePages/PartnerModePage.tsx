@@ -146,6 +146,7 @@ function PartnerModePage() {
                         showDate={true} 
                         showDeleteIcon={false} 
                         showDeleteTransactionRadioButton={false}
+                        showEditButton={false}
                         showSplitItIcon={false}
                         markDuplicates={false}></TransactionList>
                 }

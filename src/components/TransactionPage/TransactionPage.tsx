@@ -189,6 +189,7 @@ function TransactionPage() {
                         showDate={true} 
                         showDeleteIcon={false} 
                         showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}
+                        showEditButton={true}
                         showSplitItIcon={userIsInPartnerBudget}
                         markDuplicates={false}></TransactionList>
                 }

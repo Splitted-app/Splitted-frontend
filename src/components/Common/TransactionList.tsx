@@ -10,6 +10,7 @@ interface TransactionListInterface
   showDate:boolean,
   showDeleteIcon:boolean,
   showDeleteTransactionRadioButton:boolean,
+  showEditButton: boolean,
   showSplitItIcon:boolean,
   markDuplicates:boolean,
 }
@@ -21,6 +22,7 @@ function TransactionList({
   showDate, 
   showDeleteIcon, 
   showDeleteTransactionRadioButton, 
+  showEditButton,
   showSplitItIcon,
   markDuplicates}:TransactionListInterface) {
     return (
@@ -34,6 +36,7 @@ function TransactionList({
               showDate={showDate} 
               showDeleteIcon={showDeleteIcon} 
               showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}
+              showEditButton={showEditButton}
               showSplitItIcon={showSplitItIcon}
               markDuplicate={markDuplicates}/>
           )}

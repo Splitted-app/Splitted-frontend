@@ -87,6 +87,7 @@ function ImportCsvCheck() {
             showDate={false} 
             showDeleteIcon={true} 
             showDeleteTransactionRadioButton={false}
+            showEditButton={true}
             showSplitItIcon = {false}
             markDuplicates={true}></TransactionList>
         }

@@ -49,6 +49,7 @@ interface TransactionPropsInterface
     showDate:boolean
     showDeleteIcon:boolean,
     showDeleteTransactionRadioButton:boolean,
+    showEditButton:boolean,
     showSplitItIcon:boolean,
     markDuplicate:boolean,
 }
@@ -60,7 +61,8 @@ function Transaction({
   showTransactionType, 
   showDate, 
   showDeleteIcon, 
-  showDeleteTransactionRadioButton, 
+  showDeleteTransactionRadioButton,
+  showEditButton,
   showSplitItIcon,
   markDuplicate}: TransactionPropsInterface) {
     const [amount, setAmount] = useState(transaction.amount);
@@ -318,11 +320,11 @@ function Transaction({
               <img src={SplitItIcon}></img>
           </div>  
         }
-        <div className='transaction-edit-button-container' >
+        {showEditButton && <div className='transaction-edit-button-container' >
             <button onClick={handleEditTransactionButton}>
                 <img src={(editable)?UpdateTransactionIcon:EditTransactionIcon} /*style={{width:(showDeleteIcon)?"80%" : "50%"}}*/></img>
             </button>
-        </div>
+        </div>}
         {showDeleteIcon && <div className='transaction-delete-button-container'>
             <button onClick={handleDeleteTransactionButton}>
                 <img src={DeleteTransactionIcon}></img>
