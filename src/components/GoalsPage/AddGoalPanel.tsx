@@ -8,10 +8,11 @@ import { useRecoilValue, useRecoilState, useSetRecoilState} from 'recoil';
 import CloseButton from '../Common/CloseButton';
 
 import { AddGoalPanelVisibilityState } from '../../atoms/AddGoalPanelVisibility';
-import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
+import { GoalsUpdaterState } from '../../atoms/GoalsUpdaterState';
 import { UserTokenState } from '../../atoms/UserToken'
 
 import { GoalType } from '../../enums';
+
 
 
 interface AddGoalPanelInterface {
@@ -25,7 +26,7 @@ interface AddGoalPanelInterface {
 
 function AddGoalPanel() {
 
-  // const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
+  const [goalUpdater, setGoalUpdater] = useRecoilState(GoalsUpdaterState)
   const token = useRecoilValue(UserTokenState);
   const setAddGoalPanelVisibility = useSetRecoilState(AddGoalPanelVisibilityState);
 
@@ -58,6 +59,7 @@ function AddGoalPanel() {
     })
     .then(()=>{
         setAddGoalPanelVisibility(false);
+        setGoalUpdater(!goalUpdater)
     })
     .catch((error)=>{
         console.error(error);

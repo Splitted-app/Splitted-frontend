@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRecoilValue } from "recoil";
 
+import { GoalsUpdaterState } from "../atoms/GoalsUpdaterState";
 import { UserTokenState } from "../atoms/UserToken";
 
 
 export default function useFetchGoals(mainGoal: boolean = false) {
+    const goalUpdater = useRecoilValue(GoalsUpdaterState)
     const token = useRecoilValue(UserTokenState);
     const [data, setGoals] = useState<any>([]);
     const [loading, setLoading] = useState<boolean>(false);
@@ -33,7 +35,7 @@ export default function useFetchGoals(mainGoal: boolean = false) {
         .finally(()=>{
             setLoading(false);
         })
-    }, [])
+    }, [goalUpdater])
 
     return { data, loading, error };
 }

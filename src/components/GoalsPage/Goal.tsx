@@ -1,11 +1,12 @@
 import '../../css/GoalsPage/Goal.css';
 
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 import axios from 'axios';
 import Moment from 'moment';
 import moment from 'moment';
 
+import { GoalsUpdaterState } from '../../atoms/GoalsUpdaterState';
 import { UserTokenState } from '../../atoms/UserToken';
 
 import DeleteGoalIcon from '../../assets/images/delete_transaction.png'
@@ -14,6 +15,7 @@ import UpdateGoalIcon from '../../assets/images/update.png'
 import MainGoalPinIcon from '../../assets/images/main_goal_pin.png'
 import PinIcon from '../../assets/images/pin.png'
 import { useState } from 'react';
+
 
 
 
@@ -45,6 +47,7 @@ interface GoalTileInterface
 function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisible} : GoalTileInterface) {
 
     const token = useRecoilValue(UserTokenState);
+    const [goalUpdater, setGoalUpdater] = useRecoilState(GoalsUpdaterState)
     const [editable, setEditable] = useState<boolean>(false);
     let [newData, setNewData] = useState({
         amount: goal.amount,
@@ -68,7 +71,7 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
             },
         })
         .then((res)=>{
-
+            setGoalUpdater(!goalUpdater);
         })
     }
 
@@ -83,7 +86,7 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
             },
         })
         .then((res)=>{
-
+            setGoalUpdater(!goalUpdater)
         })
     }
 
@@ -104,7 +107,7 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
             },
         })
         .then((res)=>{
-
+            setGoalUpdater(!goalUpdater)
         })
     }
 
