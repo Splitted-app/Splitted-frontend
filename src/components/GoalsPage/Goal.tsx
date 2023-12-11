@@ -4,6 +4,7 @@ import { useRecoilValue } from 'recoil';
 
 import axios from 'axios';
 import Moment from 'moment';
+import moment from 'moment';
 
 import { UserTokenState } from '../../atoms/UserToken';
 
@@ -12,6 +13,8 @@ import EditGoalIcon from '../../assets/images/edit_transaction.png'
 import UpdateGoalIcon from '../../assets/images/update.png'
 import MainGoalPinIcon from '../../assets/images/main_goal_pin.png'
 import PinIcon from '../../assets/images/pin.png'
+import { useState } from 'react';
+
 
 
 
@@ -42,6 +45,12 @@ interface GoalTileInterface
 function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisible} : GoalTileInterface) {
 
     const token = useRecoilValue(UserTokenState);
+    const [editable, setEditable] = useState<boolean>(false);
+    let [newData, setNewData] = useState({
+        amount: goal.amount,
+        deadline: goal.deadline,
+        isMain: goal.isMain
+    })
 
     function handleTogglePin()
     {
@@ -63,15 +72,91 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
         })
     }
 
+    function handleDeleteGoal()
+    {
+        axios.delete(process.env.REACT_APP_API_URL + `/api/goals/${goal.id}`,
+        {
+            headers: {
+                'Accept': '*',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+        })
+        .then((res)=>{
+
+        })
+    }
+
+    function handleEditButton()
+    {
+        setEditable(!editable)
+        if (!editable)
+            return;
+
+        console.log(newData);
+        axios.put(process.env.REACT_APP_API_URL + `/api/goals/${goal.id}`,
+        JSON.stringify(newData),
+        {
+            headers: {
+                'Accept': '*',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+        })
+        .then((res)=>{
+
+        })
+    }
+
+    function handleAmountChanged(value: string)
+    {
+      try
+      {
+        const parsedValue: string = value
+          .replace(',', '.')            // change ',' to '.'
+          .replace(/[.](?=.*[.])/g, "") // remove all '.' but the last one
+          .replace(/[^0-9.-]/g, "")      // remove all characters that are not a digit, '.' or '-'
+          .replace(/(?!^)-/, "");
+        let numValue = Number(parsedValue);
+        numValue = Math.round((numValue + Number.EPSILON) * 100) / 100; 
+        setNewData({...newData, amount: parseFloat(value)})
+      }
+      catch 
+      {
+        console.log(`Could not parse ${value} into a number`)
+      }
+    }
+
+    function handleDateChanges(value: string)
+    {
+        try
+        {
+            let dateMomentObject = moment(value, "DD/MM/yyyy").toDate();
+            console.log(dateMomentObject.toISOString())
+            setNewData({...newData, deadline: dateMomentObject.toISOString()})
+        }
+        catch
+        {
+            console.log(`Could not parse ${value} into a date`)
+        }
+        
+    }
+
     return (
       <div className="goal" style={{background: `linear-gradient(90deg, ${progressColor} 0%, ${progressColor}  ${goal.percentage}%, ${goalBackgroundColour} ${goal.percentage}%, ${goalBackgroundColour} 100%)`, color:color}}>
             <div className='goal-title'>
                 {goal.name}
             </div>
-            <div className='goal-amount'>
+            <div className={`goal-amount ${editable ? "editable-content" : ""}`}
+                contentEditable={editable} 
+                onInput={(e:any)=>handleAmountChanged(e.currentTarget.textContent)}
+                suppressContentEditableWarning={true}>
                 {goal.amount}
             </div>
-            <div className='goal-deadline'>
+            <div className={`goal-deadline ${editable ? "editable-content" : ""}`}
+                contentEditable={editable}
+                onInput={(e:any)=>handleDateChanges(e.currentTarget.textContent)}
+                suppressContentEditableWarning={true}>
                 {Moment(goal.deadline).format('DD.MM.yyyy')}
             </div>
             <div className='goal-progress'>
@@ -81,10 +166,10 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
                 <img src={icon}></img>
             </div>
             <div className='buttons'>    
-                <button>
-                    <img src={EditGoalIcon}/>
+                <button onClick={handleEditButton}>
+                    <img src={editable ? UpdateGoalIcon : EditGoalIcon}/>
                 </button>
-                <button>
+                <button onClick={handleDeleteGoal}>
                     <img src={DeleteGoalIcon}/>
                 </button>
                 {pinIconVisible &&

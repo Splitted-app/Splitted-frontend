@@ -50,7 +50,7 @@ function GoalsPage() {
                     <div className='main-goal-text'>
                         Your main goal:
                     </div>
-                    <div className='main-goal-panel'>
+                    <div className='goals-page-goal-item'>
                         {typeof mainGoal !== "string" &&
                             <Goal 
                                 goal={mainGoal} 
@@ -60,11 +60,10 @@ function GoalsPage() {
                                 color='white'
                                 pinIconVisible={true}/>
                         }
-                        {/* <Goal title={"Account Balance:"} amount={"100 000 PLN"} deadline={"01.01.2025"} progress={90} icon={WalletIcon} goalBackgroundColour='#81A8C7' progressColor='#3C557E' color='white'></Goal> */}
                     </div>
                 </div>
                 <div className='toggle-goal-pin-container goal-page-button goal-page-button-container'>
-                    <button className='toggle-goal-pin-button goal-page-button' onClick={()=>setPinsVisible(!pinsVisible)}>{pinsVisible ? "Finish" : "Pin Goal"}</button>
+                    <button className='toggle-goal-pin-button goal-page-button' onClick={()=>setPinsVisible(!pinsVisible)}>{pinsVisible ? "Finish" : "Select Main Goal"}</button>
                 </div>
                 <div className='add-goal-button-container goal-page-button-container'>
                     <button className='add-goal-button goal-page-button' onClick={()=>setAddGoalPanelVisibility(true)}>Add new goal</button>
@@ -89,18 +88,6 @@ function GoalsPage() {
                                 pinIconVisible={pinsVisible}/>
                         </div>
                     ))}
-                    {/* <div className='goals-page-goal-item'>
-                        <Goal title={"Expenses Limit:"} amount={"5 000 PLN"} deadline={"01.01.2025"} progress={20} icon={ExpensesIcon} goalBackgroundColour='#E6B6B6' progressColor='#CC3C3C' color='#474747'></Goal>
-                    </div>
-                    <div className='goals-page-goal-item'>
-                        <Goal title={"Max Expense In Shopping:"} amount={"500 PLN"} deadline={"01.01.2024"} progress={60} icon={ShoppingIcon} goalBackgroundColour='#D59FB6' progressColor='#FF5EA4' color='white'></Goal>
-                    </div>
-                    <div className='goals-page-goal-item'>
-                        <Goal title={"Account Balance:"} amount={"100 000 PLN"} deadline={"01.01.2025"} progress={90} icon={WalletIcon} goalBackgroundColour='#81A8C7' progressColor='#3C557E' color='white'></Goal>
-                    </div>
-                    <div className='goals-page-goal-item'>
-                        <Goal title={"Average Expenses in Groceries:"} amount={"150 PLN"} deadline={"01.01.2025"} progress={100} icon={GroceriesIcon} goalBackgroundColour='#E2CBB0' progressColor='#E7D18F' color='#474747'></Goal>
-                    </div> */}
                 </div>
             </div>
         </div>
