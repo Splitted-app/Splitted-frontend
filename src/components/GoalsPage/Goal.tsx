@@ -1,6 +1,6 @@
 import '../../css/GoalsPage/Goal.css';
 
-
+import Moment from 'moment';
 interface GoalInterface
 {
     id: string,
@@ -33,7 +33,7 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color} : GoalTileIn
                 {goal.amount}
             </div>
             <div className='goal-deadline'>
-                {goal.deadline}
+                {Moment(goal.deadline).format('DD.MM.yyyy')}
             </div>
             <div className='goal-progress'>
                 {goal.percentage}%

@@ -1,0 +1,363 @@
+.add-goal-panel
+{
+    height: 100%;
+    width: 55%;
+    background-color: white;
+    border: solid 1px black;
+    box-shadow: 10px 10px 5px #262626;
+    border-radius: 50px;
+    padding: 30px;
+    position: relative;
+    text-align: center;
+    display: grid;
+    grid-template-rows: [top] 5% [upper] 15% [lower] auto [lower];
+}
+
+.add-goal-panel .title
+{
+    text-align: center;
+}
+
+.add-goal-panel  .title .main-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: #3C3C3C;
+}
+
+
+.add-goal-panel .title .subtitle
+{
+    font-family: 'Gotham Light';
+    font-size: 22px;
+}
+
+.add-goal-panel  .main-content
+{
+    height: 100%;
+}
+
+.add-goal-panel .main-content form
+{
+    height: 100%;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: [start] 50% [middle] auto [end];
+    grid-template-rows: [line1] 20% [line2] 20% [line3] 20% [line4] 20% [line5] 20% [line6];
+    /* row-gap: 15px; */
+}
+
+
+.add-goal-panel  .main-content label
+{
+    font-family: 'Gotham Light';
+    font-size: 18px;
+    color: #373737;
+    align-self: center;
+    justify-self: left;
+    text-align: left;
+}
+
+.add-goal-panel  .main-content input, select
+{
+    align-self: center;
+    justify-self: right;
+    width: 100%;
+    border-width: 2px;
+    border-style: inset;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.add-goal-panel .main-content .field-style
+{
+    box-shadow: 5px 5px  #404040;
+    font-family: 'Gotham Light';
+    font-size: 16px;
+    display: block;
+    overflow: hidden;
+    height: 40px;
+    float:right;
+    
+}
+
+
+.add-goal-panel .add-button-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 20px;
+    grid-column-start: start;
+    grid-column-end: end;
+}
+
+.add-goal-panel .add-button-container .add-button{
+    font-size: 18px;
+    background-color: #20F7C5;
+    color: black;
+    width: 160px;
+    height: 60px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    font-size: 19px;
+    box-shadow: 2px 5px 5px #010446;
+    border: none;
+}
+
+.add-goal-panel .close-button-container
+{
+    padding: 0;
+}
+
+@media screen and (max-width:1300px)
+{
+    .add-goal-panel
+    {
+        padding-top: 5%;
+        height: 90%;
+        width: 55%;
+    }
+
+    .add-goal-panel .title .main-title
+    {
+        font-size: 26px;
+    }
+
+
+    .add-goal-panel .title .subtitle
+    {
+        font-size: 18px;
+    }
+
+    .add-goal-panel .add-button-container .add-button
+    {
+        font-size: 14px;
+        width: 120px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    .add-goal-panel
+    {
+        width: 60%;
+    }
+    .add-goal-panel .main-content .field-style
+    {
+        height: 35px;
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width:1050px)
+{
+    .add-goal-panel
+    {
+        height: 80%;
+        width: 65%;
+    }
+    .add-goal-panel .title 
+    {
+        padding-top: 15px;
+    }
+    .add-goal-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .add-goal-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+
+    .add-goal-panel .add-button-container .add-button
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 45px;
+    }
+
+    .add-goal-panel .main-content .field-style
+    {
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .add-goal-panel .main-content label
+    {
+        font-size: 16px;
+    }
+
+}
+
+
+@media screen and (max-width:950px)
+{
+    .add-goal-panel
+    {
+        height: 90%;
+        width: 75%;
+    }
+    .add-goal-panel .title 
+    {
+        padding-top: 18px;
+    }
+    .add-goal-panel .title .main-title
+    {
+        font-size: 24px;
+    }
+
+    .add-goal-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+
+    .add-goal-panel .add-button-container .add-button
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 45px;
+    }
+}
+
+
+@media screen and (max-width:850px)
+{
+    .add-goal-panel
+    {
+        height: 85%;
+        width: 80%;
+    }
+    .add-goal-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .add-goal-panel .title .subtitle
+    {
+        font-size: 14px;
+    }
+    
+    .add-goal-panel .add-button-container .add-button
+    {
+        font-size: 10px;
+        width: 100px;
+        height: 40px;
+    }
+
+}
+
+
+@media screen and (max-width:700px)
+{
+    .add-goal-panel
+    {
+        height: 75%;
+        width: 95%;
+
+    }
+    .add-goal-panel .title .main-title
+    {
+        font-size: 20px;
+    }
+
+    .add-goal-panel .title .subtitle
+    {
+        font-size: 12px;
+    }
+
+    .add-goal-panel .add-button-container .add-button
+    {
+        font-size: 9px;
+        width: 80px;
+        height: 35px;
+    }
+
+    .add-goal-panel .main-content .field-style
+    {
+        height: 22px;
+        font-size: 12px;
+    }
+
+    .add-goal-panel .main-content label
+    {
+        font-size: 14px;
+    }
+
+}
+
+
+@media screen and (max-width:600px)
+{
+    .add-goal-panel
+    {
+        width: 100%;
+        height: 60%;
+    }
+    .add-goal-panel .title .main-title
+    {
+        font-size: 18px;
+    }
+    .add-goal-panel .title .subtitle
+    {
+        font-size: 10px;
+    }
+
+    .add-goal-panel .main-content
+    {
+        padding: 15%;
+    }
+
+    .add-goal-panel .main-content .field-style
+    {
+        margin-bottom: 15px;
+    }
+
+    .add-goal-panel .main-content form
+    {
+        display: block;
+    }
+
+    .add-goal-panel .main-content label
+    {
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width:450px)
+{
+    .add-goal-panel
+    {
+        height: 50%;
+        border-radius: 30px;
+
+    }
+    .add-goal-panel .title .main-title
+    {
+        font-size: 13px;
+    }
+    .add-goal-panel .title .subtitle
+    {
+        display: none;
+    }
+
+    .add-goal-panel .add-button-container .add-button
+    {
+        font-size: 8px;
+        width: 55px;
+        height: 25px;
+        margin-bottom: 40px;
+    }
+    .add-goal-panel .main-content .field-style
+    {
+        height: 16px;
+        font-size: 8px;
+    }
+
+}
+

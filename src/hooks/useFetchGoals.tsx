@@ -23,6 +23,7 @@ export default function useFetchGoals(mainGoal: boolean = false) {
             },
         })
         .then((res) => {
+            console.log(`${mainGoal} ${res.data}`);
             setError(false);
             setGoals(res.data)
         })

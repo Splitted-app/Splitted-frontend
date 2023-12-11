@@ -3,11 +3,18 @@ import '../../css/GoalsPage/GoalsPage.css';
 import Goal from './Goal'
 import Navbar from "../Common/Navbar"
 
+import { useSetRecoilState } from 'recoil';
+
+import { AddGoalPanelVisibilityState } from '../../atoms/AddGoalPanelVisibility';
+
 import ExpensesIcon from '../../assets/images/expenses (1).png'
 import GroceriesIcon from '../../assets/images/grocery.png'
 import ShoppingIcon from '../../assets/images/online-shopping.png'
 import WalletIcon from '../../assets/images/wallet.png'
+
 import useFetchGoals from '../../hooks/useFetchGoals';
+
+
 
 interface GoalInterface
 {
@@ -24,6 +31,8 @@ interface GoalInterface
 
 
 function GoalsPage() {
+
+    const setAddGoalPanelVisibility = useSetRecoilState(AddGoalPanelVisibilityState)
 
     const {data: goals, loading: goalsLoading, error: goalError } : 
         {data: GoalInterface[], loading: boolean, error: boolean} = useFetchGoals();
@@ -47,7 +56,7 @@ function GoalsPage() {
                     </div>
                 </div>
                 <div className='add-goal-button-container'>
-                    <button className='add-goal-button'> Add new goal</button>
+                    <button className='add-goal-button' onClick={()=>setAddGoalPanelVisibility(true)}> Add new goal</button>
                 </div>
                 <div className='title'>
                     Goals                
@@ -59,7 +68,9 @@ function GoalsPage() {
                 </div>
                 <div className='goals-page-current-goals'>
                     {goals.map((goal, i)=>(
-                        <Goal key={i} goal={goal} icon={ExpensesIcon} goalBackgroundColour='#E6B6B6' progressColor='#CC3C3C' color='#474747'/>
+                        <div className='goals-page-goal-item'>
+                            <Goal key={i} goal={goal} icon={ExpensesIcon} goalBackgroundColour='#E6B6B6' progressColor='#CC3C3C' color='#474747'/>
+                        </div>
                     ))}
                     {/* <div className='goals-page-goal-item'>
                         <Goal title={"Expenses Limit:"} amount={"5 000 PLN"} deadline={"01.01.2025"} progress={20} icon={ExpensesIcon} goalBackgroundColour='#E6B6B6' progressColor='#CC3C3C' color='#474747'></Goal>

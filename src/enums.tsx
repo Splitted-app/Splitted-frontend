@@ -14,3 +14,10 @@ export const enum BankNames {
   Other = "Other",
 }
 
+export const enum GoalType {
+  AccountBalance = "AccountBalance",
+  ExpensesLimit = "ExpensesLimit",
+  AverageExpenses = "AverageExpenses",
+  ExpensesLimitInCategory = "ExpensesLimitInCategory",
+  AverageExpensesInCategory = "ExpensesLimitInCategory",
+}
