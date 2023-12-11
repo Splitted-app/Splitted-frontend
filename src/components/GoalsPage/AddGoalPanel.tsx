@@ -99,19 +99,16 @@ function AddGoalPanel() {
             <input type="text" className='field-style' value={data.category} onChange={(e: any) => setData({...data, category: e.target.value })}/>
             </>
           }
-          {/* {!data.goalType.endsWith('InCategory') &&
-            <div/> // placeholder
-          } */}
-          <label>
-            enter date
-          </label>
-          <input type="date" className='field-style' value={data.deadline} onChange={(e: any) => setData({ ...data, deadline: e.target.value })}></input>
           <label>
             enter amount:
           </label>
           <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, amount: e.target.value })} step="0.01"></input>
+          <label>
+            enter date
+          </label>
+          <input type="date" className='field-style' value={data.deadline} onChange={(e: any) => setData({ ...data, deadline: e.target.value })}></input>
           <div className='add-button-container'>
-            <input type='submit' className='add-button' value="Add" />
+            <input type='submit' className='add-button' value="Add"/>
           </div>
         </form>
       </div>

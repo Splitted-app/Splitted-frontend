@@ -13,6 +13,7 @@ import ShoppingIcon from '../../assets/images/online-shopping.png'
 import WalletIcon from '../../assets/images/wallet.png'
 
 import useFetchGoals from '../../hooks/useFetchGoals';
+import { useState } from 'react';
 
 
 
@@ -33,6 +34,7 @@ interface GoalInterface
 function GoalsPage() {
 
     const setAddGoalPanelVisibility = useSetRecoilState(AddGoalPanelVisibilityState)
+    const [pinsVisible, setPinsVisible] = useState<boolean>(false);
 
     const {data: goals, loading: goalsLoading, error: goalError } : 
         {data: GoalInterface[], loading: boolean, error: boolean} = useFetchGoals();
@@ -50,13 +52,22 @@ function GoalsPage() {
                     </div>
                     <div className='main-goal-panel'>
                         {typeof mainGoal !== "string" &&
-                            <Goal goal={mainGoal} icon={WalletIcon} goalBackgroundColour='#81A8C7' progressColor='#3C557E' color='white'/>
+                            <Goal 
+                                goal={mainGoal} 
+                                icon={WalletIcon} 
+                                goalBackgroundColour='#81A8C7' 
+                                progressColor='#3C557E' 
+                                color='white'
+                                pinIconVisible={true}/>
                         }
                         {/* <Goal title={"Account Balance:"} amount={"100 000 PLN"} deadline={"01.01.2025"} progress={90} icon={WalletIcon} goalBackgroundColour='#81A8C7' progressColor='#3C557E' color='white'></Goal> */}
                     </div>
                 </div>
-                <div className='add-goal-button-container'>
-                    <button className='add-goal-button' onClick={()=>setAddGoalPanelVisibility(true)}> Add new goal</button>
+                <div className='toggle-goal-pin-container goal-page-button goal-page-button-container'>
+                    <button className='toggle-goal-pin-button goal-page-button' onClick={()=>setPinsVisible(!pinsVisible)}>{pinsVisible ? "Finish" : "Pin Goal"}</button>
+                </div>
+                <div className='add-goal-button-container goal-page-button-container'>
+                    <button className='add-goal-button goal-page-button' onClick={()=>setAddGoalPanelVisibility(true)}>Add new goal</button>
                 </div>
                 <div className='title'>
                     Goals                
@@ -69,7 +80,13 @@ function GoalsPage() {
                 <div className='goals-page-current-goals'>
                     {goals.map((goal, i)=>(
                         <div className='goals-page-goal-item'>
-                            <Goal key={i} goal={goal} icon={ExpensesIcon} goalBackgroundColour='#E6B6B6' progressColor='#CC3C3C' color='#474747'/>
+                            <Goal key={i} 
+                                goal={goal} 
+                                icon={ExpensesIcon} 
+                                goalBackgroundColour='#E6B6B6' 
+                                progressColor='#CC3C3C' 
+                                color='#474747'
+                                pinIconVisible={pinsVisible}/>
                         </div>
                     ))}
                     {/* <div className='goals-page-goal-item'>
