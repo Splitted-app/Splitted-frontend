@@ -71,6 +71,7 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
             },
         })
         .then((res)=>{
+            setNewData({...newData, isMain: !goal.isMain});
             setGoalUpdater(!goalUpdater);
         })
     }
@@ -134,9 +135,9 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
     {
         try
         {
-            let dateMomentObject = moment(value, "DD/MM/yyyy").toDate();
-            console.log(dateMomentObject.toISOString())
-            setNewData({...newData, deadline: dateMomentObject.toISOString()})
+            let newDate = moment(value, "DD.MM.yyyy").format("YYYY-MM-DDT00:00:00.000") + "Z";;
+            console.log(newDate)
+            setNewData({...newData, deadline: newDate})
         }
         catch
         {
