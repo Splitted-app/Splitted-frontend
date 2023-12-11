@@ -76,6 +76,7 @@ function Transaction({
     const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
     const [newTransactions, setNewTransactions] = useRecoilState<any>(NewTransactionsState);
     const setSplitItPanel = useSetRecoilState(SplitItPanelState);
+    const [recentlySplit, setRecentlySplit] = useState<boolean>(false);
 
     const minified = useMediaQuery({ query: '(max-width: 1300px)'})
     const showAsRows = useMediaQuery({ query: '(max-width: 850px)'})
@@ -189,6 +190,8 @@ function Transaction({
 
     function handleSplitIt()
     {
+      if (recentlySplit)
+        return;
       let availableBudgets: any = []
       axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Partner,Temporary', {
           headers: {
@@ -213,6 +216,10 @@ function Transaction({
                     'Accept': '*',
                     'Authorization': `Bearer ${token}`
                 },
+            })
+            .then((res)=>{
+              setRecentlySplit(true);
+              setTimeout(()=>setRecentlySplit(false), 3000);
             })
             .catch((error)=>{
                 console.log(error);
@@ -311,13 +318,13 @@ function Transaction({
             </div>
             {showSplitItIcon && !showAsRows &&
             <div className='split-it transaction-element' onClick={handleSplitIt}>
-                <img src={SplitItIcon}></img>
+                <img src={recentlySplit ? UpdateTransactionIcon : SplitItIcon}></img>
             </div>
             }
         </div>
         {showSplitItIcon && showAsRows &&
           <div className='split-it transaction-element' onClick={handleSplitIt}>
-              <img src={SplitItIcon}></img>
+              <img src={recentlySplit ? UpdateTransactionIcon : SplitItIcon}></img>
           </div>  
         }
         {showEditButton && <div className='transaction-edit-button-container' >
