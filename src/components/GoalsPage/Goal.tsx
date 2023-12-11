@@ -1,33 +1,42 @@
 import '../../css/GoalsPage/Goal.css';
 
+
 interface GoalInterface
 {
-    title:string,
-    amount:string,
-    deadline:string,
-    progress:number,
+    id: string,
+    amount: number,
+    name: string,
+    category: string,
+    goalType: string,
+    creationDate: string,
+    deadline: string,
+    isMain: boolean,
+    percentage: number
+}
+
+interface GoalTileInterface
+{
+    goal: GoalInterface,
     icon:string,
     goalBackgroundColour:string,
     progressColor:string
     color:string
 }
 
-function Goal({title,amount,deadline,progress,icon, goalBackgroundColour,progressColor,color} : GoalInterface) {
+function Goal({goal,icon, goalBackgroundColour,progressColor,color} : GoalTileInterface) {
     return (
-      <div className="goal" style={{background: `linear-gradient(90deg, ${progressColor} 0%, ${progressColor}  ${progress}%, ${goalBackgroundColour} ${progress}%, ${goalBackgroundColour} 100%)`, color:color}}>
-            {/* <div className='goal-progress-background' style={{width:progress*3, backgroundColor:progressColor, /*borderRadius:(progress<=96)?'40px 0px 0px 40px':(progress ==97)?'40px 6px 6px 40px':(progress == 98)?'40px 20px 20px 40px':(progress == 99)?'40px 30px 30px 40px':'40px'  */}
-            {/* </div> */}
+      <div className="goal" style={{background: `linear-gradient(90deg, ${progressColor} 0%, ${progressColor}  ${goal.percentage}%, ${goalBackgroundColour} ${goal.percentage}%, ${goalBackgroundColour} 100%)`, color:color}}>
             <div className='goal-title'>
-                {title}
+                {goal.name}
             </div>
             <div className='goal-amount'>
-                {amount}
+                {goal.amount}
             </div>
             <div className='goal-deadline'>
-                {deadline}
+                {goal.deadline}
             </div>
             <div className='goal-progress'>
-                {progress}%
+                {goal.percentage}%
             </div>
             <div className='goal-icon-container'>
                 <img src={icon}></img>
