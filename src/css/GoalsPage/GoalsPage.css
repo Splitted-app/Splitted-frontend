@@ -28,7 +28,7 @@
     margin-right: 0;
     display:grid;
     grid-template-rows: 40% 60%;    
-    grid-template-columns:  2% 38% 30% 18% 10% 2%;
+    grid-template-columns: 25px auto 0px 200px 200px 25px;
 
 }
 
@@ -52,20 +52,32 @@
 }
 
 
+.goals-page  .goals-page-content .header .goal-page-button-container
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+    width: 150px;
+}
 
+.goals-page  .goals-page-content .header .toggle-goal-pin-container
+{
+    grid-column-start:4;
+    grid-column-end: 5;
+}
 
 .goals-page  .goals-page-content .header .add-goal-button-container
 {
     grid-column-start:5;
     grid-column-end: 6;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    display: flex;
-    align-items: center;
 }
 
 
-.goals-page  .goals-page-content .header .add-goal-button-container .add-goal-button
+.goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
 {
     font-size: 16px;
     background-color: #20F7C5;
@@ -127,7 +139,13 @@
 .goals-page  .goals-page-content .goals-page-current-goals-panel .goals-page-current-goals .goals-page-goal-item
 {
     display: inline-block;
-    padding: 4%;
+    padding: 35px
+}
+
+.goals-page .main-goal
+{
+    padding: 10px;
+    width: fit-content;
 }
 
 
@@ -135,15 +153,14 @@
 {
     .goals-page  .goals-page-content .header
     {
-        grid-template-columns:  2% 38% 30% 15% 13% 2%;
-
+        grid-template-columns: 25px auto 0px 200px 200px 25px;
     }
     .goals-page  .goals-page-content .header .title
     {
         font-size: 70px;
     }
 
-    .goals-page  .goals-page-content .header .add-goal-button-container .add-goal-button
+    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
     {
         font-size: 12px;
         height: 45px;
@@ -168,7 +185,7 @@
         font-size: 65px;
     }
 
-    .goals-page  .goals-page-content .header .add-goal-button-container .add-goal-button
+    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
     {
         font-size: 12px;
         width: 150px;
@@ -192,7 +209,7 @@
         font-size: 55px;
     }
 
-    .goals-page  .goals-page-content .header .add-goal-button-container .add-goal-button
+    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
     {
         font-size: 10px;
         width: 130px;
@@ -226,7 +243,7 @@
     {
         display: none;
     }
-    .goals-page  .goals-page-content .header .add-goal-button-container .add-goal-button
+    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
     {
         font-size: 10px;
         width: 130px;
@@ -249,13 +266,13 @@
     .goals-page  .goals-page-content .header
     {
 
-        grid-template-columns:  2% 38% 30% 13% 15% 2%;
+        grid-template-columns: 25px auto 0px 200px 200px 25px;
     }
     .goals-page  .goals-page-content .header .title
     {
         font-size: 55px;
     }
-    .goals-page  .goals-page-content .header .add-goal-button-container .add-goal-button
+    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
     {
         font-size: 10px;
         width: 120px;
@@ -274,7 +291,7 @@
 {
     .goals-page  .goals-page-content .header
     {
-        grid-template-columns:  2% 38% auto 13% 100px 20px;
+        grid-template-columns: 25px auto 0px 200px 200px 25px;
     }
 
     .goals-page  .goals-page-content .header .title
@@ -282,12 +299,12 @@
         font-size: 45px;
     }
 
-    .goals-page  .goals-page-content .header .add-goal-button-container
+    .goals-page  .goals-page-content .header .goal-page-button-container
     {
         justify-content: end;
     }
 
-    .goals-page  .goals-page-content .header .add-goal-button-container .add-goal-button
+    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
     {
         font-size: 8px;
         width: 80px;

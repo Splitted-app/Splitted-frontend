@@ -11,6 +11,7 @@ import {Helmet} from "react-helmet";
 
 import AddModePanel from './components/Common/AddModePanel';
 import AddTransactionsPanel from './components/Common/AddTransactionsPanel';
+import AddGoalPanel from './components/GoalsPage/AddGoalPanel';
 import ConfirmEmailPage from './components/RegisterPages/ConfirmEmailPage';
 import FamilyModeAddPanel from './components/Common/FamilyModeAddPanel';
 import FamilyModeFollowUp from './components/Common/FamilyModeFollowUp';
@@ -35,6 +36,7 @@ import PartnerModePage from './components/ModePages/PartnerModePage';
 import PartyModePage from './components/ModePages/PartyModePage';
 
 import { AddFamilyModePanelVisibilityState } from './atoms/AddFamilyModePanelVisibility';
+import { AddGoalPanelVisibilityState } from './atoms/AddGoalPanelVisibility';
 import { AddModesPanelVisibilityState } from './atoms/AddModesPanelVisibility';
 import { AddPartnerModePanelVisibilityState } from './atoms/AddPartnerModePanelVisibility';
 import { AddPartyModePanelVisibilityState } from './atoms/AddPartyModePanelVisibility';
@@ -51,10 +53,12 @@ import { SplitItPanelState } from './atoms/SplitItPanel';
 import { UserTokenState } from './atoms/UserToken';
 
 
+
 function App() {
   const logOutPanelVisibility = useRecoilValue(LogOutPanelVisibilityState);
   const addModesPanelVisibility = useRecoilValue(AddModesPanelVisibilityState);
   const addFamilyModePanelVisibility = useRecoilValue(AddFamilyModePanelVisibilityState);
+  const addGoalPanelVisibility = useRecoilValue(AddGoalPanelVisibilityState);
   const familyModeFollowUpVisibility = useRecoilValue(FamilyModeFollowUpVisibilityState);
   const partnerModeFollowUpVisibility = useRecoilValue(PartnerModeFollowUpVisibilityState);
   const partyModeFollowUpVisibility = useRecoilValue(PartyModeFollowUpVisibilityState);
@@ -78,7 +82,8 @@ function App() {
     familyModeFollowUpVisibility ||
     partnerModeFollowUpVisibility ||
     partyModeFollowUpVisibility ||
-    splitItPanel.visible;
+    splitItPanel.visible ||
+    addGoalPanelVisibility;
   const [token, setToken] = useRecoilState(UserTokenState);
   const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState)
 
@@ -158,6 +163,7 @@ function App() {
           {partnerModeFollowUpVisibility && <PartnerModeFollowUp/>}
           {partyModeFollowUpVisibility && <PartyModeFollowUp/>}
           {splitItPanel.visible && <SplitItPanel/>}
+          {addGoalPanelVisibility && <AddGoalPanel/>}
         </div>
       </div>
     </div>
