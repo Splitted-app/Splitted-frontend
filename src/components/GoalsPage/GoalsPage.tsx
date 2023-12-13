@@ -50,7 +50,7 @@ function GoalsPage() {
                     <div className='main-goal-text'>
                         Your main goal:
                     </div>
-                    <div className='goals-page-goal-item'>
+                    <div className='main-goal'>
                         {typeof mainGoal !== "string" &&
                             <Goal 
                                 goal={mainGoal} 
@@ -58,7 +58,7 @@ function GoalsPage() {
                                 goalBackgroundColour='#81A8C7' 
                                 progressColor='#3C557E' 
                                 color='white'
-                                pinIconVisible={true}/>
+                                pinIconVisible={pinsVisible}/>
                         }
                     </div>
                 </div>

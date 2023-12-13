@@ -139,7 +139,13 @@
 .goals-page  .goals-page-content .goals-page-current-goals-panel .goals-page-current-goals .goals-page-goal-item
 {
     display: inline-block;
-    padding: 4%;
+    padding: 35px
+}
+
+.goals-page .main-goal
+{
+    padding: 10px;
+    width: fit-content;
 }
 
 

@@ -57,6 +57,8 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
 
     function handleTogglePin()
     {
+        if (!pinIconVisible)
+            return;
         axios.put(process.env.REACT_APP_API_URL + `/api/goals/${goal.id}`,
         JSON.stringify({
             amount: goal.amount,
@@ -176,7 +178,7 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
                 <button onClick={handleDeleteGoal}>
                     <img src={DeleteGoalIcon}/>
                 </button>
-                {pinIconVisible &&
+                {(pinIconVisible || goal.isMain) &&
                 <button onClick={handleTogglePin}>
                     <img src={goal.isMain ? MainGoalPinIcon : PinIcon}/>
                 </button>
