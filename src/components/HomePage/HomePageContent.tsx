@@ -45,8 +45,11 @@ function HomePageContent() {
             target.scrollLeft = 0;
         }
 
-        if (budgetId === undefined)
-            setSignUpFollowUpVisibility(true);
+        if (budgetId === null)
+            setTimeout(()=>{
+                console.log(budgetId);
+                // setSignUpFollowUpVisibility(budgetId === null)
+            }, 2000);
         else
             setSignUpFollowUpVisibility(false);
 

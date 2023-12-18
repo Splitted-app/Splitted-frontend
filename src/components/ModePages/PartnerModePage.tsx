@@ -44,7 +44,6 @@ function PartnerModePage() {
         gridTemplateRows: filterMenuVisibility
         ? '33% 15% 25% auto':
         '33% 15% auto'
-
     }
 
     function handleFilterButton()
@@ -75,7 +74,7 @@ function PartnerModePage() {
                         <LoadingPanel error={budget.error || transactions.loading}/>
                     }
                     {!budget.loading && !budget.error && !transactions.loading && !transactions.loading &&
-                        <DebtPanel amount={transactions.data.debt} currency={budget.data.currency}/>
+                        <DebtPanel amount={transactions.data.debt}/>
                     }
                     
                 </div>
