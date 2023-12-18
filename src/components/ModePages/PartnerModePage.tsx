@@ -44,7 +44,6 @@ function PartnerModePage() {
         gridTemplateRows: filterMenuVisibility
         ? '33% 15% 25% auto':
         '33% 15% auto'
-
     }
 
     function handleFilterButton()

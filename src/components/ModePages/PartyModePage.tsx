@@ -8,11 +8,13 @@ import { useParams } from 'react-router';
 import DebtPanel from './DebtPanel';
 import Navbar from "../Common/Navbar";
 import LoadingPanel from '../Common/LoadingPanel';
+import TransactionList from '../Common/TransactionList';
 
 import useFetchBudget from '../../hooks/useFetchBudget';
 import useFetchTransactions from '../../hooks/useFetchTransactions';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+
 
 
 function PartyModePage() {
@@ -30,7 +32,7 @@ function PartyModePage() {
         minAmount: "",
         maxAmount: "",
     })
-    const {data, loading, error } = useFetchTransactions(dateRange, category, amountRange);
+    const transactions = useFetchTransactions(dateRange, category, amountRange, id);
 
     const [filterData, setFilterData] = useState<any>({
         startDate: new Date(new Date().setMonth(new Date().getMonth()-6)),
@@ -43,7 +45,6 @@ function PartyModePage() {
         gridTemplateRows: filterMenuVisibility
         ? '33% 15% 25% auto':
         '33% 15% auto'
-
     }
 
     function handleFilterButton()
@@ -129,6 +130,23 @@ function PartyModePage() {
                     </button>
                 </div>
             </div>}
+            <div className='transactions-list'>
+                {!transactions.loading &&
+                    <TransactionList 
+                        transactions={transactions.data.transactions} 
+                        shadow={false} 
+                        showTransactionType={true} 
+                        showDate={true} 
+                        showDeleteIcon={false} 
+                        showDeleteTransactionRadioButton={false}
+                        showEditButton={false}
+                        showSplitItIcon={false}
+                        markDuplicates={false}></TransactionList>
+                }
+                {transactions.loading &&
+                    <LoadingPanel error={transactions.error}/>
+                }
+            </div>
         </div>
         }
       </div>
