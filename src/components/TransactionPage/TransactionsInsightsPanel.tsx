@@ -23,10 +23,10 @@ function TransactionsInsightsPanel({expenses,income}:TransactionsInsightsPanelIn
 
     return (
       <div className="transactions-insights-panel">
-        <div className='transactions-insights-panel-title'>
+        <div className='transactions-insights-panel-title' data-testid="transactions-insights-panel-title">
             Analysis:
         </div>
-        <div className='transactions-insights-panel-chart'>
+        <div className='transactions-insights-panel-chart' data-testid="transactions-insights-panel-chart">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart width={500} height={300} data={data} layout="vertical" margin={{top: 20, right: 100,left: 0, bottom: 15}}  barGap={0}>
             <XAxis type="number" hide />

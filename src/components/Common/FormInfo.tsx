@@ -16,7 +16,7 @@ function FormInfo({message, details, textColor} : FormInfoInterface)
     const [detailsDisplay, setDetailsDisplay] = useState("none")
 
     return (
-        <div className='form-error' style={{color: textColor}}>
+        <div className='form-error' style={{color: textColor}} data-testid="error-message">
             <div className='icon-container'>
                 <img src={errorIcon}></img>
             </div>

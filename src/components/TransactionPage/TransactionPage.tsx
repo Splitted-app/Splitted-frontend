@@ -116,29 +116,29 @@ function TransactionPage() {
         <Navbar></Navbar>
         <div className='transaction-page-content' style={gridStyle}>
             <div className='header'>
-                <div className='insights-panel'>
+                <div className='insights-panel' data-testid="transactions-page-insights-panel">
                     <TransactionsInsightsPanel expenses={data.expenses} income={data.income}/>
                 </div>
                 <div className='transaction-page-content-buttons'>
                     <div className="add-transactions-button-container">
-                        <button className='add-transactions-button' onClick={()=>{setAddTransactionsPanelVisibility(true)}}> Add Transactions</button>
+                        <button className='add-transactions-button' onClick={()=>{setAddTransactionsPanelVisibility(true)}} data-testid="transactions-page-add-transactions-button"> Add Transactions</button>
                     </div>
                     <div className="delete-transactions-button-container">
-                        <button className={`${showDeleteTransactionRadioButton ? "active-delete-transactions-button": "delete-transactions-button"}`} onClick={handleDeleteTransactions} /*style={(showDeleteTransactionRadioButton)?ConfirmDeleteTransactionsButtonStyle:DeleteTransactionsButtonStyle}*/>Delete Transactions</button>
+                        <button className={`${showDeleteTransactionRadioButton ? "active-delete-transactions-button": "delete-transactions-button"}`} onClick={handleDeleteTransactions} data-testid="transactions-page-delete-transactions-button" /*style={(showDeleteTransactionRadioButton)?ConfirmDeleteTransactionsButtonStyle:DeleteTransactionsButtonStyle}*/>Delete Transactions</button>
                     </div>
                 </div>
-                <div className='title'>
+                <div className='title' data-testid="transactions-page-header-title">
                         Transactions
                 </div>
             </div>
-            <div className='transaction-page-show-filter-menu'>
+            <div className='transaction-page-show-filter-menu' data-testid="transactions-page-show-filter-menu">
                 Show filter menu
-                <div className='transaction-page-show-filter-menu-icon' onClick={()=>{setFilterMenuVisibility(!filterMenuVisibility)}}>
+                <div className='transaction-page-show-filter-menu-icon' onClick={()=>{setFilterMenuVisibility(!filterMenuVisibility)}} data-testid="transactions-page-show-filter-menu-button">
                     <img src={DownArrowIcon}></img>
                 </div>
             </div>
             {filterMenuVisibility && 
-            <div className='transaction-page-filter-menu'>
+            <div className='transaction-page-filter-menu' data-testid="transactions-page-filter-menu">
                 <div className='transaction-page-date-filter-menu transaction-page-filter-menu-element' style={{gridTemplateColumns:'20% 40% 40%'}}>
                     Dates:
                     <div className='transaction-page-start-date-filter-menu'>
@@ -180,7 +180,7 @@ function TransactionPage() {
                     </button>
                 </div>
             </div>}
-            <div className='transactions-list'>
+            <div className='transactions-list' data-testid="transactions-page-transactions-list">
                 {!loading &&
                     <TransactionList 
                         transactions={data.transactions} 

@@ -80,7 +80,7 @@ function EmailForm({ data, setData, setState }: RegisterFormInterface) {
                         onChange={(e) => {
                             setData({ ...data, email: e.target.value });
                             !firstTry && validateData({ ...data, email: e.target.value });
-                        }} />
+                        }} data-testid="email-form-input-field" />
                     <div className="form-element">
                         {errors.invalidEmail && 
                             <FormInfo message="Invalid Email" details="" textColor="white"/>}
@@ -90,7 +90,7 @@ function EmailForm({ data, setData, setState }: RegisterFormInterface) {
                     </div>
                 </div>
                 <div className="form-button-container">
-                    <input type='submit' className='register-button' value="Continue" />
+                    <input type='submit' className='register-button' value="Continue" data-testid="email-form-continue-button"/>
                 </div>
             </div>
         </form>

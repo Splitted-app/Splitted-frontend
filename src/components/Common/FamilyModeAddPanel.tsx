@@ -48,7 +48,7 @@ function FamilyModeAddPanel() {
     }
 
     return (
-      <div className="family-mode-add-panel">
+      <div className="family-mode-add-panel" data-testid="family-mode-add-panel">
         <div className='close-button-container'>
           <CloseButton setVisibility={setAddFamilyModePanelVisibility}/>
         </div>

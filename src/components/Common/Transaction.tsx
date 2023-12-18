@@ -272,11 +272,12 @@ function Transaction({
                   contentEditable={editable} 
                   onInput={(e:any)=>{setUserCategory(e.currentTarget.textContent)}}
                   suppressContentEditableWarning={true}
-                  onBlur={(e) => {adjustContent(e.target)}}>
+                  onBlur={(e) => {adjustContent(e.target)}}
+                  data-testid="category-field">
                 {(transaction.userCategory)? transaction.userCategory : (transaction.bankCategory)? transaction.bankCategory : transaction.autoCategory}
             </div>
             {showTransactionType && !minified &&
-            <div className={`transactionType transaction-element element-margin ${editable ? "editable-content" : ""}`}>
+            <div className={`transactionType transaction-element element-margin ${editable ? "editable-content" : ""}`} data-testid="transaction-type-field">
                 {!editable && transaction.transactionType}
                 {editable && 
                 <select value={transactionType} onChange={(e)=>{setTransactionType(e.target.value)}}>
@@ -288,11 +289,11 @@ function Transaction({
             </div>
             }
             {showDate && !minified &&
-            <div className='date transaction-element'>
+            <div className='date transaction-element' data-testid="date-field">
               {Moment(transaction.date).format('DD.MM.yyyy')}
             </div>}
             {showUser && !minified &&
-            <div className='user transaction-element'>
+            <div className='user transaction-element' data-testid="user-field">
                 User
             </div>
             }
@@ -301,10 +302,11 @@ function Transaction({
                   contentEditable={editable} 
                   onInput={(e:any)=>{setDescription(e.currentTarget.textContent)}}
                   suppressContentEditableWarning={true}
-                  onBlur={(e) => {adjustContent(e.target)}}>
+                  onBlur={(e) => {adjustContent(e.target)}}
+                  data-testid="description-field">
                 {transaction.description}
             </div>
-            <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} >
+            <div className='amount transaction-element' style={{color:(amount>=0)? "#35B736" : "#CB3939"}} data-testid="amount-field">
                 <div className={`transaction-element ${editable ? "editable-content" : ""}`}
                       contentEditable={editable}  
                       onInput={(e:any)=>{handleAmountChanged(e.currentTarget.textContent)}}
@@ -327,7 +329,7 @@ function Transaction({
               <img src={recentlySplit ? UpdateTransactionIcon : SplitItIcon}></img>
           </div>  
         }
-        {showEditButton && <div className='transaction-edit-button-container' >
+        {showEditButton && <div className='transaction-edit-button-container' data-testid="transaction-edit-button">
             <button onClick={handleEditTransactionButton}>
                 <img src={(editable)?UpdateTransactionIcon:EditTransactionIcon} /*style={{width:(showDeleteIcon)?"80%" : "50%"}}*/></img>
             </button>

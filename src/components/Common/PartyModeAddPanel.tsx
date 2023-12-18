@@ -85,7 +85,7 @@ function PartyModeAddPanel() {
   }
 
     return (
-      <div className="party-mode-add-panel">
+      <div className="party-mode-add-panel" data-testid="party-mode-add-panel">
         <div className='party-mode-add-panel-header'>
           <div className='title'>
             <div className='main-title'>

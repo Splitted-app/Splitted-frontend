@@ -11,7 +11,7 @@ import RegisterFormDataInterface from './RegisterFormDataInterface';
 function RegisterPage() {
 
   const [data, setData] = useState<RegisterFormDataInterface>({
-    email: "user@example.com",
+    email: "",
     password: "",
     nickname: ""
   })

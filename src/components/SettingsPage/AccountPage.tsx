@@ -9,7 +9,7 @@ function AccountPage() {
     const user = useFetchUser();
 
     return (
-      <div className="account-page">
+      <div className="account-page" data-testid="account-page">
         <div className='account-page-header'>
           <div className='user-panel'>
             <UserAccountPanel/>

@@ -150,7 +150,7 @@ function InsightsPage() {
         <Navbar></Navbar>
         <div className='insights-page-content'  style={gridStyle}>
             <div className='header'>
-                <div className='income-expenses-chart'>
+                <div className='income-expenses-chart' data-testid="insights-page-header-income-expenses-chart">
                 {incomeExpenses.loading && <LoadingPanel error={incomeExpenses.error}/>}
                 {!incomeExpenses.loading &&
                 <ResponsiveContainer width="100%" height="100%">
@@ -181,18 +181,18 @@ function InsightsPage() {
                 </ResponsiveContainer>
                 }
                 </div>         
-                <div className='title'>
+                <div className='title' data-testid="insights-page-header-title">
                         Insights
                 </div>
             </div>
-            <div className='insights-page-show-filter-menu'>
+            <div className='insights-page-show-filter-menu' data-testid="insights-page-show-filter-menu">
                 Show filter menu
-                <div className='insights-page-show-filter-menu-icon' onClick={()=>{setFilterMenuVisibility(!filterMenuVisibility)}}>
+                <div className='insights-page-show-filter-menu-icon' onClick={()=>{setFilterMenuVisibility(!filterMenuVisibility)}} data-testid="insights-page-show-filter-menu-button">
                     <img src={DownArrowIcon}></img>
                 </div>
             </div>
             {filterMenuVisibility && 
-            <div className='insights-page-filter-menu'>
+            <div className='insights-page-filter-menu' data-testid="insights-page-filter-menu">
                 <div className='insights-page-date-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% 40% 40%'}}>
                     Dates:
                     <div className='insights-page-start-date-filter-menu'>
@@ -234,7 +234,7 @@ function InsightsPage() {
                 </div>
             </div>}
             <div className='insights-page-main-charts'>
-                <div className='insights-page-main-charts-linear-balance-chart'>
+                <div className='insights-page-main-charts-linear-balance-chart' data-testid="insights-page-linear-balance-chart">
                     <div className='line-chart-title'>
                         Balance
                     </div>
@@ -249,7 +249,7 @@ function InsightsPage() {
                     </ResponsiveContainer>
                     }
                 </div>
-                <div className='insights-page-main-charts-pie-chart'>
+                <div className='insights-page-main-charts-pie-chart' data-testid="insights-page-pie-chart">
                     <div className='pie-chart-title'>
                         Expenses in Categories Distribution
                     </div>
@@ -291,7 +291,7 @@ function InsightsPage() {
                     </ResponsiveContainer>
                     }
                 </div>
-                <div className='insights-page-main-charts-income-expenses'>
+                <div className='insights-page-main-charts-income-expenses' data-testid="insights-page-income-expeneses-chart">
                     <div className='bar-chart-title'>
                         Income & Expenses
                     </div>
@@ -308,7 +308,7 @@ function InsightsPage() {
                     </ResponsiveContainer>
                     }
                 </div>
-                <div className='insights-page-main-charts-expenses-distribution'>
+                <div className='insights-page-main-charts-expenses-distribution' data-testid="insights-page-expenses-distribution-chart">
                     <div className='expenses-chart-title'>
                         Expenses Distribution
                     </div>
@@ -323,7 +323,7 @@ function InsightsPage() {
                     </ResponsiveContainer>
                     }
                 </div>
-                <div className='insights-page-main-charts-statistics-panel'>
+                <div className='insights-page-main-charts-statistics-panel' data-testid="insights-page-statistics-panel">
                     <StatisticsPanel category={category} dateRange={dateRange}/>
                 </div>
             </div>

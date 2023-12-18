@@ -149,38 +149,40 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
     }
 
     return (
-      <div className="goal" style={{background: `linear-gradient(90deg, ${progressColor} 0%, ${progressColor}  ${goal.percentage}%, ${goalBackgroundColour} ${goal.percentage}%, ${goalBackgroundColour} 100%)`, color:color}}>
-            <div className='goal-title'>
+      <div className="goal" style={{background: `linear-gradient(90deg, ${progressColor} 0%, ${progressColor}  ${goal.percentage}%, ${goalBackgroundColour} ${goal.percentage}%, ${goalBackgroundColour} 100%)`, color:color}} data-testid="goal">
+            <div className='goal-title' data-testid="goal-name">
                 {goal.name}
             </div>
             <div className={`goal-amount ${editable ? "editable-content" : ""}`}
                 contentEditable={editable} 
                 onInput={(e:any)=>handleAmountChanged(e.currentTarget.textContent)}
-                suppressContentEditableWarning={true}>
+                suppressContentEditableWarning={true}
+                data-testid="goal-amount">
                 {goal.amount}
             </div>
             <div className={`goal-deadline ${editable ? "editable-content" : ""}`}
                 contentEditable={editable}
                 onInput={(e:any)=>handleDateChanges(e.currentTarget.textContent)}
-                suppressContentEditableWarning={true}>
+                suppressContentEditableWarning={true}
+                data-testid="goal-deadline">
                 {Moment(goal.deadline).format('DD.MM.yyyy')}
             </div>
-            <div className='goal-progress'>
+            <div className='goal-progress' data-testid="goal-progress">
                 {goal.percentage}%
             </div>
-            <div className='goal-icon-container'>
+            <div className='goal-icon-container' data-testid="goal-icon">
                 <img src={icon}></img>
             </div>
             <div className='buttons'>    
-                <button onClick={handleEditButton}>
+                <button onClick={handleEditButton} data-testid="goal-edit-icon">
                     <img src={editable ? UpdateGoalIcon : EditGoalIcon}/>
                 </button>
-                <button onClick={handleDeleteGoal}>
+                <button onClick={handleDeleteGoal} data-testid="goal-delete-icon">
                     <img src={DeleteGoalIcon}/>
                 </button>
                 {(pinIconVisible || goal.isMain) &&
-                <button onClick={handleTogglePin}>
-                    <img src={goal.isMain ? MainGoalPinIcon : PinIcon}/>
+                <button onClick={handleTogglePin} data-testid="main-goal-icon">
+                    <img src={goal.isMain ? MainGoalPinIcon : PinIcon} />
                 </button>
                 }
             </div>

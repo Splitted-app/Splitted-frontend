@@ -71,8 +71,8 @@ const renderActiveShape = (props:any) => {
     [setActiveIndex]
   ); 
     return (
-      <div className="insights-overview">
-        <div className='panel-title'>
+      <div className="insights-overview" data-testid="home-page-insights-overview">
+        <div className='panel-title' data-testid="home-page-insights-overview-title">
             Insights
         </div>
         <div className='insights-overview-content'>

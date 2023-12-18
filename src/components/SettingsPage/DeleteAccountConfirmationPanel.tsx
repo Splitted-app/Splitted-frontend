@@ -44,7 +44,7 @@ function LogOutConfirmationPanel() {
     }
 
     return (
-      <div className="delete-account-confirmation-panel">
+      <div className="delete-account-confirmation-panel" data-testid="delete-account-confirmation-panel">
         <div className='title'>
           <div className='main-title'>
             Delete account

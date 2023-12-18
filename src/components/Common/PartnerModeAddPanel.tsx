@@ -46,7 +46,7 @@ function PartnerModeAddPanel() {
     }
 
     return (
-      <div className="partner-mode-add-panel">
+      <div className="partner-mode-add-panel" data-testid="partner-mode-add-panel">
         <div className='close-button-container'>
           <CloseButton setVisibility={setAddPartnerModePanelVisibility}/>
         </div>

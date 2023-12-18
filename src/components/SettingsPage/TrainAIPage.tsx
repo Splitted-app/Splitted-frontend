@@ -51,7 +51,7 @@ function TrainAIPage() {
     }
 
     return (
-      <div className="train-ai-page">
+      <div className="train-ai-page" data-testid="train-ai-page">
         <div className='train-ai-page-header'>
             <div className='train-ai-page-title'>
                 <div className='train-ai-page-maintitle'>

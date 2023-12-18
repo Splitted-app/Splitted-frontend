@@ -33,7 +33,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
         </div>
         <div className='statistics-panel-main-content'>
             <div className='statistics-element'>
-                <div className='max-value'>
+                <div className='max-value' data-testid="statistics-panel-max-value">
                     Max value:
                 </div>
                 <div className='statistics-element-amount'>
@@ -41,7 +41,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
                 </div>
             </div>
             <div className='statistics-element'>
-                <div className='q3'>
+                <div className='q3' data-testid="statistics-panel-q3">
                     Q3:
                 </div>
                 <div className='statistics-element-amount'>
@@ -49,7 +49,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
                 </div>
             </div>
             <div className='statistics-element'>
-                <div className='mean-value'>
+                <div className='mean-value' data-testid="statistics-panel-mean-value">
                     Mean:
                 </div>
                 <div className='statistics-element-amount'>
@@ -57,7 +57,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
                 </div>
             </div>
             <div className='statistics-element'>
-                <div className='q1'>
+                <div className='q1' data-testid="statistics-panel-q1">
                     Q1:
                 </div>
                 <div className='statistics-element-amount'>
@@ -65,7 +65,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
                 </div>
             </div>
             <div className='statistics-element'>
-                <div className='min-value'>
+                <div className='min-value' data-testid="statistics-panel-min-value">
                     Min value:
                 </div>
                 <div className='statistics-element-amount'>

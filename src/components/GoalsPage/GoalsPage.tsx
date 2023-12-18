@@ -46,11 +46,11 @@ function GoalsPage() {
         <Navbar></Navbar>
         <div className='goals-page-content'>
             <div className='header'>
-                <div className='main-goal-container'>
-                    <div className='main-goal-text'>
+                <div className='main-goal-container' data-testid="goals-page-main-goal-container">
+                    <div className='main-goal-text' data-testid="goals-page-main-goal-container-text">
                         Your main goal:
                     </div>
-                    <div className='main-goal'>
+                    <div className='main-goal' data-testid="goals-page-main-goal">
                         {typeof mainGoal !== "string" &&
                             <Goal 
                                 goal={mainGoal} 
@@ -63,20 +63,20 @@ function GoalsPage() {
                     </div>
                 </div>
                 <div className='toggle-goal-pin-container goal-page-button goal-page-button-container'>
-                    <button className='toggle-goal-pin-button goal-page-button' onClick={()=>setPinsVisible(!pinsVisible)}>{pinsVisible ? "Finish" : "Select Main Goal"}</button>
+                    <button className='toggle-goal-pin-button goal-page-button' onClick={()=>setPinsVisible(!pinsVisible)} data-testid="goals-page-select-main-goal-button">{pinsVisible ? "Finish" : "Select Main Goal"}</button>
                 </div>
                 <div className='add-goal-button-container goal-page-button-container'>
-                    <button className='add-goal-button goal-page-button' onClick={()=>setAddGoalPanelVisibility(true)}>Add new goal</button>
+                    <button className='add-goal-button goal-page-button' onClick={()=>setAddGoalPanelVisibility(true)} data-testid="goals-page-add-new-goal-button">Add new goal</button>
                 </div>
-                <div className='title'>
+                <div className='title' data-testid="goals-page-header-title">
                     Goals                
                 </div>
             </div>
-            <div className='goals-page-current-goals-panel'>
-                <div className='goals-page-current-goals-title'>
+            <div className='goals-page-current-goals-panel' data-testid="goals-page-current-goals-section">
+                <div className='goals-page-current-goals-title' data-testid="goals-page-current-goals-section-title">
                     Your current goals
                 </div>
-                <div className='goals-page-current-goals'>
+                <div className='goals-page-current-goals' data-testid="goals-page-current-goals">
                     {goals.map((goal, i)=>(
                         <div className='goals-page-goal-item'>
                             <Goal key={i} 

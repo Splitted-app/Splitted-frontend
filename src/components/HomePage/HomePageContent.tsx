@@ -55,24 +55,24 @@ function HomePageContent() {
 
     return (
       <div className="home-page-content">
-        <div className='reminders-container'>
+        <div className='reminders-container' data-testid="home-page-reminders-panel">
             <Reminders></Reminders>
         </div>
         <div className='information-panel'>
-            <div className='your-balance'>
+            <div className='your-balance' data-testid="home-page-your-balance-text">
                 Your balance:
             </div>
             <div className='amount'>
-                <div id="balance" className='bankBalance'>
+                <div id="balance" className='bankBalance' data-testid="home-page-bank-balance-text">
                     {amountFormatter(bankBalance)}
                 </div>
-                <div className='currency'>
+                <div className='currency'  data-testid="home-page-currency-text">
                     {currency}
                 </div>
             </div>
         </div>
         <div className='left-arrow'>
-            <button className='arrow-button' onClick={handleLeftArrowButton}>
+            <button className='arrow-button' onClick={handleLeftArrowButton} data-testid="home-page-left-arrow-button">
                 <img src={leftarrow} className='navigation-arrow'/>
             </button>
         </div>
@@ -80,8 +80,8 @@ function HomePageContent() {
             <Overview typeId={overviewTypeId}></Overview>
         </div>
         <div className='right-arrow'>
-            <button className='arrow-button' onClick={handleRightArrowButton}>
-            <img src={rightarrow} className='navigation-arrow'/>
+            <button className='arrow-button' onClick={handleRightArrowButton} data-testid="home-page-right-arrow-button">
+                <img src={rightarrow} className='navigation-arrow'/>
             </button>
         </div>
       </div>
