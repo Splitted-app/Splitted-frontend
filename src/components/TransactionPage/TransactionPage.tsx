@@ -51,9 +51,10 @@ function TransactionPage() {
     },[])
 
     const userBudgets = useFetchUserBudgets()
-    const [userIsInPartnerBudget, setUserIsInPartnerBudget] = useState<boolean>(false);
+    const [userIsInSplittableBudget, setUserIsInSplittableBudget] = useState<boolean>(false);
     useEffect(()=>{
-        setUserIsInPartnerBudget(userBudgets.find((budget: any) => budget.budgetType === 'Partner'));
+        setUserIsInSplittableBudget(userBudgets.find(
+            (budget: any) => budget.budgetType === 'Partner' || budget.budgetType === 'Temporary'));
     }, [userBudgets])
       
     
@@ -190,7 +191,7 @@ function TransactionPage() {
                         showDeleteIcon={false} 
                         showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}
                         showEditButton={true}
-                        showSplitItIcon={userIsInPartnerBudget}
+                        showSplitItIcon={userIsInSplittableBudget}
                         markDuplicates={false}></TransactionList>
                 }
                 {loading &&
