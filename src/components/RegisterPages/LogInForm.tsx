@@ -79,7 +79,7 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
                     <input className="form-element"
                         type="password" name="password" placeholder='password'
                         value={data.password}
-                        onChange={(e) => setData({ ...data, password: e.target.value })} />
+                        onChange={(e) => setData({ ...data, password: e.target.value })} data-testid="log-in-form-password-input"/>
                     <div className="form-element">
                         {errors.invalidPassword && 
                             <FormInfo 
@@ -89,7 +89,7 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
                     </div>
                 </div>
                 <div className="form-button-container">
-                    <input type='submit' className='register-button' value="Log In" />
+                    <input type='submit' className='register-button' value="Log In" data-testid="log-in-form-log-in-button"/>
                 </div>
             </div>
         </form>

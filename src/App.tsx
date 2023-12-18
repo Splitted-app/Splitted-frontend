@@ -121,11 +121,11 @@ function App() {
         navigate('/');
       });
     
-    refreshRequest();
-    setInterval(() => {
-      console.log("Refreshing token...")
-      refreshRequest();
-    }, 120000);
+    // refreshRequest();
+    // setInterval(() => {
+    //   console.log("Refreshing token...")
+    //   refreshRequest();
+    // }, 120000);
   },[])
 
   return (

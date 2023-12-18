@@ -54,14 +54,14 @@ function Overview({typeId} : OverviewInterface) {
   }
     return (
       <div className="overview">
-        <div className='time-scale-selector-container'>
+        <div className='time-scale-selector-container' data-testid="overview-time-scale-selector">
             <DateRangeSelector 
             currentDate={currentDate} 
             dateRange={dateRange}
             setDateRange={setDateRange}
             setTimeScale={setTimeScale}></DateRangeSelector>
           </div>
-          <div className='simple-time-span-selector-container'>
+          <div className='simple-time-span-selector-container' data-testid="overview-time-span-selector">
             <div className='left-arrow'>
               <button className='arrow-button' onClick={() => handleArrow(-1)}>
                 <img src={leftarrow} className='navigation-arrow'/>

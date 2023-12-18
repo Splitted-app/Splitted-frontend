@@ -30,30 +30,32 @@ function SettingsPageNavbar({setAccountPageVisibility,setTrainAIPageVisibility, 
 
 
   return (
-      <div className="settings-page-navbar">
+      <div className="settings-page-navbar" data-testid="settings-page-navbar">
         <div className='settings-page-navbar-header'>
-          <div className='old-menu-icon' onClick={()=>{setNavbarVisibility(true); setSettingsNavbarVisibility(false)}}>
+          <div className='old-menu-icon' onClick={()=>{setNavbarVisibility(true); setSettingsNavbarVisibility(false)}} data-testid="settings-page-navbar-change-icon">
             <img src={MenuIcon}></img>
           </div>
-          <NavbarItem name="Splitted" font="CeraPro bold" fontSize="25px" link="/home" icon={SplitIcon}></NavbarItem>
+          <div data-testid="settings-page-navbar-header-title-and-icon">
+            <NavbarItem name="Splitted" font="CeraPro bold" fontSize="25px" link="/home" icon={SplitIcon}></NavbarItem>
+          </div>
         </div>
         <div className='settings-page-navbar-main-content'>
           <div className='settings-page-navbar-main-content-title'>
             Settings
           </div>
           <div className='settings-page-navbar-subsides'>
-            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(true); setFriendsPageVisibility(false); setTrainAIPageVisibility(false)}}>
+            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(true); setFriendsPageVisibility(false); setTrainAIPageVisibility(false)}} data-testid="settings-page-navbar-account-page-button">
               <SettingsPageNavbarItem title="Account"/>
             </button>
-            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(false); setFriendsPageVisibility(false); setTrainAIPageVisibility(true)}}>
+            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(false); setFriendsPageVisibility(false); setTrainAIPageVisibility(true)}} data-testid="settings-page-navbar-ai-model-page-button">
               <SettingsPageNavbarItem title="AI Model"/>
             </button>
-            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(false); setFriendsPageVisibility(true); setTrainAIPageVisibility(false)}}>
+            <button className='settings-page-navbar-subsides-button' onClick={(e)=>{setAccountPageVisibility(false); setFriendsPageVisibility(true); setTrainAIPageVisibility(false)}} data-testid="settings-page-navbar-friends-page-button">
               <SettingsPageNavbarItem title="Friends"/>
             </button>
           </div>
         </div>
-        <div className='settings-page-navbar-footer'  onClick={(e)=>{setDeleteAccountPanelVisibility(true);}}>
+        <div className='settings-page-navbar-footer'  onClick={(e)=>{setDeleteAccountPanelVisibility(true);}} data-testid="delete-account-button">
           <div className='delete-account-icon'>
             <img src={DeleteAccountIcon}></img>
           </div>

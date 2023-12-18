@@ -21,8 +21,8 @@ function TransactionsOverview({dateRange}:TransactionsOverviewInterface) {
 
 
     return (
-      <div className="transactions-overview">
-            <div className='panel-title'>
+      <div className="transactions-overview" data-testid="home-page-transactions-overview">
+            <div className='panel-title' data-testid="home-page-transactions-overview-title">
               Transactions
             </div>
             <div className='transaction-list-container'>
@@ -44,7 +44,7 @@ function TransactionsOverview({dateRange}:TransactionsOverviewInterface) {
               
             </div>
             <div className='add-transaction-button-container'>
-              <button className='add-transaction-button' onClick={()=>{setAddTransactionsPanelVisibility(true)}}>+</button>
+              <button className='add-transaction-button' onClick={()=>{setAddTransactionsPanelVisibility(true)}} data-testid="transactions-overview-add-transaction-button">+</button>
             </div>
           </div>
     );

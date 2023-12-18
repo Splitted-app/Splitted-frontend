@@ -8,7 +8,7 @@ import FriendsIcon from '../../assets/images/friends_settings.png'
 
 function FriendsPage() {
     return (
-      <div className="friends-page">
+      <div className="friends-page" data-testid="friends-page">
         <div className='friends-page-header'>
           <div className='friends-page-icon'>
             <img src={FriendsIcon}></img>

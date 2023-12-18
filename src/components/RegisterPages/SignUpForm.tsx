@@ -166,7 +166,7 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
                         onChange={(e) => {
                             setData({ ...data, password: e.target.value });
                             !firstTry && validateData({ ...data, password: e.target.value });
-                        }} />
+                        }} data-testid="sign-up-form-password-input"/>
                     <div className="form-error-container" style={{ display: `${errors.pwdNoLowerCase ? "block" : "none"}` }}>
                         {errors.pwdNoLowerCase && 
                             <FormInfo message="Use a lowercase letter" details="" textColor="white"/>}
@@ -193,7 +193,7 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
                         onChange={(e) => {
                             setData({ ...data, nickname: e.target.value })
                             !firstTry && validateData({ ...data, nickname: e.target.value });
-                        }} />
+                        }} data-testid="sign-up-form-username-input"/>
                     <div className="form-error-container" style={{ display: `${errors.nicknameTooShort ? "block" : "none"}` }}>
                         {errors.nicknameTooShort && 
                             <FormInfo message="Use at least 3 symbols" details="" textColor="white"/>}
@@ -204,7 +204,7 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
                     </div>
                 </div>
                 <div className="form-button-container">
-                    <input type='submit' className='register-button' value="Sign Up" />
+                    <input type='submit' className='register-button' value="Sign Up" data-testid="sign-up-form-sign-up-button"/>
                 </div>
             </div>
         </form>
