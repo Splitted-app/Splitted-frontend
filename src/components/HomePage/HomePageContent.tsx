@@ -45,8 +45,8 @@ function HomePageContent() {
             target.scrollLeft = 0;
         }
 
-        if (budgetId === undefined)
-            setSignUpFollowUpVisibility(true);
+        if (budgetId === null)
+            setTimeout(()=>setSignUpFollowUpVisibility(true), 500);
         else
             setSignUpFollowUpVisibility(false);
 
