@@ -46,7 +46,10 @@ function HomePageContent() {
         }
 
         if (budgetId === null)
-            setTimeout(()=>setSignUpFollowUpVisibility(true), 500);
+            setTimeout(()=>{
+                console.log(budgetId);
+                // setSignUpFollowUpVisibility(budgetId === null)
+            }, 2000);
         else
             setSignUpFollowUpVisibility(false);
 

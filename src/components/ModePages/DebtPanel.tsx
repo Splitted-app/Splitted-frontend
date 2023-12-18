@@ -1,13 +1,16 @@
 import '../../css/ModePages/DebtPanel.css';
+import useFetchCurrency from '../../hooks/useFetchCurrency';
 
 
 interface DebtPanelInterface
 {
   amount: number,
-  currency: string,
 }
 
-function DebtPanel({amount, currency}: DebtPanelInterface) {
+function DebtPanel({amount}: DebtPanelInterface) {
+
+    const currency = useFetchCurrency()
+
     return (
       <div className="debt-panel">
         <div className='debt-panel-title'>

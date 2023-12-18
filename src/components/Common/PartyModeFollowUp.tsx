@@ -12,8 +12,6 @@ import { PartyFriendsIdsState } from '../../atoms/PartyFriendsIds';
 
 interface FormDataInterface {
     budgetName: string,
-    bankName: string,
-    currency: string,
 }
 
 
@@ -21,8 +19,6 @@ function PartyModeFollowUp()
 {
     const [data, setData] = useState<FormDataInterface>({
         budgetName: "",
-        bankName: "Pekao",
-        currency: "PLN",
     })
     const [partyFriendIds, setPartyFriendsIds] = useRecoilState(PartyFriendsIdsState)
     const token = useRecoilValue(UserTokenState);
@@ -33,9 +29,7 @@ function PartyModeFollowUp()
         console.log(partyFriendIds);
         axios.post(process.env.REACT_APP_API_URL + `/api/modes/temporary-mode/${partyFriendIds.join('/')}`,
         JSON.stringify({
-            bank: data.bankName,
             name: data.budgetName,
-            currency: data.currency,
         }),
         {
             headers: {

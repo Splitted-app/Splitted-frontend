@@ -70,7 +70,12 @@ function PartyModePage() {
         <div className='party-mode-page-content' style={gridStyle}>
             <div className='header'>
                 <div className='party-mode-debt-panel'>
-                    {/* <DebtPanel/> */}
+                    {(budget.loading || budget.error || transactions.loading || transactions.loading) && 
+                        <LoadingPanel error={budget.error || transactions.loading}/>
+                    }
+                    {!budget.loading && !budget.error && !transactions.loading && !transactions.loading &&
+                        <DebtPanel amount={transactions.data.debt}/>
+                    }
                 </div>
                 <div className='title'>
                     <div className='subtitle'>

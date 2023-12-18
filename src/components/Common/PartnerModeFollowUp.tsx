@@ -10,8 +10,6 @@ import { PartnerIdState } from "../../atoms/PartnerId";
 
 interface FormDataInterface {
     budgetName: string,
-    bankName: string,
-    currency: string,
 }
 
 
@@ -19,8 +17,6 @@ function PartnerModeFollowUp()
 {
     const [data, setData] = useState<FormDataInterface>({
         budgetName: "",
-        bankName: "Pekao",
-        currency: "PLN",
     })
     const [partnerId, setPartnerId] = useRecoilState(PartnerIdState)
     const token = useRecoilValue(UserTokenState);
@@ -30,9 +26,7 @@ function PartnerModeFollowUp()
         event.preventDefault();
         axios.post(process.env.REACT_APP_API_URL + `/api/modes/partner-mode/${partnerId}`,
         JSON.stringify({
-            bank: data.bankName,
             name: data.budgetName,
-            currency: data.currency,
         }),
         {
             headers: {
