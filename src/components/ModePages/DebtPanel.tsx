@@ -1,5 +1,6 @@
 import '../../css/ModePages/DebtPanel.css';
 import useFetchCurrency from '../../hooks/useFetchCurrency';
+import { amountFormatter } from '../../utils';
 
 
 interface DebtPanelInterface
@@ -18,7 +19,7 @@ function DebtPanel({amount}: DebtPanelInterface) {
         </div>
         <div className='debt-panel-main-content' style={{color:(amount<0)? '#A30D0D': '#18B470'}}>
             <div className='debt-panel-amount'>
-                {amount}
+                {amountFormatter(amount)}
             </div>
             <div className='debt-panel-currency'>
                 {currency}

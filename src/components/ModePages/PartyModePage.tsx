@@ -8,6 +8,7 @@ import { useParams } from 'react-router';
 import DebtPanel from './DebtPanel';
 import Navbar from "../Common/Navbar";
 import LoadingPanel from '../Common/LoadingPanel';
+import SettleYourBillsPanel from './SettleYourBillsPanel';
 import TransactionList from '../Common/TransactionList';
 
 import useFetchBudget from '../../hooks/useFetchBudget';
@@ -62,6 +63,13 @@ function PartyModePage() {
         setFilterMenuVisibility(false);
     }
 
+    const [showDeleteTransactionRadioButton, setShowDeleteTransactionRadioButton] = useState(false);
+
+    function handleSettleYourBills()
+    {
+        setShowDeleteTransactionRadioButton(!showDeleteTransactionRadioButton);
+    }
+
     return (
       <div className="party-mode-page">
         <Navbar></Navbar>
@@ -76,6 +84,9 @@ function PartyModePage() {
                     {!budget.loading && !budget.error && !transactions.loading && !transactions.loading &&
                         <DebtPanel amount={transactions.data.debt}/>
                     }
+                </div>
+                <div className='party-mode-button-container'>
+                    <button className='settle-your-bills-button' onClick={handleSettleYourBills}>Settle your bills</button>
                 </div>
                 <div className='title'>
                     <div className='subtitle'>
@@ -143,7 +154,7 @@ function PartyModePage() {
                         showTransactionType={true} 
                         showDate={true} 
                         showDeleteIcon={false} 
-                        showDeleteTransactionRadioButton={false}
+                        showCheckbox={showDeleteTransactionRadioButton}
                         showEditButton={false}
                         showSplitItIcon={false}
                         markDuplicates={false}></TransactionList>

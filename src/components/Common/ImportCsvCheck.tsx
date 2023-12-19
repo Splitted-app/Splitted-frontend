@@ -86,7 +86,7 @@ function ImportCsvCheck() {
             showTransactionType={true} 
             showDate={false} 
             showDeleteIcon={true} 
-            showDeleteTransactionRadioButton={false}
+            showCheckbox={false}
             showEditButton={true}
             showSplitItIcon = {false}
             markDuplicates={true}></TransactionList>

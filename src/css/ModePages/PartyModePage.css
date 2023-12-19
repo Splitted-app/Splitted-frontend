@@ -41,6 +41,32 @@
     padding-left: 10%;
 }
 
+.party-mode-page .party-mode-page-content .header .party-mode-button-container
+{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 3%;
+
+}
+
+.party-mode-page .party-mode-page-content .header .party-mode-button-container .settle-your-bills-button
+{
+    font-size: 16px;
+    background-color: #20F7C5;
+    color: black;
+    width: 180px;
+    height: 50px;
+    border:none;
+    border-radius: 33px;
+    font-family: 'Gotham Bold';
+    box-shadow: 5px 5px 3px #180A45;
+}
+
 .party-mode-page .party-mode-page-content .header .title{
     grid-row-start: 2;
     grid-row-end: 3;

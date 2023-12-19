@@ -1,19 +1,26 @@
 import '../../css/ModePages/PartnerModePage.css';
 
 import { useState } from 'react';
-
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import Moment from 'moment';
 import { useParams } from 'react-router';
 
 import DebtPanel from './DebtPanel';
 import Navbar from "../Common/Navbar";
 import LoadingPanel from '../Common/LoadingPanel';
+import SettleYourBillsPanel from './SettleYourBillsPanel';
 import TransactionList from '../Common/TransactionList';
+
+import { SettleYourBillsPanelVisibilityState } from '../../atoms/SettleYourBillsPanelVisibility';
+import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
+import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
 
 import useFetchBudget from '../../hooks/useFetchBudget';
 import useFetchTransactions from '../../hooks/useFetchTransactions';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+
+
 
 
 
@@ -61,6 +68,23 @@ function PartnerModePage() {
         setFilterMenuVisibility(false);
     }
 
+    const [showTransactionCheckbox, setShowTransactionCheckbox] = useState(false);
+    const [SettleYourBillsPanelVisibility, setSettleYourBillsPanelVisibility] = useRecoilState(SettleYourBillsPanelVisibilityState);
+    const [transactionsChecked, setTransactionsChecked] = useRecoilState(TransactionsCheckedState)
+    const setTransactionsToSettle = useSetRecoilState(TransactionsToSettleState)
+
+    function handleSettleYourBills()
+    {
+        if (transactionsChecked.length > 0)
+        {
+            setSettleYourBillsPanelVisibility(showTransactionCheckbox);
+            setTransactionsToSettle(transactionsChecked)
+        }
+            
+        console.log(transactionsChecked);
+        setShowTransactionCheckbox(!showTransactionCheckbox);
+        setTransactionsChecked([]);
+    }
 
     return (
       <div className="partner-mode-page">
@@ -77,6 +101,9 @@ function PartnerModePage() {
                         <DebtPanel amount={transactions.data.debt}/>
                     }
                     
+                </div>
+                <div className='partner-mode-button-container'>
+                    <button className='settle-your-bills-button' onClick={handleSettleYourBills}>Settle your bills</button>
                 </div>
                 <div className='title'>
                     <div className='subtitle'>
@@ -144,7 +171,7 @@ function PartnerModePage() {
                         showTransactionType={true} 
                         showDate={true} 
                         showDeleteIcon={false} 
-                        showDeleteTransactionRadioButton={false}
+                        showCheckbox={showTransactionCheckbox}
                         showEditButton={false}
                         showSplitItIcon={false}
                         markDuplicates={false}></TransactionList>
@@ -155,6 +182,9 @@ function PartnerModePage() {
             </div>
         </div>
         }
+        <div className='partner-mode-pop-up-panel' style={{'display': SettleYourBillsPanelVisibility ? 'flex' : 'none'}}>
+            <SettleYourBillsPanel/>
+        </div>
       </div>
     );
   }

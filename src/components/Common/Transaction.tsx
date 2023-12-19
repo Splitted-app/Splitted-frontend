@@ -7,7 +7,7 @@ import axios from 'axios';
 import Moment from 'moment';
 import { useRecoilValue , useRecoilState, useSetRecoilState} from 'recoil';
 
-import { TransactionsToDeleteState } from '../../atoms/TransactionsToDelete';
+import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 import { NewTransactionsState } from '../../atoms/NewTransactions';
@@ -48,7 +48,7 @@ interface TransactionPropsInterface
     showTransactionType: boolean,
     showDate:boolean
     showDeleteIcon:boolean,
-    showDeleteTransactionRadioButton:boolean,
+    showCheckbox:boolean,
     showEditButton:boolean,
     showSplitItIcon:boolean,
     markDuplicate:boolean,
@@ -61,7 +61,7 @@ function Transaction({
   showTransactionType, 
   showDate, 
   showDeleteIcon, 
-  showDeleteTransactionRadioButton,
+  showCheckbox,
   showEditButton,
   showSplitItIcon,
   markDuplicate}: TransactionPropsInterface) {
@@ -73,7 +73,7 @@ function Transaction({
     const token = useRecoilValue(UserTokenState);
     const [editable, setEditable] = useState(false);
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
-    const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
+    const [transactionsChecked, setTransactionsChecked] = useRecoilState<any>(TransactionsCheckedState);
     const [newTransactions, setNewTransactions] = useRecoilState<any>(NewTransactionsState);
     const setSplitItPanel = useSetRecoilState(SplitItPanelState);
     const [recentlySplit, setRecentlySplit] = useState<boolean>(false);
@@ -81,7 +81,7 @@ function Transaction({
     const minified = useMediaQuery({ query: '(max-width: 1300px)'})
     const showAsRows = useMediaQuery({ query: '(max-width: 850px)'})
     let gridTemplateColumns = '';
-    gridTemplateColumns += showDeleteTransactionRadioButton ? '5% ' : ''; // delete checkbox
+    gridTemplateColumns += showCheckbox ? '5% ' : ''; // delete checkbox
     gridTemplateColumns += '20% '; // category
     gridTemplateColumns += showTransactionType && !minified ? '10% ' : ''; // transaction type
     gridTemplateColumns += showDate && !minified ? '15% ' : ''; // date
@@ -168,22 +168,22 @@ function Transaction({
         setEditable(!editable)
     }
 
-    function handleDeleteMultipleTransactionsButton(checked : boolean)
+    function handleCheckboxChange(checked : boolean)
     {
         if (checked)
         {
-          const newTransactionsToDelete= transactionsToDelete.concat([transactionId]);
-          setTransactionsToDelete(newTransactionsToDelete);
+          const newTransactionsChecked= transactionsChecked.concat([transactionId]);
+          setTransactionsChecked(newTransactionsChecked);
         }
         else
         {
           
-          const idx = transactionsToDelete.indexOf(transactionId);
+          const idx = transactionsChecked.indexOf(transactionId);
           if (idx > -1)
           {
-            const newTransactionsToDelete = [...transactionsToDelete]
-            newTransactionsToDelete.splice(idx, 1);
-            setTransactionsToDelete(newTransactionsToDelete);
+            const newTransactionsChecked = [...transactionsChecked]
+            newTransactionsChecked.splice(idx, 1);
+            setTransactionsChecked(newTransactionsChecked);
           }
         }
     }
@@ -248,22 +248,22 @@ function Transaction({
 
     return (
       <div className={`transaction ${transaction.duplicatedTransaction && markDuplicate ? "duplicate" : ""}`}>
-        {showDeleteTransactionRadioButton && showAsRows &&
+        {showCheckbox && showAsRows &&
             <label className='delete-transaction-checkbox-container delete-checkbox-as-rows '>
               <input type="checkbox" 
                       className='delete-transaction-checkbox' 
-                      onChange={(e)=>handleDeleteMultipleTransactionsButton(e.target.checked)}>
+                      onChange={(e)=>handleCheckboxChange(e.target.checked)}>
               </input>
               <span className="checkmark">
               </span>
             </label>
         }
         <div className='transaction-content' style={gridStyle}>
-            {showDeleteTransactionRadioButton && !showAsRows &&
+            {showCheckbox && !showAsRows &&
             <label className='delete-transaction-checkbox-container '>
               <input type="checkbox" 
                       className='delete-transaction-checkbox' 
-                      onChange={(e)=>handleDeleteMultipleTransactionsButton(e.target.checked)}>
+                      onChange={(e)=>handleCheckboxChange(e.target.checked)}>
               </input>
               <span className="checkmark">
               </span>
