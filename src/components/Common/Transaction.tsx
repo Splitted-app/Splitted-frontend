@@ -7,12 +7,14 @@ import axios from 'axios';
 import Moment from 'moment';
 import { useRecoilValue , useRecoilState, useSetRecoilState} from 'recoil';
 
+import { ChooseSettleTransactionPanelVisibilityState } from '../../atoms/ChooseSettleTransactionPanel';
 import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { SplitItPanelState } from '../../atoms/SplitItPanel';
 import { ApproveSettlePanelState } from '../../atoms/ApproveSettlePanel';
+import { ChosenSettleTransactionIdState } from '../../atoms/ChosenSettleTransactionId';
 
 import useFetchUserBudgets from '../../hooks/useFetchUserBudgets';
 
@@ -23,6 +25,8 @@ import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
 import EditTransactionIcon from '../../assets/images/edit_transaction.png'
 import SplitItIcon from '../../assets/images/split.png'
 import UpdateTransactionIcon from '../../assets/images/update.png'
+
+
 
 
 
@@ -82,6 +86,9 @@ function Transaction({
     const setApproveSettlePanel = useSetRecoilState(ApproveSettlePanelState);
     const [recentlySplit, setRecentlySplit] = useState<boolean>(false);
     const waitingForApproval = transaction.transactionPayBacks.find(pb=>pb.transactionPayBackStatus === "WaitingForApproval");
+    const chooseSettleTransactionPanelVisibility = useRecoilValue(ChooseSettleTransactionPanelVisibilityState);
+    const [chosenAsSettle, setChosenAsSettle] = useState<boolean>(false);
+    const [chosenSettleTransactionId, setChosenSettleTransactionId] = useRecoilState(ChosenSettleTransactionIdState);
 
     const minified = useMediaQuery({ query: '(max-width: 1300px)'})
     const showAsRows = useMediaQuery({ query: '(max-width: 850px)'})
@@ -253,7 +260,7 @@ function Transaction({
 
     function handleClick()
     {
-      if (waitingForApproval)
+      if (waitingForApproval && !chooseSettleTransactionPanelVisibility)
       {
         const idx = transaction.transactionPayBacks.map(pb=>pb.transactionPayBackStatus).indexOf("WaitingForApproval");
         setApproveSettlePanel({
@@ -263,6 +270,11 @@ function Transaction({
         })
         console.log(transaction.transactionPayBacks[idx]);
       }
+      if (chooseSettleTransactionPanelVisibility && (chosenSettleTransactionId === "" || chosenAsSettle))
+      {
+        setChosenSettleTransactionId(chosenAsSettle ? "" : transaction.id);
+        setChosenAsSettle(!chosenAsSettle);
+      }
       
     }
 
@@ -270,7 +282,7 @@ function Transaction({
       <div 
         className={`transaction ${
           transaction.duplicatedTransaction && markDuplicate ? "duplicate" : 
-          waitingForApproval ? "waiting-for-approval" : ""}`}
+          (waitingForApproval || chosenAsSettle) ? "waiting-for-approval" : ""}`}
         onClick={handleClick}>
         {showCheckbox && showAsRows &&
             <label className='delete-transaction-checkbox-container delete-checkbox-as-rows '>
