@@ -34,6 +34,7 @@ import SplitItPanel from './components/TransactionPage/SplitItPanel';
 import TransactionPage from './components/TransactionPage/TransactionPage';
 import PartnerModePage from './components/ModePages/PartnerModePage';
 import PartyModePage from './components/ModePages/PartyModePage';
+import ApproveSettlePanel from './components/ModePages/ApproveSettlePanel';
 
 import { AddFamilyModePanelVisibilityState } from './atoms/AddFamilyModePanelVisibility';
 import { AddGoalPanelVisibilityState } from './atoms/AddGoalPanelVisibility';
@@ -50,7 +51,9 @@ import { ManualAddTransactionsPanelVisibilityState } from './atoms/ManualAddTran
 import { PartnerModeFollowUpVisibilityState } from './atoms/PartnerModeFollowUp';
 import { PartyModeFollowUpVisibilityState } from './atoms/PartyModeFollowUp';
 import { SplitItPanelState } from './atoms/SplitItPanel';
+import { ApproveSettlePanelState } from './atoms/ApproveSettlePanel';
 import { UserTokenState } from './atoms/UserToken';
+
 
 
 
@@ -68,7 +71,8 @@ function App() {
   const importCsvPanelVisibility = useRecoilValue(ImportCsvPanelVisibilityState)
   const importCsvCheckPanelVisibility = useRecoilValue(ImportCsvCheckPanelVisibilityState);
   const manualAddTransactionsPanelVisibility = useRecoilValue(ManualAddTransactionsPanelVisibilityState);
-  const splitItPanel = useRecoilValue (SplitItPanelState);
+  const splitItPanel = useRecoilValue(SplitItPanelState);
+  const approveSettlePanel = useRecoilValue(ApproveSettlePanelState)
   const popupVisible = 
     logOutPanelVisibility || 
     addModesPanelVisibility || 
@@ -83,6 +87,7 @@ function App() {
     partnerModeFollowUpVisibility ||
     partyModeFollowUpVisibility ||
     splitItPanel.visible ||
+    approveSettlePanel.visible ||
     addGoalPanelVisibility;
   const [token, setToken] = useRecoilState(UserTokenState);
   const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState)
@@ -163,6 +168,7 @@ function App() {
           {partnerModeFollowUpVisibility && <PartnerModeFollowUp/>}
           {partyModeFollowUpVisibility && <PartyModeFollowUp/>}
           {splitItPanel.visible && <SplitItPanel/>}
+          {approveSettlePanel.visible && <ApproveSettlePanel/>}
           {addGoalPanelVisibility && <AddGoalPanel/>}
         </div>
       </div>

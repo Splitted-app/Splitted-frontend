@@ -1,0 +1,268 @@
+.approve-settle-panel
+{
+    height: 100%;
+    width: 60%;
+    background-color: white;
+    border: solid 1px black;
+    box-shadow: 10px 10px 5px #262626;
+    border-radius: 50px;
+    padding: 2%;
+    display: grid;
+    grid-template-rows: 5% 10% auto 20%;
+
+}
+.approve-settle-panel .title 
+{
+    padding-top: 5%;
+    text-align: center;
+}
+
+.approve-settle-panel .title .main-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: #3C3C3C;
+}
+
+
+.approve-settle-panel .title .subtitle
+{
+    font-family: 'Gotham Light';
+    font-size: 20px;
+    padding-top: 2%;
+
+}
+
+.approve-settle-panel .close-button-container
+{
+    padding: 5% 5% 0 5%; /* style={{padding: '20px 20px 0px 20px'}}*/
+}
+
+.approve-settle-panel .payback-transaction
+{
+    font-family: 'Gotham Light';
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.approve-settle-panel .buttons-container
+{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.approve-settle-panel .buttons-container .accept-button,
+.approve-settle-panel .buttons-container .decline-button
+{
+    align-self: center;
+    justify-self: center;
+}
+
+.approve-settle-panel .accept-button button
+{
+    font-size: 12px;
+    background-color: #20F7C5;
+    color: black;
+    width: 120px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    border: 1px solid #010446;
+    box-shadow: 8px 8px 5px #010446;
+}
+
+.approve-settle-panel .decline-button button
+{
+    font-size: 12px;
+    background-color: #FFDADA;
+    color: #CC3C3C;
+    width: 120px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    border: 3px solid #CC3C3C;
+    box-shadow: 8px 8px 5px #010446;
+}
+
+
+@media screen and (max-width:1300px)
+{
+    .approve-settle-panel
+    {
+        padding-top: 5%;
+        height: 95%;
+        width: 65%;
+    }
+
+    .approve-settle-panel .title .main-title
+    {
+        font-size: 26px;
+    }
+
+
+    .approve-settle-panel .title .subtitle
+    {
+        font-size: 18px;
+    }
+
+    .approve-settle-panel .close-button-container
+    {
+        padding: 0 5% 0 5%; /* style={{padding: '20px 20px 0px 20px'}}*/
+    }
+}
+
+@media screen and (max-width: 1200px){
+
+    .approve-settle-panel
+    {
+        padding-top: 5%;
+        height: 85%;
+        width: 67%;
+    }
+}
+
+
+
+@media screen and (max-width:1050px)
+{
+    .approve-settle-panel
+    {
+        height: 85%;
+        width: 70%;
+    }
+    .approve-settle-panel .title 
+    {
+        padding-top: 15px;
+    }
+    .approve-settle-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .approve-settle-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+
+}
+
+
+@media screen and (max-width:950px)
+{
+    .approve-settle-panel
+    {
+        height: 85%;
+        width: 80%;
+    }
+    .approve-settle-panel .title 
+    {
+        padding-top: 18px;
+    }
+    .approve-settle-panel .title .subtitle
+    {
+        font-family: 'Gotham Light';
+        font-size: 20px;
+        padding-top: 3%;
+
+    }
+    .approve-settle-panel .title .main-title
+    {
+        font-size: 24px;
+    }
+
+    .approve-settle-panel .title .subtitle
+    {
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width:850px)
+{
+    .approve-settle-panel
+    {
+        height: 85%;
+        width: 87%;
+    }
+    .approve-settle-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .approve-settle-panel .title .subtitle
+    {
+        font-size: 14px;
+    }
+
+}
+
+
+@media screen and (max-width:700px)
+{
+    .approve-settle-panel
+    {
+        height: 80%;
+        width: 195%;
+
+    }
+    .approve-settle-panel .title .main-title
+    {
+        font-size: 20px;
+    }
+
+    .approve-settle-panel .title .subtitle
+    {
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width:600px)
+{
+    .approve-settle-panel
+    {
+        width: 100%;
+        height: 60%;
+    }
+    .approve-settle-panel .title .main-title
+    {
+        font-size: 18px;
+    }
+    .approve-settle-panel .title .subtitle
+    {
+        font-size: 10px;
+    }
+
+    .approve-settle-panel .title 
+    {
+        padding-top: 10px;
+    }
+    
+}
+
+@media screen and (max-width:450px)
+{
+
+    .approve-settle-panel .title 
+    {
+        padding-top: 0;
+    }
+    
+    .approve-settle-panel
+    {
+        height: 45%;
+        border-radius: 30px;
+
+    }
+    .approve-settle-panel .title .main-title
+    {
+        font-size: 15px;
+    }
+    .approve-settle-panel .title .subtitle
+    {
+        font-size: 8px;
+    }
+
+}
