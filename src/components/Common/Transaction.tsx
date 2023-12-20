@@ -16,8 +16,6 @@ import { SplitItPanelState } from '../../atoms/SplitItPanel';
 import { ApproveSettlePanelState } from '../../atoms/ApproveSettlePanel';
 import { ChosenSettleTransactionIdState } from '../../atoms/ChosenSettleTransactionId';
 
-import useFetchUserBudgets from '../../hooks/useFetchUserBudgets';
-
 import { TransactionTypes } from '../../enums';
 import { amountFormatter } from '../../utils';
 
@@ -25,11 +23,6 @@ import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
 import EditTransactionIcon from '../../assets/images/edit_transaction.png'
 import SplitItIcon from '../../assets/images/split.png'
 import UpdateTransactionIcon from '../../assets/images/update.png'
-
-
-
-
-
 
 interface TransactionInterface
 {
@@ -211,10 +204,6 @@ function Transaction({
             setIsChecked(true);
             setChosenSettleTransactionId(transaction.id);
           }
-          // else
-          // {
-          //   setChosenAsSettle(false);
-          // }
         }
         else if (isChecked)
         {
@@ -294,11 +283,6 @@ function Transaction({
         })
         console.log(transaction.transactionPayBacks[idx]);
       }
-      // if (chooseSettleTransactionPanelVisibility && (chosenSettleTransactionId === "" || chosenAsSettle))
-      // {
-      //   setChosenSettleTransactionId(chosenAsSettle ? "" : transaction.id);
-      //   setChosenAsSettle(!chosenAsSettle);
-      // }
     }
 
     return (

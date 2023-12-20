@@ -81,7 +81,6 @@ function PartnerModePage() {
             setTransactionsToSettle(transactionsChecked)
         }
             
-        console.log(transactionsChecked);
         setShowTransactionCheckbox(!showTransactionCheckbox);
         setTransactionsChecked([]);
     }

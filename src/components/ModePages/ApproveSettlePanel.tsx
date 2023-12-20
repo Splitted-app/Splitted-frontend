@@ -1,17 +1,15 @@
 import '../../css/ModePages/ApproveSettlePanel.css';
 
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import axios from 'axios';
+import Moment from 'moment';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 import CloseButton from '../Common/CloseButton';
 
 import { ApproveSettlePanelState } from '../../atoms/ApproveSettlePanel';
-
 import { UserTokenState } from '../../atoms/UserToken';
-import axios from 'axios';
-import Transaction from '../Common/Transaction';
+
 import { amountFormatter } from '../../utils';
-import Moment from 'moment';
-import { TransactionTypes } from '../../enums';
 
 
 function ApproveSettlePanel() {

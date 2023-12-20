@@ -1,5 +1,6 @@
 import '../../css/ModePages/ChooseSettleTransactionPanel.css'
 
+import axios from 'axios';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import LoadingPanel from '../Common/LoadingPanel';
@@ -11,7 +12,7 @@ import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
 import { UserTokenState } from '../../atoms/UserToken'
 
 import useFetchTransactions from '../../hooks/useFetchTransactions';
-import axios from 'axios';
+
 
 
 function ChooseSettleTransactionPanel() {

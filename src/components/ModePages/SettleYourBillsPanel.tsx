@@ -1,5 +1,6 @@
 import '../../css/ModePages/SettleYourBillsPanel.css';
 
+import axios from 'axios';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import CloseButton from '../Common/CloseButton';
@@ -8,7 +9,7 @@ import { SettleYourBillsPanelVisibilityState } from '../../atoms/SettleYourBills
 import { ChooseSettleTransactionPanelVisibilityState } from '../../atoms/ChooseSettleTransactionPanel';
 import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
 import { UserTokenState } from '../../atoms/UserToken';
-import axios from 'axios';
+
 
 function SettleYourBillsPanel() {
 
@@ -38,7 +39,6 @@ function SettleYourBillsPanel() {
 
     function handleSettleWithTransaction()
     {
-      // setTransactionsToSettle([]);
       setSettleYourBillsPanelVisibility(false);
       setChooseSettleTransactionPanelVisibility(true);
     }
