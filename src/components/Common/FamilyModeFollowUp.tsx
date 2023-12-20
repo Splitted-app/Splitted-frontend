@@ -34,7 +34,7 @@ function FamilyModeFollowUp()
         JSON.stringify({
             bank: data.bank,
             currency: data.currency,
-            budgetName: data.budgetName,
+            name: data.budgetName,
         }),
         {
             headers: {
