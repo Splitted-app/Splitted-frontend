@@ -52,7 +52,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 15% 15% auto;
+    grid-template-rows: 80% 20%;
 }
 
 .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields
@@ -150,4 +150,215 @@
     width: 100%;
     float:right;
     border-radius: 4px;
+}
+
+@media screen and (max-width:1300px)
+{
+    .partner-mode-followup
+    {
+        height: 95%;
+        width: 65%;
+    }
+
+    .partner-mode-followup .title .main-title
+    {
+        font-size: 26px;
+    }
+
+    .partner-mode-followup .title .subtitle
+    {
+        font-size: 18px;
+    }
+
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields
+    {
+        padding-top: 10px;
+    }
+
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields label
+    {
+        font-size: 18px;
+    }
+
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields .field-style
+    {
+        font-size: 16px;
+        height: 45px;
+
+    }
+
+    .partner-mode-followup .button-container input
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 45px;
+    }
+
+    .partner-mode-followup .budget-input
+    {
+        font-size: 14px;
+        height: 30px;
+    }
+
+}
+
+
+@media screen and (max-width:1050px)
+{
+    .partner-mode-followup    {
+        height: 90%;
+        width: 75%;
+    }
+
+    .partner-mode-followup .title .main-title
+    {
+        font-size: 24px;
+    }
+
+    .partner-mode-followup .title .subtitle
+    {
+        font-size: 16px;
+    }
+
+
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields
+    {
+        grid-template-columns: [start] 100% [end];
+        grid-template-rows: [line1] 15% [line2] 25% [line3] 10% [line4] 15% [line5] 10% [line6] 15% [line7];
+    }
+    
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields
+    {
+        padding-top: 40px;
+    }
+
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields label
+    {
+        font-size: 14px;
+    }
+
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields .field-style
+    {
+        font-size: 14px;
+        height: 35px;
+
+    }
+
+    .partner-mode-followup .button-container input
+    {
+        font-size: 12px;
+        width: 90px;
+        height: 45px;
+    }
+    .partner-mode-followup .budget-input
+    {
+        font-size: 12px;
+        height: 30px;
+    }
+
+}
+
+
+
+@media screen and (max-width:950px)
+{
+    .partner-mode-followup    
+    {
+        height: 85%;
+        width: 80%;
+    }
+
+    .partner-mode-followup .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .partner-mode-followup .title .subtitle
+    {
+        font-size: 14px;
+    }
+
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields
+    {
+        padding-top: 30px;
+    }
+
+    .partner-mode-followup .button-container input
+    {
+        font-size: 12px;
+        width: 80px;
+        height: 40px;
+    }
+
+
+}
+
+
+@media screen and (max-width:850px)
+{
+    .partner-mode-followup    {
+        height: 80%;
+        width: 85%;
+    }
+
+    .partner-mode-followup .title .main-title
+    {
+        font-size: 20px;
+    }
+
+    .partner-mode-followup .title .subtitle
+    {
+        font-size: 12px;
+    }
+    
+}
+
+
+@media screen and (max-width:600px)
+{
+    .partner-mode-followup
+    {
+        height: 60%;
+        width: 100%;
+    }
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields
+    {
+        grid-template-rows: [line1] 20% [line2] 25% [line3] 10% [line4] 15% [line5] 10% [line6] 15% [line7];
+    }
+
+    .partner-mode-followup .title .main-title
+    {
+        font-size: 16px;
+    }
+
+    .partner-mode-followup .title .subtitle
+    {
+        font-size: 12px;
+    }
+    
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields label
+    {
+        font-size: 10px;
+    }
+
+    .partner-mode-followup .partner-mode-followup-form .form-elements .information-fields .field-style
+    {
+        font-size: 10px;
+        height: 25px;
+
+    }
+
+    .partner-mode-followup .button-container input
+    {
+        font-size: 10px;
+        width: 70px;
+        height: 35px;
+    }
+
+    .partner-mode-followup .budget-input
+    {
+        font-size: 10px;
+        height: 25px;
+    }
+
 }

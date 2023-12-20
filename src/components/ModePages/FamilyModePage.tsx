@@ -19,7 +19,7 @@ function FamilyModePage() {
       <div className="family-mode-page">
         <Navbar></Navbar>
         {(budget.loading || budget.error) &&<LoadingPanel error={budget.error}/>}
-        {!budget.loading &&
+        {!budget.loading && !budget.error &&
         <div className='family-mode-content'>
             <div className='header'>
                 <div className='title'>
