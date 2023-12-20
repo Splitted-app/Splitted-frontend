@@ -1,0 +1,322 @@
+.choose-settle-transaction-panel{
+    background-color: white;
+    width: 90%;
+    height: 85%;
+    border: solid 1px black;
+    box-shadow: 10px 10px 5px #262626;
+    border-radius: 50px;
+    padding: 30px;
+    display: flex;
+    flex-flow: column;
+}
+
+.choose-settle-transaction-panel .title 
+{
+    /* padding-top: 5%; */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.choose-settle-transaction-panel .title .main-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: #3C3C3C;
+}
+
+
+.choose-settle-transaction-panel .title .subtitle
+{
+    font-family: 'Gotham Light';
+    font-size: 20px;
+    padding-top: 2%;
+
+}
+
+/* .choose-settle-transaction-panel .title
+{
+    text-align: center;
+    font-family: 'Gotham Medium';
+    font-size: 30px;
+    color: #575757;
+
+} */
+
+.choose-settle-transaction-panel .content-container
+{
+    width: 95%;
+    height: 50%;
+    box-shadow: 5px 5px 5px #676370,
+    -5px -5px 5px #676370;
+    border-radius: 25px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 20px 0px 20px 10px;
+    font-family: 'Gotham Medium';
+    color: #575757;
+}
+
+.choose-settle-transaction-panel .button-container
+{
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: end;
+    gap:10%;
+}
+
+.choose-settle-transaction-panel .button-container .interaction-button{
+    background-color: #20F7C5;
+    color: black;
+    width: 140px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    font-size: 16px;
+    box-shadow: 2px 5px 5px #010446;
+    border: none;
+}
+
+.choose-settle-transaction-panel .button-container .cancel-button{
+    font-size: 16px;
+    background-color: #FFDADA;
+    color: #CC3C3C;
+    width: 140px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    border: 3px solid #CC3C3C;
+    box-shadow: 2px 5px 5px #010446;
+}
+
+
+@media screen and (max-width:1300px)
+{
+    .choose-settle-transaction-panel
+    {
+        height: 85%;
+        width: 90%;
+    }
+    .choose-settle-transaction-panel.title
+    {
+        font-size: 26px;
+    }
+    .choose-settle-transaction-panel .button-container .interaction-button{
+
+        width: 130px;
+        height: 45px;
+        font-size: 14px;
+
+    }
+    
+    .choose-settle-transaction-panel .button-container .cancel-button{
+        width: 130px;
+        height: 45px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:1200px)
+{
+    .choose-settle-transaction-panel
+    {
+        height: 75%;
+        width: 90%;
+    }
+    .choose-settle-transaction-panel .title .main-title
+    {
+        font-size: 26px;
+    }
+
+    .choose-settle-transaction-panel .title .subtitle
+    {
+        font-size: 18px;
+    }
+    .choose-settle-transaction-panel .button-container .interaction-button{
+
+        width: 110px;
+        height: 40px;
+        font-size: 13px;
+
+    }
+    
+    .choose-settle-transaction-panel .button-container .cancel-button{
+        width: 110px;
+        height: 40px;
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width:1050px)
+{
+    .choose-settle-transaction-panel
+    {
+        height: 65%;
+        width: 90%;
+    }
+    .choose-settle-transaction-panel .title
+    {
+        margin-bottom: 25px;
+    }
+    .choose-settle-transaction-panel .main-title
+    {
+        font-size: 22px;
+    }
+    .choose-settle-transaction-panel .subtitle
+    {
+        font-size: 15px;
+
+    }
+
+    .choose-settle-transaction-panel .button-container{
+        margin-top: 20px;
+    }
+
+    .choose-settle-transaction-panel .button-container .interaction-button{
+
+        width: 90px;
+        height: 35px;
+        font-size: 12px;
+
+    }
+    
+    .choose-settle-transaction-panel .button-container .cancel-button{
+        width: 90px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+}
+
+
+@media screen and (max-width:950px)
+{
+    .choose-settle-transaction-panel
+    {
+        height: 55%;
+        width: 100%;
+    }
+    .choose-settle-transaction-panel .title
+    {
+        margin-bottom: 20px;
+    }
+    /* .choose-settle-transaction-panel .main-title
+    {
+        font-size: 20px;
+    } */
+    .choose-settle-transaction-panel .subtitle
+    {
+        font-family: 'Gotham Light';
+        font-size: 20px;
+        padding-top: 3%;
+    }
+
+    .choose-settle-transaction-panel .button-container{
+        margin-top: 20px;
+    }
+
+    .choose-settle-transaction-panel .button-container .interaction-button{
+
+        width: 75px;
+        height: 30px;
+        font-size: 10px;
+
+    }
+    
+    .choose-settle-transaction-panel .button-container .cancel-button{
+        width: 75px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+
+}
+
+@media screen and (max-width:850px)
+{
+    .choose-settle-transaction-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .choose-settle-transaction-panel .title .subtitle
+    {
+        font-size: 14px;
+    }
+    .choose-settle-transaction-panel
+    {
+        height: 50%;
+    }
+    .choose-settle-transaction-panel .button-container{
+        margin-top: 15px;
+    }
+}
+
+
+@media screen and (max-width:700px)
+{
+    .choose-settle-transaction-panel
+    {
+        height: 45%;
+        width: 120%;
+    }
+    .choose-settle-transaction-panel .title .main-title
+    {
+        font-size: 20px;
+    }
+
+    .choose-settle-transaction-panel .title .subtitle
+    {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:600px)
+{
+    .choose-settle-transaction-panel .title .main-title
+    {
+        font-size: 18px;
+    }
+    .choose-settle-transaction-panel  .title .subtitle
+    {
+        font-size: 10px;
+    }
+    
+}
+
+@media screen and (max-width:470px)
+{
+    .choose-settle-transaction-panel .content-container
+    {
+        height: 25%;
+    }
+    .choose-settle-transaction-panel .title .main-title
+    {
+        font-size: 15px;
+    }
+    .choose-settle-transaction-panel .title .subtitle
+    {
+        font-size: 8px;
+    }
+    .choose-settle-transaction-panel .button-container{
+        margin-top: 10px;
+    }
+
+    .choose-settle-transaction-panel .button-container .interaction-button{
+
+        width: 65px;
+        height: 25px;
+        font-size: 8px;
+
+    }
+    
+    .choose-settle-transaction-panel .button-container .cancel-button{
+        width: 65px;
+        height: 25px;
+        font-size: 8px;
+    }
+}

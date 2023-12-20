@@ -11,6 +11,18 @@
     background: linear-gradient(0deg, rgba(255,189,186,1) 0%, rgba(255,255,255,1) 100%);
 }
 
+.waiting-for-approval
+{
+    background: rgb(178, 255, 236);
+    background: linear-gradient(0deg, rgb(146, 255, 204) 0%, rgba(255,255,255,1) 100%);
+}
+
+.chosen-as-settle
+{
+    background: #B6B0CF;
+    background: linear-gradient(0deg, #B6B0CF 0%, rgba(255,255,255,1) 100%);
+}
+
 .transaction .transaction-content
 {
     width:95%;

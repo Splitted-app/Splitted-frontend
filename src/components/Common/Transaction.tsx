@@ -7,14 +7,14 @@ import axios from 'axios';
 import Moment from 'moment';
 import { useRecoilValue , useRecoilState, useSetRecoilState} from 'recoil';
 
-import { TransactionsToDeleteState } from '../../atoms/TransactionsToDelete';
+import { ChooseSettleTransactionPanelVisibilityState } from '../../atoms/ChooseSettleTransactionPanel';
+import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { SplitItPanelState } from '../../atoms/SplitItPanel';
-
-
-import useFetchUserBudgets from '../../hooks/useFetchUserBudgets';
+import { ApproveSettlePanelState } from '../../atoms/ApproveSettlePanel';
+import { ChosenSettleTransactionIdState } from '../../atoms/ChosenSettleTransactionId';
 
 import { TransactionTypes } from '../../enums';
 import { amountFormatter } from '../../utils';
@@ -23,8 +23,6 @@ import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
 import EditTransactionIcon from '../../assets/images/edit_transaction.png'
 import SplitItIcon from '../../assets/images/split.png'
 import UpdateTransactionIcon from '../../assets/images/update.png'
-
-
 
 interface TransactionInterface
 {
@@ -39,6 +37,7 @@ interface TransactionInterface
     userCategory:string
     userId:string
     duplicatedTransaction: any|null
+    transactionPayBacks:Array<any>
 }
 
 interface TransactionPropsInterface
@@ -48,10 +47,11 @@ interface TransactionPropsInterface
     showTransactionType: boolean,
     showDate:boolean
     showDeleteIcon:boolean,
-    showDeleteTransactionRadioButton:boolean,
+    showCheckbox:boolean,
     showEditButton:boolean,
     showSplitItIcon:boolean,
     markDuplicate:boolean,
+    
 }
 
 
@@ -61,10 +61,10 @@ function Transaction({
   showTransactionType, 
   showDate, 
   showDeleteIcon, 
-  showDeleteTransactionRadioButton,
+  showCheckbox,
   showEditButton,
   showSplitItIcon,
-  markDuplicate}: TransactionPropsInterface) {
+  markDuplicate,}: TransactionPropsInterface) {
     const [amount, setAmount] = useState(transaction.amount);
     const [userCategory, setUserCategory] = useState(transaction.userCategory);
     const [transactionType, setTransactionType] = useState(transaction.transactionType);
@@ -73,15 +73,20 @@ function Transaction({
     const token = useRecoilValue(UserTokenState);
     const [editable, setEditable] = useState(false);
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
-    const [transactionsToDelete, setTransactionsToDelete] = useRecoilState<any>(TransactionsToDeleteState);
+    const [transactionsChecked, setTransactionsChecked] = useRecoilState<any>(TransactionsCheckedState);
     const [newTransactions, setNewTransactions] = useRecoilState<any>(NewTransactionsState);
     const setSplitItPanel = useSetRecoilState(SplitItPanelState);
+    const setApproveSettlePanel = useSetRecoilState(ApproveSettlePanelState);
     const [recentlySplit, setRecentlySplit] = useState<boolean>(false);
+    const waitingForApproval = transaction.transactionPayBacks.find(pb=>pb.transactionPayBackStatus === "WaitingForApproval");
+    const chooseSettleTransactionPanelVisibility = useRecoilValue(ChooseSettleTransactionPanelVisibilityState);
+    const [isChecked, setIsChecked] = useState<boolean>(false);
+    const [chosenSettleTransactionId, setChosenSettleTransactionId] = useRecoilState(ChosenSettleTransactionIdState);
 
     const minified = useMediaQuery({ query: '(max-width: 1300px)'})
     const showAsRows = useMediaQuery({ query: '(max-width: 850px)'})
     let gridTemplateColumns = '';
-    gridTemplateColumns += showDeleteTransactionRadioButton ? '5% ' : ''; // delete checkbox
+    gridTemplateColumns += showCheckbox ? '5% ' : ''; // delete checkbox
     gridTemplateColumns += '20% '; // category
     gridTemplateColumns += showTransactionType && !minified ? '10% ' : ''; // transaction type
     gridTemplateColumns += showDate && !minified ? '15% ' : ''; // date
@@ -168,24 +173,44 @@ function Transaction({
         setEditable(!editable)
     }
 
-    function handleDeleteMultipleTransactionsButton(checked : boolean)
+    function handleCheckboxChange(checked : boolean)
     {
+      if (!chooseSettleTransactionPanelVisibility)
+      {
+        setIsChecked(checked);
         if (checked)
         {
-          const newTransactionsToDelete= transactionsToDelete.concat([transactionId]);
-          setTransactionsToDelete(newTransactionsToDelete);
+          const newTransactionsChecked= transactionsChecked.concat([transactionId]);
+          setTransactionsChecked(newTransactionsChecked);
         }
         else
         {
           
-          const idx = transactionsToDelete.indexOf(transactionId);
+          const idx = transactionsChecked.indexOf(transactionId);
           if (idx > -1)
           {
-            const newTransactionsToDelete = [...transactionsToDelete]
-            newTransactionsToDelete.splice(idx, 1);
-            setTransactionsToDelete(newTransactionsToDelete);
+            const newTransactionsChecked = [...transactionsChecked]
+            newTransactionsChecked.splice(idx, 1);
+            setTransactionsChecked(newTransactionsChecked);
           }
         }
+      }
+      else
+      {
+        if (checked)
+        {
+          if (chosenSettleTransactionId === "")
+          {
+            setIsChecked(true);
+            setChosenSettleTransactionId(transaction.id);
+          }
+        }
+        else if (isChecked)
+        {
+          setIsChecked(false);
+          setChosenSettleTransactionId("");
+        }
+      }
     }
 
     function handleSplitIt()
@@ -246,24 +271,44 @@ function Transaction({
         target.scrollLeft = target.scrollWidth - target.clientWidth;
     }
 
+    function handleClick()
+    {
+      if (waitingForApproval)
+      {
+        const idx = transaction.transactionPayBacks.map(pb=>pb.transactionPayBackStatus).indexOf("WaitingForApproval");
+        setApproveSettlePanel({
+          visible: true,
+          payback: transaction.transactionPayBacks[idx],
+          transactionId: transaction.id,
+        })
+        console.log(transaction.transactionPayBacks[idx]);
+      }
+    }
+
     return (
-      <div className={`transaction ${transaction.duplicatedTransaction && markDuplicate ? "duplicate" : ""}`}>
-        {showDeleteTransactionRadioButton && showAsRows &&
+      <div 
+        className={`transaction ${
+          transaction.duplicatedTransaction && markDuplicate ? "duplicate" : 
+          waitingForApproval ? "waiting-for-approval" : ""}`}
+        onClick={handleClick}>
+        {showCheckbox && showAsRows &&
             <label className='delete-transaction-checkbox-container delete-checkbox-as-rows '>
               <input type="checkbox" 
+                      checked={isChecked}
                       className='delete-transaction-checkbox' 
-                      onChange={(e)=>handleDeleteMultipleTransactionsButton(e.target.checked)}>
+                      onChange={(e)=>handleCheckboxChange(e.target.checked)}>
               </input>
               <span className="checkmark">
               </span>
             </label>
         }
         <div className='transaction-content' style={gridStyle}>
-            {showDeleteTransactionRadioButton && !showAsRows &&
+            {showCheckbox && !showAsRows &&
             <label className='delete-transaction-checkbox-container '>
               <input type="checkbox" 
+                      checked={isChecked}
                       className='delete-transaction-checkbox' 
-                      onChange={(e)=>handleDeleteMultipleTransactionsButton(e.target.checked)}>
+                      onChange={(e)=>handleCheckboxChange(e.target.checked)}>
               </input>
               <span className="checkmark">
               </span>

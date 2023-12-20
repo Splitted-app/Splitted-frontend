@@ -12,7 +12,7 @@ import TransactionsInsightsPanel from './TransactionsInsightsPanel';
 
 import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactionsPanelVisbility';
 import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
-import { TransactionsToDeleteState } from '../../atoms/TransactionsToDelete';
+import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 import { UserTokenState } from '../../atoms/UserToken'
 
@@ -61,7 +61,7 @@ function TransactionPage() {
     const setAddTransactionsPanelVisibility = useSetRecoilState(AddTransactionsPanelVisibilityState);
     const setMenuIconVisibility = useSetRecoilState(MenuIconVisibilityState);
     const [showDeleteTransactionRadioButton, setShowDeleteTransactionRadioButton] = useState(false);
-    const [transactionsToDelete, setTransactionsToDelete ]= useRecoilState<any>(TransactionsToDeleteState);
+    const [transactionsToDelete, setTransactionsToDelete ]= useRecoilState<any>(TransactionsCheckedState);
     const token = useRecoilValue(UserTokenState);
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
     const [filterMenuVisibility, setFilterMenuVisibility] = useState(false);
@@ -189,7 +189,7 @@ function TransactionPage() {
                         showTransactionType={true} 
                         showDate={true} 
                         showDeleteIcon={false} 
-                        showDeleteTransactionRadioButton={showDeleteTransactionRadioButton}
+                        showCheckbox={showDeleteTransactionRadioButton}
                         showEditButton={true}
                         showSplitItIcon={userIsInSplittableBudget}
                         markDuplicates={false}></TransactionList>

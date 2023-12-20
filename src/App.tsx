@@ -34,6 +34,8 @@ import SplitItPanel from './components/TransactionPage/SplitItPanel';
 import TransactionPage from './components/TransactionPage/TransactionPage';
 import PartnerModePage from './components/ModePages/PartnerModePage';
 import PartyModePage from './components/ModePages/PartyModePage';
+import ApproveSettlePanel from './components/ModePages/ApproveSettlePanel';
+import ChooseSettleTransactionPanel from './components/ModePages/ChooseSettleTransactionPanel';
 
 import { AddFamilyModePanelVisibilityState } from './atoms/AddFamilyModePanelVisibility';
 import { AddGoalPanelVisibilityState } from './atoms/AddGoalPanelVisibility';
@@ -41,6 +43,7 @@ import { AddModesPanelVisibilityState } from './atoms/AddModesPanelVisibility';
 import { AddPartnerModePanelVisibilityState } from './atoms/AddPartnerModePanelVisibility';
 import { AddPartyModePanelVisibilityState } from './atoms/AddPartyModePanelVisibility';
 import { AddTransactionsPanelVisibilityState } from './atoms/AddTransactionsPanelVisbility';
+import { ChooseSettleTransactionPanelVisibilityState } from './atoms/ChooseSettleTransactionPanel';
 import { FamilyModeFollowUpVisibilityState } from './atoms/FamilyModeFollowUp';
 import { FullLoginUpdaterState } from './atoms/FullLoginUpdater';
 import { ImportCsvCheckPanelVisibilityState } from './atoms/ImportCsvCheckPanelVisibility';
@@ -50,6 +53,7 @@ import { ManualAddTransactionsPanelVisibilityState } from './atoms/ManualAddTran
 import { PartnerModeFollowUpVisibilityState } from './atoms/PartnerModeFollowUp';
 import { PartyModeFollowUpVisibilityState } from './atoms/PartyModeFollowUp';
 import { SplitItPanelState } from './atoms/SplitItPanel';
+import { ApproveSettlePanelState } from './atoms/ApproveSettlePanel';
 import { UserTokenState } from './atoms/UserToken';
 
 
@@ -68,7 +72,9 @@ function App() {
   const importCsvPanelVisibility = useRecoilValue(ImportCsvPanelVisibilityState)
   const importCsvCheckPanelVisibility = useRecoilValue(ImportCsvCheckPanelVisibilityState);
   const manualAddTransactionsPanelVisibility = useRecoilValue(ManualAddTransactionsPanelVisibilityState);
-  const splitItPanel = useRecoilValue (SplitItPanelState);
+  const splitItPanel = useRecoilValue(SplitItPanelState);
+  const approveSettlePanel = useRecoilValue(ApproveSettlePanelState)
+  const chooseSettleTransactionPanelVisibility = useRecoilValue(ChooseSettleTransactionPanelVisibilityState);
   const popupVisible = 
     logOutPanelVisibility || 
     addModesPanelVisibility || 
@@ -83,6 +89,8 @@ function App() {
     partnerModeFollowUpVisibility ||
     partyModeFollowUpVisibility ||
     splitItPanel.visible ||
+    approveSettlePanel.visible ||
+    chooseSettleTransactionPanelVisibility ||
     addGoalPanelVisibility;
   const [token, setToken] = useRecoilState(UserTokenState);
   const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState)
@@ -163,7 +171,9 @@ function App() {
           {partnerModeFollowUpVisibility && <PartnerModeFollowUp/>}
           {partyModeFollowUpVisibility && <PartyModeFollowUp/>}
           {splitItPanel.visible && <SplitItPanel/>}
+          {approveSettlePanel.visible && <ApproveSettlePanel/>}
           {addGoalPanelVisibility && <AddGoalPanel/>}
+          {chooseSettleTransactionPanelVisibility && <ChooseSettleTransactionPanel/>}
         </div>
       </div>
     </div>

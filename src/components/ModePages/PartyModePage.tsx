@@ -4,11 +4,17 @@ import { useState } from 'react';
 
 import Moment from 'moment';
 import { useParams } from 'react-router';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import DebtPanel from './DebtPanel';
 import Navbar from "../Common/Navbar";
 import LoadingPanel from '../Common/LoadingPanel';
 import TransactionList from '../Common/TransactionList';
+import SettleYourBillsPanel from './SettleYourBillsPanel';
+
+import { SettleYourBillsPanelVisibilityState } from '../../atoms/SettleYourBillsPanelVisibility';
+import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
+import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
 
 import useFetchBudget from '../../hooks/useFetchBudget';
 import useFetchTransactions from '../../hooks/useFetchTransactions';
@@ -62,6 +68,23 @@ function PartyModePage() {
         setFilterMenuVisibility(false);
     }
 
+    const [showTransactionCheckbox, setShowTransactionCheckbox] = useState(false);
+    const [SettleYourBillsPanelVisibility, setSettleYourBillsPanelVisibility] = useRecoilState(SettleYourBillsPanelVisibilityState);
+    const [transactionsChecked, setTransactionsChecked] = useRecoilState(TransactionsCheckedState)
+    const setTransactionsToSettle = useSetRecoilState(TransactionsToSettleState)
+
+    function handleSettleYourBills()
+    {
+        if (transactionsChecked.length > 0)
+        {
+            setSettleYourBillsPanelVisibility(showTransactionCheckbox);
+            setTransactionsToSettle(transactionsChecked)
+        }
+            
+        setShowTransactionCheckbox(!showTransactionCheckbox);
+        setTransactionsChecked([]);
+    }
+
     return (
       <div className="party-mode-page">
         <Navbar></Navbar>
@@ -76,6 +99,9 @@ function PartyModePage() {
                     {!budget.loading && !budget.error && !transactions.loading && !transactions.loading &&
                         <DebtPanel amount={transactions.data.debt}/>
                     }
+                </div>
+                <div className='party-mode-button-container'>
+                    <button className='settle-your-bills-button' onClick={handleSettleYourBills}>Settle your bills</button>
                 </div>
                 <div className='title'>
                     <div className='subtitle'>
@@ -143,7 +169,7 @@ function PartyModePage() {
                         showTransactionType={true} 
                         showDate={true} 
                         showDeleteIcon={false} 
-                        showDeleteTransactionRadioButton={false}
+                        showCheckbox={showTransactionCheckbox}
                         showEditButton={false}
                         showSplitItIcon={false}
                         markDuplicates={false}></TransactionList>
@@ -154,6 +180,9 @@ function PartyModePage() {
             </div>
         </div>
         }
+        <div className='party-mode-pop-up-panel' style={{'display': SettleYourBillsPanelVisibility ? 'flex' : 'none'}}>
+            <SettleYourBillsPanel/>
+        </div>
       </div>
     );
   }
