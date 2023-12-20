@@ -87,7 +87,7 @@ function Transaction({
     const [recentlySplit, setRecentlySplit] = useState<boolean>(false);
     const waitingForApproval = transaction.transactionPayBacks.find(pb=>pb.transactionPayBackStatus === "WaitingForApproval");
     const chooseSettleTransactionPanelVisibility = useRecoilValue(ChooseSettleTransactionPanelVisibilityState);
-    const [chosenAsSettle, setChosenAsSettle] = useState<boolean>(false);
+    const [isChecked, setIsChecked] = useState<boolean>(false);
     const [chosenSettleTransactionId, setChosenSettleTransactionId] = useRecoilState(ChosenSettleTransactionIdState);
 
     const minified = useMediaQuery({ query: '(max-width: 1300px)'})
@@ -182,6 +182,9 @@ function Transaction({
 
     function handleCheckboxChange(checked : boolean)
     {
+      if (!chooseSettleTransactionPanelVisibility)
+      {
+        setIsChecked(checked);
         if (checked)
         {
           const newTransactionsChecked= transactionsChecked.concat([transactionId]);
@@ -198,6 +201,27 @@ function Transaction({
             setTransactionsChecked(newTransactionsChecked);
           }
         }
+      }
+      else
+      {
+        if (checked)
+        {
+          if (chosenSettleTransactionId === "")
+          {
+            setIsChecked(true);
+            setChosenSettleTransactionId(transaction.id);
+          }
+          // else
+          // {
+          //   setChosenAsSettle(false);
+          // }
+        }
+        else if (isChecked)
+        {
+          setIsChecked(false);
+          setChosenSettleTransactionId("");
+        }
+      }
     }
 
     function handleSplitIt()
@@ -260,7 +284,7 @@ function Transaction({
 
     function handleClick()
     {
-      if (waitingForApproval && !chooseSettleTransactionPanelVisibility)
+      if (waitingForApproval)
       {
         const idx = transaction.transactionPayBacks.map(pb=>pb.transactionPayBackStatus).indexOf("WaitingForApproval");
         setApproveSettlePanel({
@@ -270,23 +294,23 @@ function Transaction({
         })
         console.log(transaction.transactionPayBacks[idx]);
       }
-      if (chooseSettleTransactionPanelVisibility && (chosenSettleTransactionId === "" || chosenAsSettle))
-      {
-        setChosenSettleTransactionId(chosenAsSettle ? "" : transaction.id);
-        setChosenAsSettle(!chosenAsSettle);
-      }
-      
+      // if (chooseSettleTransactionPanelVisibility && (chosenSettleTransactionId === "" || chosenAsSettle))
+      // {
+      //   setChosenSettleTransactionId(chosenAsSettle ? "" : transaction.id);
+      //   setChosenAsSettle(!chosenAsSettle);
+      // }
     }
 
     return (
       <div 
         className={`transaction ${
           transaction.duplicatedTransaction && markDuplicate ? "duplicate" : 
-          (waitingForApproval || chosenAsSettle) ? "waiting-for-approval" : ""}`}
+          waitingForApproval ? "waiting-for-approval" : ""}`}
         onClick={handleClick}>
         {showCheckbox && showAsRows &&
             <label className='delete-transaction-checkbox-container delete-checkbox-as-rows '>
               <input type="checkbox" 
+                      checked={isChecked}
                       className='delete-transaction-checkbox' 
                       onChange={(e)=>handleCheckboxChange(e.target.checked)}>
               </input>
@@ -298,6 +322,7 @@ function Transaction({
             {showCheckbox && !showAsRows &&
             <label className='delete-transaction-checkbox-container '>
               <input type="checkbox" 
+                      checked={isChecked}
                       className='delete-transaction-checkbox' 
                       onChange={(e)=>handleCheckboxChange(e.target.checked)}>
               </input>

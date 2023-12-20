@@ -6,7 +6,7 @@ interface PaybackInterface
     amount: number,
     transactionPayBackStatus: string,
     inCash: boolean,
-    payBackTransaction: string,
+    payBackTransaction: any,
     userName: string,
     avatarImage: string
 }

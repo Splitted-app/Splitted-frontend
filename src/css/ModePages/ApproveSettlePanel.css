@@ -8,7 +8,7 @@
     border-radius: 50px;
     padding: 2%;
     display: grid;
-    grid-template-rows: 5% 10% auto 20%;
+    grid-template-rows: 10% 10% auto 20%;
 
 }
 .approve-settle-panel .title 
@@ -43,6 +43,7 @@
     font-family: 'Gotham Light';
     font-size: 20px;
     display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
 }
@@ -84,6 +85,12 @@
     font-family: 'Gotham Medium';
     border: 3px solid #CC3C3C;
     box-shadow: 8px 8px 5px #010446;
+}
+
+.approve-settle-panel .payback-type-transaction-text
+{
+    margin-bottom: 15px;
+    font-size: 18px;
 }
 
 

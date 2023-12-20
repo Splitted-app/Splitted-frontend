@@ -58,6 +58,7 @@ export default function useFetchTransactions(
         .then(res => {
             setError(false);
             setData(res.data);
+            console.log(res.data);
         })
         .catch(error => {
             setError(true);

@@ -1,27 +1,23 @@
-import '../../css/Common/ImportCsvCheck.css'
-
-import { useEffect, useState } from 'react';
+import '../../css/ModePages/ChooseSettleTransactionPanel.css'
 
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import Moment from 'moment';
 
+import LoadingPanel from '../Common/LoadingPanel';
 import TransactionList from '../Common/TransactionList';
 
 import { ChosenSettleTransactionIdState } from '../../atoms/ChosenSettleTransactionId';
-import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
 import { ChooseSettleTransactionPanelVisibilityState } from '../../atoms/ChooseSettleTransactionPanel';
-
+import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
 import { UserTokenState } from '../../atoms/UserToken'
 
 import useFetchTransactions from '../../hooks/useFetchTransactions';
-import LoadingPanel from '../Common/LoadingPanel';
 import axios from 'axios';
 
 
 function ChooseSettleTransactionPanel() {
 
   const transactions = useFetchTransactions()
-  const chosenSettleTransactionId = useRecoilValue(ChosenSettleTransactionIdState);
+  const [chosenSettleTransactionId, setChosenSettleTransactionId] = useRecoilState(ChosenSettleTransactionIdState);
   const [transansactionsToSettle, setTransactionsToSettle] = useRecoilState(TransactionsToSettleState)
   const setChooseSettleTransactionPanelVisibility = useSetRecoilState(ChooseSettleTransactionPanelVisibilityState)
   const token = useRecoilValue(UserTokenState);
@@ -37,6 +33,7 @@ function ChooseSettleTransactionPanel() {
         }
     })
     .then((res)=>{
+        setChosenSettleTransactionId("");
         setTransactionsToSettle([]);
         setChooseSettleTransactionPanelVisibility(false);
     })
@@ -45,30 +42,41 @@ function ChooseSettleTransactionPanel() {
     })
   }
 
+  function handleCancelButton()
+  {
+    setChosenSettleTransactionId("");
+    setChooseSettleTransactionPanelVisibility(false)
+  }
+
 
   return (
-    <div className="import-csv-check">
+    <div className="choose-settle-transaction-panel">
       <div className='title'>
-        Let's check
+        <div className='main-title'>
+          Settled with transaction
+        </div>
+        <div className='subtitle'>
+          Choose transaction that settles this payment.
+        </div>
       </div>
       <div className='content-container'>
         {(transactions.loading || transactions.error) && <LoadingPanel error={transactions.error}/>}
         {!transactions.loading && !transactions.error &&
           <TransactionList 
             transactions={transactions.data.transactions.sort((t1: any, t2: any)=>
-                (new Date(t1.date).getTime() - new Date(t2.date).getTime()))} 
+                (new Date(t2.date).getTime() - new Date(t1.date).getTime()))} 
             shadow={false} 
             showTransactionType={true} 
             showDate={true} 
             showDeleteIcon={false} 
-            showCheckbox={false}
+            showCheckbox={true}
             showEditButton={false}
             showSplitItIcon = {false}
             markDuplicates={false}></TransactionList>
         }
       </div>
       <div className='button-container'>
-        {<button className='cancel-button' onClick={()=>setChooseSettleTransactionPanelVisibility(false)}>
+        {<button className='cancel-button' onClick={handleCancelButton}>
           Cancel
         </button>}
         <button className='interaction-button' onClick={handleButtonClicked} disabled={chosenSettleTransactionId === ""}>
