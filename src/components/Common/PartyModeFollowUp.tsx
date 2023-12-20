@@ -8,6 +8,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { UserTokenState } from "../../atoms/UserToken";
 import { PartyModeFollowUpVisibilityState } from "../../atoms/PartyModeFollowUp";
 import { PartyFriendsIdsState } from '../../atoms/PartyFriendsIds';
+import FormInfo from './FormInfo';
 
 
 interface FormDataInterface {
@@ -20,13 +21,21 @@ function PartyModeFollowUp()
     const [data, setData] = useState<FormDataInterface>({
         budgetName: "",
     })
+    const [errors, setErrors] = useState({
+        nameEmpty: false as boolean,
+    })
     const [partyFriendIds, setPartyFriendsIds] = useRecoilState(PartyFriendsIdsState)
     const token = useRecoilValue(UserTokenState);
     const setPartyModeFollowUpVisibility = useSetRecoilState(PartyModeFollowUpVisibilityState);
 
     function handleSubmit(event: any) {
         event.preventDefault();
-        console.log(partyFriendIds);
+        if (data.budgetName.length === 0)
+        {
+            setErrors({...errors, nameEmpty: true})
+            return
+        }
+
         axios.post(process.env.REACT_APP_API_URL + `/api/modes/temporary-mode/${partyFriendIds.join('/')}`,
         JSON.stringify({
             name: data.budgetName,
@@ -69,6 +78,11 @@ function PartyModeFollowUp()
                                     onChange={(e: any) => setData({ ...data, budgetName: e.target.value })}/>
                             </div>
                         </div>
+                        {errors.nameEmpty && 
+                        <FormInfo 
+                            message="Budget name cannot be empty" 
+                            details="" 
+                            textColor="black"/>}
                     </div>
                     <div className='button-container'>
                         <input type="submit" value="Finish" />

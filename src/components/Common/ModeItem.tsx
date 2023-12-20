@@ -14,7 +14,7 @@ interface ModeItemInterface
 function ModeItem({budget}:ModeItemInterface) {
 
     let icon = null;
-    let title = budget.budgetType;
+    let title = budget.name;
     let link = "";
     switch (budget.budgetType)
     {
