@@ -3,8 +3,8 @@
     background-color: white;
     box-shadow: inset 0 0 10px #404040;
     border-radius: 35px;
-    width:340px;
-    height:140px;
+    width:400px;
+    height:145px;
     padding-top:3%;
     padding-bottom: 3%;
     padding-right: 3%;
@@ -13,7 +13,7 @@
 .debt-panel .debt-panel-title
 {
     font-family: 'Gotham Medium';
-    font-size: 24px;
+    font-size: 28px;
     color: #303030;
     text-align: start;
     width: 100%;
@@ -25,12 +25,18 @@
 .debt-panel .debt-panel-main-content
 {
     font-family: 'Gotham Bold';
-    font-size: 50px;
+    font-size: 60px;
     text-align: start;
     width: 100%;
     height: 80%;
-    padding-left: 3%;
+    padding-left: 2%;
     display: flex;
-    text-shadow: 3px 3px 5px #10032B;
+    text-shadow: 2px 3px 5px #10032B;
     align-items: center;
+}
+
+
+.debt-panel .debt-panel-main-content .debt-panel-amount
+{
+    margin-right: 2%;
 }
