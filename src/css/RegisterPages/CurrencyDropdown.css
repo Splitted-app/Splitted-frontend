@@ -2,12 +2,12 @@
 {
     margin: auto;
     display: block;
-    margin-bottom: 15px;
-    box-shadow: 5px 5px  #404040;
-    height: 35px;
+    /* margin-bottom: 15px; */
+    /* box-shadow: 5px 5px  #404040; */
+    height: 50px;
     width: 100%;
-    font-family: 'Gotham Light';
-    font-size: 16px;
+    font-family: 'Gotham Medium';
+    font-size: 18px;
     text-rendering: auto;
     letter-spacing: normal;
     word-spacing: normal;
@@ -20,4 +20,39 @@
     border-width: 2px;
     border-style: inset;
     border-image: initial;
+}
+
+
+@media screen and (max-width:1300px)
+{
+    .currency-select-style{
+        font-size: 16px;
+        height: 45px;
+    }
+}
+
+
+
+@media screen and (max-width:1050px)
+{
+    .currency-select-style{
+        font-size: 14px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width:950px)
+{
+    .currency-select-style{
+        font-size: 12px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width:600px)
+{
+    .currency-select-style{
+        font-size: 10px;
+        height: 25px;
+    }
 }

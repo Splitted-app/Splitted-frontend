@@ -158,3 +158,225 @@
     float:right;
     border-radius: 4px;
 }
+
+@media screen and (max-width:1300px)
+{
+    .family-mode-followup
+    {
+        height: 95%;
+        width: 65%;
+    }
+
+    .family-mode-followup .title .main-title
+    {
+        font-size: 26px;
+    }
+
+    .family-mode-followup .title .subtitle
+    {
+        font-size: 18px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields
+    {
+        padding-top: 10px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields label
+    {
+        font-size: 18px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields .field-style
+    {
+        font-size: 16px;
+        height: 45px;
+
+    }
+
+    .family-mode-followup .button-container input
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 45px;
+    }
+    .family-mode-followup .budget-input
+    {
+        font-size: 14px;
+        height: 30px;
+    }
+
+}
+
+
+@media screen and (max-width:1050px)
+{
+    .family-mode-followup
+    {
+        height: 90%;
+        width: 75%;
+    }
+
+    .family-mode-followup .title .main-title
+    {
+        font-size: 24px;
+    }
+
+    .family-mode-followup .title .subtitle
+    {
+        font-size: 16px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields
+    {
+        padding-top: 5px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields label
+    {
+        font-size: 14px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields .field-style
+    {
+        font-size: 14px;
+        height: 35px;
+
+    }
+
+    .family-mode-followup .button-container input
+    {
+        font-size: 12px;
+        width: 80px;
+        height: 40px;
+    }
+    .family-mode-followup .budget-input
+    {
+        font-size: 12px;
+        height: 25px;
+    }
+
+}
+
+
+
+@media screen and (max-width:950px)
+{
+    .family-mode-followup
+    {
+        height: 85%;
+        width: 80%;
+    }
+
+    .family-mode-followup .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .family-mode-followup .title .subtitle
+    {
+        font-size: 14px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields
+    {
+        padding-top: 0px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields label
+    {
+        font-size: 12px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields .field-style
+    {
+        font-size: 12px;
+        height: 30px;
+
+    }
+
+    .family-mode-followup .button-container input
+    {
+        font-size: 10px;
+        width: 70px;
+        height: 35px;
+    }
+    .family-mode-followup .budget-input
+    {
+        font-size: 10px;
+        height: 25px;
+    }
+
+}
+
+
+@media screen and (max-width:850px)
+{
+    .family-mode-followup
+    {
+        height: 80%;
+        width: 85%;
+    }
+
+    .family-mode-followup .title .main-title
+    {
+        font-size: 20px;
+    }
+
+    .family-mode-followup .title .subtitle
+    {
+        font-size: 12px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields
+    {
+        grid-template-columns: [start] 100% [end];
+        grid-template-rows: [line1] 10% [line2] 15% [line3] 10% [line4] 15% [line5] 10% [line6] 15% [line7];
+    }
+    
+}
+
+
+@media screen and (max-width:600px)
+{
+    .family-mode-followup
+    {
+        height: 70%;
+        width: 100%;
+    }
+
+    .family-mode-followup .title .main-title
+    {
+        font-size: 14px;
+    }
+
+    .family-mode-followup .title .subtitle
+    {
+        font-size: 10px;
+    }
+    
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields label
+    {
+        font-size: 10px;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-elements .information-fields .field-style
+    {
+        font-size: 10px;
+        height: 25px;
+
+    }
+
+    .family-mode-followup .button-container input
+    {
+        font-size: 8px;
+        width: 60px;
+        height: 30px;
+    }
+    .family-mode-followup .budget-input
+    {
+        font-size: 8px;
+        height: 20px;
+    }
+
+}
