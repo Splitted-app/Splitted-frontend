@@ -222,3 +222,17 @@
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+.party-mode-page .party-mode-pop-up-panel
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    width: 50%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

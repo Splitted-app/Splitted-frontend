@@ -4,12 +4,17 @@ import { useState } from 'react';
 
 import Moment from 'moment';
 import { useParams } from 'react-router';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import DebtPanel from './DebtPanel';
 import Navbar from "../Common/Navbar";
 import LoadingPanel from '../Common/LoadingPanel';
-import SettleYourBillsPanel from './SettleYourBillsPanel';
 import TransactionList from '../Common/TransactionList';
+import SettleYourBillsPanel from './SettleYourBillsPanel';
+
+import { SettleYourBillsPanelVisibilityState } from '../../atoms/SettleYourBillsPanelVisibility';
+import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
+import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
 
 import useFetchBudget from '../../hooks/useFetchBudget';
 import useFetchTransactions from '../../hooks/useFetchTransactions';
@@ -63,11 +68,21 @@ function PartyModePage() {
         setFilterMenuVisibility(false);
     }
 
-    const [showDeleteTransactionRadioButton, setShowDeleteTransactionRadioButton] = useState(false);
+    const [showTransactionCheckbox, setShowTransactionCheckbox] = useState(false);
+    const [SettleYourBillsPanelVisibility, setSettleYourBillsPanelVisibility] = useRecoilState(SettleYourBillsPanelVisibilityState);
+    const [transactionsChecked, setTransactionsChecked] = useRecoilState(TransactionsCheckedState)
+    const setTransactionsToSettle = useSetRecoilState(TransactionsToSettleState)
 
     function handleSettleYourBills()
     {
-        setShowDeleteTransactionRadioButton(!showDeleteTransactionRadioButton);
+        if (transactionsChecked.length > 0)
+        {
+            setSettleYourBillsPanelVisibility(showTransactionCheckbox);
+            setTransactionsToSettle(transactionsChecked)
+        }
+            
+        setShowTransactionCheckbox(!showTransactionCheckbox);
+        setTransactionsChecked([]);
     }
 
     return (
@@ -154,7 +169,7 @@ function PartyModePage() {
                         showTransactionType={true} 
                         showDate={true} 
                         showDeleteIcon={false} 
-                        showCheckbox={showDeleteTransactionRadioButton}
+                        showCheckbox={showTransactionCheckbox}
                         showEditButton={false}
                         showSplitItIcon={false}
                         markDuplicates={false}></TransactionList>
@@ -165,6 +180,9 @@ function PartyModePage() {
             </div>
         </div>
         }
+        <div className='party-mode-pop-up-panel' style={{'display': SettleYourBillsPanelVisibility ? 'flex' : 'none'}}>
+            <SettleYourBillsPanel/>
+        </div>
       </div>
     );
   }
