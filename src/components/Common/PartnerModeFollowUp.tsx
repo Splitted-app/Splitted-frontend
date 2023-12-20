@@ -6,6 +6,7 @@ import { UserTokenState } from "../../atoms/UserToken";
 import { PartnerModeFollowUpVisibilityState } from "../../atoms/PartnerModeFollowUp";
 import axios from "axios";
 import { PartnerIdState } from "../../atoms/PartnerId";
+import FormInfo from './FormInfo';
 
 
 interface FormDataInterface {
@@ -18,12 +19,21 @@ function PartnerModeFollowUp()
     const [data, setData] = useState<FormDataInterface>({
         budgetName: "",
     })
+    const [errors, setErrors] = useState({
+        nameEmpty: false as boolean,
+    })
     const [partnerId, setPartnerId] = useRecoilState(PartnerIdState)
     const token = useRecoilValue(UserTokenState);
     const setPartnerModeFollowUpVisibility = useSetRecoilState(PartnerModeFollowUpVisibilityState);
 
     function handleSubmit(event: any) {
         event.preventDefault();
+        if (data.budgetName.length === 0)
+        {
+            setErrors({...errors, nameEmpty: true})
+            return
+        }
+
         axios.post(process.env.REACT_APP_API_URL + `/api/modes/partner-mode/${partnerId}`,
         JSON.stringify({
             name: data.budgetName,
@@ -66,7 +76,13 @@ function PartnerModeFollowUp()
                                     onChange={(e: any) => setData({ ...data, budgetName: e.target.value })}/>
                             </div>
                         </div>
+                        {errors.nameEmpty && 
+                        <FormInfo 
+                            message="Budget name cannot be empty" 
+                            details="" 
+                            textColor="black"/>}
                     </div>
+                    
                     <div className='button-container'>
                         <input type="submit" value="Finish" />
                     </div>

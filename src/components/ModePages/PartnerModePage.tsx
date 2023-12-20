@@ -104,14 +104,16 @@ function PartnerModePage() {
                 <div className='partner-mode-button-container'>
                     <button className='settle-your-bills-button' onClick={handleSettleYourBills}>Settle your bills</button>
                 </div>
+                {!budget.loading && !budget.error &&
                 <div className='title'>
                     <div className='subtitle'>
-                        Partner mode with user123
+                        Partner mode with {budget.data.users[0].username}
                     </div>
                     <div className='maintitle'>
-                        Partner mode1
+                        {budget.data.name}
                     </div>
                 </div>
+                }
             </div>
             <div className='partner-mode-page-show-filter-menu'>
                 Show filter menu

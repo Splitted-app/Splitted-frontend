@@ -24,10 +24,10 @@ function FamilyModePage() {
             <div className='header'>
                 <div className='title'>
                     <div className='subtitle'>
-                        Family mode with user123
+                        Family mode with {budget.data.users[0].username}
                     </div>
                     <div className='maintitle'>
-                        Family mode1
+                        {budget.data.name}
                     </div>
                 </div>
             </div>

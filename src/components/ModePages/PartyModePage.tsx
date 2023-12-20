@@ -103,14 +103,16 @@ function PartyModePage() {
                 <div className='party-mode-button-container'>
                     <button className='settle-your-bills-button' onClick={handleSettleYourBills}>Settle your bills</button>
                 </div>
+                {!budget.loading && !budget.error &&
                 <div className='title'>
                     <div className='subtitle'>
-                        Party mode with user123
+                        Party mode with {budget.data.users.map((u: any) => u.username).join(', ')}
                     </div>
                     <div className='maintitle'>
-                        Party mode1
+                        {budget.data.name}
                     </div>
                 </div>
+                }
             </div>
             <div className='party-mode-page-show-filter-menu'>
                 Show filter menu

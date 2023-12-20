@@ -8,6 +8,7 @@ import { FamilyModeFollowUpVisibilityState } from "../../atoms/FamilyModeFollowU
 import axios from "axios";
 import { FamilyMemberIdState } from "../../atoms/FamilyMemberId";
 import CurrencyDropdown from "../HomePage/CurrencyDropdown";
+import FormInfo from './FormInfo';
 
 
 interface FormDataInterface {
@@ -24,17 +25,26 @@ function FamilyModeFollowUp()
         currency: "PLN",
         budgetName: ""
     })
+    const [errors, setErrors] = useState({
+        nameEmpty: false as boolean,
+    })
     const [familyMemberId, setFamilyMemberId] = useRecoilState(FamilyMemberIdState)
     const token = useRecoilValue(UserTokenState);
     const setFamilyModeFollowUpVisibility = useSetRecoilState(FamilyModeFollowUpVisibilityState);
 
     function handleSubmit(event: any) {
         event.preventDefault();
+        if (data.budgetName.length === 0)
+        {
+            setErrors({...errors, nameEmpty: true})
+            return
+        }
+
         axios.post(process.env.REACT_APP_API_URL + `/api/modes/family-mode/${familyMemberId}`,
         JSON.stringify({
             bank: data.bank,
             currency: data.currency,
-            budgetName: data.budgetName,
+            name: data.budgetName,
         }),
         {
             headers: {
@@ -93,6 +103,11 @@ function FamilyModeFollowUp()
                                 <input type="text" placeholder='Budget name' className='budget-input' 
                                     onChange={(e: any) => setData({ ...data, budgetName: e.target.value })}/>
                             </div>
+                            {errors.nameEmpty &&
+                            <FormInfo 
+                                message="Budget name cannot be empty" 
+                                details="" 
+                                textColor="black"/>}
                         </div>
                     </div>
                     <div className='button-container'>

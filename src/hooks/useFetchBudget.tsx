@@ -8,12 +8,14 @@ import { UserTokenState } from "../atoms/UserToken";
 export default function useFetchBudget(id : string | undefined) {
     const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>(null);
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
 
     useEffect(() => {
+        console.log(`id: ${id}`);
         if (!id)
             return;
+        console.log(id);
         setLoading(true);
         axios.get(process.env.REACT_APP_API_URL + `/api/budgets/${id}`, {
             headers: {
@@ -23,6 +25,7 @@ export default function useFetchBudget(id : string | undefined) {
             },
         })
         .then((res) => {
+            console.log(res.data);
             setError(false);
             setData(res.data)
         })
@@ -33,7 +36,7 @@ export default function useFetchBudget(id : string | undefined) {
         .finally(()=>{
             setLoading(false)
         })
-    }, [])
+    }, [id])
 
     return {data, loading, error};
 }

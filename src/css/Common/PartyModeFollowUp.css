@@ -49,30 +49,19 @@
 
 .party-mode-followup .party-mode-followup-form .form-elements
 {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    display: flex;
-    flex-direction: column;
     height: 100%;
-}
-
-.party-mode-followup .party-mode-followup-form .form-elements .information-fields
-{
-    padding-top: 15px;
-}
-
-.party-mode-followup .party-mode-followup-form .form-elements .information-fields
-{
     display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: [start] 50% [middle] auto [end];
-    grid-template-rows: [line1] 33% [line2] 33% [line3] 34% [line4];
-    row-gap: 20px;
-    column-gap: 20px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 15% 15% auto;
 }
 
+.party-mode-followup .party-mode-followup-form .form-elements .information-fields
+{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: [start] 50% [middle] auto [end];
+}
 
 .party-mode-followup .party-mode-followup-form .form-elements .information-fields label
 {
@@ -117,6 +106,11 @@
     overflow: hidden;
 }
 
+.party-mode-followup .party-mode-followup-form .form-error
+{
+    grid-column-start: 2;
+    justify-content: left;
+}
 
 .party-mode-followup .button-container 
 {
