@@ -52,7 +52,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 15% 15% auto;
+    grid-template-rows: 80% 20%;
 }
 
 .party-mode-followup .party-mode-followup-form .form-elements .information-fields
@@ -150,4 +150,215 @@
     width: 100%;
     float:right;
     border-radius: 4px;
+}
+
+
+@media screen and (max-width:1300px)
+{
+    .party-mode-followup
+    {
+        height: 95%;
+        width: 65%;
+    }
+
+    .party-mode-followup .title .main-title
+    {
+        font-size: 26px;
+    }
+
+    .party-mode-followup .title .subtitle
+    {
+        font-size: 18px;
+    }
+
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields
+    {
+        padding-top: 10px;
+    }
+
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields label
+    {
+        font-size: 18px;
+    }
+
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields .field-style
+    {
+        font-size: 16px;
+        height: 45px;
+
+    }
+
+    .party-mode-followup .button-container input
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 45px;
+    }
+    .party-mode-followup .budget-input
+    {
+        font-size: 14px;
+        height: 30px;
+    }
+
+}
+
+
+@media screen and (max-width:1050px)
+{
+    .party-mode-followup    {
+        height: 90%;
+        width: 75%;
+    }
+
+    .party-mode-followup .title .main-title
+    {
+        font-size: 24px;
+    }
+
+    .party-mode-followup .title .subtitle
+    {
+        font-size: 16px;
+    }
+
+
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields
+    {
+        grid-template-columns: [start] 100% [end];
+        grid-template-rows: [line1] 15% [line2] 25% [line3] 10% [line4] 15% [line5] 10% [line6] 15% [line7];
+    }
+    
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields
+    {
+        padding-top: 40px;
+    }
+
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields label
+    {
+        font-size: 14px;
+    }
+
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields .field-style
+    {
+        font-size: 14px;
+        height: 35px;
+
+    }
+
+    .party-mode-followup .button-container input
+    {
+        font-size: 12px;
+        width: 90px;
+        height: 45px;
+    }
+    .party-mode-followup .budget-input
+    {
+        font-size: 12px;
+        height: 30px;
+    }
+
+}
+
+
+
+@media screen and (max-width:950px)
+{
+    .party-mode-followup    
+    {
+        height: 85%;
+        width: 80%;
+    }
+
+    .party-mode-followup .title .main-title
+    {
+        font-size: 22px;
+    }
+
+    .party-mode-followup .title .subtitle
+    {
+        font-size: 14px;
+    }
+
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields
+    {
+        padding-top: 30px;
+    }
+
+    .party-mode-followup .button-container input
+    {
+        font-size: 12px;
+        width: 80px;
+        height: 40px;
+    }
+
+
+}
+
+
+@media screen and (max-width:850px)
+{
+    .party-mode-followup    {
+        height: 80%;
+        width: 85%;
+    }
+
+    .party-mode-followup .title .main-title
+    {
+        font-size: 20px;
+    }
+
+    .party-mode-followup .title .subtitle
+    {
+        font-size: 12px;
+    }
+    
+}
+
+
+@media screen and (max-width:600px)
+{
+    .party-mode-followup
+    {
+        height: 60%;
+        width: 100%;
+    }
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields
+    {
+        grid-template-rows: [line1] 20% [line2] 25% [line3] 10% [line4] 15% [line5] 10% [line6] 15% [line7];
+    }
+
+    .party-mode-followup .title .main-title
+    {
+        font-size: 16px;
+    }
+
+    .party-mode-followup .title .subtitle
+    {
+        font-size: 12px;
+    }
+    
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields label
+    {
+        font-size: 10px;
+    }
+
+    .party-mode-followup .party-mode-followup-form .form-elements .information-fields .field-style
+    {
+        font-size: 10px;
+        height: 25px;
+
+    }
+
+    .party-mode-followup .button-container input
+    {
+        font-size: 10px;
+        width: 70px;
+        height: 35px;
+    }
+
+    .party-mode-followup .budget-input
+    {
+        font-size: 10px;
+        height: 25px;
+    }
+
 }
