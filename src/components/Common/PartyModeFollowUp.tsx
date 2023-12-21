@@ -23,6 +23,7 @@ function PartyModeFollowUp()
     })
     const [errors, setErrors] = useState({
         nameEmpty: false as boolean,
+        userUnavailable: false as boolean
     })
     const [partyFriendIds, setPartyFriendsIds] = useRecoilState(PartyFriendsIdsState)
     const token = useRecoilValue(UserTokenState);
@@ -52,6 +53,15 @@ function PartyModeFollowUp()
             setPartyFriendsIds([]);
         })
         .catch(error => {
+            if (error.response.status === 403)
+            {
+                setErrors({
+                    nameEmpty: false,
+                    userUnavailable: true
+                })
+                setTimeout(()=>setPartyModeFollowUpVisibility(false), 2000)
+            }
+                
             console.error(error);
         })
     }
@@ -81,6 +91,11 @@ function PartyModeFollowUp()
                         {errors.nameEmpty && 
                         <FormInfo 
                             message="Budget name cannot be empty" 
+                            details="" 
+                            textColor="black"/>}
+                        {errors.userUnavailable &&
+                        <FormInfo 
+                            message="One of the users is unavailable" 
                             details="" 
                             textColor="black"/>}
                     </div>

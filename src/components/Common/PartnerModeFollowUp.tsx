@@ -21,6 +21,7 @@ function PartnerModeFollowUp()
     })
     const [errors, setErrors] = useState({
         nameEmpty: false as boolean,
+        userUnavailable: false as boolean
     })
     const [partnerId, setPartnerId] = useRecoilState(PartnerIdState)
     const token = useRecoilValue(UserTokenState);
@@ -50,6 +51,15 @@ function PartnerModeFollowUp()
             setPartnerId("");
         })
         .catch(error => {
+            if (error.response.status === 403)
+            {
+                setErrors({
+                    nameEmpty: false,
+                    userUnavailable: true
+                })
+                setTimeout(()=>setPartnerModeFollowUpVisibility(false), 2000)
+            }
+                
             console.error(error);
         })
     }
@@ -79,6 +89,11 @@ function PartnerModeFollowUp()
                         {errors.nameEmpty && 
                         <FormInfo 
                             message="Budget name cannot be empty" 
+                            details="" 
+                            textColor="black"/>}
+                        {errors.userUnavailable &&
+                        <FormInfo 
+                            message="This user is unavailable" 
                             details="" 
                             textColor="black"/>}
                     </div>
