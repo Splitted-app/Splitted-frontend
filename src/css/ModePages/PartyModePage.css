@@ -236,3 +236,390 @@
     justify-content: center;
     align-items: center;
 }
+
+
+
+@media screen and (max-width: 1300px) 
+{
+    .party-mode-page .party-mode-page-content .header .title .maintitle
+    {
+        font-size: 70px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .subtitle
+    {
+        font-size: 24px;
+    }
+
+
+    .party-mode-page .party-mode-page-content .header .party-mode-button-container .settle-your-bills-button
+    {
+        font-size: 14px;
+        width: 160px;
+        height: 45px;
+
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu
+    {
+        font-size: 26px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu .party-mode-page-show-filter-menu-icon img{
+        width: 90%;
+        height: 90%;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element
+    {
+        font-size: 18px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element label
+    {
+        font-size: 16px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-button-container .party-mode-page-filter-menu-button
+    {
+        font-size: 14px;
+        width: 160px;
+        height: 45px;
+    }
+
+}
+
+
+@media screen and (max-width: 1150px)
+{
+    .party-mode-page .party-mode-page-content .header .title .maintitle
+    {
+        font-size: 65px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .subtitle
+    {
+        font-size: 22px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .party-mode-button-container .settle-your-bills-button
+    {
+        font-size: 13px;
+        width: 150px;
+        height: 40px;
+
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu
+    {
+        font-size: 20px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu .party-mode-page-show-filter-menu-icon img{
+        width: 70%;
+        height: 70%;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element
+    {
+        font-size: 16px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element label
+    {
+        font-size: 14px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element input
+    {
+        font-size: 10px;
+    }
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element select
+    {
+        font-size: 10px;
+    }
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-button-container .party-mode-page-filter-menu-button
+    {
+        font-size: 12px;
+        width: 150px;
+        height: 40px;
+    }
+
+}
+
+
+@media screen and (max-width: 1050px)
+{
+    .party-mode-page .party-mode-page-content .header .title .maintitle
+    {
+        font-size: 55px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .subtitle
+    {
+        font-size: 20px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .party-mode-button-container .settle-your-bills-button
+    {
+        font-size: 12px;
+        width: 130px;
+        height: 40px;
+
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element
+    {
+        font-size: 14px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element label
+    {
+        font-size: 12px;
+    }
+
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-button-container .party-mode-page-filter-menu-button
+    {
+        font-size: 10px;
+        width: 130px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 1000px)
+{
+    .party-mode-page .party-mode-page-content .header .title .maintitle
+    {
+        font-size: 65px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .subtitle
+    {
+        font-size: 22px;
+    }
+
+    .party-mode-page .party-mode-page-content
+    {
+        width: 100%;
+    }
+
+    .party-mode-page .party-mode-page-content .header .party-mode-debt-panel
+    {
+        display: none;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title
+    {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu
+    {
+        font-size: 22px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu .party-mode-page-show-filter-menu-icon img{
+        width: 80%;
+        height: 80%;
+    }
+
+    .party-mode-page .party-mode-page-content .header
+    {
+        margin-top: 50px;
+    }
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element
+    {
+        font-size: 16px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element label
+    {
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (max-width: 850px)
+{
+
+    .party-mode-page .party-mode-page-content .header .title .maintitle
+    {
+        font-size: 60px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .subtitle
+    {
+        font-size: 20px;
+    }
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu
+    {
+        font-size: 18px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu .party-mode-page-show-filter-menu-icon img{
+        width: 70%;
+        height: 70%;
+    }
+
+
+}
+
+@media screen and (max-width: 750px)
+{    
+    .party-mode-page .party-mode-page-content .header .title .maintitle
+    {
+        font-size: 55px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .subtitle
+    {
+        font-size: 20px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .party-mode-button-container .settle-your-bills-button
+    {
+        font-size: 11px;
+        width: 120px;
+        height: 35px;
+
+    }
+
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu
+    {
+        font-size: 14px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu .party-mode-page-show-filter-menu-icon img{
+        width: 60%;
+        height: 60%;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element
+    {
+        font-size: 12px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element label
+    {
+        font-size: 11px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-button-container .party-mode-page-filter-menu-button
+    {
+        font-size: 10px;
+        width: 120px;
+        height: 35px;
+    }
+
+}
+
+@media screen and (max-width: 550px)
+{    
+    .party-mode-page .party-mode-page-content .header .title .maintitle
+    {
+        font-size: 45px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .subtitle
+    {
+        font-size: 18px;
+    }
+
+
+    .party-mode-page .party-mode-page-content .header .party-mode-button-container .settle-your-bills-button
+    {
+        font-size: 8px;
+        width: 80px;
+        height: 30px;
+
+    }
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element
+    {
+        font-size: 10px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element label
+    {
+        font-size: 8px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element input
+    {
+        font-size: 7px;
+        width: 45%;
+
+    }
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element select
+    {
+        font-size: 7px;
+    }
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-button-container .party-mode-page-filter-menu-button
+    {
+        font-size: 8px;
+        width: 80px;
+        height: 30px;
+    }
+
+}
+
+
+@media screen and (max-width: 450px)
+{
+
+    .party-mode-page .party-mode-page-content .header .title .maintitle
+    {
+        font-size: 35px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .subtitle
+    {
+        font-size: 14px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .party-mode-button-container .settle-your-bills-button
+    {
+        font-size: 6px;
+        width: 60px;
+        height: 25px;
+
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu
+    {
+        font-size: 10px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu .party-mode-page-show-filter-menu-icon img{
+        width: 50%;
+        height: 50%;
+    }
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element
+    {
+        font-size: 8px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element label
+    {
+        font-size: 6px;
+    }
+
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element input
+    {
+        font-size: 6px;
+        width: 50%;
+
+    }
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-element select
+    {
+        font-size: 6px;
+    }
+    .party-mode-page .party-mode-page-content .party-mode-page-filter-menu .party-mode-page-filter-menu-button-container .party-mode-page-filter-menu-button
+    {
+        font-size: 6px;
+        width: 60px;
+        height: 20px;
+    }
+}
