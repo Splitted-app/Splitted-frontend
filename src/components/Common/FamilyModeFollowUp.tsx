@@ -1,14 +1,19 @@
 import '../../css/Common/FamilyModeFollowUp.css';
 
 import { useState } from "react";
-import { BankNames } from "../../enums";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { UserTokenState } from "../../atoms/UserToken";
-import { FamilyModeFollowUpVisibilityState } from "../../atoms/FamilyModeFollowUp";
+
 import axios from "axios";
-import { FamilyMemberIdState } from "../../atoms/FamilyMemberId";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+
 import CurrencyDropdown from "../HomePage/CurrencyDropdown";
 import FormInfo from './FormInfo';
+
+import { UserTokenState } from "../../atoms/UserToken";
+import { FamilyModeFollowUpVisibilityState } from "../../atoms/FamilyModeFollowUp";
+import { UserBudgetsUpdaterState } from '../../atoms/UserBudgetsUpdater';
+import { FamilyMemberIdState } from "../../atoms/FamilyMemberId";
+
+import { BankNames } from "../../enums";
 
 
 interface FormDataInterface {
@@ -32,6 +37,7 @@ function FamilyModeFollowUp()
     const [familyMemberId, setFamilyMemberId] = useRecoilState(FamilyMemberIdState)
     const token = useRecoilValue(UserTokenState);
     const setFamilyModeFollowUpVisibility = useSetRecoilState(FamilyModeFollowUpVisibilityState);
+    const [userBudgetsUpdater, setUserBudgetsUpdater] = useRecoilState(UserBudgetsUpdaterState)
 
     function handleSubmit(event: any) {
         event.preventDefault();
@@ -56,6 +62,7 @@ function FamilyModeFollowUp()
         })
         .then(res => {
             setFamilyModeFollowUpVisibility(false);
+            setUserBudgetsUpdater(!userBudgetsUpdater);
             setFamilyMemberId("");
         })
         .catch(error => {
@@ -67,7 +74,6 @@ function FamilyModeFollowUp()
                 })
                 setTimeout(()=>setFamilyModeFollowUpVisibility(false), 2000)
             }
-                
             console.error(error);
         })
     }

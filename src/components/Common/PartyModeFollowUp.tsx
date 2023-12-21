@@ -5,10 +5,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
+import FormInfo from './FormInfo';
+
 import { UserTokenState } from "../../atoms/UserToken";
 import { PartyModeFollowUpVisibilityState } from "../../atoms/PartyModeFollowUp";
 import { PartyFriendsIdsState } from '../../atoms/PartyFriendsIds';
-import FormInfo from './FormInfo';
+import { UserBudgetsUpdaterState } from '../../atoms/UserBudgetsUpdater';
 
 
 interface FormDataInterface {
@@ -28,6 +30,7 @@ function PartyModeFollowUp()
     const [partyFriendIds, setPartyFriendsIds] = useRecoilState(PartyFriendsIdsState)
     const token = useRecoilValue(UserTokenState);
     const setPartyModeFollowUpVisibility = useSetRecoilState(PartyModeFollowUpVisibilityState);
+    const [userBudgetsUpdater, setUserBudgetsUpdater] = useRecoilState(UserBudgetsUpdaterState)
 
     function handleSubmit(event: any) {
         event.preventDefault();
@@ -50,6 +53,7 @@ function PartyModeFollowUp()
         })
         .then(res => {
             setPartyModeFollowUpVisibility(false);
+            setUserBudgetsUpdater(!userBudgetsUpdater);
             setPartyFriendsIds([]);
         })
         .catch(error => {
