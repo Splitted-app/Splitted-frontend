@@ -1,14 +1,19 @@
 import '../../css/Common/FamilyModeFollowUp.css';
 
 import { useState } from "react";
-import { BankNames } from "../../enums";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { UserTokenState } from "../../atoms/UserToken";
-import { FamilyModeFollowUpVisibilityState } from "../../atoms/FamilyModeFollowUp";
+
 import axios from "axios";
-import { FamilyMemberIdState } from "../../atoms/FamilyMemberId";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+
 import CurrencyDropdown from "../HomePage/CurrencyDropdown";
 import FormInfo from './FormInfo';
+
+import { UserTokenState } from "../../atoms/UserToken";
+import { FamilyModeFollowUpVisibilityState } from "../../atoms/FamilyModeFollowUp";
+import { UserBudgetsUpdaterState } from '../../atoms/UserBudgetsUpdater';
+import { FamilyMemberIdState } from "../../atoms/FamilyMemberId";
+
+import { BankNames } from "../../enums";
 
 
 interface FormDataInterface {
@@ -27,10 +32,12 @@ function FamilyModeFollowUp()
     })
     const [errors, setErrors] = useState({
         nameEmpty: false as boolean,
+        userUnavailable: false as boolean
     })
     const [familyMemberId, setFamilyMemberId] = useRecoilState(FamilyMemberIdState)
     const token = useRecoilValue(UserTokenState);
     const setFamilyModeFollowUpVisibility = useSetRecoilState(FamilyModeFollowUpVisibilityState);
+    const [userBudgetsUpdater, setUserBudgetsUpdater] = useRecoilState(UserBudgetsUpdaterState)
 
     function handleSubmit(event: any) {
         event.preventDefault();
@@ -55,9 +62,18 @@ function FamilyModeFollowUp()
         })
         .then(res => {
             setFamilyModeFollowUpVisibility(false);
+            setUserBudgetsUpdater(!userBudgetsUpdater);
             setFamilyMemberId("");
         })
         .catch(error => {
+            if (error.response.status === 403)
+            {
+                setErrors({
+                    nameEmpty: false,
+                    userUnavailable: true
+                })
+                setTimeout(()=>setFamilyModeFollowUpVisibility(false), 2000)
+            }
             console.error(error);
         })
     }
@@ -106,6 +122,11 @@ function FamilyModeFollowUp()
                             {errors.nameEmpty &&
                             <FormInfo 
                                 message="Budget name cannot be empty" 
+                                details="" 
+                                textColor="black"/>}
+                            {errors.userUnavailable &&
+                            <FormInfo 
+                                message="This user is unavailable" 
                                 details="" 
                                 textColor="black"/>}
                         </div>

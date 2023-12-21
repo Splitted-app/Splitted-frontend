@@ -4,12 +4,13 @@ import axios from "axios";
 import { useRecoilValue } from "recoil";
 
 import { FullLoginUpdaterState } from "../atoms/FullLoginUpdater";
-import { TransactionUpdaterState } from "../atoms/TransactionUpdater";
 import { UserTokenState } from "../atoms/UserToken";
+import { UserBudgetsUpdaterState } from "../atoms/UserBudgetsUpdater";
 
 export default function useFetchUserBudgets() {
     const token = useRecoilValue(UserTokenState);
     const loginUpdater = useRecoilValue(FullLoginUpdaterState);
+    const userBudgetsUpdater = useRecoilValue(UserBudgetsUpdaterState)
     const [userBudgets, setUserBudgets] = useState<any>([]);
 
     useEffect(() => {
@@ -28,7 +29,7 @@ export default function useFetchUserBudgets() {
         .catch(error => {
             console.error(error);
         })
-    }, [loginUpdater])
+    }, [loginUpdater, userBudgetsUpdater])
 
     return userBudgets;
 }

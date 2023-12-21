@@ -5,10 +5,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
+import FormInfo from './FormInfo';
+
 import { UserTokenState } from "../../atoms/UserToken";
 import { PartyModeFollowUpVisibilityState } from "../../atoms/PartyModeFollowUp";
 import { PartyFriendsIdsState } from '../../atoms/PartyFriendsIds';
-import FormInfo from './FormInfo';
+import { UserBudgetsUpdaterState } from '../../atoms/UserBudgetsUpdater';
 
 
 interface FormDataInterface {
@@ -23,10 +25,12 @@ function PartyModeFollowUp()
     })
     const [errors, setErrors] = useState({
         nameEmpty: false as boolean,
+        userUnavailable: false as boolean
     })
     const [partyFriendIds, setPartyFriendsIds] = useRecoilState(PartyFriendsIdsState)
     const token = useRecoilValue(UserTokenState);
     const setPartyModeFollowUpVisibility = useSetRecoilState(PartyModeFollowUpVisibilityState);
+    const [userBudgetsUpdater, setUserBudgetsUpdater] = useRecoilState(UserBudgetsUpdaterState)
 
     function handleSubmit(event: any) {
         event.preventDefault();
@@ -49,9 +53,19 @@ function PartyModeFollowUp()
         })
         .then(res => {
             setPartyModeFollowUpVisibility(false);
+            setUserBudgetsUpdater(!userBudgetsUpdater);
             setPartyFriendsIds([]);
         })
         .catch(error => {
+            if (error.response.status === 403)
+            {
+                setErrors({
+                    nameEmpty: false,
+                    userUnavailable: true
+                })
+                setTimeout(()=>setPartyModeFollowUpVisibility(false), 2000)
+            }
+                
             console.error(error);
         })
     }
@@ -81,6 +95,11 @@ function PartyModeFollowUp()
                         {errors.nameEmpty && 
                         <FormInfo 
                             message="Budget name cannot be empty" 
+                            details="" 
+                            textColor="black"/>}
+                        {errors.userUnavailable &&
+                        <FormInfo 
+                            message="One of the users is unavailable" 
                             details="" 
                             textColor="black"/>}
                     </div>
