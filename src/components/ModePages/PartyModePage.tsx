@@ -19,7 +19,10 @@ import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
 import useFetchBudget from '../../hooks/useFetchBudget';
 import useFetchTransactions from '../../hooks/useFetchTransactions';
 
+import { getUserListString } from '../../utils';
+
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+
 
 
 
@@ -106,10 +109,10 @@ function PartyModePage() {
                 {!budget.loading && !budget.error &&
                 <div className='title'>
                     <div className='subtitle'>
-                        Party mode with {budget.data.users.map((u: any) => u.username).join(', ')}
+                        Party mode with {getUserListString(budget.data.users)}
                     </div>
-                    <div className='maintitle'>
-                        {budget.data.name}
+                    <div className={`maintitle ${budget.data.name.length > 10 ? "maintitle-long" : ""}`}>
+                        {budget.data.name.length > 15 ? budget.data.name.substring(0, 12) + "..." : budget.data.name}
                     </div>
                 </div>
                 }

@@ -90,6 +90,10 @@
     text-shadow: 5px 5px 3px #180A45;
 }
 
+.partner-mode-page .partner-mode-page-content .header .title .maintitle-long
+{
+    font-size: 70px;
+}
 
 
 .partner-mode-page .partner-mode-page-content .partner-mode-page-show-filter-menu
@@ -246,6 +250,11 @@
         font-size: 70px;
     }
 
+    .partner-mode-page .partner-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 50px;
+    }
+
     .partner-mode-page .partner-mode-page-content .header .title .subtitle
     {
         font-size: 24px;
@@ -295,6 +304,11 @@
     .partner-mode-page .partner-mode-page-content .header .title .maintitle
     {
         font-size: 65px;
+    }
+
+    .partner-mode-page .partner-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 45px;
     }
 
     .partner-mode-page .partner-mode-page-content .header .title .subtitle
@@ -355,6 +369,11 @@
         font-size: 55px;
     }
 
+    .partner-mode-page .partner-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 40px;
+    }
+
     .partner-mode-page .partner-mode-page-content .header .title .subtitle
     {
         font-size: 20px;
@@ -392,6 +411,11 @@
     .partner-mode-page .partner-mode-page-content .header .title .maintitle
     {
         font-size: 65px;
+    }
+
+    .partner-mode-page .partner-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 50px;
     }
 
     .partner-mode-page .partner-mode-page-content .header .title .subtitle
@@ -449,6 +473,11 @@
         font-size: 60px;
     }
 
+    .partner-mode-page .partner-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 50px;
+    }
+
     .partner-mode-page .partner-mode-page-content .header .title .subtitle
     {
         font-size: 20px;
@@ -471,6 +500,11 @@
     .partner-mode-page .partner-mode-page-content .header .title .maintitle
     {
         font-size: 55px;
+    }
+
+    .partner-mode-page .partner-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 45px;
     }
 
     .partner-mode-page .partner-mode-page-content .header .title .subtitle
@@ -523,6 +557,11 @@
         font-size: 45px;
     }
 
+    .partner-mode-page .partner-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 40px;
+    }
+
     .partner-mode-page .partner-mode-page-content .header .title .subtitle
     {
         font-size: 18px;
@@ -572,6 +611,11 @@
     .partner-mode-page .partner-mode-page-content .header .title .maintitle
     {
         font-size: 35px;
+    }
+
+    .partner-mode-page .partner-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 30px;
     }
 
     .partner-mode-page .partner-mode-page-content .header .title .subtitle

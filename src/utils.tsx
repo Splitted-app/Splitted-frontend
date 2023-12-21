@@ -53,4 +53,11 @@ function amountFormatter(amount : number | null)
         absAmount <= 999_999.99 ? tmp1 : tmp2
 }
 
-export {changeDay, changeWeek ,changeMonth, getStartOfWeek, getStartOfMonth, getEndOfMonth, amountFormatter}
+function getUserListString(users: Array<any>)
+{
+    if (users.length <= 3)
+        return users.map((u: any) => u.username).join(', ')
+    return users.slice(0, 3).map((u: any) => u.username).join(', ') + ',...'
+}
+
+export {changeDay, changeWeek ,changeMonth, getStartOfWeek, getStartOfMonth, getEndOfMonth, amountFormatter, getUserListString}

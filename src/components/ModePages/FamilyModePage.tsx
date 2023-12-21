@@ -8,6 +8,7 @@ import LoadingPanel from '../Common/LoadingPanel';
 import useFetchBudget from '../../hooks/useFetchBudget';
 
 import FamilyModeIcon from '../../assets/images/family_mode_add.png'
+import { getUserListString } from '../../utils';
 
 
 
@@ -24,10 +25,10 @@ function FamilyModePage() {
             <div className='header'>
                 <div className='title'>
                     <div className='subtitle'>
-                        Family mode with {budget.data.users[0].username}
+                        Family mode with {getUserListString(budget.data.users)}
                     </div>
-                    <div className='maintitle'>
-                        {budget.data.name}
+                    <div className={`maintitle ${budget.data.name.length > 15 ? "maintitle-long" : ""}`}>
+                      {budget.data.name.length > 20 ? budget.data.name.substring(0, 17) + "..." : budget.data.name}
                     </div>
                 </div>
             </div>

@@ -48,6 +48,13 @@
     font-size: 80px;
     text-shadow: 5px 5px 3px #180A45;
 }
+
+.family-mode-page .family-mode-content .header .title .maintitle-long
+{
+    font-size: 70px;
+}
+
+
 .family-mode-page .family-mode-content .main-content-photo
 {
     grid-row-start: 2;
@@ -79,6 +86,23 @@
     padding-left: 10%;
 }
 
+@media screen and (max-width: 1300px) {
+    .family-mode-page .family-mode-content .header .title .subtitle
+    {
+        font-size: 24px;
+    }
+
+    .family-mode-page .family-mode-content .header .title .maintitle
+    {
+        font-size: 70px;
+    }
+
+    .family-mode-page .family-mode-content .header .title .maintitle-long
+    {
+        font-size: 60px;
+    }
+}
+
 @media screen and (max-width: 1000px) {
     .family-mode-page .family-mode-content
     {
@@ -97,13 +121,19 @@
 @media screen and (max-width: 750px) {
     .family-mode-page .family-mode-content .header .title .subtitle
     {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .family-mode-page .family-mode-content .header .title .maintitle
     {
-        font-size: 70px;
+        font-size: 55px;
     }
+
+    .family-mode-page .family-mode-content .header .title .maintitle-long
+    {
+        font-size: 45px;
+    }
+
 
     .family-mode-page .family-mode-content .main-content-description
     {
@@ -123,12 +153,17 @@
 @media screen and (max-width: 550px) {
     .family-mode-page .family-mode-content .header .title .subtitle
     {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .family-mode-page .family-mode-content .header .title .maintitle
     {
-        font-size: 60px;
+        font-size: 45px;
+    }
+
+    .family-mode-page .family-mode-content .header .title .maintitle-long
+    {
+        font-size: 35px;
     }
 
     .family-mode-page .family-mode-content .main-content-description
@@ -146,7 +181,12 @@
 
     .family-mode-page .family-mode-content .header .title .maintitle
     {
-        font-size: 50px;
+        font-size: 35px;
+    }
+
+    .family-mode-page .family-mode-content .header .title .maintitle-long
+    {
+        font-size: 30px;
     }
 
     .family-mode-page .family-mode-content .main-content-description
