@@ -46,7 +46,7 @@ function AddGoalPanel() {
     JSON.stringify({
         amount: data.amount,
         category: data.category,
-        goalType: data.goalType,
+        goalType: data.goalType.replace(/InCategory/, ''),
         deadline: data.deadline,
         isMain: data.isMain,
     }),

@@ -7,11 +7,6 @@ import { useSetRecoilState } from 'recoil';
 
 import { AddGoalPanelVisibilityState } from '../../atoms/AddGoalPanelVisibility';
 
-import ExpensesIcon from '../../assets/images/expenses (1).png'
-import GroceriesIcon from '../../assets/images/grocery.png'
-import ShoppingIcon from '../../assets/images/online-shopping.png'
-import WalletIcon from '../../assets/images/wallet.png'
-
 import useFetchGoals from '../../hooks/useFetchGoals';
 import { useState } from 'react';
 
@@ -35,6 +30,10 @@ function GoalsPage() {
 
     const setAddGoalPanelVisibility = useSetRecoilState(AddGoalPanelVisibilityState)
     const [pinsVisible, setPinsVisible] = useState<boolean>(false);
+    let icon:any;
+    let backgroundColor:any;
+    let progressColor:any;
+    let color:any;
 
     const {data: goals, loading: goalsLoading, error: goalError } : 
         {data: GoalInterface[], loading: boolean, error: boolean} = useFetchGoals();
@@ -54,10 +53,6 @@ function GoalsPage() {
                         {typeof mainGoal !== "string" &&
                             <Goal 
                                 goal={mainGoal} 
-                                icon={WalletIcon} 
-                                goalBackgroundColour='#81A8C7' 
-                                progressColor='#3C557E' 
-                                color='white'
                                 pinIconVisible={pinsVisible}/>
                         }
                     </div>
@@ -78,16 +73,12 @@ function GoalsPage() {
                 </div>
                 <div className='goals-page-current-goals' data-testid="goals-page-current-goals">
                     {goals.map((goal, i)=>(
-                        <div className='goals-page-goal-item'>
+                            <div className='goals-page-goal-item'>
                             <Goal key={i} 
                                 goal={goal} 
-                                icon={ExpensesIcon} 
-                                goalBackgroundColour='#E6B6B6' 
-                                progressColor='#CC3C3C' 
-                                color='#474747'
                                 pinIconVisible={pinsVisible}/>
-                        </div>
-                    ))}
+                            </div>
+                    )  )}
                 </div>
             </div>
         </div>
