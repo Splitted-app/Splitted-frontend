@@ -529,6 +529,31 @@
 
 @media screen and (max-width: 450px)
 {
+
+    .transaction-page .transaction-page-content .header .title
+    {
+        font-size: 35px;
+    }
+
+    .transaction-page .transaction-page-content .header .add-transactions-button-container .add-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .delete-transactions-button,
+    .transaction-page .transaction-page-content .header .delete-transactions-button-container .active-delete-transactions-button
+    {
+        font-size: 6px;
+        width: 60px;
+        height: 25px;
+
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu
+    {
+        font-size: 12px;
+    }
+
+    .transaction-page .transaction-page-content .transaction-page-show-filter-menu .transaction-page-show-filter-menu-icon img{
+        width: 50%;
+        height: 50%;
+    }
     .transaction-page .transaction-page-content .transaction-page-filter-menu .transaction-page-filter-menu-element
     {
         font-size: 8px;

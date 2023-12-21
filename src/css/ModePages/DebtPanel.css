@@ -40,3 +40,65 @@
 {
     margin-right: 2%;
 }
+
+@media screen and (max-width: 1300px) 
+{
+    .debt-panel
+    {
+        width:350px;
+        height:140px;
+
+    }
+    .debt-panel .debt-panel-title
+    {
+        font-size: 26px;
+
+    }
+    .debt-panel .debt-panel-main-content
+    {
+        font-size: 50px;
+    }
+}
+
+
+@media screen and (max-width: 1150px) 
+{
+    .debt-panel
+    {
+        width:320px;
+        height:130px;
+
+    }
+    .debt-panel .debt-panel-title
+    {
+        font-size: 24px;
+
+    }
+    .debt-panel .debt-panel-main-content
+    {
+        font-size: 45px;
+        text-shadow: 2px 2px 5px #10032B;
+
+    }
+}
+
+@media screen and (max-width: 1050px) 
+{
+    .debt-panel
+    {
+        width:300px;
+        height:120px;
+
+    }
+    .debt-panel .debt-panel-title
+    {
+        font-size: 22px;
+
+    }
+    .debt-panel .debt-panel-main-content
+    {
+        font-size: 40px;
+        text-shadow: 2px 2px 5px #10032B;
+
+    }
+}
