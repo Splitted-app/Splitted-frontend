@@ -90,6 +90,11 @@
     text-shadow: 5px 5px 3px #180A45;
 }
 
+.party-mode-page .party-mode-page-content .header .title .maintitle-long
+{
+    font-size: 70px;
+}
+
 
 .party-mode-page .party-mode-page-content .party-mode-page-show-filter-menu
 {
@@ -238,12 +243,16 @@
 }
 
 
-
 @media screen and (max-width: 1300px) 
 {
     .party-mode-page .party-mode-page-content .header .title .maintitle
     {
         font-size: 70px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 50px;
     }
 
     .party-mode-page .party-mode-page-content .header .title .subtitle
@@ -295,6 +304,11 @@
     .party-mode-page .party-mode-page-content .header .title .maintitle
     {
         font-size: 65px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 45px;
     }
 
     .party-mode-page .party-mode-page-content .header .title .subtitle
@@ -355,6 +369,11 @@
         font-size: 55px;
     }
 
+    .party-mode-page .party-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 40px;
+    }
+
     .party-mode-page .party-mode-page-content .header .title .subtitle
     {
         font-size: 20px;
@@ -392,6 +411,11 @@
     .party-mode-page .party-mode-page-content .header .title .maintitle
     {
         font-size: 65px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 50px;
     }
 
     .party-mode-page .party-mode-page-content .header .title .subtitle
@@ -449,6 +473,11 @@
         font-size: 60px;
     }
 
+    .party-mode-page .party-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 50px;
+    }
+
     .party-mode-page .party-mode-page-content .header .title .subtitle
     {
         font-size: 20px;
@@ -471,6 +500,11 @@
     .party-mode-page .party-mode-page-content .header .title .maintitle
     {
         font-size: 55px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 45px;
     }
 
     .party-mode-page .party-mode-page-content .header .title .subtitle
@@ -523,6 +557,11 @@
         font-size: 45px;
     }
 
+    .party-mode-page .party-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 40px;
+    }
+
     .party-mode-page .party-mode-page-content .header .title .subtitle
     {
         font-size: 18px;
@@ -572,6 +611,11 @@
     .party-mode-page .party-mode-page-content .header .title .maintitle
     {
         font-size: 35px;
+    }
+
+    .party-mode-page .party-mode-page-content .header .title .maintitle-long
+    {
+        font-size: 30px;
     }
 
     .party-mode-page .party-mode-page-content .header .title .subtitle

@@ -19,6 +19,7 @@ import useFetchBudget from '../../hooks/useFetchBudget';
 import useFetchTransactions from '../../hooks/useFetchTransactions';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+import { getUserListString } from '../../utils';
 
 
 
@@ -107,10 +108,10 @@ function PartnerModePage() {
                 {!budget.loading && !budget.error &&
                 <div className='title'>
                     <div className='subtitle'>
-                        Partner mode with {budget.data.users[0].username}
+                        Partner mode with {getUserListString(budget.data.users)}
                     </div>
-                    <div className='maintitle'>
-                        {budget.data.name}
+                    <div className={`maintitle ${budget.data.name.length > 10 ? "maintitle-long" : ""}`}>
+                        {budget.data.name.length > 15 ? budget.data.name.substring(0, 12) + "..." : budget.data.name}
                     </div>
                 </div>
                 }
