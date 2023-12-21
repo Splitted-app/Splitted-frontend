@@ -14,6 +14,11 @@ import EditGoalIcon from '../../assets/images/edit_transaction.png'
 import UpdateGoalIcon from '../../assets/images/update.png'
 import MainGoalPinIcon from '../../assets/images/main_goal_pin.png'
 import PinIcon from '../../assets/images/pin.png'
+import ExpensesIcon from '../../assets/images/expenses (1).png'
+import ExpensesLimitIcon from '../../assets/images/expenses_limit.png'
+import GroceriesIcon from '../../assets/images/grocery.png'
+import ShoppingIcon from '../../assets/images/online-shopping.png'
+import WalletIcon from '../../assets/images/wallet.png'
 import { useState } from 'react';
 
 
@@ -37,14 +42,10 @@ interface GoalInterface
 interface GoalTileInterface
 {
     goal: GoalInterface,
-    icon:string,
-    goalBackgroundColour:string,
-    progressColor:string
-    color:string
     pinIconVisible:boolean
 }
 
-function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisible} : GoalTileInterface) {
+function Goal({goal, pinIconVisible} : GoalTileInterface) {
 
     const token = useRecoilValue(UserTokenState);
     const [goalUpdater, setGoalUpdater] = useRecoilState(GoalsUpdaterState)
@@ -55,6 +56,51 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
         isMain: goal.isMain
     })
 
+    let icon:any;
+    let backgroundColor:any;
+    let progressColor:any;
+    let color:any;
+    switch(goal.goalType)
+    {
+        case 'AccountBalance':
+            icon = WalletIcon;
+            backgroundColor = '#81A8C7';
+            progressColor = '#3C557E';
+            color = 'white';
+            break;
+        case 'ExpensesLimit':
+            if(goal.category === null)
+            {
+                icon = ExpensesLimitIcon;
+                backgroundColor = '#E6B6B6';
+                progressColor = '#CC3C3C';
+                color='#474747';
+            }
+            else
+            {
+                icon = ShoppingIcon;
+                backgroundColor = '#D59FB6';
+                progressColor = '#FF5EA4';
+                color = 'white';
+            }
+            break;
+        case 'AverageExpenses':
+            if(goal.category === null)
+            {
+                icon = ExpensesIcon;
+                backgroundColor = '#F9CF9D';
+                progressColor = '#FF8623';
+                color='#474747';
+            }
+            else
+            {
+                icon= GroceriesIcon;
+                backgroundColor = '#F6E5B2';
+                progressColor = '#E7D18F';
+                color='#474747';
+            }
+            break;
+    }
     function handleTogglePin()
     {
         if (!pinIconVisible)
@@ -149,7 +195,7 @@ function Goal({goal,icon, goalBackgroundColour,progressColor,color, pinIconVisib
     }
 
     return (
-      <div className="goal" style={{background: `linear-gradient(90deg, ${progressColor} 0%, ${progressColor}  ${goal.percentage}%, ${goalBackgroundColour} ${goal.percentage}%, ${goalBackgroundColour} 100%)`, color:color}} data-testid="goal">
+      <div className="goal" style={{background: `linear-gradient(90deg, ${progressColor} 0%, ${progressColor}  ${goal.percentage}%, ${backgroundColor} ${goal.percentage}%, ${backgroundColor} 100%)`, color:color}} data-testid="goal">
             <div className='goal-title' data-testid="goal-name">
                 {goal.name}
             </div>
