@@ -60,7 +60,7 @@ function SplitItPanel() {
                     <AddModeButton 
                         key={i} 
                         icon={budget.budgetType === 'Partner' ? PartnerModeIcon : PartyModeIcon} 
-                        title="Budget Name" 
+                        title={budget.name} 
                         description=""/>
                 </button>    
             ))}
