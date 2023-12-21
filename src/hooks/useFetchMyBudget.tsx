@@ -10,6 +10,7 @@ export default function useFetchMyBudget() {
     const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState({
         "id": "",
+        "name": "",
         "bank": "Other",
         "budgetType": "Personal",
         "currency": "",

@@ -92,6 +92,10 @@
 }
 
 .user-account-main-panel .edit-user-account-main-panel-button-container .edit-user-account-main-panel-button{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: black;
     background-color: #20F7C5;
     height: 40px;
@@ -103,6 +107,6 @@
 
 .user-account-main-panel .edit-user-account-main-panel-button-container .edit-user-account-main-panel-button img
 {
-    width: 70%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
 }

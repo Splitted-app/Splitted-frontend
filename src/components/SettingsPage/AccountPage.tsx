@@ -16,7 +16,7 @@ function AccountPage() {
           </div>
           <div className='account-page-title'>
             <div className='account-page-subtitle'>
-              email:
+              email: {user.data.email}
             </div>
             <div className='account-page-maintitle'>
               Account
