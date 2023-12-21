@@ -113,8 +113,8 @@
 
 .goal .buttons img
 {
-    width: 20px;
-    height: 20px;
+    width: 70%;
+    height: 100%;
 }
 
 .goal .editable-content
@@ -280,5 +280,36 @@
     .goal .goal-progress
     {
         font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 450px)
+{
+    .goal
+    {
+        width: 150px;
+        height: 60px;
+        border-radius: 15px;
+    }
+
+    .goal .goal-title
+    {
+        font-size: 8px;
+    }
+
+    .goal .goal-amount
+    {
+        font-size: 10px;
+    }
+
+    .goal .goal-deadline
+    {
+        font-size: 8px;
+    }
+
+    .goal .goal-progress
+    {
+        font-size: 8px;
     }
 }

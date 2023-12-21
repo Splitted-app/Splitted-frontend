@@ -57,11 +57,13 @@ function GoalsPage() {
                         }
                     </div>
                 </div>
-                <div className='toggle-goal-pin-container goal-page-button goal-page-button-container'>
-                    <button className='toggle-goal-pin-button goal-page-button' onClick={()=>setPinsVisible(!pinsVisible)} data-testid="goals-page-select-main-goal-button">{pinsVisible ? "Finish" : "Select Main Goal"}</button>
-                </div>
-                <div className='add-goal-button-container goal-page-button-container'>
-                    <button className='add-goal-button goal-page-button' onClick={()=>setAddGoalPanelVisibility(true)} data-testid="goals-page-add-new-goal-button">Add new goal</button>
+                <div className='goal-page-buttons-container'>
+                    <div className='toggle-goal-pin-container'>
+                        <button className='goal-page-button' onClick={()=>setPinsVisible(!pinsVisible)} data-testid="goals-page-select-main-goal-button">{pinsVisible ? "Finish" : "Select Main Goal"}</button>
+                    </div>
+                    <div className='add-goal-button-container'>
+                        <button className='goal-page-button' onClick={()=>setAddGoalPanelVisibility(true)} data-testid="goals-page-add-new-goal-button">Add new goal</button>
+                    </div>
                 </div>
                 <div className='title' data-testid="goals-page-header-title">
                     Goals                
