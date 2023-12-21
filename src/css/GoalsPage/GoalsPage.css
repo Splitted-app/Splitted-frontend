@@ -28,7 +28,7 @@
     margin-right: 0;
     display:grid;
     grid-template-rows: 40% 60%;    
-    grid-template-columns: 25px auto 0px 200px 200px 25px;
+    grid-template-columns: 1% auto 0px 49% 1%;
 
 }
 
@@ -52,32 +52,21 @@
 }
 
 
-.goals-page  .goals-page-content .header .goal-page-button-container
+.goals-page  .goals-page-content .header .goal-page-buttons-container
 {
     grid-row-start: 1;
     grid-row-end: 2;
-    display: flex;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-    justify-self: center;
-    width: 150px;
-}
-
-.goals-page  .goals-page-content .header .toggle-goal-pin-container
-{
     grid-column-start:4;
     grid-column-end: 5;
+    padding-top: 5%;
+    display: flex;
+    gap:3%;
+    justify-content: end;
+    align-items: center;
 }
 
-.goals-page  .goals-page-content .header .add-goal-button-container
-{
-    grid-column-start:5;
-    grid-column-end: 6;
-}
 
-
-.goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
+.goals-page  .goals-page-content .header .goal-page-buttons-container .goal-page-button
 {
     font-size: 16px;
     background-color: #20F7C5;
@@ -95,7 +84,7 @@
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 4;
-    grid-column-end: 6;
+    grid-column-end: 5;
     text-align: end;
     color: white;
     margin-top: 5%;
@@ -151,16 +140,12 @@
 
 @media screen and (max-width: 1500px)
 {
-    .goals-page  .goals-page-content .header
-    {
-        grid-template-columns: 25px auto 0px 200px 200px 25px;
-    }
     .goals-page  .goals-page-content .header .title
     {
         font-size: 70px;
     }
 
-    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
+    .goals-page  .goals-page-content .header .goal-page-buttons-container .goal-page-button
     {
         font-size: 12px;
         height: 45px;
@@ -185,7 +170,7 @@
         font-size: 65px;
     }
 
-    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
+    .goals-page  .goals-page-content .header .goal-page-buttons-container .goal-page-button
     {
         font-size: 12px;
         width: 150px;
@@ -209,7 +194,7 @@
         font-size: 55px;
     }
 
-    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
+    .goals-page  .goals-page-content .header .goal-page-buttons-container .goal-page-button
     {
         font-size: 10px;
         width: 130px;
@@ -243,7 +228,7 @@
     {
         display: none;
     }
-    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
+    .goals-page  .goals-page-content .header .goal-page-buttons-container .goal-page-button
     {
         font-size: 10px;
         width: 130px;
@@ -262,17 +247,11 @@
 
 @media screen and (max-width: 750px)
 {    
-
-    .goals-page  .goals-page-content .header
-    {
-
-        grid-template-columns: 25px auto 0px 200px 200px 25px;
-    }
     .goals-page  .goals-page-content .header .title
     {
         font-size: 55px;
     }
-    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
+    .goals-page  .goals-page-content .header .goal-page-buttons-container .goal-page-button
     {
         font-size: 10px;
         width: 120px;
@@ -289,22 +268,11 @@
 
 @media screen and (max-width: 550px)
 {
-    .goals-page  .goals-page-content .header
-    {
-        grid-template-columns: 25px auto 0px 200px 200px 25px;
-    }
-
     .goals-page  .goals-page-content .header .title
     {
         font-size: 45px;
     }
-
-    .goals-page  .goals-page-content .header .goal-page-button-container
-    {
-        justify-content: end;
-    }
-
-    .goals-page  .goals-page-content .header .goal-page-button-container .goal-page-button
+    .goals-page  .goals-page-content .header .goal-page-buttons-container .goal-page-button
     {
         font-size: 8px;
         width: 80px;
@@ -314,5 +282,25 @@
     .goals-page  .goals-page-content .goals-page-current-goals-panel .goals-page-current-goals-title
     {
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 450px)
+{
+
+    .goals-page  .goals-page-content .header .title
+    {
+        font-size: 35px;
+    }
+
+    .goals-page  .goals-page-content .header .goal-page-buttons-container .goal-page-button
+    {
+        font-size: 6px;
+        width: 60px;
+        height: 25px;
+    }
+    .goals-page  .goals-page-content .goals-page-current-goals-panel .goals-page-current-goals-title
+    {
+        font-size: 10px;
     }
 }
