@@ -120,15 +120,23 @@ function FamilyModeFollowUp()
                                     onChange={(e: any) => setData({ ...data, budgetName: e.target.value })}/>
                             </div>
                             {errors.nameEmpty &&
-                            <FormInfo 
-                                message="Budget name cannot be empty" 
-                                details="" 
-                                textColor="black"/>}
+                                <div className='form-error-budget'>
+                                
+                                
+                                    <FormInfo 
+                                        message="Budget name cannot be empty" 
+                                        details="" 
+                                        textColor="black"/>
+                                </div>
+                            }
                             {errors.userUnavailable &&
-                            <FormInfo 
-                                message="This user is unavailable" 
-                                details="" 
-                                textColor="black"/>}
+                                <div className='form-error-user'>
+                                <FormInfo 
+                                    message="This user is unavailable" 
+                                    details="" 
+                                    textColor="black"/>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div className='button-container'>
