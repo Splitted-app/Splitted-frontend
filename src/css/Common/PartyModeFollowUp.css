@@ -52,7 +52,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 80% 20%;
+    grid-template-rows: 25% auto;
 }
 
 .party-mode-followup .party-mode-followup-form .form-elements .information-fields
@@ -60,7 +60,6 @@
     grid-column-start: 1;
     grid-column-end: 3;
     display: grid;
-    grid-template-columns: [start] 50% [middle] auto [end];
 }
 
 .party-mode-followup .party-mode-followup-form .form-elements .information-fields label
@@ -106,9 +105,31 @@
     overflow: hidden;
 }
 
-.party-mode-followup .party-mode-followup-form .form-error
+.party-mode-followup .party-mode-followup-form .form-error-budget
 {
-    grid-column-start: 2;
+    margin-top: 10px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-content: left;
+}
+
+.party-mode-followup .party-mode-followup-form .form-error-user
+{
+    margin-bottom: 10px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-content: center;
+}
+
+.party-mode-followup .party-mode-followup-form .form-error-user .form-error
+{
+    align-items: end;
+    justify-content: center;
+}
+
+.party-mode-followup .party-mode-followup-form .form-error-budget .form-error
+{
+    align-items: start;
     justify-content: left;
 }
 
@@ -171,11 +192,6 @@
         font-size: 18px;
     }
 
-    .party-mode-followup .party-mode-followup-form .form-elements .information-fields
-    {
-        padding-top: 10px;
-    }
-
     .party-mode-followup .party-mode-followup-form .form-elements .information-fields label
     {
         font-size: 18px;
@@ -218,18 +234,6 @@
     .party-mode-followup .title .subtitle
     {
         font-size: 16px;
-    }
-
-
-    .party-mode-followup .party-mode-followup-form .form-elements .information-fields
-    {
-        grid-template-columns: [start] 100% [end];
-        grid-template-rows: [line1] 15% [line2] 25% [line3] 10% [line4] 15% [line5] 10% [line6] 15% [line7];
-    }
-    
-    .party-mode-followup .party-mode-followup-form .form-elements .information-fields
-    {
-        padding-top: 40px;
     }
 
     .party-mode-followup .party-mode-followup-form .form-elements .information-fields label
@@ -278,11 +282,6 @@
         font-size: 14px;
     }
 
-    .party-mode-followup .party-mode-followup-form .form-elements .information-fields
-    {
-        padding-top: 30px;
-    }
-
     .party-mode-followup .button-container input
     {
         font-size: 12px;
@@ -320,10 +319,6 @@
     {
         height: 60%;
         width: 100%;
-    }
-    .party-mode-followup .party-mode-followup-form .form-elements .information-fields
-    {
-        grid-template-rows: [line1] 20% [line2] 25% [line3] 10% [line4] 15% [line5] 10% [line6] 15% [line7];
     }
 
     .party-mode-followup .title .main-title

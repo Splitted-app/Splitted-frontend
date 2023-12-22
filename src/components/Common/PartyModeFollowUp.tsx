@@ -93,15 +93,21 @@ function PartyModeFollowUp()
                             </div>
                         </div>
                         {errors.nameEmpty && 
-                        <FormInfo 
-                            message="Budget name cannot be empty" 
-                            details="" 
-                            textColor="black"/>}
+                        <div className='form-error-budget'>
+                            <FormInfo 
+                                message="Budget name cannot be empty" 
+                                details="" 
+                                textColor="black"/>
+                        </div>
+                        }
                         {errors.userUnavailable &&
-                        <FormInfo 
-                            message="One of the users is unavailable" 
-                            details="" 
-                            textColor="black"/>}
+                        <div className='form-error-user'>
+                            <FormInfo 
+                                message="One of the users is unavailable" 
+                                details="" 
+                                textColor="black"/>
+                        </div>
+                        }
                     </div>
                     <div className='button-container'>
                         <input type="submit" value="Finish" />

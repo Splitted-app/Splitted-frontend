@@ -111,11 +111,24 @@
     overflow: hidden;
 }
 
-.family-mode-followup .family-mode-followup-form .form-error
+.family-mode-followup .family-mode-followup-form .form-error-budget
 {
     grid-column-start: 2;
     justify-content: left;
     align-items: start;
+}
+
+.family-mode-followup .family-mode-followup-form .form-error-user
+{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-content: center;
+    align-items: start;
+}
+
+.family-mode-followup .family-mode-followup-form .form-error-user .form-error
+{
+    justify-content: center;
 }
 
 
@@ -332,6 +345,17 @@
     {
         grid-template-columns: [start] 100% [end];
         grid-template-rows: [line1] 10% [line2] 15% [line3] 10% [line4] 15% [line5] 10% [line6] 15% [line7];
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-error-budget
+    {
+        grid-column-start: 1;
+    }
+
+    .family-mode-followup .family-mode-followup-form .form-error-user
+    {
+        grid-column-start: 1;
+        grid-column-end: 2;
     }
     
 }
