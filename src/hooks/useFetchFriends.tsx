@@ -5,17 +5,21 @@ import { useRecoilValue } from "recoil";
 
 import { FullLoginUpdaterState } from "../atoms/FullLoginUpdater";
 import { UserTokenState } from "../atoms/UserToken";
+import { FriendsUpdater } from '../atoms/FriendsUpdater';
 
 
 export default function useFetchFriends() {
+
     const token = useRecoilValue(UserTokenState);
-    const loginUpdater = useRecoilValue(FullLoginUpdaterState);
-    const [friends, setFriends] = useState<any>([]);
+    const friendsUpdater = useRecoilValue(FriendsUpdater);
+    const [data, setData] = useState<any>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<boolean>(false);
+    
     
 
     useEffect(() => {
-        if (loginUpdater === 0)
-            return;
+        setLoading(true);
         axios.get(process.env.REACT_APP_API_URL + '/api/users/friends', {
             headers: {
                 'Accept': '*',
@@ -24,17 +28,17 @@ export default function useFetchFriends() {
             },
         })
         .then((res) => {
-            if (res.data.length === 0) {
-                setFriends([]);
-            }
-            else {
-                setFriends(res.data[0]);
-            }
+            setError(false);
+            setData(res.data);
         })
         .catch(error => {
+            setError(true);
             console.error(error);
         })
-    }, [loginUpdater])
+        .finally(()=>{
+            setLoading(false);
+        })
+    }, [friendsUpdater]);
 
-    return friends;
+    return {data, loading, error};
 }

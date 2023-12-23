@@ -9,7 +9,7 @@ import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
 
 
 
-function LogOutConfirmationPanel() {
+function DeleteAccountConfirmationPanel() {
 
     const setDeleteAccountPanelVisibility = useSetRecoilState(DeleteAccountPanelVisibilityState);
     const [token,setToken] = useRecoilState(UserTokenState);
@@ -65,4 +65,4 @@ function LogOutConfirmationPanel() {
     );
   }
   
-  export default LogOutConfirmationPanel;
+  export default DeleteAccountConfirmationPanel;

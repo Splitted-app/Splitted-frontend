@@ -1,0 +1,114 @@
+.add-new-friend-panel
+{
+    height: 100%;
+    width: 60%;
+    background-color: white;
+    border: solid 1px black;
+    box-shadow: 10px 10px 5px #262626;
+    border-radius: 50px;
+    padding-top: 5%;
+    display:grid;
+    grid-template-rows: 5% 25% 30% 20% 20%;
+    grid-template-columns: 5% 90% 5%;
+}
+
+
+.add-new-friend-panel .title 
+{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+}
+
+.add-new-friend-panel .title .main-title
+{
+    font-family: 'Gotham Bold';
+    font-size: 30px;
+    color: #3C3C3C;
+}
+
+
+.add-new-friend-panel .title .subtitle
+{
+    padding-top: 3%;
+    font-family: 'Gotham Light';
+    font-size: 20px;
+}
+.add-new-friend-panel .find-your-friends-panel
+{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Gotham Light';
+    font-size: 15px;
+    align-items: center;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+.add-new-friend-panel .add-new-friend-button
+{
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+
+.add-new-friend-panel .add-new-friend-button .button
+{
+    font-size: 12px;
+    background-color: #20F7C5;
+    color: black;
+    width: 120px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: 'Gotham Medium';
+    border: 1px solid #010446;
+    box-shadow: 8px 8px 5px #010446;
+}
+
+.add-new-friend-panel .find-your-friends-panel .search-select {
+    width: 100%;
+    font-family: 'Gotham Light';
+
+}
+
+
+
+.add-new-friend-panel .find-your-friends-panel .search-container {
+    width: 100%;
+}
+
+.add-new-friend-panel .close-button-container
+{
+    padding: 0% 8%;
+    grid-column-start: 2;
+}
+
+.form-error-nouser
+{
+    margin-top: 10px;
+    grid-column-start: 2;
+}
+
+.form-error-invalid-user
+{
+    grid-column-start: 2;
+    grid-row-start: 4;
+    justify-self: center;
+    align-self: flex-end;
+}
