@@ -1,15 +1,23 @@
 import '../../css/SettingsPage/UserAccountPanel.css'
 
 import UserAccountIcon from '../../assets/images/user_account.png'
+import AvatarImage from './AvatarImage';
 
-function UserAccountPanel() {
+interface userAccountPanelInterface
+{
+  username:string,
+  avatarImage:string;
+}
+
+function UserAccountPanel({username, avatarImage}:userAccountPanelInterface) {
+
     return (
       <div className="user-account-panel">
         <div className='username'>
-          Username 777
+          {username}
         </div>
         <div className='user-icon'>
-          <img src={UserAccountIcon}></img>
+          <AvatarImage editable={false} avatarImage={avatarImage}/>
         </div>
       </div>
     );

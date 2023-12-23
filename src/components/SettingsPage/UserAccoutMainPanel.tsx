@@ -13,9 +13,10 @@ import { UserTokenState } from '../../atoms/UserToken';
 import useFetchMyBudget from '../../hooks/useFetchMyBudget';
 
 import EditIcon from '../../assets/images/edit_icon.png'
-import UserAccountIcon from '../../assets/images/user_account.png'
-import UpdateIcon from '../../assets/images/update.png'
+import CheckmarkIcon from '../../assets/images/black_checkmark.png'
+
 import { BankNames } from '../../enums';
+import AvatarImage from './AvatarImage';
 
 
 
@@ -59,10 +60,6 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
       setEditable(!editable)
       if (!editable) // before set
       {
-        // setEditableData({
-        //   bank: budget.data.bank,
-        //   currency: budget.data.currency
-        // })
         return;
       }
       // else
@@ -94,7 +91,7 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
       <div className="user-account-main-panel">
         <div className='user-account-main-panel-title'>
           <div className='user-account-icon'>
-            <img src={UserAccountIcon}></img>
+            <AvatarImage editable={editable} avatarImage={data.avatarImage}/>
           </div>
           <div className='username'>
             {!loading && data.username}
@@ -148,7 +145,7 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
         }
         <div className='edit-user-account-main-panel-button-container'>
           <button className='edit-user-account-main-panel-button' onClick={handleEditButton}>
-            <img src={editable ? UpdateIcon : EditIcon}></img>
+            <img src={editable ? CheckmarkIcon : EditIcon}></img>
           </button>
         </div>
       </div>

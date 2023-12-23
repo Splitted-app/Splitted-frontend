@@ -8,7 +8,7 @@ import { UserTokenState } from "../atoms/UserToken";
 
 export default function useFetchUser() {
     const token = useRecoilValue(UserTokenState);
-    const [data, setBudget] = useState({
+    const [data, setData] = useState({
         "id": "",
         "email": "",
         "username": "",
@@ -28,7 +28,7 @@ export default function useFetchUser() {
         })
         .then((res) => {
             setError(false);
-            setBudget(res.data)
+            setData(res.data)
         })
         .catch(error => {
             setError(true);
