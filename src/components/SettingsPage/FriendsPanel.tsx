@@ -1,7 +1,10 @@
 import '../../css/SettingsPage/FriendsPanel.css'
 
+import { useSetRecoilState } from 'recoil';
 
 import Friend from './Friend';
+
+import { AddNewFriendPanelVisibilityState } from '../../atoms/AddNewFriendPanelVisibility';
 
 import useFetchFriends from '../../hooks/useFetchFriends';
 
@@ -10,7 +13,13 @@ import useFetchFriends from '../../hooks/useFetchFriends';
 
 function FriendsPanel() {
 
-    const friends =  useFetchFriends();
+    const {data: friends, loading, error} = useFetchFriends();
+    const setAddNewFriendPanelVisibility = useSetRecoilState(AddNewFriendPanelVisibilityState);
+
+    function handleAddNewFriend()
+    {
+      setAddNewFriendPanelVisibility(true);
+    }
     return (
       <div className="friends-panel">
         <div className='friends-panel-header'>
@@ -20,14 +29,13 @@ function FriendsPanel() {
         </div>
         <div className='friends-panel-data-container'>
           {
-            friends.map((friend:any)=>{
-              <Friend email={friend.email} username={friend.username} avatarimage={friend.avatarimage}/>
-            }
+            Array.from(friends).map((friend:any)=>
+              <Friend id={friend.id} username={friend.username} avatarimage={friend.avatarimage}/>
             )
           }
         </div>
         <div className='add-new-friends-button-container'>
-          <button className='add-new-friends-button'> + </button>
+          <button className='add-new-friends-button' onClick={handleAddNewFriend}> + </button>
         </div>
       </div>
     );
