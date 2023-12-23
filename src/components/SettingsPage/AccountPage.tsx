@@ -4,19 +4,20 @@ import UserAccountMainPanel from './UserAccoutMainPanel';
 import UserAccountPanel from './UserAccountPanel';
 
 import useFetchUser from '../../hooks/useFetchUser';
+import { useEffect } from 'react';
 
 function AccountPage() {
     const user = useFetchUser();
-
+    
     return (
       <div className="account-page" data-testid="account-page">
         <div className='account-page-header'>
           <div className='user-panel'>
-            <UserAccountPanel/>
+            <UserAccountPanel username={user.data.username} avatarImage={user.data.avatarImage}/>
           </div>
           <div className='account-page-title'>
             <div className='account-page-subtitle'>
-              email: {user.data.email}
+              {user.data.email}
             </div>
             <div className='account-page-maintitle'>
               Account
