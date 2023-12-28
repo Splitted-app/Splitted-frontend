@@ -1,7 +1,7 @@
 .statistics-panel-insights-overview
 {
-    width: 85%;
-    height: 75%;
+    width: 90%;
+    height: 80%;
     background-color: white;
     -webkit-box-shadow: 0px 0px 46px 1px rgba(126, 127, 160, 1);
     -moz-box-shadow: 0px 0px 46px 1px rgba(126, 127, 160, 1);
@@ -102,3 +102,4 @@
     grid-column-start: 4;
     grid-column-end: 5;
 }
+

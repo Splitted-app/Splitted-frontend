@@ -2,10 +2,11 @@ import '../../css/HomePage/InsightsOverview.css'
 
 import {useCallback, useState } from 'react';
 
-import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, LabelList, PieChart, Pie, Legend, Sector} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, LabelList, PieChart, Pie, Legend, Sector, Tooltip} from 'recharts';
 import StatisticsPanelInsightsOverview from './StatisticsPanelInsightsOverview';
 import useFetchIncomesExpenses from '../../hooks/useFetchIncomeExpenses';
 import useFetchExpensesBreakdown from '../../hooks/useFetchExpensesBreakdown';
+import { useMediaQuery } from 'react-responsive';
 
 interface InsightsOverviewInterface
 {
@@ -15,6 +16,8 @@ interface InsightsOverviewInterface
 function InsightsOverview({dateRange}:InsightsOverviewInterface) {
   const incomeExpenses= useFetchIncomesExpenses(dateRange)
   const pieChartData= useFetchExpensesBreakdown(dateRange);
+  const mediumSize = useMediaQuery({ query: '(max-width: 1300px)' });
+  const miniSize = useMediaQuery({ query: '(max-width: 850px)' });
 
 const COLORS = ['#FF5EA4 ', '#FF7300', '#FFBF00', '#54498B ','#A30D0D' ];
 
@@ -80,17 +83,17 @@ const renderActiveShape = (props:any) => {
             <StatisticsPanelInsightsOverview dateRange={dateRange}/>
           </div>
           <div className='insights-overview-category-expenses-distribution'>
+            {!miniSize &&
             <ResponsiveContainer  width="100%" height="65%" >
               <PieChart margin={{top:5}}>
-                {/* <Legend layout="vertical" verticalAlign="top" align="left"  payload={pie_chart_data.map((item, index) => ({id: item.category,type: "circle",value: `${item.category}`,color: COLORS[index % COLORS.length]}))} wrapperStyle={{fontFamily: 'Gotham Medium' ,fontSize:'10px', lineHeight:'20px'}}/> */}
                   <Pie
                     activeIndex={activeIndex}
                     activeShape={renderActiveShape}
                     data={pieChartData.data}
                     cx="50%"
                     cy="50%"
-                    innerRadius={35}
-                    outerRadius={55}
+                    innerRadius={mediumSize ? 50 : 35}
+                    outerRadius={mediumSize ? 75 : 55}
                     fill="#8884d8"
                     dataKey="amount"
                     onMouseEnter={onPieEnter}
@@ -102,6 +105,30 @@ const renderActiveShape = (props:any) => {
                 </Pie>
               </PieChart>
             </ResponsiveContainer>
+            }
+            {miniSize &&
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  dataKey="amount"
+                  nameKey="category"
+                  isAnimationActive={true}
+                  data={pieChartData.data}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={75}
+                  innerRadius={50}
+                  stroke="none"
+                  fill="#8884d8"
+                >
+                {pieChartData.data.map((entry :any, index:number) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+            }
           </div>
           <div className='insights-overview-income-expenses'>
             <ResponsiveContainer width="100%" height="100%">
