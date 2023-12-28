@@ -89,13 +89,13 @@ function PartnerModePage() {
     return (
       <div className="partner-mode-page">
         <Navbar></Navbar>
-        {(budget.loading || budget.error) &&<LoadingPanel error={budget.error}/>}
+        {(budget.loading || budget.error) &&<LoadingPanel error={budget.error} color={"white"}/>}
         {!budget.loading &&
         <div className='partner-mode-page-content' style={gridStyle}>
             <div className='header'>
                 <div className='partner-mode-debt-panel'>
                     {(budget.loading || budget.error || transactions.loading || transactions.loading) && 
-                        <LoadingPanel error={budget.error || transactions.loading}/>
+                        <LoadingPanel error={budget.error || transactions.loading} color={"white"}/>
                     }
                     {!budget.loading && !budget.error && !transactions.loading && !transactions.loading &&
                         <DebtPanel amount={transactions.data.debt}/>
@@ -179,7 +179,7 @@ function PartnerModePage() {
                         markDuplicates={false}></TransactionList>
                 }
                 {transactions.loading &&
-                    <LoadingPanel error={transactions.error}/>
+                    <LoadingPanel error={transactions.error} color={"white"}/>
                 }
             </div>
         </div>

@@ -39,7 +39,7 @@ function TransactionsOverview({dateRange}:TransactionsOverviewInterface) {
                   markDuplicates={false}></TransactionList>
               }
               {loading &&
-                <LoadingPanel error={error}/>
+                <LoadingPanel error={error} color={"black"}/>
               }
               
             </div>

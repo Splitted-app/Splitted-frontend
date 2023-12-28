@@ -97,7 +97,7 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
             {!loading && data.username}
           </div>
         </div>
-        {(budget.loading || budget.error) && <LoadingPanel error={budget.error}/>}
+        {(budget.loading || budget.error) && <LoadingPanel error={budget.error} color={"black"}/>}
         {!budget.loading && !budget.error &&
         <div className='user-account-main-panel-data-container'>
           <div className='user-account-data-container'>

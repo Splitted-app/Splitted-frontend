@@ -61,7 +61,7 @@ function ChooseSettleTransactionPanel() {
         </div>
       </div>
       <div className='content-container'>
-        {(transactions.loading || transactions.error) && <LoadingPanel error={transactions.error}/>}
+        {(transactions.loading || transactions.error) && <LoadingPanel error={transactions.error} color={"black"}/>}
         {!transactions.loading && !transactions.error &&
           <TransactionList 
             transactions={transactions.data.transactions.sort((t1: any, t2: any)=>

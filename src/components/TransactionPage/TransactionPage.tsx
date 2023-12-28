@@ -195,7 +195,7 @@ function TransactionPage() {
                         markDuplicates={false}></TransactionList>
                 }
                 {loading &&
-                    <LoadingPanel error={error}/>
+                    <LoadingPanel error={error} color={"white"}/>
                 }
                 
             </div>

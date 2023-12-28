@@ -126,7 +126,7 @@ function AddNewFriendPanel() {
                 textColor="black"/>
         </div>}
         <div className='add-new-friend-button'>
-            {loading && <LoadingPanel error={false}/>}
+            {loading && <LoadingPanel error={false} color={"black"}/>}
             {!loading &&
                  <button className='button' onClick={handleAddNewFriend}>Add</button>
             }

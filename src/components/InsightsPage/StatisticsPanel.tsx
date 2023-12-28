@@ -22,7 +22,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
 
     return (
       <>
-      {statistics.loading && <LoadingPanel error={statistics.error}/>}
+      {statistics.loading && <LoadingPanel error={statistics.error} color={"white"}/>}
       {!statistics.loading &&
       <div className="statistics-panel">
         <div className='statistics-panel-title'>
