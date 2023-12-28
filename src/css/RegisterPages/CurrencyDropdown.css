@@ -56,3 +56,11 @@
         height: 25px;
     }
 }
+
+@media screen and (max-width:450px)
+{
+    .currency-select-style{
+        font-size: 8px;
+        height: 20px;
+    }
+}

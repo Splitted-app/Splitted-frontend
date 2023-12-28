@@ -65,6 +65,9 @@
     grid-column-end: 2;
     width: 100%;
     border-top: 1px solid white;
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 8% 10% 82%;
 }
 
 .account-page .account-page-content .account-page-content-title
@@ -72,16 +75,175 @@
     color: white;
     font-family: 'Gotham Medium';
     font-size: 28px;
-    padding-top: 2%;
-    padding-left: 5%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: start;
 
 }
 
 .account-page .account-page-content .user-account-main-panel-container
 {
-    width: 45%;
-    height: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
+    width: 100%;
+    height: 100%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1500px)
+{
+
+    .account-page .account-page-header .account-page-subtitle
+    {
+        font-size: 18px;
+    }
+    .account-page .account-page-header .account-page-maintitle
+    {
+        font-size: 65px;
+    }
+    .account-page .account-page-content .account-page-content-title
+    {
+        font-size: 24px;
+    }
+
+}
+
+
+@media screen and (max-width: 1250px)
+{
+    .account-page .account-page-header .account-page-subtitle
+    {
+        font-size: 16px;
+    }
+    .account-page .account-page-header .account-page-maintitle
+    { 
+        font-size: 60px;
+    }
+    .account-page .account-page-content .account-page-content-title
+    {
+        font-size: 22px;
+    }
+
+}
+
+@media screen and (max-width: 1150px)
+{
+
+    .account-page .account-page-header .account-page-subtitle
+    {
+        font-size: 14px;
+    }
+    .account-page .account-page-header .account-page-maintitle
+    {    
+        font-size: 55px;
+    }
+    .account-page .account-page-content .account-page-content-title
+    {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 1050px)
+{
+    .account-page .account-page-header .account-page-maintitle
+    {    
+        font-size: 50px;
+    }
+    .account-page .account-page-content .account-page-content-title
+    {
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (max-width: 1000px)
+{
+    .account-page
+    {
+        width: 100%;
+    }
+
+    .account-page .account-page-header
+    {
+        margin-top: 50px;
+    }
+
+    .account-page .account-page-header .account-page-title
+    {
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+
+    .account-page .account-page-header .user-panel
+    {
+        display: none;
+    }
+
+    .account-page .account-page-header .account-page-subtitle
+    {
+        font-size: 16px;
+    }
+    .account-page .account-page-header .account-page-maintitle
+    {    
+        font-size: 65px;
+    }
+    .account-page .account-page-content .account-page-content-title
+    {
+        font-size: 22px;
+    }
+
+
+}
+
+@media screen and (max-width: 650px)
+{
+    .account-page .account-page-header .account-page-subtitle
+    {
+        font-size: 14px;
+    }
+    .account-page .account-page-header .account-page-maintitle
+    {    
+        font-size: 55px;
+    }
+    .account-page .account-page-content .account-page-content-title
+    {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 520px)
+{
+
+    .account-page .account-page-header .account-page-subtitle
+    {
+        font-size: 12px;
+    }
+    .account-page .account-page-header .account-page-maintitle
+    {
+        font-size: 45px;
+    }
+}
+
+@media screen and (max-width: 450px)
+{
+
+    .account-page .account-page-header .account-page-subtitle
+    {
+        font-size: 10px;
+    }
+    .account-page .account-page-header .account-page-maintitle
+    {
+        font-size: 35px;
+    }
+    .account-page .account-page-content .account-page-content-title
+    {
+        font-size: 16px;
+    }
 }

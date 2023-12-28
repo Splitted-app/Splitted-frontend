@@ -112,7 +112,10 @@
 
 @media screen and (max-width: 1500px)
 {
-
+    .home-page-content .information-panel .amount
+    {
+        grid-template-columns: auto 140px;
+    }
     .home-page-content .information-panel .your-balance
     {
         font-size: 24px;
@@ -130,10 +133,7 @@
 
 @media screen and (max-width: 1250px)
 {
-    .home-page-content .information-panel .amount
-    {
-        grid-template-columns: auto 140px;
-    }
+
 
     .home-page-content .information-panel .your-balance
     {
@@ -201,11 +201,18 @@
 
 @media screen and (max-width: 1000px)
 {
+    .home-page-content
+    {
+        width: 100%;
+    }
+
     .home-page-content .information-panel
     {
         grid-column-start: 1;
         grid-column-end: 6;
         padding-top: 100px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .home-page-content .reminders-container
@@ -244,6 +251,11 @@
     {
         width: 30px;
         height: 30px;
+    }
+
+    .home-page-content .arrow-button
+    {
+        margin: 5px;
     }
 }
 
@@ -284,10 +296,20 @@
         grid-template-columns: auto 110px;
     }
 
+    .home-page-content .arrow-button img
+    {
+        width: 25px;
+        height: 25px;
+    }
+
 }
 
 @media screen and (max-width: 450px)
 {
+    .home-page-content .information-panel .amount
+    {
+        grid-template-columns: auto 80px;
+    }
 
     .home-page-content .information-panel .your-balance
     {

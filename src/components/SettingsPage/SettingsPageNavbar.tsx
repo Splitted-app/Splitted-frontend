@@ -12,6 +12,7 @@ import { SettingsNavbarVisibilityState } from '../../atoms/SettingsNavbarVisibil
 import DeleteAccountIcon from '../../assets/images/delete_account.png'
 import MenuIcon from '../../assets/images/main-menu.png'
 import SplitIcon from '../../assets/images/split.png'
+import { useState } from 'react';
 
 
 interface SettingsPageNavbarInterface
@@ -28,16 +29,31 @@ function SettingsPageNavbar({setAccountPageVisibility,setTrainAIPageVisibility, 
   const setSettingsNavbarVisibility = useSetRecoilState(SettingsNavbarVisibilityState);
   const setDeleteAccountPanelVisibility = useSetRecoilState(DeleteAccountPanelVisibilityState);
 
+  const [navbarExpanded, setNavbarExpanded] = useState<boolean>(false);
+
+  function handleExpandHideNavbar()
+  {
+    setNavbarExpanded(!navbarExpanded);
+  }
+
 
   return (
-      <div className="settings-page-navbar" data-testid="settings-page-navbar">
+      <div className={`settings-page-navbar ${navbarExpanded ? "settings-page-navbar-mini-expanded" : ""}`} 
+          data-testid="settings-page-navbar">
         <div className='settings-page-navbar-header'>
           <div className='old-menu-icon' onClick={()=>{setNavbarVisibility(true); setSettingsNavbarVisibility(false)}} data-testid="settings-page-navbar-change-icon">
             <img src={MenuIcon}></img>
           </div>
-          <div data-testid="settings-page-navbar-header-title-and-icon">
-            <NavbarItem name="Splitted" font="CeraPro bold" fontSize="25px" link="/home" icon={SplitIcon}></NavbarItem>
-          </div>
+          <a style={{cursor: "pointer"}} onClick={handleExpandHideNavbar}>
+            <div className="navbar-item">
+              <div className='icon'>
+                <img src={SplitIcon}></img>
+              </div>
+              <div className='text' style={{fontFamily: 'CeraPro bold', fontSize: "25px"}}>
+                  Splitted
+              </div>
+            </div>
+          </a>
         </div>
         <div className='settings-page-navbar-main-content'>
           <div className='settings-page-navbar-main-content-title'>

@@ -32,3 +32,25 @@
     height: 20px;
     border-radius: 0%;
 }
+
+
+@media screen and (max-width: 1300px)
+{
+    .avatar-image-edit-icon img
+    {
+        width: 15px;
+        height: 15px;
+        transform: translate(-3px, -3px);
+    }
+}
+
+
+@media screen and (max-width: 650px)
+{
+    .avatar-image-edit-icon img
+    {
+        width: 10px;
+        height: 10px;
+        transform: translate(-5px, -3px);
+    }
+}

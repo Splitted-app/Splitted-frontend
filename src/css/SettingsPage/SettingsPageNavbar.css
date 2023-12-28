@@ -1,7 +1,7 @@
 .settings-page-navbar
 {
     background-color: #0D071F;
-    width: 15%;
+    width: 230px;
     height: 100%;
     display:grid;
     grid-template-rows: 10% 85% 5%;
@@ -18,7 +18,7 @@
     grid-column-start: 1;
     grid-column-end: 2;
     display: flex;
-    padding-top: 5%;
+    padding-top: 10px;
 }
 
 .settings-page-navbar .settings-page-navbar-header .old-menu-icon
@@ -131,4 +131,40 @@
     font-family: 'Gotham Light';
     font-size: 15px;
     color: white;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .settings-page-navbar
+    {
+        height: 50px;
+        position: absolute;
+        width: 100%;
+    }
+    
+    .settings-page-navbar .settings-page-navbar-main-content,
+    .settings-page-navbar .settings-page-navbar-footer,
+    .settings-page-navbar .settings-page-navbar-header .old-menu-icon
+    {
+        display: none;
+    }
+
+    .settings-page-navbar-mini-expanded
+    {
+        height: 100% !important;
+        width: 200px !important;
+        z-index: 1000;
+    }
+
+    .settings-page-navbar-mini-expanded .settings-page-navbar-main-content {
+        display: block !important;
+    }
+
+    .settings-page-navbar-mini-expanded .settings-page-navbar-footer {
+        display: flex !important;
+    }
+
+    .settings-page-navbar-mini-expanded .settings-page-navbar-header .old-menu-icon {
+        display: flex !important;
+    }
 }

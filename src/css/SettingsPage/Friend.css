@@ -60,3 +60,36 @@
     width: 30px;
     height: 30px;
 }
+
+@media screen and (max-width: 650px)
+{
+    .friend .friend-content .avatar-image img
+    {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .friend .delete-friend-button-container button img
+    {
+        width: 25px;
+        height: 25px;
+    }
+    
+}
+
+
+@media screen and (max-width: 450px)
+{
+    .friend .friend-content .avatar-image img
+    {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .friend .delete-friend-button-container button img
+    {
+        width: 20px;
+        height: 20px;
+    }
+    
+}

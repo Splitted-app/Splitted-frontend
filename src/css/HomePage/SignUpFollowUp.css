@@ -9,6 +9,8 @@
     text-align: center;
     display: grid;
     grid-template-rows: [top] 20% [middle] 80% [bottom];
+    border: 1px solid rgb(109, 109, 109);
+    box-shadow: 2px 2px 5px #10032B;
 }
 
 .signup-followup .title
@@ -26,13 +28,10 @@
     height: 100%;
 }
 
-.signup-followup .information-fields
-{
-    padding-top: 15px;
-}
 
 .signup-followup .information-fields
 {
+    padding-top: 15px;
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: [start] 50% [middle] auto [end];
@@ -137,4 +136,244 @@
     font-family: 'Gotham Medium';
     font-size: 14px;
     box-shadow: 2px 5px 5px #010446;
+}
+
+@media screen and (max-width:1300px)
+{
+    .signup-followup
+    {
+        height: 95%;
+        width: 65%;
+    }
+
+    .signup-followup .title
+    {
+        font-size: 26px;
+    }
+
+    .signup-followup .information-fields
+    {
+        padding-top: 10px;
+    }
+
+    .signup-followup .information-fields label
+    {
+        font-size: 18px;
+    }
+
+    .signup-followup .information-fields .field-style
+    {
+        font-size: 16px;
+        height: 45px;
+
+    }
+
+    .signup-followup .button-container input
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 45px;
+    }
+
+}
+
+
+@media screen and (max-width:1050px)
+{
+    .signup-followup
+    {
+        height: 90%;
+        width: 75%;
+        grid-template-rows: [top] 25% [middle] 75% [bottom];
+
+    }
+
+    .signup-followup .title
+    {
+        font-size: 24px;
+    }
+
+    .signup-followup .information-fields
+    {
+        padding-top: 5px;
+    }
+
+    .signup-followup .information-fields label
+    {
+        font-size: 14px;
+    }
+
+    .signup-followup .information-fields .field-style
+    {
+        font-size: 14px;
+        height: 35px;
+
+    }
+
+    .signup-followup .button-container input
+    {
+        font-size: 12px;
+        width: 90px;
+        height: 45px;
+    }
+
+
+}
+
+
+
+@media screen and (max-width:950px)
+{
+    .signup-followup
+    {
+        height: 85%;
+        width: 80%;
+        grid-template-rows: [top] 30% [middle] 70% [bottom];
+
+    }
+
+    .signup-followup .title
+    {
+        font-size: 22px;
+    }
+
+    .signup-followup .information-fields
+    {
+        padding-top: 0px;
+    }
+
+    .signup-followup .information-fields label
+    {
+        font-size: 12px;
+    }
+
+    .signup-followup .information-fields .field-style
+    {
+        font-size: 12px;
+        height: 30px;
+
+    }
+
+    .signup-followup .button-container input
+    {
+        font-size: 12px;
+        width: 80px;
+        height: 40px;
+    }
+
+}
+
+
+@media screen and (max-width:850px)
+{
+    .signup-followup
+    {
+        height: 80%;
+        width: 85%;
+        grid-template-rows: [top] 20% [middle] 80% [bottom];
+
+    }
+
+    .signup-followup .title
+    {
+        font-size: 20px;
+    }
+
+
+    .signup-followup .information-fields
+    {
+        grid-template-columns: [start] 100% [end];
+        grid-template-rows: [line1] 10% [line2] 15% [line3] 10% [line4] 15% [line5] 10% [line6] 15% [line7];
+    }
+}
+
+
+@media screen and (max-width:600px)
+{
+    .signup-followup
+    {
+        height: 70%;
+        width: 100%;
+        grid-template-rows: [top] 15% [middle] 85% [bottom];
+
+    }
+
+    .signup-followup .title
+    {
+        font-size: 14px;
+    }
+
+    
+    .signup-followup .information-fields label
+    {
+        font-size: 10px;
+    }
+
+    .signup-followup .information-fields .field-style
+    {
+        font-size: 10px;
+        height: 25px;
+
+    }
+
+    .signup-followup .button-container input
+    {
+        font-size: 9px;
+        width: 65px;
+        height: 35px;
+    }
+    .signup-followup .information-fields
+    {
+        row-gap: 15px;
+        padding-top: 20px;
+
+    }
+
+}
+
+
+@media screen and (max-width:450px)
+{
+    .signup-followup
+    {
+        height: 50%;
+        width: 100%;
+        grid-template-rows: [top] 15% [middle] 85% [bottom];
+        border-radius: 30px;
+
+    }
+
+    .signup-followup .title
+    {
+        font-size: 12px;
+        margin-top: 5px;
+
+    }
+
+    
+    .signup-followup .information-fields label
+    {
+        font-size: 8px;
+    }
+
+    .signup-followup .information-fields .field-style
+    {
+        font-size: 8px;
+        height: 20px;
+
+    }
+
+    .signup-followup .button-container input
+    {
+        font-size: 6px;
+        height: 25px;
+        width: 60px;
+
+    }
+    .signup-followup .information-fields
+    {
+        padding-top: 5px;
+        row-gap: 10px;
+    }
+
 }
