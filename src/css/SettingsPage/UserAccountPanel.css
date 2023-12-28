@@ -30,3 +30,65 @@
     justify-self: center;
     align-self: center;
 }
+
+
+@media screen and (max-width: 1500px)
+{
+
+    .user-account-panel
+    {
+        width: 80%;
+        height: 70%;
+    }
+    .user-account-panel .username
+    {    
+        padding-top: 10%;
+        padding-left: 10%;
+        font-size: 22px;
+    }
+    .user-account-panel .user-icon 
+    {
+        width: 80px;
+        height: 80px;
+    }
+
+}
+
+
+@media screen and (max-width: 1150px)
+{
+
+    .user-account-panel
+    {
+        width: 85%;
+        height: 65%;
+    }
+    .user-account-panel .username
+    {    
+        font-size: 20px;
+    }
+    .user-account-panel .user-icon 
+    {
+        width: 70px;
+        height: 70px;
+    }
+
+}
+
+@media screen and (max-width: 1050px)
+{
+    .user-account-panel
+    {
+        width: 86%;
+        height: 63%;
+    }
+    .user-account-panel .username
+    {    
+        font-size: 18px;
+    }
+    .user-account-panel .user-icon 
+    {
+        width: 65px;
+        height: 65px;
+    }
+}

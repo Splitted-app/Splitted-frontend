@@ -135,7 +135,9 @@
         width: 100%;
     }
     
-    .navbar .navbar-content {
+    .navbar .navbar-content,
+    .navbar .title .old-menu-icon
+    {
         display: none;
     }
 
@@ -148,5 +150,10 @@
 
     .navbar-mini-expanded .navbar-content {
         display: grid !important;
+    }
+
+    .navbar-mini-expanded .title .old-menu-icon
+    {
+        display: flex;
     }
 }

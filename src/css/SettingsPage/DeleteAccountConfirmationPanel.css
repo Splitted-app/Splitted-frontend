@@ -40,27 +40,287 @@
 
 .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .delete-account-button-container .delete-account-button
 {
-    font-size: 12px;
     background-color: #20F7C5;
     color: black;
-    width: 120px;
+    width: 140px;
     height: 50px;
     border-radius: 40px;
-    font-family: 'Gotham Bold';
-    box-shadow: 8px 8px 5px #010446;
-    border:0;
+    font-family: 'Gotham Medium';
+    font-size: 16px;
+    box-shadow: 2px 5px 5px #010446;
+    border: none;
 
 }
 
 .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .cancel-button-container .cancel-button
 {
-    font-size: 12px;
+    font-size: 16px;
     background-color: #FFDADA;
-    color: CC3C3C;
-    width: 120px;
+    color: #CC3C3C;
+    width: 140px;
     height: 50px;
     border-radius: 40px;
-    font-family: 'Gotham Bold';
+    font-family: 'Gotham Medium';
     border: 3px solid #CC3C3C;
-    box-shadow: 8px 8px 5px #010446;
+    box-shadow: 2px 5px 5px #010446;
+}
+
+
+@media screen and (max-width: 1500px)
+{
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .delete-account-button-container .delete-account-button,
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .cancel-button-container .cancel-button
+    {
+        font-size: 14px;
+        width: 120px;
+        height: 45px;
+
+    }
+    .delete-account-confirmation-panel .title .main-title
+    {
+        font-size: 28px;
+    }
+    
+    
+    .delete-account-confirmation-panel .title .subtitle
+    {
+        font-size: 20px;
+    }
+}
+
+
+@media screen and (max-width: 1300px)
+{
+    .delete-account-confirmation-panel
+    {
+        height: 37%;
+        width: 65%;
+    }
+
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .delete-account-button-container .delete-account-button,
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .cancel-button-container .cancel-button
+    {
+        font-size: 12px;
+        width: 100px;
+        height: 40px;
+
+    }
+    .delete-account-confirmation-panel .title .main-title
+    {
+        font-size: 26px;
+    }
+    
+    
+    .delete-account-confirmation-panel .title .subtitle
+    {
+        font-size: 18px;
+    }
+}
+
+
+
+@media screen and (max-width: 1050px)
+{
+    .delete-account-confirmation-panel
+    {
+        height: 30%;
+        width: 60%;
+    }
+    
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .delete-account-button-container .delete-account-button,
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .cancel-button-container .cancel-button
+    {
+        font-size: 10px;
+        width: 90px;
+        height: 35px;
+
+    }
+    .delete-account-confirmation-panel .title .main-title
+    {
+        font-size: 22px;
+    }
+    
+    
+    .delete-account-confirmation-panel .title .subtitle
+    {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 950px)
+{
+    .delete-account-confirmation-panel
+    {
+        height: 32%;
+        width: 72%;
+
+    }
+
+
+}
+
+@media screen and (max-width: 850px)
+{
+    .delete-account-confirmation-panel
+    {
+        height: 30%;
+        width: 75%;
+    }
+    
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .delete-account-button-container .delete-account-button,
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .cancel-button-container .cancel-button
+    {
+        font-size: 8px;
+        width: 80px;
+        height: 30px;
+
+    }
+    .delete-account-confirmation-panel .title .main-title
+    {
+        padding-top: 3%;
+        font-size: 18px;
+    }
+    
+    
+    .delete-account-confirmation-panel .title .subtitle
+    {
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 700px)
+{
+    .delete-account-confirmation-panel
+    {
+        height: 40%;
+        width: 70%;
+        border-radius: 35px;
+
+    }
+    
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .delete-account-button-container .delete-account-button,
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .cancel-button-container .cancel-button
+    {
+        width: 70px;
+        height: 30px;
+
+    }
+    .delete-account-confirmation-panel .title .main-title
+    {
+        font-size: 16px;
+    }
+    
+    
+    .delete-account-confirmation-panel .title .subtitle
+    {
+        font-size: 10px;
+    }
+
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons
+    {
+        display: block;
+        margin-top:20%;
+
+    }
+
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .delete-account-button-container,
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .cancel-button-container 
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 15%;
+    }
+}
+
+
+@media screen and (max-width: 600px)
+{
+    .delete-account-confirmation-panel
+    {
+        height: 40%;
+        width: 70%;
+        border-radius: 33px;
+
+    }
+
+    .delete-account-confirmation-panel .title .main-title
+    {
+        padding-top: 5%;
+        font-size: 14px;
+    }
+    
+    
+    .delete-account-confirmation-panel .title .subtitle
+    {
+        font-size: 9px;
+    }
+}
+
+
+@media screen and (max-width: 450px)
+{
+    .delete-account-confirmation-panel
+    {
+        height: 40%;
+        width: 90%;
+        border-radius: 30px;
+
+    }
+    
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .delete-account-button-container .delete-account-button,
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .cancel-button-container .cancel-button
+    {
+        font-size: 6px;
+        width: 60px;
+        height: 25px;
+
+    }
+    .delete-account-confirmation-panel .title .main-title
+    {
+
+        padding-top: 10%;
+        font-size: 12px;
+    }
+    
+    
+    .delete-account-confirmation-panel .title .subtitle
+    {
+        font-size: 8px;
+    }
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons
+    {
+        margin-top:20%;
+
+    }
+
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .delete-account-button-container,
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons .cancel-button-container 
+    {
+        padding-bottom: 10%;
+    }
+}
+
+@media screen and (max-width: 350px)
+{
+    .delete-account-confirmation-panel .title .main-title
+    {
+        font-size: 14px;
+    }
+    .delete-account-confirmation-panel .title .subtitle
+    {
+        display: none;
+    }
+    .delete-account-confirmation-panel
+    {
+        width: 100%;
+        height: 35%;
+
+    }
+    .delete-account-confirmation-panel .delete-account-confirmation-panel-buttons
+    {
+        margin-top:25%;
+
+    }
 }

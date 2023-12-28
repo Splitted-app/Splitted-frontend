@@ -90,3 +90,168 @@
     box-shadow: 8px 8px 5px #010446;
     border:0;
 }
+@media screen and (max-width: 1500px)
+{
+
+    .train-ai-page .train-ai-page-header .train-ai-page-title .train-ai-page-maintitle
+    {
+        font-size: 65px;
+    }
+
+    .train-ai-page .train-ai-page-content .train-ai-page-content-description
+    {
+        font-size: 18px;
+    }
+}
+
+
+@media screen and (max-width: 1250px)
+{
+
+    .train-ai-page .train-ai-page-header .train-ai-page-title .train-ai-page-maintitle
+    { 
+        font-size: 60px;
+    }
+    .train-ai-page .train-ai-page-content .train-ai-page-content-description
+    {
+        font-size: 16px;
+    }
+
+    .train-ai-page .train-ai-page-content .train-ai-page-content-button-container .train-ai-button
+    {
+        font-size: 10px;
+        width: 100px;
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 1150px)
+{
+
+    .train-ai-page .train-ai-page-header .train-ai-page-title .train-ai-page-maintitle
+    {
+        font-size: 55px;
+    }
+
+    .train-ai-page .train-ai-page-content .train-ai-page-content-description
+    {
+        font-size: 14px;
+    }
+
+
+}
+
+@media screen and (max-width: 1050px)
+{
+    .train-ai-page .train-ai-page-header .train-ai-page-title .train-ai-page-maintitle
+    {
+        font-size: 50px;
+    }
+
+    .train-ai-page .train-ai-page-content .train-ai-page-content-description
+    {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 1000px)
+{
+    .train-ai-page
+    {
+        width: 100%;
+    }
+    .train-ai-page .train-ai-page-header
+    {
+        margin-top: 50px;
+    }
+    .train-ai-page .train-ai-page-header .train-ai-page-title
+    {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+
+    .train-ai-page .train-ai-page-header .train-ai-page-title .train-ai-page-maintitle
+    {    
+        font-size: 65px;
+    }
+    .train-ai-page .train-ai-page-content .train-ai-page-content-description
+    {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 650px)
+{
+    .train-ai-page .train-ai-page-header .train-ai-page-title .train-ai-page-maintitle
+    {    
+        font-size: 55px;
+    }
+    .train-ai-page .train-ai-page-content
+    {
+
+        grid-template-columns: 10% 80% 10%;
+        grid-template-rows: 10% 20% 65% 5%;
+    }
+    .train-ai-page .train-ai-page-content .train-ai-page-content-description
+    {
+        grid-row-start:3;
+        grid-row-end: 4;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    
+    .train-ai-page .train-ai-page-content .train-ai-page-content-button-container
+    {
+        grid-row-start:2;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .train-ai-page .train-ai-page-content .train-ai-page-content-description
+    {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 520px)
+{
+
+    .train-ai-page .train-ai-page-header .train-ai-page-title .train-ai-page-maintitle
+    {    
+        font-size: 45px;
+    }
+    .train-ai-page .train-ai-page-content .train-ai-page-content-button-container .train-ai-button
+    {
+        font-size: 9px;
+        width: 85px;
+        height: 40px;
+    }
+    .train-ai-page .train-ai-page-content .train-ai-page-content-description
+    {
+        font-size: 10px;
+    }
+    
+}
+
+@media screen and (max-width: 450px)
+{
+
+    .train-ai-page .train-ai-page-header .train-ai-page-title .train-ai-page-maintitle
+    {    
+        font-size: 35px;
+    }
+    .train-ai-page .train-ai-page-content .train-ai-page-content-description
+    {
+        font-size: 8px;
+    }
+    .train-ai-page .train-ai-page-content .train-ai-page-content-button-container .train-ai-button
+    {
+        font-size: 8px;
+        width: 75px;
+        height: 35px;
+    }
+}
