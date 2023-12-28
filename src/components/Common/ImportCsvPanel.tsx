@@ -203,7 +203,7 @@ function ImportCsvPanel() {
           }
           {
             loading && !uploadError &&
-            <LoadingPanel error={uploadError}/>
+            <LoadingPanel error={uploadError} color={"black"}/>
           }
           
         </form>

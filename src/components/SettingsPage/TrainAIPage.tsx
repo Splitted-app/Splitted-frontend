@@ -69,7 +69,7 @@ function TrainAIPage() {
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit cupiditate magni consequatur qui dignissimos! Vero recusandae nisi illo voluptate in totam dolore id architecto nam delectus suscipit, dolorem at odio.
             </div>
             <div className='train-ai-page-content-button-container'>
-                {loading && <LoadingPanel error={error}/>}
+                {loading && <LoadingPanel error={error} color={"white"}/>}
                 {!loading &&
                     <button className='train-ai-button' onClick={handleTrainModelButton}>Train Model</button>
                 }

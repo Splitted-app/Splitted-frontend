@@ -151,7 +151,7 @@ function InsightsPage() {
         <div className='insights-page-content'  style={gridStyle}>
             <div className='header'>
                 <div className='income-expenses-chart' data-testid="insights-page-header-income-expenses-chart">
-                {incomeExpenses.loading && <LoadingPanel error={incomeExpenses.error}/>}
+                {incomeExpenses.loading && <LoadingPanel error={incomeExpenses.error} color={"white"}/>}
                 {!incomeExpenses.loading &&
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart width={500} height={300} data={incomeExpenses.data} layout="vertical" margin={{top: 20, right: 100,left: 0, bottom: 15}}  barGap={0}>
@@ -238,7 +238,7 @@ function InsightsPage() {
                     <div className='line-chart-title'>
                         Balance
                     </div>
-                    {balanceHistory.loading && <LoadingPanel error={balanceHistory.error}/>}
+                    {balanceHistory.loading && <LoadingPanel error={balanceHistory.error} color={"white"}/>}
                     {!balanceHistory.loading &&
                     <ResponsiveContainer  width="100%" height="100%">
                             <LineChart width={500} height={200}  data={balanceHistory.data}>
@@ -253,7 +253,7 @@ function InsightsPage() {
                     <div className='pie-chart-title'>
                         Expenses in Categories Distribution
                     </div>
-                    {expensesBreakdown.loading && <LoadingPanel error={expensesBreakdown.error}/>}
+                    {expensesBreakdown.loading && <LoadingPanel error={expensesBreakdown.error} color={"white"}/>}
                     {!expensesBreakdown.loading &&
                     <ResponsiveContainer  width="100%" height="100%" >
                         <PieChart width={400} height={400} >
@@ -295,7 +295,7 @@ function InsightsPage() {
                     <div className='bar-chart-title'>
                         Income & Expenses
                     </div>
-                    {incomeExpensesOverTime.loading && <LoadingPanel error={incomeExpensesOverTime.error}/>}
+                    {incomeExpensesOverTime.loading && <LoadingPanel error={incomeExpensesOverTime.error} color={"white"}/>}
                     {!incomeExpensesOverTime.loading &&
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart width={500} height={300} data={incomeExpensesOverTime.data} stackOffset="sign">
@@ -312,7 +312,7 @@ function InsightsPage() {
                     <div className='expenses-chart-title'>
                         Expenses Distribution
                     </div>
-                    {expensesHistogram.loading && <LoadingPanel error={expensesHistogram.error}/>}
+                    {expensesHistogram.loading && <LoadingPanel error={expensesHistogram.error} color={"white"}/>}
                     {!expensesHistogram.loading &&
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart width={150} height={40} data={expensesHistogram.data}>
