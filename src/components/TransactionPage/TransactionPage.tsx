@@ -1,9 +1,9 @@
 import '../../css/TransactionPage/TransactionPage.css'
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Moment from 'moment';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import LoadingPanel from '../Common/LoadingPanel';
 import Navbar from "../Common/Navbar"
@@ -14,12 +14,12 @@ import { AddTransactionsPanelVisibilityState } from '../../atoms/AddTransactions
 import { MenuIconVisibilityState } from '../../atoms/MenuIconVisibility';
 import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
-import { UserTokenState } from '../../atoms/UserToken'
 
 import useFetchTransactions from '../../hooks/useFetchTransactions';
 import useFetchUserBudgets from '../../hooks/useFetchUserBudgets';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+import api from '../../services/api';
 
 
 
@@ -62,7 +62,6 @@ function TransactionPage() {
     const setMenuIconVisibility = useSetRecoilState(MenuIconVisibilityState);
     const [showDeleteTransactionRadioButton, setShowDeleteTransactionRadioButton] = useState(false);
     const [transactionsToDelete, setTransactionsToDelete ]= useRecoilState<any>(TransactionsCheckedState);
-    const token = useRecoilValue(UserTokenState);
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
     const [filterMenuVisibility, setFilterMenuVisibility] = useState(false);
 
@@ -92,21 +91,13 @@ function TransactionPage() {
     {
         if(showDeleteTransactionRadioButton && transactionsToDelete.length!==0)
         {
-            fetch(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionsToDelete.join('/') , {
-                method: 'DELETE',
-                headers: {
-                  'Accept': '*',
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${token}`,
-          
-                }
-              })
-                .then(res => {
-                  if (!res.ok) {
-                    throw Error('could not fetch the data for that resource');
-                  }
-                  setUpdater(!updater);
-                });
+            api.delete('/api/transactions/' + transactionsToDelete.join('/'))
+            .then(res => {
+                setUpdater(!updater);
+            })
+            .catch(error=>{
+                console.error(error);
+            });
         }
         setShowDeleteTransactionRadioButton(!showDeleteTransactionRadioButton);
         setTransactionsToDelete([]);

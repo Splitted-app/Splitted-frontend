@@ -1,28 +1,19 @@
 import { useEffect, useState } from "react";
 
-import axios from "axios";
 import { useRecoilValue } from "recoil";
 
 import { FullLoginUpdaterState } from "../atoms/FullLoginUpdater";
-import { UserTokenState } from "../atoms/UserToken";
+import api from "../services/api";
 
 
 export default function useFetchCurrency() {
-    const token = useRecoilValue(UserTokenState);
     const loginUpdater = useRecoilValue(FullLoginUpdaterState);
     const [currency, setCurrency] = useState<any>();
     
-
     useEffect(() => {
         if (loginUpdater === 0)
             return;
-        axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal,Family', {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })
+        api.get('/api/users/budgets?budgetType=Personal,Family')
         .then((res) => {
             if (res.data.length === 0) {
                 setCurrency(null);

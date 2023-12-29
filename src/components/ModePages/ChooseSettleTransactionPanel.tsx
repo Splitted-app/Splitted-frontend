@@ -1,7 +1,6 @@
 import '../../css/ModePages/ChooseSettleTransactionPanel.css'
 
-import axios from 'axios';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import LoadingPanel from '../Common/LoadingPanel';
 import TransactionList from '../Common/TransactionList';
@@ -9,9 +8,9 @@ import TransactionList from '../Common/TransactionList';
 import { ChosenSettleTransactionIdState } from '../../atoms/ChosenSettleTransactionId';
 import { ChooseSettleTransactionPanelVisibilityState } from '../../atoms/ChooseSettleTransactionPanel';
 import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
-import { UserTokenState } from '../../atoms/UserToken'
 
 import useFetchTransactions from '../../hooks/useFetchTransactions';
+import api from '../../services/api';
 
 
 
@@ -21,18 +20,10 @@ function ChooseSettleTransactionPanel() {
   const [chosenSettleTransactionId, setChosenSettleTransactionId] = useRecoilState(ChosenSettleTransactionIdState);
   const [transansactionsToSettle, setTransactionsToSettle] = useRecoilState(TransactionsToSettleState)
   const setChooseSettleTransactionPanelVisibility = useSetRecoilState(ChooseSettleTransactionPanelVisibilityState)
-  const token = useRecoilValue(UserTokenState);
 
   function handleButtonClicked()
   {
-    axios.put(process.env.REACT_APP_API_URL + `/api/transactions/${chosenSettleTransactionId}/payback/${transansactionsToSettle.join('/')}`, null,
-    {
-        headers: {
-        'Accept': '*',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-        }
-    })
+    api.put(`/api/transactions/${chosenSettleTransactionId}/payback/${transansactionsToSettle.join('/')}`, null)
     .then((res)=>{
         setChosenSettleTransactionId("");
         setTransactionsToSettle([]);

@@ -2,15 +2,14 @@ import '../../css/Common/PartyModeFollowUp.css';
 
 import { useState } from "react";
 
-import axios from "axios";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
 import FormInfo from './FormInfo';
 
-import { UserTokenState } from "../../atoms/UserToken";
 import { PartyModeFollowUpVisibilityState } from "../../atoms/PartyModeFollowUp";
 import { PartyFriendsIdsState } from '../../atoms/PartyFriendsIds';
 import { UserBudgetsUpdaterState } from '../../atoms/UserBudgetsUpdater';
+import api from '../../services/api';
 
 
 interface FormDataInterface {
@@ -28,7 +27,6 @@ function PartyModeFollowUp()
         userUnavailable: false as boolean
     })
     const [partyFriendIds, setPartyFriendsIds] = useRecoilState(PartyFriendsIdsState)
-    const token = useRecoilValue(UserTokenState);
     const setPartyModeFollowUpVisibility = useSetRecoilState(PartyModeFollowUpVisibilityState);
     const [userBudgetsUpdater, setUserBudgetsUpdater] = useRecoilState(UserBudgetsUpdaterState)
 
@@ -40,17 +38,10 @@ function PartyModeFollowUp()
             return
         }
 
-        axios.post(process.env.REACT_APP_API_URL + `/api/modes/temporary-mode/${partyFriendIds.join('/')}`,
+        api.post(`/api/modes/temporary-mode/${partyFriendIds.join('/')}`,
         JSON.stringify({
             name: data.budgetName,
-        }),
-        {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })
+        }))
         .then(res => {
             setPartyModeFollowUpVisibility(false);
             setUserBudgetsUpdater(!userBudgetsUpdater);

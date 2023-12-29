@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 
-import axios from 'axios';
 import Moment from 'moment';
 import { useRecoilValue } from "recoil";
 
 import { TransactionUpdaterState } from "../atoms/TransactionUpdater";
-import { UserTokenState } from "../atoms/UserToken";
 
 import useFetchBudgetId from "./useFetchBudgetId";
+import api from "../services/api";
 
 
 
@@ -19,7 +18,6 @@ export default function useFetchIncomeExpensesOverTime(
 {
     const budgetId = useFetchBudgetId()
     const transactionUpdater = useRecoilValue(TransactionUpdaterState);
-    const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
@@ -47,12 +45,7 @@ export default function useFetchIncomeExpensesOverTime(
         if (budgetId === undefined)
             return;
         setLoading(true);
-        axios.get(process.env.REACT_APP_API_URL + `/api/insights/${budgetId}/income-expenses-over-time/${query}`, {
-            headers: {
-                'Accept': '*',
-                'Authorization': `Bearer ${token}`
-            },   
-        })
+        api.get(`/api/insights/${budgetId}/income-expenses-over-time/${query}`)
         .then(res => {
             setData(res.data);
         })

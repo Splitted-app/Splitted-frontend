@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 
-import axios from "axios";
-import { useRecoilValue } from "recoil";
-
-import { UserTokenState } from "../atoms/UserToken";
+import api from "../services/api";
 
 export default function useFetchBudget(id : string | undefined) {
-    const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
@@ -15,15 +11,8 @@ export default function useFetchBudget(id : string | undefined) {
         console.log(`id: ${id}`);
         if (!id)
             return;
-        console.log(id);
         setLoading(true);
-        axios.get(process.env.REACT_APP_API_URL + `/api/budgets/${id}`, {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })
+        api.get(`/api/budgets/${id}`)
         .then((res) => {
             console.log(res.data);
             setError(false);

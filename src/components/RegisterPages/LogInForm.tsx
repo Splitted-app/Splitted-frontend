@@ -2,16 +2,14 @@ import '../../css/RegisterPages/RegisterForm.css';
 
 import { useState } from "react";
 
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 import FormInfo from '../Common/FormInfo';
 
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
 
 import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
-import { UserTokenState } from '../../atoms/UserToken';
 
 interface RegisterFormInterface {
     data: RegisterFormDataInterface,
@@ -21,7 +19,6 @@ interface RegisterFormInterface {
 
 function LogInForm({ data, setData, setState }: RegisterFormInterface) {
     const navigate = useNavigate();
-    const setToken = useSetRecoilState(UserTokenState);
     const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState);
     const [errors, setErrors] = useState({
         invalidPassword: false
@@ -58,7 +55,8 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
             return res.json();
         })
         .then((data) => {
-            setToken(data.token);
+            localStorage.setItem("token", data.token);
+            // setToken(data.token);
         })
         .then(() => {
             setUpdater(updater + 1);

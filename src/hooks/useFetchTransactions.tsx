@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 
-import axios from 'axios';
 import Moment from 'moment';
 import { useRecoilValue } from "recoil";
 
 import { TransactionUpdaterState } from "../atoms/TransactionUpdater";
-import { UserTokenState } from "../atoms/UserToken";
 
 import useFetchBudgetId from "./useFetchBudgetId";
+import api from "../services/api";
 
 
 
@@ -21,7 +20,6 @@ export default function useFetchTransactions(
     const fetchedBudgetId = useFetchBudgetId();
     const usedBudgetId = providedBudgetId ? providedBudgetId : fetchedBudgetId;
     const transactionUpdater = useRecoilValue(TransactionUpdaterState);
-    const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState<any>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
@@ -49,16 +47,10 @@ export default function useFetchTransactions(
         if (usedBudgetId === undefined)
             return;
         setLoading(true);
-        axios.get(process.env.REACT_APP_API_URL + `/api/budgets/${usedBudgetId}/transactions/${query}`, {
-            headers: {
-                'Accept': '*',
-                'Authorization': `Bearer ${token}`
-            },   
-        })
+        api.get(`/api/budgets/${usedBudgetId}/transactions/${query}`)
         .then(res => {
             setError(false);
             setData(res.data);
-            console.log(res.data);
         })
         .catch(error => {
             setError(true);

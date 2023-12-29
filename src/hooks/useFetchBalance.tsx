@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 
-import axios from "axios";
 import { useRecoilValue } from "recoil";
 
 import { FullLoginUpdaterState } from "../atoms/FullLoginUpdater";
 import { TransactionUpdaterState } from "../atoms/TransactionUpdater";
-import { UserTokenState } from "../atoms/UserToken";
+
+import api from "../services/api";
 
 export default function useFetchBalance() {
-    const token = useRecoilValue(UserTokenState);
     const transactionUpdater = useRecoilValue(TransactionUpdaterState);
     const loginUpdater = useRecoilValue(FullLoginUpdaterState);
     const [balance, setBalance] = useState<any>();
@@ -16,13 +15,7 @@ export default function useFetchBalance() {
     useEffect(() => {
         if (loginUpdater === 0)
             return;
-        axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Personal,Family', {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })
+        api.get('/api/users/budgets?budgetType=Personal,Family')
         .then((res) => {
             if (res.data.length === 0) {
                 setBalance(0);

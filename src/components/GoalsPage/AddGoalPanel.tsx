@@ -2,16 +2,15 @@ import '../../css/GoalsPage/AddGoalPanel.css'
 
 import { useState } from 'react';
 
-import axios from 'axios';
-import { useRecoilValue, useRecoilState, useSetRecoilState} from 'recoil';
+import { useRecoilState, useSetRecoilState} from 'recoil';
 
 import CloseButton from '../Common/CloseButton';
 
 import { AddGoalPanelVisibilityState } from '../../atoms/AddGoalPanelVisibility';
 import { GoalsUpdaterState } from '../../atoms/GoalsUpdaterState';
-import { UserTokenState } from '../../atoms/UserToken'
 
 import { GoalType } from '../../enums';
+import api from '../../services/api';
 
 
 
@@ -27,7 +26,6 @@ interface AddGoalPanelInterface {
 function AddGoalPanel() {
 
   const [goalUpdater, setGoalUpdater] = useRecoilState(GoalsUpdaterState)
-  const token = useRecoilValue(UserTokenState);
   const setAddGoalPanelVisibility = useSetRecoilState(AddGoalPanelVisibilityState);
 
 
@@ -42,21 +40,14 @@ function AddGoalPanel() {
 
   function handleSubmit(e: any) {
     e.preventDefault()
-    axios.post(process.env.REACT_APP_API_URL + '/api/goals',
+    api.post('/api/goals',
     JSON.stringify({
         amount: data.amount,
         category: data.category,
         goalType: data.goalType.replace(/InCategory/, ''),
         deadline: data.deadline,
         isMain: data.isMain,
-    }),
-    {
-        headers: {
-            'Accept': '*',
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-        },
-    })
+    }))
     .then(()=>{
         setAddGoalPanelVisibility(false);
         setGoalUpdater(!goalUpdater)

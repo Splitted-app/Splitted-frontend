@@ -4,15 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { DeleteAccountPanelVisibilityState } from '../../atoms/DeleteAccountPanelVisibility';
-import { UserTokenState } from '../../atoms/UserToken';
 import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
+import api from '../../services/api';
 
 
 
 function DeleteAccountConfirmationPanel() {
 
     const setDeleteAccountPanelVisibility = useSetRecoilState(DeleteAccountPanelVisibilityState);
-    const [token,setToken] = useRecoilState(UserTokenState);
     const [loginUpdater, setLoginUpdater] = useRecoilState(FullLoginUpdaterState);
     const navigate = useNavigate();
 
@@ -24,23 +23,16 @@ function DeleteAccountConfirmationPanel() {
 
     function handleConfirm()
     {
-        fetch(process.env.REACT_APP_API_URL + '/api/users' , {
-            method: 'DELETE',
-            headers: {
-              'Accept': '*',
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`,
-      
-            }
-          })
-            .then(res => {
-              if (!res.ok) {
-                throw Error('could not fetch the data for that resource');
-              }
-              setLoginUpdater(0);
-              setToken("");
-              navigate('/');
-            });
+        api.delete('/api/users')
+        .then(res => {
+          setLoginUpdater(0);
+          localStorage.setItem("token", "");
+          // setToken("");
+          navigate('/');
+        })
+        .catch(error=>{
+          console.error(error);
+        });
     }
 
     return (

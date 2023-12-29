@@ -4,8 +4,8 @@ import { useSetRecoilState, useRecoilState, useRecoilValue } from 'recoil';
 
 import { DeleteFriendPanelVisibilityState } from '../../atoms/DeleteFriendPanelVisibility';
 import { FriendIdState } from '../../atoms/FriendId';
-import { UserTokenState } from '../../atoms/UserToken';
 import { FriendsUpdater } from '../../atoms/FriendsUpdater';
+import api from '../../services/api';
 
 
 
@@ -13,7 +13,6 @@ import { FriendsUpdater } from '../../atoms/FriendsUpdater';
 function DeleteFriendConfirmationPanel() {
 
     const setDeleteFriendPanelVisibility = useSetRecoilState(DeleteFriendPanelVisibilityState);
-    const token = useRecoilValue(UserTokenState);
     const [friendId, setFriendId] = useRecoilState(FriendIdState);
     const [friendsUpdater, setFriendsUpdater] = useRecoilState(FriendsUpdater);
 
@@ -26,23 +25,15 @@ function DeleteFriendConfirmationPanel() {
 
     function handleConfirm()
     {
-        fetch(process.env.REACT_APP_API_URL + `/api/users/friends/${friendId}` , {
-            method: 'DELETE',
-            headers: {
-              'Accept': '*',
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`,
-      
-            }
-          })
-            .then(res => {
-                if (!res.ok) {
-                throw Error('could not fetch the data for that resource');
-                }
-                setFriendsUpdater(!friendsUpdater);
-                setDeleteFriendPanelVisibility(false);
-                setFriendId("");
-            });
+        api.delete(`/api/users/friends/${friendId}`)
+        .then(res => {
+          setFriendsUpdater(!friendsUpdater);
+          setDeleteFriendPanelVisibility(false);
+          setFriendId("");
+        })
+        .catch(error=>{
+          console.error(error);
+        });
     }
 
     return (

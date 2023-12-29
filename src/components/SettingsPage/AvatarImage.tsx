@@ -2,11 +2,8 @@ import '../../css/SettingsPage/AvatarImage.css'
 
 import UserAccountIcon from '../../assets/images/user_account.png'
 import EditIcon from '../../assets/images/edit_icon.png'
-import CheckmarkIcon from '../../assets/images/black_checkmark.png'
 import { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
-import { useRecoilValue } from 'recoil';
-import { UserTokenState } from '../../atoms/UserToken';
+import api from '../../services/api';
 
 interface AvatarImageInterface
 {
@@ -15,7 +12,6 @@ interface AvatarImageInterface
 }
 
 function AvatarImage({editable, avatarImage}:AvatarImageInterface) {
-    const token = useRecoilValue(UserTokenState);
     const inputFile = useRef<HTMLInputElement | null>(null);
     const [image, setImage] = useState<string>(avatarImage);
 
@@ -45,15 +41,8 @@ function AvatarImage({editable, avatarImage}:AvatarImageInterface) {
 
         setImage(base64str);
 
-        axios.put(process.env.REACT_APP_API_URL + `/api/users/`, {
+        api.put(`/api/users/`, {
             avatarImage: base64str
-        },
-        {
-            headers: {
-              'Accept': '*',
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-            }
         })
         .then((res)=>{
 

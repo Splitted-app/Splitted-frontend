@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 
-import axios from "axios";
 import { useRecoilValue } from "recoil";
 
-import { FullLoginUpdaterState } from "../atoms/FullLoginUpdater";
-import { UserTokenState } from "../atoms/UserToken";
 import { FriendsUpdater } from '../atoms/FriendsUpdater';
+import api from "../services/api";
 
 
 export default function useFetchFriends() {
 
-    const token = useRecoilValue(UserTokenState);
     const friendsUpdater = useRecoilValue(FriendsUpdater);
     const [data, setData] = useState<any>([]);
     const [loading, setLoading] = useState<boolean>(false);
@@ -20,13 +17,7 @@ export default function useFetchFriends() {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(process.env.REACT_APP_API_URL + '/api/users/friends', {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })
+        api.get('/api/users/friends')
         .then((res) => {
             setError(false);
             setData(res.data);

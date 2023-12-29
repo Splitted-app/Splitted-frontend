@@ -1,22 +1,20 @@
 import '../../css/TransactionPage/SplitItPanel.css';
 
-import axios from 'axios';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 import AddModeButton from '../Common/AddModeButton';
 import CloseButton from '../Common/CloseButton';
 
 import {SplitItPanelState} from '../../atoms/SplitItPanel';
-import { UserTokenState } from '../../atoms/UserToken';
 
 import PartnerModeIcon from '../../assets/images/partner_mode.png'
 import PartyModeIcon from '../../assets/images/party_mode.png'
+import api from '../../services/api';
 
 
 function SplitItPanel() {
 
     const [splitItPanel, setSplitItPanel] = useRecoilState(SplitItPanelState);
-    const token = useRecoilValue(UserTokenState);
 
     function setSplitPanelVisibility(value: boolean)
     {
@@ -25,13 +23,7 @@ function SplitItPanel() {
 
     function handleSplit(budgetId: string)
     {
-        axios.post(process.env.REACT_APP_API_URL + `/api/budgets/${budgetId}/transactions/${splitItPanel.transactionId}`,null,
-        {
-            headers: {
-                'Accept': '*',
-                'Authorization': `Bearer ${token}`
-            },
-        })
+        api.post(`/api/budgets/${budgetId}/transactions/${splitItPanel.transactionId}`,null)
         .then((res)=>{
             setSplitPanelVisibility(false);
         })
