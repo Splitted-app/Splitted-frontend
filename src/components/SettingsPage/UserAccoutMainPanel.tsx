@@ -2,13 +2,8 @@ import '../../css/SettingsPage/UserAccountMainPanel.css'
 
 import { useEffect, useState } from 'react';
 
-import axios from 'axios';
-import { useRecoilValue } from 'recoil';
-
 import LoadingPanel from '../Common/LoadingPanel';
 import CurrencyDropdown from '../HomePage/CurrencyDropdown';
-
-import { UserTokenState } from '../../atoms/UserToken';
 
 import useFetchMyBudget from '../../hooks/useFetchMyBudget';
 
@@ -17,6 +12,7 @@ import CheckmarkIcon from '../../assets/images/black_checkmark.png'
 
 import { BankNames } from '../../enums';
 import AvatarImage from './AvatarImage';
+import api from '../../services/api';
 
 
 
@@ -40,7 +36,6 @@ interface UserAccountDataInterface
 
 function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) {
 
-    const token = useRecoilValue(UserTokenState);
     const budget = useFetchMyBudget();
     const [editable, setEditable] = useState<boolean>(false);
     const [editableData, setEditableData] = useState({
@@ -63,19 +58,12 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
         return;
       }
       // else
-      axios.put(process.env.REACT_APP_API_URL + `/api/budgets/${budget.data.id}`,
+      api.put(`/api/budgets/${budget.data.id}`,
       {
         bank: editableData.bank,
         name: budget.data.name,
         currency: editableData.currency,
         budgetBalance: budget.data.budgetBalance
-      },
-      {
-        headers: {
-          'Accept': '*',
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
       })
       .then(()=>{
 

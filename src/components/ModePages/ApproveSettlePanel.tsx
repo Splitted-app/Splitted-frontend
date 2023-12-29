@@ -1,20 +1,17 @@
 import '../../css/ModePages/ApproveSettlePanel.css';
 
-import axios from 'axios';
 import Moment from 'moment';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 import CloseButton from '../Common/CloseButton';
 
 import { ApproveSettlePanelState } from '../../atoms/ApproveSettlePanel';
-import { UserTokenState } from '../../atoms/UserToken';
 
 import { amountFormatter } from '../../utils';
+import api from '../../services/api';
 
 
 function ApproveSettlePanel() {
-
-    const token = useRecoilValue(UserTokenState);
     const [approveSettlePanel, setApproveSettlePanel] = useRecoilState(ApproveSettlePanelState);
     const paybackTransaction = approveSettlePanel.payback?.payBackTransaction;
 
@@ -25,17 +22,9 @@ function ApproveSettlePanel() {
 
     function sendResponse(response: boolean)
     {
-        axios.put(
-        process.env.REACT_APP_API_URL + 
+        api.put(
         `/api/transactions/${approveSettlePanel.transactionId}/resolve-payback/${approveSettlePanel.payback?.id}?accept=${response}`, 
-        null,
-        {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })
+        null)
         .then((res)=>{
             setApproveSettlePanelVisibility(false);
         })

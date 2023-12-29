@@ -1,13 +1,7 @@
 import { useEffect, useState } from "react";
-
-import axios from "axios";
-import { useRecoilValue } from "recoil";
-
-import { UserTokenState } from "../atoms/UserToken";
-
+import api from "../services/api";
 
 export default function useFetchUser() {
-    const token = useRecoilValue(UserTokenState);
     const [data, setData] = useState({
         "id": "",
         "email": "",
@@ -19,13 +13,7 @@ export default function useFetchUser() {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(process.env.REACT_APP_API_URL + '/api/users', {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })
+        api.get('/api/users')
         .then((res) => {
             setError(false);
             setData(res.data)

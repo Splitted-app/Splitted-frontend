@@ -2,8 +2,6 @@ import './App.css';
 
 import { useEffect, useRef } from 'react';
 
-import axios from 'axios';
-import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import { Route,Routes, useNavigate } from "react-router-dom"
 import { useRecoilState, useRecoilValue } from 'recoil';
 import {Helmet} from "react-helmet";
@@ -102,7 +100,8 @@ function App() {
     if (tokenUpdatedRef.current) 
         return;
     tokenUpdatedRef.current = true;
-    
+    setUpdater(updater + 1);
+
     // const refreshAuthLogic = (failedRequest: any) =>
     // {
     //   return axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`, null , {withCredentials:true})
@@ -115,25 +114,26 @@ function App() {
     //     console.error(error);
     //   });
     // }
-    const refreshRequest = () => 
-    axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`, null , {withCredentials:true})
-      .then((res) => {
-        setToken(res.data.token);
-        console.log(res.data.token)
-        setUpdater(updater + 1);
-      })
-      .catch((error)=>{
-        console.error(error);
-        setUpdater(0);
-        setToken("");
-        navigate('/');
-      });
     
-    refreshRequest();
-    setInterval(() => {
-      console.log("Refreshing token...")
-      refreshRequest();
-    }, 120000);
+    // const refreshRequest = () => 
+    // axios.post(process.env.REACT_APP_API_URL + `/api/users/refresh`, null , {withCredentials:true})
+    //   .then((res) => {
+    //     setToken(res.data.token);
+    //     console.log(res.data.token)
+    //     setUpdater(updater + 1);
+    //   })
+    //   .catch((error)=>{
+    //     console.error(error);
+    //     setUpdater(0);
+    //     setToken("");
+    //     navigate('/');
+    //   });
+    
+    // refreshRequest();
+    // setInterval(() => {
+    //   console.log("Refreshing token...")
+    //   refreshRequest();
+    // }, 120000);
   },[])
 
   return (

@@ -3,14 +3,12 @@ import '../../css/Common/Transaction.css';
 import { useState } from 'react';
 
 import { useMediaQuery } from 'react-responsive'
-import axios from 'axios';
 import Moment from 'moment';
 import { useRecoilValue , useRecoilState, useSetRecoilState} from 'recoil';
 
 import { ChooseSettleTransactionPanelVisibilityState } from '../../atoms/ChooseSettleTransactionPanel';
 import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
-import { UserTokenState } from '../../atoms/UserToken'
 import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { SplitItPanelState } from '../../atoms/SplitItPanel';
 import { ApproveSettlePanelState } from '../../atoms/ApproveSettlePanel';
@@ -23,6 +21,7 @@ import DeleteTransactionIcon from '../../assets/images/delete_transaction.png'
 import EditTransactionIcon from '../../assets/images/edit_transaction.png'
 import SplitItIcon from '../../assets/images/split.png'
 import UpdateTransactionIcon from '../../assets/images/update.png'
+import api from '../../services/api';
 
 interface TransactionInterface
 {
@@ -70,7 +69,6 @@ function Transaction({
     const [transactionType, setTransactionType] = useState(transaction.transactionType);
     const [description, setDescription] = useState(transaction.description);
     const transactionId: string = transaction.id;
-    const token = useRecoilValue(UserTokenState);
     const [editable, setEditable] = useState(false);
     const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
     const [transactionsChecked, setTransactionsChecked] = useRecoilState<any>(TransactionsCheckedState);
@@ -119,14 +117,7 @@ function Transaction({
 
     function handleDeleteTransactionButton()
     {
-        axios.delete(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionId , {
-            headers: {
-              'Accept': '*',
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`,
-      
-            }
-          })
+        api.delete('/api/transactions/' + transactionId)
           .then(res => {
             setUpdater(!updater);
             const idx = newTransactions.indexOf(transaction);
@@ -146,22 +137,14 @@ function Transaction({
     {
         if(editable)
         {
-            axios.put(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionId,
+            api.put('/api/transactions/' + transactionId,
               JSON.stringify({
                 amount: amount,
                 date: transaction.date,
                 description: description,
                 transactionType: transactionType,
                 userCategory: userCategory
-              }),
-              {
-                headers: {
-                  'Accept': '*',
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${token}`,
-          
-                },
-              })
+              }))
               .then(res => {
                 setUpdater(!updater);
               })
@@ -218,13 +201,7 @@ function Transaction({
       if (recentlySplit)
         return;
       let availableBudgets: any = []
-      axios.get(process.env.REACT_APP_API_URL + '/api/users/budgets?budgetType=Partner,Temporary', {
-          headers: {
-              'Accept': '*',
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-          },
-      })
+      api.get('/api/users/budgets?budgetType=Partner,Temporary')
       .then((res) => {
           availableBudgets = res.data
           const userIsInPartnerBudget = availableBudgets.find((budget: any) => budget.budgetType === 'Partner');
@@ -234,14 +211,7 @@ function Transaction({
             return;
           if (userIsInPartnerBudget && !userIsInPartyBudget)
           {
-            axios.post(process.env.REACT_APP_API_URL + 
-              `/api/budgets/${availableBudgets[0].id}/transactions/${transaction.id}`,null,
-            {
-                headers: {
-                    'Accept': '*',
-                    'Authorization': `Bearer ${token}`
-                },
-            })
+            api.post(`/api/budgets/${availableBudgets[0].id}/transactions/${transaction.id}`,null)
             .then((res)=>{
               setRecentlySplit(true);
               setTimeout(()=>setRecentlySplit(false), 3000);

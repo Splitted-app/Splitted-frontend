@@ -2,7 +2,7 @@ import '../../css/Common/ImportCsvPanel.css'
 
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import CloseButton from './CloseButton';
 import FormInfo  from './FormInfo';
@@ -12,12 +12,12 @@ import { ImportCsvPanelVisibilityState } from '../../atoms/ImportCsvPanelVisbili
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
 import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
-import { UserTokenState } from '../../atoms/UserToken'
 
 import useFetchBankName from '../../hooks/useFetchBankName';
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
 import { BankNames } from '../../enums';
+import api from '../../services/api';
 
 
 
@@ -25,7 +25,6 @@ function ImportCsvPanel() {
 
   const [filePath, setFilePath] = useState("no file chosen");
   const budgetId = useFetchBudgetId();
-  const token = useRecoilValue(UserTokenState);
   const setNewTransactions = useSetRecoilState(NewTransactionsState);
   const setImportCsvPanelVisibility = useSetRecoilState(ImportCsvPanelVisibilityState);
   const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
@@ -104,29 +103,16 @@ function ImportCsvPanel() {
     formData.append('csvfile', file);
     setLoading(true);
     setUploadError(false);
-    fetch(process.env.REACT_APP_API_URL + '/api/budgets/' + budgetId + '/transactions/csv?bank=' + bank, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-      body: formData
-    })
-      .then(res => {
-        if (!res.ok) {
-          setInvalidRequestStatus(res.status);
-          throw Error('could not fetch the data for that resource');
-        }
-        return res.json();
-      })
-      .then((data) => {
+    api.post('/api/budgets/' + budgetId + '/transactions/csv?bank=' + bank, formData)
+      .then((res) => {
         setUpdater(!updater);
-        setNewTransactions(data)
+        setNewTransactions(res.data)
         setImportCsvPanelVisibility(false);
         setImportCsvCheckPanelVisibility(true);
         setLoading(false)
       })
-      .catch((err)=>{
-        console.log(err)
+      .catch((error)=>{
+        console.error(error)
         setUploadError(true);
         setLoading(false);
       })

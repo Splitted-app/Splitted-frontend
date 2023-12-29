@@ -2,8 +2,7 @@ import '../../css/SettingsPage/AddNewFriendPanel.css'
 
 import { useState } from 'react';
 
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import axios from 'axios';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import Select from 'react-select';
 
 import CloseButton from '../Common/CloseButton';
@@ -12,11 +11,11 @@ import LoadingPanel from '../Common/LoadingPanel';
 
 import { AddNewFriendPanelVisibilityState } from '../../atoms/AddNewFriendPanelVisibility';
 import { FriendIdState } from '../../atoms/FriendId';
-import { UserTokenState } from "../../atoms/UserToken";
 import { FriendsUpdater } from '../../atoms/FriendsUpdater';
 
 import useFetchSearchUsers from '../../hooks/useFetchSearchUsers';
 import FormInfo from '../Common/FormInfo';
+import api from '../../services/api';
 
 
 function AddNewFriendPanel() {
@@ -27,7 +26,6 @@ function AddNewFriendPanel() {
     const [friendId, setFriendId] = useRecoilState(FriendIdState)
     const [friendsUpdater, setFriendsUpdater] = useRecoilState(FriendsUpdater);
 
-    const token = useRecoilValue(UserTokenState);
     const [loading, setLoading] = useState<boolean>(false);
     const [errors, setErrors] = useState({
         noUser: false,
@@ -57,13 +55,7 @@ function AddNewFriendPanel() {
             return;
         }
 
-        axios.post(process.env.REACT_APP_API_URL + `/api/users/friends/${friendId}`, null, {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        api.post(`/api/users/friends/${friendId}`, null)
         .then((res)=>{
             setFriendsUpdater(!friendsUpdater);
             setAddNewFriendPanelVisibility(false);

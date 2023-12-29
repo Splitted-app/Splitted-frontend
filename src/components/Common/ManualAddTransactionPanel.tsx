@@ -2,15 +2,15 @@ import '../../css/Common/ManualAddTransactionPanel.css'
 
 import { useState } from 'react';
 
-import { useRecoilValue, useRecoilState, useSetRecoilState} from 'recoil';
+import { useRecoilState, useSetRecoilState} from 'recoil';
 
 import CloseButton from './CloseButton';
 
 import { ManualAddTransactionsPanelVisibilityState } from '../../atoms/ManualAddTransactionsPanelVisbility';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
-import { UserTokenState } from '../../atoms/UserToken'
 
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
+import api from '../../services/api';
 
 
 interface ManualAddTransactionPanelInterface {
@@ -29,7 +29,6 @@ function ManualAddTransactionPanel() {
   const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
 
   const budgetId = useFetchBudgetId();
-  const token = useRecoilValue(UserTokenState);
   const setManualAddTransactionsPanelVisibility = useSetRecoilState(ManualAddTransactionsPanelVisibilityState);
 
 
@@ -44,31 +43,20 @@ function ManualAddTransactionPanel() {
 
 
   function handleSubmit() {
-    fetch(process.env.REACT_APP_API_URL + '/api/budgets/' + budgetId + '/transactions', {
-      method: 'POST',
-      headers: {
-        'Accept': '*',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-
-      },
-      body: JSON.stringify({
+    api.post('/api/budgets/' + budgetId + '/transactions',
+      JSON.stringify({
         amount: data.amount,
         currency: data.currency,
         date: data.date,
         description: data.description,
         transactionType: data.transactionType,
         userCategory: data.userCategory
-      })
-    })
-      .then(res => {
-        if (!res.ok) {
-          throw Error('could not fetch the data for that resource');
-        }
-        return res.json();
-      })
-      .then((data) => {
+      }))
+      .then((res) => {
         setUpdater(!updater);
+      })
+      .catch(error=>{
+        console.error(error);
       });
     setManualAddTransactionsPanelVisibility(false);
   };

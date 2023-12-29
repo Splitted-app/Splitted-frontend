@@ -1,33 +1,23 @@
 import '../../css/ModePages/SettleYourBillsPanel.css';
 
-import axios from 'axios';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import CloseButton from '../Common/CloseButton';
 
 import { SettleYourBillsPanelVisibilityState } from '../../atoms/SettleYourBillsPanelVisibility';
 import { ChooseSettleTransactionPanelVisibilityState } from '../../atoms/ChooseSettleTransactionPanel';
 import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
-import { UserTokenState } from '../../atoms/UserToken';
+import api from '../../services/api';
 
 
 function SettleYourBillsPanel() {
-
-  const token = useRecoilValue(UserTokenState);
     const setSettleYourBillsPanelVisibility= useSetRecoilState(SettleYourBillsPanelVisibilityState);
     const setChooseSettleTransactionPanelVisibility = useSetRecoilState(ChooseSettleTransactionPanelVisibilityState);
     const [transansactionsToSettle, setTransactionsToSettle] = useRecoilState(TransactionsToSettleState)
 
     function handleSettleInCash()
     {
-        axios.put(process.env.REACT_APP_API_URL + `/api/transactions/null/payback/${transansactionsToSettle.join('/')}`, null,
-        {
-          headers: {
-            'Accept': '*',
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          }
-        })
+        api.put(`/api/transactions/null/payback/${transansactionsToSettle.join('/')}`, null)
         .then((res)=>{
           setTransactionsToSettle([]);
           setSettleYourBillsPanelVisibility(false);

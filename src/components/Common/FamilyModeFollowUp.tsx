@@ -2,18 +2,17 @@ import '../../css/Common/FamilyModeFollowUp.css';
 
 import { useState } from "react";
 
-import axios from "axios";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
 import CurrencyDropdown from "../HomePage/CurrencyDropdown";
 import FormInfo from './FormInfo';
 
-import { UserTokenState } from "../../atoms/UserToken";
 import { FamilyModeFollowUpVisibilityState } from "../../atoms/FamilyModeFollowUp";
 import { UserBudgetsUpdaterState } from '../../atoms/UserBudgetsUpdater';
 import { FamilyMemberIdState } from "../../atoms/FamilyMemberId";
 
 import { BankNames } from "../../enums";
+import api from '../../services/api';
 
 
 interface FormDataInterface {
@@ -35,7 +34,6 @@ function FamilyModeFollowUp()
         userUnavailable: false as boolean
     })
     const [familyMemberId, setFamilyMemberId] = useRecoilState(FamilyMemberIdState)
-    const token = useRecoilValue(UserTokenState);
     const setFamilyModeFollowUpVisibility = useSetRecoilState(FamilyModeFollowUpVisibilityState);
     const [userBudgetsUpdater, setUserBudgetsUpdater] = useRecoilState(UserBudgetsUpdaterState)
 
@@ -47,19 +45,12 @@ function FamilyModeFollowUp()
             return
         }
 
-        axios.post(process.env.REACT_APP_API_URL + `/api/modes/family-mode/${familyMemberId}`,
+        api.post(`/api/modes/family-mode/${familyMemberId}`,
         JSON.stringify({
             bank: data.bank,
             currency: data.currency,
             name: data.budgetName,
-        }),
-        {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })
+        }))
         .then(res => {
             setFamilyModeFollowUpVisibility(false);
             setUserBudgetsUpdater(!userBudgetsUpdater);

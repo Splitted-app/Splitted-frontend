@@ -9,9 +9,9 @@ import CurrencyDropdown from "./CurrencyDropdown";
 
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
-import { UserTokenState } from '../../atoms/UserToken'
 
 import { BankNames } from '../../enums'
+import api from '../../services/api';
 
 
 interface FormDataInterface {
@@ -33,42 +33,30 @@ function SignUpFollowUp() {
         currency: "PLN",
         budgetBalance: 0,
     })
-    const token = useRecoilValue(UserTokenState);
     const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
     const [updater, setUpdater] = useRecoilState(FullLoginUpdaterState);
 
     function handleSubmit(event: any) {
         event.preventDefault();
-        fetch(process.env.REACT_APP_API_URL + '/api/budgets', {
-            method: 'POST',
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
+        api.post('/api/budgets',
+            JSON.stringify({
                 bank: data.bank,
                 name: data.name,
                 currency: data.currency,
                 budgetBalance: data.budgetBalance
             })
+        )
+        .then(() => {
+            setUpdater(updater + 1);
         })
-            .then(res => {
-                if (!res.ok) {
-                    throw Error('could not fetch the data for that resource');
-                }
-                return res.json();
-            })
-            .then(() => {
-                setUpdater(updater + 1);
-            })
-            .then(() => {
-                setSignUpFollowUpVisibility(false);
-                // navigate('/home');
-            })
-            .catch((err) => {
-                setErrors(err.message);
-            });
+        .then(() => {
+            setSignUpFollowUpVisibility(false);
+            // navigate('/home');
+        })
+        .catch((error) => {
+            console.error(error);
+            setErrors(error.message);
+        });
     }
 
     function handleFileChange(path: string) {

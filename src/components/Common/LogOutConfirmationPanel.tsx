@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState, useRecoilState } from 'recoil';
 
 import { LogOutPanelVisibilityState } from '../../atoms/LogOutPanelVisibility';
-import { UserTokenState } from '../../atoms/UserToken';
 import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
+import api from '../../services/api';
 
 
 
@@ -13,7 +13,6 @@ import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
 function LogOutConfirmationPanel() {
 
     const setLogOutPanelVisibility = useSetRecoilState(LogOutPanelVisibilityState);
-    const [token,setToken] = useRecoilState(UserTokenState);
     const [loginUpdater, setLoginUpdater] = useRecoilState(FullLoginUpdaterState);
     const navigate = useNavigate();
 
@@ -25,23 +24,18 @@ function LogOutConfirmationPanel() {
 
     function handleConfirm()
     {
-      fetch(process.env.REACT_APP_API_URL + '/api/users/revoke', {
+      api.post('/api/users/revoke', {
         method: 'POST',
-        headers: {
-          'Accept': '*',
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-  
-        }
       })
         .then(res => {
-          if (!res.ok) {
-            throw Error('could not fetch the data for that resource');
-          }
           setLoginUpdater(0);
-          setToken("");
+          localStorage.setItem("token", "")
+          // setToken("");
           setLogOutPanelVisibility(false);
           navigate('/');
+        })
+        .catch(error=>{
+          console.error(error);
         });
 
     }

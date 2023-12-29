@@ -2,12 +2,10 @@ import '../../css/GoalsPage/Goal.css';
 
 import { useRecoilState, useRecoilValue } from 'recoil';
 
-import axios from 'axios';
 import Moment from 'moment';
 import moment from 'moment';
 
 import { GoalsUpdaterState } from '../../atoms/GoalsUpdaterState';
-import { UserTokenState } from '../../atoms/UserToken';
 
 import DeleteGoalIcon from '../../assets/images/delete_transaction.png'
 import EditGoalIcon from '../../assets/images/edit_transaction.png'
@@ -20,6 +18,7 @@ import GroceriesIcon from '../../assets/images/grocery.png'
 import ShoppingIcon from '../../assets/images/online-shopping.png'
 import WalletIcon from '../../assets/images/wallet.png'
 import { useState } from 'react';
+import api from '../../services/api';
 
 
 
@@ -47,7 +46,6 @@ interface GoalTileInterface
 
 function Goal({goal, pinIconVisible} : GoalTileInterface) {
 
-    const token = useRecoilValue(UserTokenState);
     const [goalUpdater, setGoalUpdater] = useRecoilState(GoalsUpdaterState)
     const [editable, setEditable] = useState<boolean>(false);
     let [newData, setNewData] = useState({
@@ -105,19 +103,12 @@ function Goal({goal, pinIconVisible} : GoalTileInterface) {
     {
         if (!pinIconVisible)
             return;
-        axios.put(process.env.REACT_APP_API_URL + `/api/goals/${goal.id}`,
+        api.put(`/api/goals/${goal.id}`,
         JSON.stringify({
             amount: goal.amount,
             deadline: goal.deadline,
             isMain: !goal.isMain
-        }),
-        {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-        })
+        }))
         .then((res)=>{
             setNewData({...newData, isMain: !goal.isMain});
             setGoalUpdater(!goalUpdater);
@@ -126,14 +117,7 @@ function Goal({goal, pinIconVisible} : GoalTileInterface) {
 
     function handleDeleteGoal()
     {
-        axios.delete(process.env.REACT_APP_API_URL + `/api/goals/${goal.id}`,
-        {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-        })
+        api.delete(`/api/goals/${goal.id}`)
         .then((res)=>{
             setGoalUpdater(!goalUpdater)
         })
@@ -146,15 +130,8 @@ function Goal({goal, pinIconVisible} : GoalTileInterface) {
             return;
 
         console.log(newData);
-        axios.put(process.env.REACT_APP_API_URL + `/api/goals/${goal.id}`,
-        JSON.stringify(newData),
-        {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-        })
+        api.put(`/api/goals/${goal.id}`,
+        JSON.stringify(newData))
         .then((res)=>{
             setGoalUpdater(!goalUpdater)
         })

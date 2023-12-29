@@ -2,16 +2,15 @@ import '../../css/RegisterPages/ConfirmEmailPage.css'
 
 import { useEffect, useRef, useState } from 'react';
 
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import { useRecoilValue } from 'recoil';
 
 import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
-import { UserTokenState } from '../../atoms/UserToken';
 
 import EmailConfirmationIcon from '../../assets/images/email_confirmed.png'
 import EmailCheckLoadingIcon from '../../assets/images/email_check_loading.gif'
+import api from '../../services/api';
 
 function ConfirmEmailPage() 
 {
@@ -20,7 +19,6 @@ function ConfirmEmailPage()
     const emailToken = parameters.get('token');
     const email = parameters.get('email')
     const fullLoginUpdater = useRecoilValue(FullLoginUpdaterState)
-    const token = useRecoilValue(UserTokenState);
 
     const [emailConfirmed, setEmailConfirmed] = useState<boolean>(false);
     const [error, setError] = useState<boolean>(false);
@@ -35,12 +33,7 @@ function ConfirmEmailPage()
         const encodedEmailToken = encodeURIComponent(emailToken ? emailToken : "")
                                     .replace(/%../g,  match => match.toLowerCase())
         const query = `?token=${encodedEmailToken}&email=${email}`;
-        axios.get(process.env.REACT_APP_API_URL + `/api/users/confirm-email${query}`, {
-            headers: {
-                'Accept': '*',
-                'Authorization': `Bearer ${token}`
-            },   
-        })
+        api.get(`/api/users/confirm-email${query}`)
         .then((res) => {
             emailConfirmedRef.current = true;
             setEmailConfirmed(true);

@@ -10,7 +10,6 @@ import FormInfo from '../Common/FormInfo';
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
 
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
-import { UserTokenState } from '../../atoms/UserToken'
 
 
 interface RegisterFormInterface {
@@ -36,7 +35,6 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
     });
     const [invalidPassword, setInvalidPassword] = useState<boolean>(false);
 
-    const setToken = useSetRecoilState(UserTokenState);
     const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
     const navigate = useNavigate();
     const [firstTry, setFirstTry] = useState<boolean>(true);
@@ -111,7 +109,8 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
             return res.json();
         })
         .then((data) => {
-            setToken(data.token);
+            localStorage.setItem("token", data.token);
+            // setToken(data.token);
             setSignUpFollowUpVisibility(true);
         })
         .catch((err) => {

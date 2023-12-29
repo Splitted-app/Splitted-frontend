@@ -2,15 +2,14 @@ import '../../css/Common/PartnerModeFollowUp.css';
 
 import { useState } from "react";
 
-import axios from "axios";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
 import FormInfo from './FormInfo';
 
-import { UserTokenState } from "../../atoms/UserToken";
 import { PartnerModeFollowUpVisibilityState } from "../../atoms/PartnerModeFollowUp";
 import { PartnerIdState } from "../../atoms/PartnerId";
 import { UserBudgetsUpdaterState } from '../../atoms/UserBudgetsUpdater';
+import api from '../../services/api';
 
 
 interface FormDataInterface {
@@ -28,7 +27,6 @@ function PartnerModeFollowUp()
         userUnavailable: false as boolean
     })
     const [partnerId, setPartnerId] = useRecoilState(PartnerIdState)
-    const token = useRecoilValue(UserTokenState);
     const setPartnerModeFollowUpVisibility = useSetRecoilState(PartnerModeFollowUpVisibilityState);
     const [userBudgetsUpdater, setUserBudgetsUpdater] = useRecoilState(UserBudgetsUpdaterState)
 
@@ -40,17 +38,10 @@ function PartnerModeFollowUp()
             return
         }
 
-        axios.post(process.env.REACT_APP_API_URL + `/api/modes/partner-mode/${partnerId}`,
+        api.post(`/api/modes/partner-mode/${partnerId}`,
         JSON.stringify({
             name: data.budgetName,
-        }),
-        {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-        })
+        }))
         .then(res => {
             setPartnerModeFollowUpVisibility(false);
             setUserBudgetsUpdater(!userBudgetsUpdater);

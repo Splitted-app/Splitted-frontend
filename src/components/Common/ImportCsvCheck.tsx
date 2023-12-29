@@ -2,21 +2,20 @@ import '../../css/Common/ImportCsvCheck.css'
 
 import { useEffect, useState } from 'react';
 
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import TransactionList from './TransactionList';
 
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
 import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
-import { UserTokenState } from '../../atoms/UserToken'
+import api from '../../services/api';
 
 function ImportCsvCheck() {
 
   const [newTransactions, setNewTransactions] = useRecoilState(NewTransactionsState);
   const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
   const [showDuplicatesMessage, setShowDuplicatesMessage] = useState<boolean>(false);
-  const token = useRecoilValue(UserTokenState);
   const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
 
   function handleButtonClicked()
@@ -43,23 +42,15 @@ function ImportCsvCheck() {
     ));
 
 
-    fetch(process.env.REACT_APP_API_URL + '/api/transactions/' + transactionsToDeleteIds.join('/') , {
-      method: 'DELETE',
-      headers: {
-        'Accept': '*',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-
-      }
+    api.delete('/api/transactions/' + transactionsToDeleteIds.join('/'))
+    .then(res => {
+      setUpdater(!updater);
+      setImportCsvCheckPanelVisibility(false);
+      setNewTransactions([]);
     })
-      .then(res => {
-        if (!res.ok) {
-          throw Error('could not fetch the data for that resource');
-        }
-        setUpdater(!updater);
-        setImportCsvCheckPanelVisibility(false);
-        setNewTransactions([]);
-      });
+    .catch(error=>{
+      console.error(error);
+    })
   }
 
   useEffect(() => {

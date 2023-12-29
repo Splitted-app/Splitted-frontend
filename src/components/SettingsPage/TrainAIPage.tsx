@@ -1,28 +1,18 @@
 import '../../css/SettingsPage/TrainAIPage.css'
 
-import { useRecoilValue } from "recoil";
-import axios from 'axios';
-
-import { UserTokenState } from "../../atoms/UserToken";
 import { useState } from 'react';
 import LoadingPanel from '../Common/LoadingPanel';
+import api from '../../services/api';
 
 
 function TrainAIPage() {
-    const token = useRecoilValue(UserTokenState);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<boolean>(false);
 
     function handleTrainModelButton()
     {
         setLoading(true);
-        axios.post(process.env.REACT_APP_API_URL + '/api/transactions/train-ai', null, {
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        api.post('/api/transactions/train-ai', null)
         .then((res)=>{
             setError(false);
         })
@@ -33,21 +23,6 @@ function TrainAIPage() {
         .finally(()=>{
             setLoading(false);
         })
-        // fetch(process.env.REACT_APP_API_URL + '/api/transactions/train-ai', {
-        //     method: 'POST',
-        //     credentials: 'include',
-        //     headers: {
-        //         'Accept': '*',
-        //         'Content-Type': 'application/json',
-        //         'Authorization': `Bearer ${token}`
-        //     }
-        // })
-        // .then(res => {
-        //     if (!res.ok) {
-
-        //         throw Error('could not fetch the data for that resource');
-        //     }
-        // });
     }
 
     return (
