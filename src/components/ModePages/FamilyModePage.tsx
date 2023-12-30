@@ -36,10 +36,10 @@ function FamilyModePage() {
                 <img src={FamilyModeIcon}></img>
             </div>
             <div className='main-content-description'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae nisi dolores earum libero voluptatem quam voluptates architecto doloremque quasi provident molestias numquam voluptatibus deserunt, mollitia quos ut. Impedit, eius. 
+              You and {getUserListString(budget.data.users)} are now in family mode. Your seperate accounts integrated creating one, common budget, {budget.data.name}.
+              Now both of you have access to full functionality of your integrated budget. You and {getUserListString(budget.data.users)} can both 
+              add transactions from your accounts to this budget, that will be available to the other user. 
 
-              
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores vitae nisi dolores earum libero voluptatem quam voluptates architecto doloremque quasi provident molestias numquam voluptatibus deserunt, mollitia quos ut. Impedit, eius.           
             </div>
         </div>
         }
