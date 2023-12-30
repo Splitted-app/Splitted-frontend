@@ -64,7 +64,8 @@
     justify-content: center;
     color: white;
     font-family: 'Gotham Medium';
-    font-size: 20px
+    font-size: 20px;
+    line-height: 175%;
 }
 
 .train-ai-page .train-ai-page-content .train-ai-page-content-button-container
