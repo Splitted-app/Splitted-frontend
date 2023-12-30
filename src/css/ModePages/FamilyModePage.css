@@ -83,7 +83,9 @@
     font-family: 'Gotham Medium';
     font-size: 20px;
     padding-right: 3%;
-    padding-left: 10%;
+    padding-left: 15%;
+    line-height: 200%;
+    text-align: right;
 }
 
 @media screen and (max-width: 1300px) {
