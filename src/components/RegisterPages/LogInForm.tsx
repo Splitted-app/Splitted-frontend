@@ -66,7 +66,7 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
         <form onSubmit={(e) => handleSubmit(e)}>
             <div className="register-form">
                 <div className="form-fields">
-                    <input className="form-element" type="email" name="email" value={data.email} disabled />
+                    <input className="form-element" type="email" name="email" value={data.email} disabled  data-testid="log-in-form-email-input"/>
                     <input className="form-element"
                         type="password" name="password" placeholder='password'
                         value={data.password}
