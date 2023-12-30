@@ -42,7 +42,7 @@ export default function useFetchIncomeExpensesOverTime(
     }
 
     useEffect(() => {
-        if (budgetId === undefined)
+        if (budgetId === undefined || budgetId === null)
             return;
         setLoading(true);
         api.get(`/api/insights/${budgetId}/income-expenses-over-time/${query}`)

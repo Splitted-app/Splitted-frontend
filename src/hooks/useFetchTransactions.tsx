@@ -44,7 +44,7 @@ export default function useFetchTransactions(
     
 
     useEffect(() => {
-        if (usedBudgetId === undefined)
+        if (usedBudgetId === undefined || usedBudgetId === null)
             return;
         setLoading(true);
         api.get(`/api/budgets/${usedBudgetId}/transactions/${query}`)

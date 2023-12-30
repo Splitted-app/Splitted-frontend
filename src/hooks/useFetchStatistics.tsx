@@ -33,12 +33,11 @@ export default function useFetchStatistics(
     }
 
     useEffect(() => {
-        if (budgetId === undefined)
+        if (budgetId === undefined || budgetId === null)
             return;
         setLoading(true);
         api.get(`/api/insights/${budgetId}/summary/${query}`)
         .then(res => {
-            console.log(res.data);
             setData(res.data);
         })
         .catch(error => {

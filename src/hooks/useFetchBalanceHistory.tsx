@@ -37,7 +37,7 @@ export default function useFetchBalanceHistory(
     }
 
     useEffect(() => {
-        if (budgetId === undefined)
+        if (budgetId === undefined || budgetId === null)
             return;
         setLoading(true);
         api.get(`/api/insights/${budgetId}/balance-history/${query}`)
