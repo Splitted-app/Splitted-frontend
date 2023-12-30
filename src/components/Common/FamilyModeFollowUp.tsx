@@ -10,9 +10,11 @@ import FormInfo from './FormInfo';
 import { FamilyModeFollowUpVisibilityState } from "../../atoms/FamilyModeFollowUp";
 import { UserBudgetsUpdaterState } from '../../atoms/UserBudgetsUpdater';
 import { FamilyMemberIdState } from "../../atoms/FamilyMemberId";
+import { MyBudgetUpdaterState } from '../../atoms/MyBudgetUpdater';
 
 import { BankNames } from "../../enums";
 import api from '../../services/api';
+
 
 
 interface FormDataInterface {
@@ -35,7 +37,8 @@ function FamilyModeFollowUp()
     })
     const [familyMemberId, setFamilyMemberId] = useRecoilState(FamilyMemberIdState)
     const setFamilyModeFollowUpVisibility = useSetRecoilState(FamilyModeFollowUpVisibilityState);
-    const [userBudgetsUpdater, setUserBudgetsUpdater] = useRecoilState(UserBudgetsUpdaterState)
+    const [userBudgetsUpdater, setUserBudgetsUpdater] = useRecoilState(UserBudgetsUpdaterState);
+    const [myBudgetUpdater, setMyBudgetUpdater] = useRecoilState(MyBudgetUpdaterState);
 
     function handleSubmit(event: any) {
         event.preventDefault();
@@ -54,6 +57,7 @@ function FamilyModeFollowUp()
         .then(res => {
             setFamilyModeFollowUpVisibility(false);
             setUserBudgetsUpdater(!userBudgetsUpdater);
+            setMyBudgetUpdater(true);
             setFamilyMemberId("");
         })
         .catch(error => {
