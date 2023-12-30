@@ -36,12 +36,11 @@ function TrainAIPage() {
         </div>
         <div className='train-ai-page-content'>
             <div className="train-ai-page-content-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem laudantium natus iure consequatur fugit totam libero? Officiis cupiditate quas deleniti ducimus obcaecati perspiciatis nostrum suscipit, aut libero dolor maxime delectus!
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos natus voluptatum quam, ipsum dolorem voluptas, maxime cupiditate reprehenderit quas neque autem est omnis ea, ipsa repudiandae iure libero ipsam!
-
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem autem dolores deleniti, accusamus quo odit rerum, ad hic laudantium itaque, reiciendis in praesentium nemo magni minus asperiores repudiandae sint cumque!
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit cupiditate magni consequatur qui dignissimos! Vero recusandae nisi illo voluptate in totam dolore id architecto nam delectus suscipit, dolorem at odio.
+                When adding transactions by importing a csv file, our application uses an AI model to improve user's experience. 
+                The model uses an artifical inteligence algorithm to predict custom categories for user's transactions. When a user 
+                adds transactions by import or changes categories of existing transactions the model learns from the user's data improving 
+                its predictions. For users with a verified email we chose to include an additional functionality. When clicking the button 
+                located on the right of the screen, user can train the model without having to do any other actions. 
             </div>
             <div className='train-ai-page-content-button-container'>
                 {loading && <LoadingPanel error={error} color={"white"}/>}
