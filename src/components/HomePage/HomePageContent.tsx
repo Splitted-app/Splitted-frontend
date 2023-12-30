@@ -17,15 +17,15 @@ import { amountFormatter } from '../../utils';
 import leftarrow from '../../assets/images/leftarrow.svg'
 import rightarrow from '../../assets/images/rightarrow.svg'
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
+import useFetchMyBudget from '../../hooks/useFetchMyBudget';
 
 
 function HomePageContent() {
 
     const overTypeCount = 2;
     const [overviewTypeId, setOverviewTypeId] = useState(0);
-    const bankBalance = useFetchBalance();
-    const currency = useFetchCurrency();
-    const budgetId= useFetchBudgetId();
+    const myBudget = useFetchMyBudget();
+    const budgetId = useFetchBudgetId();
     const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
 
     function handleLeftArrowButton()
@@ -45,15 +45,12 @@ function HomePageContent() {
             target.scrollLeft = 0;
         }
 
-        if (budgetId === null)
-            setTimeout(()=>{
-                console.log(budgetId);
-                // setSignUpFollowUpVisibility(budgetId === null)
-            }, 2000);
+        if (budgetId === undefined)
+            setSignUpFollowUpVisibility(true);
         else
             setSignUpFollowUpVisibility(false);
 
-    }, [bankBalance, budgetId])
+    }, [myBudget.data.budgetBalance, budgetId])
 
 
     return (
@@ -67,10 +64,10 @@ function HomePageContent() {
             </div>
             <div className='amount'>
                 <div id="balance" className='bankBalance' data-testid="home-page-bank-balance-text">
-                    {amountFormatter(bankBalance)}
+                    {amountFormatter(myBudget.data.budgetBalance)}
                 </div>
                 <div className='currency'  data-testid="home-page-currency-text">
-                    {currency}
+                    {myBudget.data.currency}
                 </div>
             </div>
         </div>

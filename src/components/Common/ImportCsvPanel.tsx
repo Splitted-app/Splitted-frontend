@@ -103,7 +103,10 @@ function ImportCsvPanel() {
     formData.append('csvfile', file);
     setLoading(true);
     setUploadError(false);
-    api.post('/api/budgets/' + budgetId + '/transactions/csv?bank=' + bank, formData)
+    api.post('/api/budgets/' + budgetId + '/transactions/csv?bank=' + bank, formData,
+    {
+      headers: { "Content-Type": "multipart/form-data" }
+    })
       .then((res) => {
         setUpdater(!updater);
         setNewTransactions(res.data)
