@@ -10,6 +10,7 @@ import FormInfo from '../Common/FormInfo';
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
 
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
+import axios from 'axios';
 
 
 interface RegisterFormInterface {
@@ -90,31 +91,25 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
     }
 
     function loginAfterSignUp() {
-        fetch(process.env.REACT_APP_API_URL + '/api/users/login', {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
+        axios.post(process.env.REACT_APP_API_URL + '/api/users/login',
+            JSON.stringify({
                 email: data.email,
                 password: data.password
-            })
-        })
-        .then(res => {
-            if (!res.ok) {
-                throw Error('could not fetch the data for that resource');
+            }),
+            {
+                withCredentials: true,
+                headers: {
+                    'Accept': '*',
+                    'Content-Type': 'application/json'
+                },
             }
-            return res.json();
-        })
-        .then((data) => {
-            localStorage.setItem("token", data.token);
-            // setToken(data.token);
+        )
+        .then((res) => {
+            localStorage.setItem("token", res.data.token);
             setSignUpFollowUpVisibility(true);
         })
-        .catch((err) => {
-
+        .catch((error) => {
+            console.error(error);
         });
     }
 
@@ -124,33 +119,27 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
         setFirstTry(false);
         if (!validateData(data))
             return;
-        fetch(process.env.REACT_APP_API_URL + '/api/users/register', {
-            method: 'POST',
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
+        axios.post(process.env.REACT_APP_API_URL + '/api/users/register',
+            JSON.stringify({
                 email: data.email,
                 password: data.password,
                 username: data.nickname
-            })
-        })
+            }),
+            {
+                headers: {
+                    'Accept': '*',
+                    'Content-Type': 'application/json',
+                },
+            }
+        )
         .then(res => {
-            if (!res.ok) {
-                if (res.status === 409) {
-                    setErrors({ ...errors, invalidRequestStatus: 409 });
-                }
-                throw Error('could not fetch the data for that resource');
-            }
-            if (res.ok) {
-                loginAfterSignUp();
-                navigate('/home');
-            }
-            return res.json();
+            loginAfterSignUp();
+            navigate('/home');
         })
-        .catch((err) => {
-
+        .catch((error) => {
+            if (error.response.status === 409) {
+                setErrors({ ...errors, invalidRequestStatus: 409 });
+            }
         });
     }
 
