@@ -84,8 +84,8 @@ describe('delete account test', () => {
         cy.get('[data-testid="delete-account-confirmation-panel-main-title"]').should('exist').should('contain', 'Delete account');
         cy.get('[data-testid="delete-account-confirmation-panel-subtitle"]').should('exist');
 
-        cy.get('[data-testid="delete-account-confirmation-panel-cancel-button"]').should('exist');
-        cy.get('[data-testid="delete-account-confirmation-panel-delete-account-button"]').should('exist');
+        cy.get('[data-testid="delete-account-confirmation-panel-cancel-button"]').should('exist').should('contain','Cancel');
+        cy.get('[data-testid="delete-account-confirmation-panel-delete-account-button"]').should('exist').should('contain','Delete Account');
 
         //checking functionality of cancel button
 
