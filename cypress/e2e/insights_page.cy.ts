@@ -1,14 +1,13 @@
-describe('insights page content test', { testIsolation: false }, () => {
+describe('insights page content test',  () => {
 
     beforeEach(() => {
-        cy.login('user@example.com', 'User123!')
+        cy.login('user@example.com', 'User123!');
+        cy.visit('http://localhost:3000/insights');
+
     })
 
     it('checks whether content of insights page shows correctly', () => {
         cy.viewport(1550, 890);
-
-        //go to insights page
-        cy.get('[data-testid="navbar-item-insights-page"]').click();
 
         //checking content of header
 

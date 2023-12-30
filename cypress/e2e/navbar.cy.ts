@@ -1,7 +1,9 @@
-describe('navbar content test', { testIsolation: false }, () => {
+describe('navbar content test', () => {
 
     beforeEach(() => {
         cy.login('user@example.com', 'User123!')
+        cy.visit('http://localhost:3000/home');
+
     })
 
     it('checks whether navbar items work correctly and the user is redirected to expected pages', () => {
