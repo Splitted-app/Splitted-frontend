@@ -1,6 +1,6 @@
 import '../../css/HomePage/StatisticsPanelInsightsOverview.css';
 
-import useFetchCurrency from '../../hooks/useFetchCurrency';
+import useFetchMyBudget from '../../hooks/useFetchMyBudget';
 import useFetchStatistics from '../../hooks/useFetchStatistics';
 
 import { amountFormatter } from '../../utils';
@@ -13,7 +13,7 @@ interface StatisticsOverviewInterface
 function StatisticsPanelInsightsOverview({dateRange}: StatisticsOverviewInterface) {
 
     const statistics = useFetchStatistics(dateRange, "")
-    const currency = useFetchCurrency();
+    const myBudget = useFetchMyBudget();
 
     return (
       <div className="statistics-panel-insights-overview">
@@ -31,7 +31,7 @@ function StatisticsPanelInsightsOverview({dateRange}: StatisticsOverviewInterfac
                     Max value:
                 </div>
                 <div className='statistics-element-amount'>
-                    {amountFormatter(statistics.data.maxValue)} {currency}
+                    {amountFormatter(statistics.data.maxValue)} {myBudget.data.currency}
                 </div>
             </div>
             <div className='statistics-element'>
@@ -39,7 +39,7 @@ function StatisticsPanelInsightsOverview({dateRange}: StatisticsOverviewInterfac
                     Mean:
                 </div>
                 <div className='statistics-element-amount'>
-                    {amountFormatter(statistics.data.mean)} {currency}
+                    {amountFormatter(statistics.data.mean)} {myBudget.data.currency}
                 </div>
             </div>
             <div className='statistics-element'>
@@ -47,7 +47,7 @@ function StatisticsPanelInsightsOverview({dateRange}: StatisticsOverviewInterfac
                     Min value:
                 </div>
                 <div className='statistics-element-amount'>
-                    {amountFormatter(statistics.data.minValue)} {currency}
+                    {amountFormatter(statistics.data.minValue)} {myBudget.data.currency}
                 </div>
             </div>
         </div>

@@ -13,11 +13,11 @@ import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPa
 import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
 
-import useFetchBankName from '../../hooks/useFetchBankName';
 import useFetchBudgetId from '../../hooks/useFetchBudgetId';
 
 import { BankNames } from '../../enums';
 import api from '../../services/api';
+import useFetchMyBudget from '../../hooks/useFetchMyBudget';
 
 
 
@@ -28,8 +28,8 @@ function ImportCsvPanel() {
   const setNewTransactions = useSetRecoilState(NewTransactionsState);
   const setImportCsvPanelVisibility = useSetRecoilState(ImportCsvPanelVisibilityState);
   const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
-  const bankName = useFetchBankName();
-  const [bank, setBank] = useState<string>(bankName);
+  const myBudget = useFetchMyBudget();
+  const [bank, setBank] = useState<string>(myBudget.data.bank);
   const [file, setFile] = useState<File>();
   const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
   const formData = new FormData();
@@ -42,7 +42,7 @@ function ImportCsvPanel() {
   const [loading, setLoading] = useState<boolean>(false);
   const [uploadError, setUploadError] = useState<boolean>(false);
 
-  useEffect(()=>{setBank(bankName)},[bankName]);
+  useEffect(()=>{setBank(myBudget.data.bank)},[myBudget.data.bank]);
 
   function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
     let pathElements = e.target.value.split('\\')

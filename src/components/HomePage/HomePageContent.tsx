@@ -9,9 +9,6 @@ import Reminders from './Reminders';
 
 import { SignUpFollowUpVisibilityState } from '../../atoms/SignUpFollowUpVisibility';
 
-import useFetchBalance from '../../hooks/useFetchBalance';
-import useFetchCurrency from '../../hooks/useFetchCurrency';
-
 import { amountFormatter } from '../../utils';
 
 import leftarrow from '../../assets/images/leftarrow.svg'
