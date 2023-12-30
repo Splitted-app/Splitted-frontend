@@ -2,9 +2,12 @@ import '../../css/RegisterPages/RegisterForm.css';
 
 import { useState } from "react";
 
+import axios from 'axios';
+
 import FormInfo from '../Common/FormInfo';
 
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
+
 
 
 
@@ -48,24 +51,18 @@ function EmailForm({ data, setData, setState }: RegisterFormInterface) {
         setFirstTry(false);
         if (!validateData(data))
             return;
-        fetch(process.env.REACT_APP_API_URL + '/api/users/email-check?email=' + data.email)
-            .then(res => {
-                if (!res.ok) {
-                    setErrors({ ...errors, invalidRequest: true });
-                    throw Error('could not fetch the data for that resource');
-                }
-                return res.json();
-            })
-            .then((data) => {
-                if (data.userExists === true) {
+        axios.get(process.env.REACT_APP_API_URL + '/api/users/email-check?email=' + data.email)
+            .then((res) => {
+                if (res.data.userExists === true) {
                     setState("logIn")
                 }
                 else {
                     setState("signUp")
                 }
             })
-            .catch((err) => {
-
+            .catch((error) => {
+                setErrors({ ...errors, invalidRequest: true });
+                console.error(error);
             });
 
     }

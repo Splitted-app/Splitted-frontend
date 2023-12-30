@@ -21,13 +21,14 @@ export default function useFetchBudgetId()
         api.get('/api/users/budgets?budgetType=Personal,Family')
         .then((res) => {
             if (res.data.length === 0) {
-                setBudgetId(null);
+                setBudgetId(undefined);
             }
             else {
                 setBudgetId(res.data[0].id);
             }
         })
         .catch(error => {
+            // setBudgetId(undefined);
             setError(true);
             console.error(error);
         })

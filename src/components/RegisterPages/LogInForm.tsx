@@ -2,6 +2,7 @@ import '../../css/RegisterPages/RegisterForm.css';
 
 import { useState } from "react";
 
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 
@@ -10,6 +11,7 @@ import FormInfo from '../Common/FormInfo';
 import RegisterFormDataInterface from "./RegisterFormDataInterface";
 
 import { FullLoginUpdaterState } from '../../atoms/FullLoginUpdater';
+
 
 interface RegisterFormInterface {
     data: RegisterFormDataInterface,
@@ -33,38 +35,29 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
             invalidPassword: false
         }
         e.preventDefault();
-        fetch(process.env.REACT_APP_API_URL + '/api/users/login', {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Accept': '*',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
+        axios.post(process.env.REACT_APP_API_URL + '/api/users/login', 
+            JSON.stringify({
                 email: data.email,
                 password: data.password
-            })
-        })
-        .then(res => {
-            if (!res.ok) {
-                if (res.status === 401) {
-                    newErrors.invalidPassword = true;
-                }
-                throw Error('could not fetch the data for that resource');
+            }),
+            {
+                withCredentials: true,
+                headers: {
+                    'Accept': '*',
+                    'Content-Type': 'application/json'
+                },
             }
-            return res.json();
-        })
-        .then((data) => {
-            localStorage.setItem("token", data.token);
-            // setToken(data.token);
-        })
-        .then(() => {
+        )
+        .then((res) => {
+            localStorage.setItem("token", res.data.token);
             setUpdater(updater + 1);
-        })
-        .then(() => {
             navigate('/home');
         })
-        .catch((err) => {
+        .catch((error) => {
+            if (error.response.status === 401) {
+                newErrors.invalidPassword = true;
+            }
+            console.error(error);
             setErrors(newErrors);
         });
     }

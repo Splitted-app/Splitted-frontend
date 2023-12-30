@@ -33,7 +33,7 @@ export default function useFetchExpensesBreakdown(
     }
 
     useEffect(() => {
-        if (budgetId === undefined)
+        if (budgetId === undefined || budgetId === null)
             return;
         setLoading(true);
         api.get(`/api/insights/${budgetId}/expenses-category-breakdown/${query}`)
