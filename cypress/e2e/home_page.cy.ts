@@ -1,7 +1,8 @@
-describe('home page content test', { testIsolation: false }, () => {
+describe('home page content test', () => {
 
     beforeEach(() => {
         cy.login('user@example.com', 'User123!')
+        cy.visit('http://localhost:3000/home');
     })
 
     it('checks if content of home page is correct', () => {
@@ -10,7 +11,7 @@ describe('home page content test', { testIsolation: false }, () => {
 
         cy.get('[data-testid="home-page-your-balance-text"]').should("exist").should('contain', 'Your balance');
 
-        cy.get('[data-testid="home-page-bank-balance-text"]').should("exist").should('contain', '100.00');
+        cy.get('[data-testid="home-page-bank-balance-text"]').should("exist").should('contain', '1000.00');
 
         cy.get('[data-testid="home-page-currency-text"]').should("exist").should('contain', 'PLN');
 

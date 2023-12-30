@@ -1,7 +1,9 @@
-describe('add new mode panel test', { testIsolation: false }, () => {
+describe('add new mode panel test', () => {
 
     beforeEach(() => {
-        cy.login('user@example.com', 'User123!')
+        cy.login('user@example.com', 'User123!');
+        cy.visit('http://localhost:3000/home');
+
     })
 
     it('checks whether add transactions button works corectly and content of first add transactions panel', () => {

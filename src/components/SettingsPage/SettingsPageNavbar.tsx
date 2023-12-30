@@ -40,7 +40,7 @@ function SettingsPageNavbar({setAccountPageVisibility,setTrainAIPageVisibility, 
   return (
       <div className={`settings-page-navbar ${navbarExpanded ? "settings-page-navbar-mini-expanded" : ""}`} 
           data-testid="settings-page-navbar">
-        <div className='settings-page-navbar-header'>
+        <div className='settings-page-navbar-header' data-testid="settings-page-navbar-header-title-and-icon">
           <div className='old-menu-icon' onClick={()=>{setNavbarVisibility(true); setSettingsNavbarVisibility(false)}} data-testid="settings-page-navbar-change-icon">
             <img src={MenuIcon}></img>
           </div>

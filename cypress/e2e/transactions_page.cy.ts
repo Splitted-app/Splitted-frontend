@@ -1,14 +1,13 @@
-describe('transactions page content test', { testIsolation: false }, () => {
+describe('transactions page content test', () => {
 
     beforeEach(() => {
         cy.login('user@example.com', 'User123!')
+        cy.visit('http://localhost:3000/transactions');
+
     })
 
     it('checks whether content of transactions page shows correctly', () => {
         cy.viewport(1550, 890);
-
-        //go to transactions page
-        cy.get('[data-testid="navbar-item-transactions-page"]').click();
 
         //checking content of header
 

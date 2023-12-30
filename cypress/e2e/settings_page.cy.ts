@@ -1,15 +1,15 @@
-describe('settings page navbar content test', { testIsolation: false }, () => {
+describe('settings page navbar content test', () => {
 
     beforeEach(() => {
-        cy.login('user@example.com', 'User123!')
+        cy.login('user@example.com', 'User123!');
+        cy.visit('http://localhost:3000/settings');
+
     })
 
     it('checks whether content of transactions page shows correctly', () => {
         cy.viewport(1550, 890);
 
-        //go to transactions page
-        cy.get('[data-testid="navbar"]').should('exist');
-        cy.get('[data-testid="navbar-item-settings-page"]').click();
+        //checking if good navbar is showing
         cy.get('[data-testid="navbar"]').should('not.exist');
         cy.get('[data-testid="settings-page-navbar"]').should('exist');
 

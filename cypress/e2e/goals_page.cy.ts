@@ -1,14 +1,13 @@
-describe('goals page content test', { testIsolation: false }, () => {
+describe('goals page content test', () => {
 
     beforeEach(() => {
-        cy.login('user@example.com', 'User123!')
+        cy.login('user@example.com', 'User123!');
+        cy.visit('http://localhost:3000/goals');
+
     })
 
     it('checks whether content of insights page shows correctly', () => {
         cy.viewport(1550, 890);
-
-        //go to goals page
-        cy.get('[data-testid="navbar-item-goals-page"]').click();
 
         //checking content of header
 
