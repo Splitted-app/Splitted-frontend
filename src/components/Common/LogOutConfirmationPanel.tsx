@@ -43,10 +43,10 @@ function LogOutConfirmationPanel() {
     return (
       <div className="log-out-confirmation-panel" data-testid="log-out-confirmation-panel">
         <div className='title'>
-          <div className='main-title'>
+          <div className='main-title' data-testid="log-out-confirmation-panel-main-title">
             Log Out
           </div>
-          <div className='subtitle'>
+          <div className='subtitle' data-testid="log-out-confirmation-panel-subtitle">
             Are you sure you want to log out?
           </div>
         </div>
@@ -55,7 +55,7 @@ function LogOutConfirmationPanel() {
             <button className='cancel-button' onClick={handleCancel} data-testid="log-out-confirmation-panel-cancel-button">Cancel</button>
           </div>
           <div className='log-out-button-container'>
-            <button className='log-out-button' onClick={handleConfirm}>Log Out</button>
+            <button className='log-out-button' onClick={handleConfirm} data-testid="log-out-confirmation-panel-log-out-button">Log Out</button>
           </div>
         </div>
       </div>

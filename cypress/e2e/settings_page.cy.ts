@@ -62,3 +62,56 @@ describe('settings page navbar content test', () => {
 
     });
 })
+
+describe('delete account test', () => {
+    beforeEach(() => {
+        cy.login('user@example.com', 'User123!');
+        cy.visit('http://localhost:3000/settings');
+
+    })
+    
+    it('checks whether delete account button works properly', () => {
+        cy.viewport(1550, 890);
+
+        //checking delete account button
+        cy.get('[data-testid="delete-account-button"]').should('exist').should('contain','Delete account').click();
+
+        //checking if delete account confirmation panel is visible
+        cy.get('[data-testid="delete-account-confirmation-panel"]').should('exist');
+
+        //checking content of delete account confirmation panel
+
+        cy.get('[data-testid="delete-account-confirmation-panel-main-title"]').should('exist').should('contain', 'Delete account');
+        cy.get('[data-testid="delete-account-confirmation-panel-subtitle"]').should('exist');
+
+        cy.get('[data-testid="delete-account-confirmation-panel-cancel-button"]').should('exist');
+        cy.get('[data-testid="delete-account-confirmation-panel-delete-account-button"]').should('exist');
+
+        //checking functionality of cancel button
+
+
+        cy.get('[data-testid="delete-account-confirmation-panel-cancel-button"]').click();
+        cy.get('[data-testid="delete-account-confirmation-panel"]').should('not.exist');
+
+        //loging out
+        cy.get('[data-testid="settings-page-navbar-change-icon"]').click();
+        cy.get('[data-testid="navbar-item-log-out-button"]').click();
+        cy.get('[data-testid="log-out-confirmation-panel-log-out-button"]').click();
+
+        //checking if user can log in
+
+        cy.login('user@example.com', 'User123!');
+
+        //checking functionality of delete account button
+        cy.visit('http://localhost:3000/settings');        
+        cy.get('[data-testid="delete-account-button"]').click();
+        cy.get('[data-testid="delete-account-confirmation-panel-delete-account-button"]').click();
+        cy.url().should('contain', '/')
+        cy.get('[data-testid="start-page-button"]').click();
+        cy.get('[data-testid="email-form-input-field"]').type('user@example.com');
+        cy.get('[data-testid="email-form-continue-button"]').click();
+        cy.get('[data-testid="sign-up-form-sign-up-button"]').should("exist").invoke('attr', 'value').should('contain', 'Sign Up');
+
+    })
+
+})
