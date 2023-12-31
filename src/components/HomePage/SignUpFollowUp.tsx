@@ -48,10 +48,7 @@ function SignUpFollowUp() {
         )
         .then(() => {
             setUpdater(updater + 1);
-        })
-        .then(() => {
             setSignUpFollowUpVisibility(false);
-            // navigate('/home');
         })
         .catch((error) => {
             console.error(error);
@@ -71,8 +68,8 @@ function SignUpFollowUp() {
     }
 
     return (
-        <div className="signup-followup">
-            <div className='title'>
+        <div className="signup-followup" data-testid="signup-followup-form">
+            <div className='title'  data-testid="signup-followup-form-title">
                 Before you begin
             </div>
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -81,8 +78,8 @@ function SignUpFollowUp() {
                         <label>
                             Pick your bank:
                         </label>
-                        <div className='input-container'>
-                            <select className='field-style' onChange={(e: any) => setData({ ...data, bank: e.target.value })}>
+                        <div className='input-container' >
+                            <select className='field-style' onChange={(e: any) => setData({ ...data, bank: e.target.value })} data-testid="signup-followup-form-bank-select">
                                 <option value={BankNames.Pko}>PKO BP</option>
                                 <option value={BankNames.Pekao}>Pekao</option>
                                 <option value={BankNames.Santander}>Santander Bank</option>
@@ -95,18 +92,18 @@ function SignUpFollowUp() {
                             Put your bank balance:
                         </label>
                         <div className='input-container'>
-                            <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, budgetBalance: e.target.value })} step="any"></input>
+                            <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, budgetBalance: e.target.value })} step="any" data-testid="signup-followup-form-bank-balance-input"></input>
                         </div>
                         <label>
                             Choose your currency:
                         </label>
-                        <div className="input-container">
+                        <div className="input-container" data-testid="signup-followup-form-currency-select">
                             <CurrencyDropdown currency={data.currency}
                                 setCurrency={(e: any) => setData({ ...data, currency: e.target.value })} />
                         </div>
                     </div>
                     <div className='button-container'>
-                        <input type="submit" value={buttonText} />
+                        <input type="submit" value={buttonText} data-testid="signup-followup-form-button"/>
                     </div>
                 </div>
             </form>

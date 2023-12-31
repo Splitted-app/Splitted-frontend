@@ -147,7 +147,7 @@ function SignUpForm({ data, setData, setState }: RegisterFormInterface) {
         <form onSubmit={(e) => handleSubmit(e)}>
             <div className="register-form">
                 <div className="form-fields">
-                    <input className="form-element" type="email" name="email" value={data.email} disabled />
+                    <input className="form-element" type="email" name="email" value={data.email} disabled data-testid="sign-up-form-email-input"/>
                     <input className={`form-element ${invalidPassword ? "error-input" : ""}`}
                         type="password" name="password" placeholder='password'
                         value={data.password}
