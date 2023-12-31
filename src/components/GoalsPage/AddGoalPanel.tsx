@@ -59,17 +59,17 @@ function AddGoalPanel() {
   };
 
   return (
-    <div className="add-goal-panel">
+    <div className="add-goal-panel" data-testid="add-goal-panel">
       <div className='close-button-container'>
         <CloseButton setVisibility={setAddGoalPanelVisibility}/>
       </div>
       
       <div className='title'>
-        <div className='main-title'>
+        <div className='main-title' data-testid="add-goal-panel-main-title">
           Add Goal
         </div>
-        <div className='subtitle'>
-          
+        <div className='subtitle' data-testid="add-goal-panel-subtitle">
+          Select new goal for your budget
         </div>
       </div>
       <div className='main-content'>
@@ -77,7 +77,7 @@ function AddGoalPanel() {
           <label>
             select goal type
           </label>
-          <select id='goal-type-select' className='field-style' onChange={(e: any) => setData({ ...data, goalType: e.target.value })}>
+          <select id='goal-type-select' className='field-style' onChange={(e: any) => setData({ ...data, goalType: e.target.value })} data-testid="add-goal-panel-goal-type-select-field">
             <option value={GoalType.AccountBalance}>Account Balance</option>
             <option value={GoalType.AverageExpenses}>Average Expenses</option>
             <option value={GoalType.ExpensesLimit}>Expenses Limit</option>
@@ -86,22 +86,22 @@ function AddGoalPanel() {
           </select>
           {data.goalType.endsWith('InCategory') &&
             <>
-            <label>
+            <label data-testid="add-goal-panel-category-label">
                 enter category
             </label>
-            <input type="text" className='field-style' value={data.category} onChange={(e: any) => setData({...data, category: e.target.value })}/>
+            <input type="text" className='field-style' value={data.category} onChange={(e: any) => setData({...data, category: e.target.value })} data-testid="add-goal-panel-category-input-field"/>
             </>
           }
-          <label>
+          <label data-testid="add-goal-panel-amount-label">
             enter amount:
           </label>
-          <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, amount: e.target.value })} step="0.01"></input>
-          <label>
+          <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, amount: e.target.value })} step="0.01" data-testid="add-goal-panel-amount-input-field"></input>
+          <label data-testid="add-goal-panel-date-label">
             enter date
           </label>
-          <input type="date" className='field-style' value={data.deadline} onChange={(e: any) => setData({ ...data, deadline: e.target.value })}></input>
+          <input type="date" className='field-style' value={data.deadline} onChange={(e: any) => setData({ ...data, deadline: e.target.value })} data-testid="add-goal-panel-date-input-field"></input>
           <div className='add-button-container'>
-            <input type='submit' className='add-button' value="Add"/>
+            <input type='submit' className='add-button' value="Add" data-testid="add-goal-panel-add-button"/>
           </div>
         </form>
       </div>

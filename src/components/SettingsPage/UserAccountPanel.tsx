@@ -13,10 +13,10 @@ function UserAccountPanel({username, avatarImage}:userAccountPanelInterface) {
 
     return (
       <div className="user-account-panel">
-        <div className='username'>
+        <div className='username' data-testid="user-account-panel-username">
           {username}
         </div>
-        <div className='user-icon'>
+        <div className='user-icon' data-testid="user-account-panel-avatar">
           <AvatarImage editable={false} avatarImage={avatarImage}/>
         </div>
       </div>

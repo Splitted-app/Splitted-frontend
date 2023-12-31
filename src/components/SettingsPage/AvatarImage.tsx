@@ -64,6 +64,7 @@ function AvatarImage({editable, avatarImage}:AvatarImageInterface) {
             style={{display: 'none'}} 
             multiple={false}
             onChange={(e)=>handleFileChanges(e.target.files)}
+            data-testid="avatar-image-input-field"
         />
         <div className="avatar-image">
             <img src={(image)?image:UserAccountIcon}></img>
