@@ -71,7 +71,7 @@ function LogInForm({ data, setData, setState }: RegisterFormInterface) {
                         type="password" name="password" placeholder='password'
                         value={data.password}
                         onChange={(e) => setData({ ...data, password: e.target.value })} data-testid="log-in-form-password-input"/>
-                    <div className="form-element">
+                    <div className="form-element"  data-testid="log-in-form-incorrect-password-error-info">
                         {errors.invalidPassword && 
                             <FormInfo 
                                 message="Invalid Email or Password" 

@@ -22,7 +22,7 @@ function HomePageContent() {
     const overTypeCount = 2;
     const [overviewTypeId, setOverviewTypeId] = useState(0);
     const myBudget = useFetchMyBudget();
-    const budgetId = useFetchBudgetId();
+    // const budgetId = useFetchBudgetId();
     const setSignUpFollowUpVisibility = useSetRecoilState(SignUpFollowUpVisibilityState);
 
     function handleLeftArrowButton()
@@ -42,12 +42,12 @@ function HomePageContent() {
             target.scrollLeft = 0;
         }
 
-        if (budgetId === undefined)
+        if (myBudget.error)
             setSignUpFollowUpVisibility(true);
         else
             setSignUpFollowUpVisibility(false);
 
-    }, [myBudget.data.budgetBalance, budgetId])
+    }, [myBudget])
 
 
     return (
@@ -61,10 +61,10 @@ function HomePageContent() {
             </div>
             <div className='amount'>
                 <div id="balance" className='bankBalance' data-testid="home-page-bank-balance-text">
-                    {amountFormatter(myBudget.data.budgetBalance)}
+                    {amountFormatter(myBudget.data === undefined ? 0 : myBudget.data.budgetBalance)}
                 </div>
                 <div className='currency'  data-testid="home-page-currency-text">
-                    {myBudget.data.currency}
+                    {myBudget.data === undefined ? "" : myBudget.data.currency}
                 </div>
             </div>
         </div>
