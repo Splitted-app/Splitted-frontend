@@ -12,14 +12,14 @@ function AccountPage() {
     return (
       <div className="account-page" data-testid="account-page">
         <div className='account-page-header'>
-          <div className='user-panel'>
+          <div className='user-panel' data-testid="account-page-user-panel">
             <UserAccountPanel username={user.data.username} avatarImage={user.data.avatarImage}/>
           </div>
           <div className='account-page-title'>
-            <div className='account-page-subtitle'>
+            <div className='account-page-subtitle' data-testid="account-page-subtitle">
               {user.data.email}
             </div>
-            <div className='account-page-maintitle'>
+            <div className='account-page-maintitle' data-testid="account-page-main-title">
               Account
             </div>
           </div>
@@ -28,7 +28,7 @@ function AccountPage() {
           <div className='account-page-content-title'>
             Your account
           </div>
-          <div className='user-account-main-panel-container'>
+          <div className='user-account-main-panel-container' data-testid="account-page-user-main-panel">
             <UserAccountMainPanel data={user.data} loading={user.loading} error={user.error}/>
           </div>
         </div>

@@ -204,7 +204,7 @@ function Goal({goal, pinIconVisible} : GoalTileInterface) {
                     <img src={DeleteGoalIcon}/>
                 </button>
                 {(pinIconVisible || goal.isMain) &&
-                <button onClick={handleTogglePin} data-testid="main-goal-icon">
+                <button onClick={handleTogglePin} data-testid={(goal.isMain)?"main-goal-icon":'select-main-goal-icon'}>
                     <img src={goal.isMain ? MainGoalPinIcon : PinIcon} />
                 </button>
                 }

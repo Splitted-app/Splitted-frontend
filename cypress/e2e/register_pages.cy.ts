@@ -14,6 +14,7 @@ describe('email form test', () => {
       cy.get('[data-testid="error-message"]').should("exist").should('contain','Invalid Email');
     });
     it('checks behaviour of email form with existing user', () => {
+      cy.createIfNotExists('user@example.com', 'User123!', "user", "0", "Pekao", "PLN");
       cy.visit('http://localhost:3000/register');
   
       cy.get('[data-testid="email-form-input-field"]').type('user@example.com');
@@ -26,6 +27,7 @@ describe('email form test', () => {
 
     });
     it('checks behaviour of email form with new user', () => {
+        cy.deleteIfExists('newUser@example.com', 'NewUser123!');
         cy.visit('http://localhost:3000/register');
     
         cy.get('[data-testid="email-form-input-field"]').type('newUser@example.com');
@@ -43,6 +45,7 @@ describe('email form test', () => {
 
   describe('log in form test', () => {
     it('checks behaviour of log in form with correct data', () => {
+      cy.createIfNotExists('user@example.com', 'User123!', "user", "0", "Pekao", "PLN");
 
       //filling out email form
       cy.visit('http://localhost:3000/register');
@@ -68,6 +71,7 @@ describe('email form test', () => {
     })
 
     it('checks behaviour of log in form with incorrect data', () => {
+      cy.createIfNotExists('user@example.com', 'User123!', "user", "0", "Pekao", "PLN");
 
       //filling out email form
       cy.visit('http://localhost:3000/register');
@@ -97,16 +101,17 @@ describe('email form test', () => {
 
   describe('sign up form test', () => {
     it('checks behaviour of sign up form with correct data', () => {
+      cy.deleteIfExists('newUser@example.com', 'NewUser123!');
 
       //filling out email form
       cy.visit('http://localhost:3000/register');
   
-      cy.get('[data-testid="email-form-input-field"]').type('new_user@example.com');
+      cy.get('[data-testid="email-form-input-field"]').type('newUser@example.com');
       
       cy.get('[data-testid="email-form-continue-button"]').click();
 
       //checking content of sign up form
-      cy.get('[data-testid="sign-up-form-email-input"]').should("exist").should('have.value','new_user@example.com');
+      cy.get('[data-testid="sign-up-form-email-input"]').should("exist").should('have.value','newUser@example.com');
       cy.get('[data-testid="sign-up-form-email-input"]').should('be.disabled');
 
       cy.get('[data-testid="sign-up-form-password-input"]').should("exist").invoke('attr', 'placeholder').should('contain', 'password');

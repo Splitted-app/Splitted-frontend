@@ -76,12 +76,12 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
     }
 
     return (
-      <div className="user-account-main-panel">
+      <div className="user-account-main-panel" data-testid="user-account-main-panel">
         <div className='user-account-main-panel-title'>
-          <div className='user-account-icon'>
+          <div className='user-account-icon' data-testid="user-account-main-panel-avatar-image">
             <AvatarImage editable={editable} avatarImage={data.avatarImage}/>
           </div>
-          <div className='username'>
+          <div className='username' data-testid="user-account-main-panel-username">
             {!loading && data.username}
           </div>
         </div>
@@ -92,7 +92,7 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
             <div className='main-text'>
               Your balance:
             </div>
-            <div className='users-value'>
+            <div className='users-value' data-testid="user-account-main-panel-budget-balance">
               {budget.data.budgetBalance}
             </div>
           </div>
@@ -100,12 +100,13 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
             <div className='main-text'>
               Your bank:
             </div>
-            <div className='users-value'>
+            <div className='users-value' data-testid="user-account-main-panel-default-bank">
               {!editable && editableData.bank}
               {editable && 
                 <select className='' 
                     value={editableData.bank} 
-                    onChange={(e: any) => setEditableData({...editableData, bank: e.target.value })}>
+                    onChange={(e: any) => setEditableData({...editableData, bank: e.target.value })}
+                    data-testid="user-account-main-panel-bank-select-field">
                   <option value={BankNames.Pko}>PKO BP</option>
                   <option value={BankNames.Pekao}>Pekao</option>
                   <option value={BankNames.Santander}>Santander Bank</option>
@@ -120,7 +121,7 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
           <div className='main-text'>
               Your currency:
             </div>
-            <div className='users-value'>
+            <div className='users-value'  data-testid="user-account-main-panel-default-currency">
               {!editable && editableData.currency}
               {editable && 
                 <CurrencyDropdown 
@@ -132,8 +133,8 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
         </div>
         }
         <div className='edit-user-account-main-panel-button-container'>
-          <button className='edit-user-account-main-panel-button' onClick={handleEditButton}>
-            <img src={editable ? CheckmarkIcon : EditIcon}></img>
+          <button className='edit-user-account-main-panel-button' onClick={handleEditButton} data-testid="user-account-main-panel-edit-button">
+            <img src={editable ? CheckmarkIcon : EditIcon} data-testid="user-account-main-panel-edit-button-icon"></img>
           </button>
         </div>
       </div>

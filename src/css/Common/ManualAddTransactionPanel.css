@@ -58,7 +58,7 @@
     text-align: left;
 }
 
-.manual-add-transaction-panel  .main-content input, select
+.manual-add-transaction-panel  .main-content input
 {
     align-self: center;
     justify-self: right;

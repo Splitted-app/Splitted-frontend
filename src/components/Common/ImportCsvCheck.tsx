@@ -65,7 +65,7 @@ function ImportCsvCheck() {
   }, [])
 
   return (
-    <div className="import-csv-check">
+    <div className="import-csv-check" data-testid="import-csv-check-panel">
       <div className='title'>
         Let's check
       </div>
@@ -93,10 +93,10 @@ function ImportCsvCheck() {
         }
       </div>
       <div className='button-container'>
-        {!showDuplicatesMessage && <button className='cancel-button' onClick={handleCancelButtonClicked}>
+        {!showDuplicatesMessage && <button className='cancel-button' onClick={handleCancelButtonClicked} data-testid="import-csv-check-panel-cancel-button">
           Cancel
         </button>}
-        <button className='interaction-button' onClick={handleButtonClicked}>
+        <button className='interaction-button' onClick={handleButtonClicked} data-testid="import-csv-check-panel-add-button">
           {showDuplicatesMessage ? "I Understand" : "Add"}
         </button>
       </div>

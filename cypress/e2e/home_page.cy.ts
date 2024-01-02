@@ -1,6 +1,7 @@
 describe('home page content test', () => {
 
     beforeEach(() => {
+        cy.cleanSlate("user@example.com", "User123!", "user", "1000", "Pekao", "PLN");
         cy.login('user@example.com', 'User123!')
         cy.visit('http://localhost:3000/home');
     })

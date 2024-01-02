@@ -19,5 +19,5 @@ export const enum GoalType {
   ExpensesLimit = "ExpensesLimit",
   AverageExpenses = "AverageExpenses",
   ExpensesLimitInCategory = "ExpensesLimitInCategory",
-  AverageExpensesInCategory = "ExpensesLimitInCategory",
+  AverageExpensesInCategory = "AverageExpensesInCategory",
 }

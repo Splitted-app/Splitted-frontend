@@ -1,6 +1,7 @@
 describe('add new mode panel test', () => {
 
     beforeEach(() => {
+        cy.createIfNotExists('user@example.com', 'User123!', "user", "0", "Pekao", "PLN");
         cy.login('user@example.com', 'User123!');
         cy.visit('http://localhost:3000/home');
 

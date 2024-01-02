@@ -193,42 +193,44 @@ function InsightsPage() {
             </div>
             {filterMenuVisibility && 
             <div className='insights-page-filter-menu' data-testid="insights-page-filter-menu">
-                <div className='insights-page-date-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% 40% 40%'}}>
+                <div className='insights-page-date-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% 40% 40%'}} data-testid="insights-page-date-section">
                     Dates:
                     <div className='insights-page-start-date-filter-menu'>
-                        <label>From</label>
+                        <label data-testid="insights-page-date-from-label">From</label>
                         <input type="date"
                             value={Moment(filterData.startDate).format('yyyy-MM-DD')}
                             onChange={(e)=>setFilterData({...filterData, startDate: e.target.value})}
+                            data-testid="insights-page-date-from-input-field"
                         />
                     </div>
                     <div className='insights-page-end-date-filter-menu'>
-                        <label>To</label>
+                        <label data-testid="insights-page-date-to-label">To</label>
                         <input type="date"
                             value={Moment(filterData.endDate).format('yyyy-MM-DD')}
                             onChange={(e)=>setFilterData({...filterData, endDate: e.target.value})}
+                            data-testid="insights-page-date-to-input-field"
                         />
                     </div>          
                 </div>
-                <div className='insights-page-category-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% auto'}}>
+                <div className='insights-page-category-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% auto'}}  data-testid="insights-page-category-section"> 
                     Categories:
                     <input type="text" style={{marginLeft:'0'}} value={filterData.category}
-                            onChange={(e)=>setFilterData({...filterData, category: e.target.value})}></input>
+                            onChange={(e)=>setFilterData({...filterData, category: e.target.value})} data-testid="insights-page-category-section-input-field"></input>
                 </div>
-                <div className='insights-page-delta-time-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% auto'}}>
+                <div className='insights-page-delta-time-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% auto'}} data-testid="insights-page-delta-time-section">
                     Delta Time:
-                    <select style={{marginLeft:'0'}} value={filterData.deltaTime} onChange={(e)=>setFilterData({...filterData, deltaTime: e.target.value})}>
+                    <select style={{marginLeft:'0'}} value={filterData.deltaTime} onChange={(e)=>setFilterData({...filterData, deltaTime: e.target.value})} data-testid="insights-page-delta-time-section-select-field">
                         <option value="Day" style={{color:'black'}}>Day</option>
                         <option value="Month" style={{color:'black'}}>Month</option>
                     </select>
                 </div> 
-                <div className='insights-page-bin-range-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% auto'}}>
+                <div className='insights-page-bin-range-filter-menu insights-page-filter-menu-element' style={{gridTemplateColumns:'20% auto'}} data-testid="insights-page-bin-range-section">
                     Bin Range:
                     <input type="number" style={{marginLeft:'0'}} value={filterData.binRange}
-                            onChange={(e)=>setFilterData({...filterData, binRange: e.target.value})}></input>
+                            onChange={(e)=>setFilterData({...filterData, binRange: e.target.value})} data-testid="insights-page-bin-range-section-input-field"></input>
                 </div>                                      
                 <div className='insights-page-filter-menu-button-container'>
-                    <button className='insights-page-filter-menu-button' onClick={handleFilterButton}>
+                    <button className='insights-page-filter-menu-button' onClick={handleFilterButton} data-testid="insights-page-filter-button">
                         Filter
                     </button>
                 </div>

@@ -122,25 +122,25 @@ function ImportCsvPanel() {
     
   }
   return (
-    <div className="import-csv-panel">
+    <div className="import-csv-panel" data-testid="import-csv-panel">
       <div className='close-button-container'>
         <CloseButton setVisibility={setImportCsvPanelVisibility}/>
       </div>
       <div className='title'>
-        <div className='main-title'>
+        <div className='main-title' data-testid="import-csv-panel-main-title">
           Add transactions
         </div>
-        <div className='subtitle'>
+        <div className='subtitle' data-testid="import-csv-panel-subtitle">
           Import Csv File
         </div>
       </div>
-      <div className='main-content'>
-        <form onSubmit={(e) => handleSubmit(e)}>
+      <div className='main-content' >
+        <form onSubmit={(e) => handleSubmit(e)} data-testid="import-csv-panel-form">
           <div className='bank-select-container'>
             <label>
               Select your bank:
             </label>
-            <select value={bank} onChange={(e: any) => handleBankChange(e)}>
+            <select value={bank} onChange={(e: any) => handleBankChange(e)} data-testid="import-csv-panel-bank-select">
               <option value={BankNames.Pko}>PKO BP</option>
               <option value={BankNames.Pekao}>Pekao</option>
               <option value={BankNames.Santander}>Santander Bank</option>
@@ -155,7 +155,7 @@ function ImportCsvPanel() {
             </label>
             <div className='import-csv-button'>
               <input type="file" className='file-input' id='csv-import-input' style={{ display: 'none' }}
-                onChange={(e) => { handleFileChange(e) }}></input>
+                onChange={(e) => { handleFileChange(e) }} data-testid="import-csv-panel-file-input"></input>
               <label htmlFor='csv-import-input'>
                 <div className='filename'>
                   {filePath}
@@ -187,7 +187,7 @@ function ImportCsvPanel() {
             (!loading || uploadError) && 
             <div className='next-button-container'>
               <input type="submit" className='next-button' value={uploadError ? "Try Again" : "Next"} disabled={errors.invalidBankName}
-                style={{backgroundColor: `${errors.invalidBankName ? "lightgray" : "#20F7C5"}`}}/>
+                style={{backgroundColor: `${errors.invalidBankName ? "lightgray" : "#20F7C5"}`}} data-testid="import-csv-panel-next-button"/>
             </div>
           }
           {

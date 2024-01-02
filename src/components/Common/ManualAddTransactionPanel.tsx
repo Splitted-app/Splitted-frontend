@@ -62,43 +62,40 @@ function ManualAddTransactionPanel() {
   };
 
   return (
-    <div className="manual-add-transaction-panel">
+    <div className="manual-add-transaction-panel" data-testid="manual-add-transaction-panel">
       <div className='close-button-container'>
         <CloseButton setVisibility={setManualAddTransactionsPanelVisibility}/>
       </div>
       
       <div className='title'>
-        <div className='main-title'>
+        <div className='main-title' data-testid="manual-add-transaction-panel-main-title">
           Add transactions
         </div>
-        <div className='subtitle'>
+        <div className='subtitle' data-testid="manual-add-transaction-panel-subtitle">
           Add manually transactions
         </div>
       </div>
       <div className='main-content'>
-        <form onSubmit={() => handleSubmit()}>
+        <form onSubmit={() => handleSubmit()} data-testid="manual-add-transaction-panel-form">
           <label>
             enter amount:
           </label>
-          <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, amount: e.target.value })} step="any"></input>
+          <input type="number" placeholder='0' className='field-style' onChange={(e: any) => setData({ ...data, amount: e.target.value })} step="any" data-testid="manual-add-transaction-panel-amount-field"></input>
           <label>
             select category
           </label>
-          <select className='field-style' onChange={(e: any) => setData({ ...data, userCategory: e.target.value })}>
-            <option value="Job">Job</option>
-            <option value="Grocery">Grocery</option>
-          </select>
+            <input type="text" placeholder='category' className='field-style' onChange={(e: any) => setData({ ...data, userCategory: e.target.value })} data-testid="manual-add-transaction-panel-category-field"></input>
           <label>
             enter date
           </label>
           {/* <input type="text" className='field-style' placeholder={currentDate} onFocus={(e) => (e.target.type = "date")} onBlur={(e) => (e.target.type = "text")} onChange={(e:any)=>setData({...data, date:e.target.value})}></input> */}
-          <input type="date" className='field-style' value={data.date} onChange={(e: any) => setData({ ...data, date: e.target.value })}></input>
+          <input type="date" className='field-style' value={data.date} onChange={(e: any) => setData({ ...data, date: e.target.value })} data-testid="manual-add-transaction-panel-date-field"></input>
           <label>
             enter notes:
           </label>
-          <input type="text" className='field-style' placeholder='notes' onChange={(e: any) => setData({ ...data, description: e.target.value })} ></input>
+          <input type="text" className='field-style' placeholder='notes' onChange={(e: any) => setData({ ...data, description: e.target.value })} data-testid="manual-add-transaction-panel-notes-field"></input>
           <div className='add-button-container'>
-            <input type='submit' className='add-button' value="Add" />
+            <input type='submit' className='add-button' value="Add" data-testid="manual-add-transaction-panel-add-button" />
           </div>
         </form>
       </div>

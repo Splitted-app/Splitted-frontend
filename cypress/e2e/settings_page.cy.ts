@@ -1,6 +1,7 @@
 describe('settings page navbar content test', () => {
 
     beforeEach(() => {
+        cy.createIfNotExists('user@example.com', 'User123!', "user", "0", "Pekao", "PLN");
         cy.login('user@example.com', 'User123!');
         cy.visit('http://localhost:3000/settings');
 
@@ -63,8 +64,70 @@ describe('settings page navbar content test', () => {
     });
 })
 
+
+describe('account page content test', () =>{
+    beforeEach(() => {
+        cy.cleanSlate('user@example.com', 'User123!', "user", "1000", "Pekao", "PLN");        
+        cy.login('user@example.com', 'User123!');
+        cy.visit('http://localhost:3000/settings');
+
+    })
+    it('checks whether content of account page in settings shows properly', () => {
+        cy.viewport(1550, 890);
+
+        //checking if account button on settings navbar works properly
+        cy.get('[data-testid="settings-page-navbar-account-page-button"]').should('exist').should('contain', 'Account');
+        cy.get('[data-testid="settings-page-navbar-account-page-button"]').click();
+        cy.get('[data-testid="account-page"]').should('exist');
+
+
+        //checking content of account page
+
+        //header content
+        cy.get('[data-testid="account-page-main-title"]').should('exist').should('contain','Account');
+        cy.get('[data-testid="account-page-subtitle"]').should('exist').should('contain','user@example.com');
+
+        cy.get('[data-testid="account-page-user-panel"]').should('exist');
+        cy.get('[data-testid="user-account-panel-username"]').should('exist').should('contain','user');
+        cy.get('[data-testid="user-account-panel-avatar"]').should('exist');
+
+
+        //main content
+
+        cy.get('[data-testid="user-account-main-panel"]').should('exist');
+
+        cy.get('[data-testid="user-account-main-panel-avatar-image"]').should('exist');
+        cy.get('[data-testid="user-account-main-panel-username"]').should('exist').should('contain','user');
+
+        cy.get('[data-testid="user-account-main-panel-budget-balance"]').should('exist').should('contain','1000');
+        cy.get('[data-testid="user-account-main-panel-default-bank"]').should('exist').should('contain','Pekao');
+        cy.get('[data-testid="user-account-main-panel-default-currency"]').should('exist').should('contain','PLN');
+
+        //main content edit button
+
+        cy.get('[data-testid="user-account-main-panel-edit-button"]').should('exist');
+        cy.get('[data-testid="user-account-main-panel-edit-button-icon"]').should('exist');
+
+
+        cy.get('[data-testid="user-account-main-panel-edit-button"]').click();
+
+        cy.get('[data-testid="avatar-image-input-field"]').should('exist');
+        cy.get('[data-testid="user-account-main-panel-bank-select-field"]').should('exist');
+        cy.get('[data-testid="currency-select"]').should('exist');
+
+        //change in edit mode
+        cy.get('[data-testid="user-account-main-panel-bank-select-field"]').select('Pko');
+
+        cy.get('[data-testid="user-account-main-panel-edit-button"]').click();
+
+        cy.get('[data-testid="user-account-main-panel-default-bank"]').should('contain','Pko');
+
+    })
+})
+
 describe('delete account test', () => {
     beforeEach(() => {
+        cy.createIfNotExists('user@example.com', 'User123!', "user", "0", "Pekao", "PLN");
         cy.login('user@example.com', 'User123!');
         cy.visit('http://localhost:3000/settings');
 
