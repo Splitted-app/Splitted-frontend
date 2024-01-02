@@ -20,5 +20,19 @@ declare global {
         interface Chainable {
             addTransactions(email:string, password:string, bank:string): Chainable<void>;
         }
+
+        interface Chainable {
+            addGoal(email:string, password:string, isMain:boolean): Chainable<void>;
+        }
+
+        interface Chainable {
+            addTransaction(
+                email: string,
+                password: string,
+                amount: number,
+                category: string,
+                date: string,
+                notes: string): Chainable<void>;
+        }
     }
 }

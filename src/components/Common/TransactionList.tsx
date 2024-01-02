@@ -26,7 +26,7 @@ function TransactionList({
   showSplitItIcon,
   markDuplicates}:TransactionListInterface) {
     return (
-      <div className={`transaction-list ${shadow ? 'transaction-list-shadow' : ''}`}>
+      <div className={`transaction-list ${shadow ? 'transaction-list-shadow' : ''}`} data-testid="transaction-list">
           {transactions &&           
           Array.from(transactions).map((transaction:any)=>
             <Transaction key={transaction.id} 

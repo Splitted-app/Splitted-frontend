@@ -1,6 +1,7 @@
 describe('settings page navbar content test', () => {
 
     beforeEach(() => {
+        cy.createIfNotExists('user@example.com', 'User123!', "user", "0", "Pekao", "PLN");
         cy.login('user@example.com', 'User123!');
         cy.visit('http://localhost:3000/settings');
 
@@ -66,6 +67,7 @@ describe('settings page navbar content test', () => {
 
 describe('account page content test', () =>{
     beforeEach(() => {
+        cy.cleanSlate('user@example.com', 'User123!', "user", "1000", "Pekao", "PLN");        
         cy.login('user@example.com', 'User123!');
         cy.visit('http://localhost:3000/settings');
 
@@ -97,9 +99,9 @@ describe('account page content test', () =>{
         cy.get('[data-testid="user-account-main-panel-avatar-image"]').should('exist');
         cy.get('[data-testid="user-account-main-panel-username"]').should('exist').should('contain','user');
 
-        cy.get('[data-testid="user-account-main-panel-budget-balance"]').should('exist');
-        cy.get('[data-testid="user-account-main-panel-default-bank"]').should('exist');
-        cy.get('[data-testid="user-account-main-panel-default-currency"]').should('exist');
+        cy.get('[data-testid="user-account-main-panel-budget-balance"]').should('exist').should('contain','1000');
+        cy.get('[data-testid="user-account-main-panel-default-bank"]').should('exist').should('contain','Pekao');
+        cy.get('[data-testid="user-account-main-panel-default-currency"]').should('exist').should('contain','PLN');
 
         //main content edit button
 
@@ -113,13 +115,19 @@ describe('account page content test', () =>{
         cy.get('[data-testid="user-account-main-panel-bank-select-field"]').should('exist');
         cy.get('[data-testid="currency-select"]').should('exist');
 
+        //change in edit mode
+        cy.get('[data-testid="user-account-main-panel-bank-select-field"]').select('Pko');
+
         cy.get('[data-testid="user-account-main-panel-edit-button"]').click();
+
+        cy.get('[data-testid="user-account-main-panel-default-bank"]').should('contain','Pko');
 
     })
 })
 
 describe('delete account test', () => {
     beforeEach(() => {
+        cy.createIfNotExists('user@example.com', 'User123!', "user", "0", "Pekao", "PLN");
         cy.login('user@example.com', 'User123!');
         cy.visit('http://localhost:3000/settings');
 

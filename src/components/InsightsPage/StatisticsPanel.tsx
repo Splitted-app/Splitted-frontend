@@ -36,7 +36,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
                 <div className='max-value' data-testid="statistics-panel-max-value">
                     Max value:
                 </div>
-                <div className='statistics-element-amount'>
+                <div className='statistics-element-amount' data-testid="statistics-panel-max-value-amount">
                     {amountFormatter(statistics.data.maxValue)} {myBudget.data.currency}
                 </div>
             </div>
@@ -44,7 +44,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
                 <div className='q3' data-testid="statistics-panel-q3">
                     Q3:
                 </div>
-                <div className='statistics-element-amount'>
+                <div className='statistics-element-amount' data-testid="statistics-panel-q3-amount">
                     {amountFormatter(statistics.data.q3)} {myBudget.data.currency}
                 </div>
             </div>
@@ -52,7 +52,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
                 <div className='mean-value' data-testid="statistics-panel-mean-value">
                     Mean:
                 </div>
-                <div className='statistics-element-amount'>
+                <div className='statistics-element-amount' data-testid="statistics-panel-mean-value-amount">
                     {amountFormatter(statistics.data.mean)} {myBudget.data.currency}
                 </div>
             </div>
@@ -60,7 +60,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
                 <div className='q1' data-testid="statistics-panel-q1">
                     Q1:
                 </div>
-                <div className='statistics-element-amount'>
+                <div className='statistics-element-amount' data-testid="statistics-panel-q1-amount">
                     {amountFormatter(statistics.data.q1)} {myBudget.data.currency}
                 </div>
             </div>
@@ -68,7 +68,7 @@ function StatisticsPanel({category, dateRange}:StatisticsPanelInterface) {
                 <div className='min-value' data-testid="statistics-panel-min-value">
                     Min value:
                 </div>
-                <div className='statistics-element-amount'>
+                <div className='statistics-element-amount' data-testid="statistics-panel-min-value-amount">
                     {amountFormatter(statistics.data.minValue)} {myBudget.data.currency}
                 </div>
             </div>
