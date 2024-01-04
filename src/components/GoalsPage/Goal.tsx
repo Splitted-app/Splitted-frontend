@@ -174,7 +174,7 @@ function Goal({goal, pinIconVisible} : GoalTileInterface) {
     return (
       <div className="goal" style={{background: `linear-gradient(90deg, ${progressColor} 0%, ${progressColor}  ${goal.percentage}%, ${backgroundColor} ${goal.percentage}%, ${backgroundColor} 100%)`, color:color}} data-testid="goal">
             <div className='goal-title' data-testid="goal-name">
-                {goal.name}
+                {goal.name.length <= 40 ? goal.name : (goal.name.substring(0, 38) + '...')}
             </div>
             <div className={`goal-amount ${editable ? "editable-content" : ""}`}
                 contentEditable={editable} 

@@ -5,7 +5,8 @@
     border-radius: 40px;
     /* position: relative; */
     display: grid;
-    grid-template-rows: 5% 10% 35% 25% 20% 5%;
+    /* grid-template-rows: 5% 10% 35% 25% 20% 5%; */
+    grid-template-rows: 5% 25% 20% 25% 20% 5%;
     grid-template-columns: 70% 30%;
     padding: 3%;
 }
@@ -85,7 +86,7 @@
 .goal .goal-icon-container img
 {
     width: 70%;
-    height: 60%;
+    height: 80%;
     z-index: 1;
 
 }
@@ -114,7 +115,7 @@
 .goal .buttons img
 {
     width: 70%;
-    height: 100%;
+    height: 55%;
 }
 
 .goal .editable-content
