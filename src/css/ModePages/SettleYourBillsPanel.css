@@ -7,6 +7,8 @@
     box-shadow: 10px 10px 5px #262626;
     padding-top: 5%;
     border-radius: 50px;
+    display: grid;
+    grid-template-rows: 5% 20% auto 10%;
 }
 
 .settle-your-bills-panel .title 
@@ -71,5 +73,11 @@
 .settle-your-bills-panel .close-button-container
 {
     padding: 0 5%;
+}
+
+.settle-your-bills-panel .error
+{
+    justify-self: center;
+    align-self: flex-start;
 }
 
