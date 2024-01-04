@@ -87,7 +87,7 @@ function PartnerModePage() {
     }
 
     return (
-      <div className="partner-mode-page">
+      <div className="partner-mode-page" data-testid="partner-mode-page">
         <Navbar></Navbar>
         {(budget.loading || budget.error) &&<LoadingPanel error={budget.error} color={"white"}/>}
         {!budget.loading &&
@@ -103,7 +103,7 @@ function PartnerModePage() {
                     
                 </div>
                 <div className='partner-mode-button-container'>
-                    <button className='settle-your-bills-button' onClick={handleSettleYourBills}>Settle your bills</button>
+                    <button className='settle-your-bills-button' onClick={handleSettleYourBills} data-testid="partner-mode-page-settle-your-bills-button">Settle your bills</button>
                 </div>
                 {!budget.loading && !budget.error &&
                 <div className='title'>
@@ -184,9 +184,12 @@ function PartnerModePage() {
             </div>
         </div>
         }
-        <div className='partner-mode-pop-up-panel' style={{'display': SettleYourBillsPanelVisibility ? 'flex' : 'none'}}>
+        {SettleYourBillsPanelVisibility &&
+        //style={{'display': SettleYourBillsPanelVisibility ? 'flex' : 'none'}}
+        <div className='partner-mode-pop-up-panel'>
             <SettleYourBillsPanel/>
         </div>
+        }
       </div>
     );
   }

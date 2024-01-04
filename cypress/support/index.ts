@@ -34,5 +34,16 @@ declare global {
                 date: string,
                 notes: string): Chainable<void>;
         }
+
+        interface Chainable {
+            connectUsers(
+                email1: string,
+                password1: string,
+                user1: string,
+                email2: string,
+                password2: string,
+                user2: string,
+                mode: string): Chainable<void>;
+        }
     }
 }

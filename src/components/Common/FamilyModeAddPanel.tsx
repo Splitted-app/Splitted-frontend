@@ -53,18 +53,18 @@ function FamilyModeAddPanel() {
           <CloseButton setVisibility={setAddFamilyModePanelVisibility}/>
         </div>
         <div className='title'>
-          <div className='main-title'>
+          <div className='main-title' data-testid="family-mode-add-panel-main-title">
             Family mode
           </div>
-          <div className='subtitle'>
+          <div className='subtitle' data-testid="family-mode-add-panel-subtitle">
             Integrate your account with your family member to make being a family easier than it has ever been before 
           </div>
         </div>
-        <div className='find-your-family-panel'>
-            <label>
+        <div className='find-your-family-panel' data-testid="family-mode-add-panel-find-your-family-section">
+            <label data-testid="family-mode-add-panel-find-your-family-section-label">
                 Let's find your family:
             </label>
-            <div className="search-container">
+            <div className="search-container" data-testid="family-mode-add-panel-find-your-family-section-search-field"> 
                 <Select
                   className="search-select"
                   onChange={onSelectChange}
@@ -79,10 +79,12 @@ function FamilyModeAddPanel() {
         <div className='integrate-accounts-button'>
             <button className='button'
               disabled={familyMemberId==""}
-              onClick={handleIntegrateButton}>Integrate accounts</button>
+              onClick={handleIntegrateButton}                   
+              data-testid="family-mode-add-panel-integrate-accounts-button"
+              >Integrate accounts</button>
         </div>
         <div className='family-mode-icon'>
-            <img src={FamilyModeIcon}></img>
+            <img src={FamilyModeIcon} data-testid="family-mode-add-panel-family-mode-icon"></img>
         </div>
       </div>
     );

@@ -34,22 +34,22 @@ function SettleYourBillsPanel() {
     }
 
     return (
-      <div className="settle-your-bills-panel">
+      <div className="settle-your-bills-panel" data-testid="settle-your-bills-panel">
         <div className="close-button-container">
           <CloseButton setVisibility={setSettleYourBillsPanelVisibility}/>
         </div>
         <div className='title'>
-            <div className='main-title'>
+            <div className='main-title' data-testid="settle-your-bills-panel-main-title">
                 Settle Your Bills
             </div>
-            <div className='subtitle'>
+            <div className='subtitle' data-testid="settle-your-bills-panel-subtitle">
                 Choose how you want to settle your bills
             </div>
         </div>
         <div className='buttons-container'>
           <div className='settled-in-cash-container'>
             <div className='settled-in-cash-button'>
-              <button className='button' onClick={handleSettleInCash}>Settled in cash</button>
+              <button className='button' onClick={handleSettleInCash} data-testid="settle-your-bills-panel-settled-in-cash-button">Settled in cash</button>
             </div>
             <div className='description'>
               Choose if you settled your bills in cash.
@@ -57,7 +57,7 @@ function SettleYourBillsPanel() {
           </div>
           <div className='settled-with-transactions-container'>
             <div className='settled-with-transactions-button'>
-              <button className='button' onClick={handleSettleWithTransaction}>Settled with transaction</button>
+              <button className='button' onClick={handleSettleWithTransaction} data-testid="settle-your-bills-panel-settled-with-transactions-button">Settled with transaction</button>
             </div>
             <div className='description'>
                 Choose if you settled your bills with transactions existing in your budget.  

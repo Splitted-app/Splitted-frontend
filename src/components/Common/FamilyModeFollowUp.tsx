@@ -74,24 +74,24 @@ function FamilyModeFollowUp()
     }
 
     return (
-        <div className="family-mode-followup">
+        <div className="family-mode-followup" data-testid="family-mode-followup-panel">
             <div className='title'>
-            <div className='main-title'>
+            <div className='main-title' data-testid="family-mode-followup-panel-main-title">
                 Before you begin
             </div>
-            <div className='subtitle'>
+            <div className='subtitle' data-testid="family-mode-followup-panel-subtitle">
                 Name your new joint account and choose default currency and bank          
             </div>
             </div>
             <div className='family-mode-followup-form'>
-                <form onSubmit={(e) => handleSubmit(e)}>
+                <form onSubmit={(e) => handleSubmit(e)} data-testid="family-mode-followup-panel-form">
                     <div className='form-elements'>
                         <div className='information-fields'>
-                            <label>
+                            <label data-testid="family-mode-followup-panel-form-select-bank-field-label">
                                 Pick your bank:
                             </label>
                             <div className='input-container'>
-                                <select className='field-style' onChange={(e: any) => setData({ ...data, bank: e.target.value })}>
+                                <select className='field-style' onChange={(e: any) => setData({ ...data, bank: e.target.value })} data-testid="family-mode-followup-panel-form-select-bank-field">
                                     <option value={BankNames.Pko}>PKO BP</option>
                                     <option value={BankNames.Pekao}>Pekao</option>
                                     <option value={BankNames.Santander}>Santander Bank</option>
@@ -100,19 +100,19 @@ function FamilyModeFollowUp()
                                     <option value={BankNames.Other}>Other</option>
                                 </select>
                             </div>
-                            <label>
+                            <label data-testid="family-mode-followup-panel-form-select-currency-field-label">
                                 Choose your currency:
                             </label>
                             <div className="input-container">
                                 <CurrencyDropdown currency={data.currency}
                                     setCurrency={(e: any) => setData({ ...data, currency: e.target.value })} />
                             </div>
-                            <label>
+                            <label data-testid="family-mode-followup-panel-form-budget-name-input-field-label">
                                 Budget name:
                             </label>
                             <div className="input-container">
                                 <input type="text" placeholder='Budget name' className='budget-input' 
-                                    onChange={(e: any) => setData({ ...data, budgetName: e.target.value })}/>
+                                    onChange={(e: any) => setData({ ...data, budgetName: e.target.value })} data-testid="family-mode-followup-panel-form-budget-name-input-field"/>
                             </div>
                             {errors.nameEmpty &&
                                 <div className='form-error-budget'>
@@ -125,7 +125,7 @@ function FamilyModeFollowUp()
                                 </div>
                             }
                             {errors.userUnavailable &&
-                                <div className='form-error-user'>
+                                <div className='form-error-user' >
                                 <FormInfo 
                                     message="This user is unavailable" 
                                     details="" 
@@ -135,7 +135,7 @@ function FamilyModeFollowUp()
                         </div>
                     </div>
                     <div className='button-container'>
-                        <input type="submit" value="Finish" />
+                        <input type="submit" value="Finish" data-testid="family-mode-followup-panel-finish-button" />
                     </div>
                 </form>
             </div>

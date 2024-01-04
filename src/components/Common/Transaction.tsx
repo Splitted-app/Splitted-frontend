@@ -263,23 +263,25 @@ function Transaction({
         onClick={handleClick}
         data-testid="transaction">
         {showCheckbox && showAsRows &&
-            <label className='delete-transaction-checkbox-container delete-checkbox-as-rows '>
+            <label className='delete-transaction-checkbox-container delete-checkbox-as-rows' data-testid="transaction-checkbox-label">
               <input type="checkbox" 
                       checked={isChecked}
                       className='delete-transaction-checkbox' 
-                      onChange={(e)=>handleCheckboxChange(e.target.checked)}>
+                      onChange={(e)=>handleCheckboxChange(e.target.checked)}
+                      data-testid="transaction-checkbox">
               </input>
               <span className="checkmark">
               </span>
-            </label>
+            </label >
         }
         <div className='transaction-content' style={gridStyle}>
             {showCheckbox && !showAsRows &&
-            <label className='delete-transaction-checkbox-container '>
+            <label className='delete-transaction-checkbox-container ' data-testid="transaction-checkbox-label">
               <input type="checkbox" 
                       checked={isChecked}
                       className='delete-transaction-checkbox' 
-                      onChange={(e)=>handleCheckboxChange(e.target.checked)}>
+                      onChange={(e)=>handleCheckboxChange(e.target.checked)}
+                      data-testid="transaction-checkbox">
               </input>
               <span className="checkmark">
               </span>
@@ -337,13 +339,13 @@ function Transaction({
             </div>
             {showSplitItIcon && !showAsRows &&
             <div className='split-it transaction-element' onClick={handleSplitIt}>
-                <img src={recentlySplit ? UpdateTransactionIcon : SplitItIcon}></img>
+                <img src={recentlySplit ? UpdateTransactionIcon : SplitItIcon} data-testid="transaction-split-it-button"></img>
             </div>
             }
         </div>
         {showSplitItIcon && showAsRows &&
           <div className='split-it transaction-element' onClick={handleSplitIt}>
-              <img src={recentlySplit ? UpdateTransactionIcon : SplitItIcon}></img>
+              <img src={recentlySplit ? UpdateTransactionIcon : SplitItIcon} data-testid="transaction-split-it-button"></img>
           </div>  
         }
         {showEditButton && <div className='transaction-edit-button-container'>

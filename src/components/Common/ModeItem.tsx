@@ -38,11 +38,11 @@ function ModeItem({budget}:ModeItemInterface) {
 
     return (
       <Link to={`${link}/${budget.id}`}>
-        <div className="mode-item">
+        <div className="mode-item" data-testid="mode-item">
           <div className='mode-item-icon'>
               <img src={icon}></img>
           </div>
-          <div className='mode-item-title'>
+          <div className='mode-item-title' data-testid="mode-item-title">
               {title}
           </div>
         </div>            
