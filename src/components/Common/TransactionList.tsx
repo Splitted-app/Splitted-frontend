@@ -6,6 +6,7 @@ interface TransactionListInterface
 {
   transactions:typeof Transaction[],
   shadow: boolean,
+  showUser:boolean,
   showTransactionType:boolean,
   showDate:boolean,
   showDeleteIcon:boolean,
@@ -17,7 +18,8 @@ interface TransactionListInterface
 
 function TransactionList({
   transactions, 
-  shadow, 
+  shadow,
+  showUser,
   showTransactionType, 
   showDate, 
   showDeleteIcon, 
@@ -31,7 +33,7 @@ function TransactionList({
           Array.from(transactions).map((transaction:any)=>
             <Transaction key={transaction.id} 
               transaction={transaction} 
-              showUser={false} 
+              showUser={showUser} 
               showTransactionType={showTransactionType} 
               showDate={showDate} 
               showDeleteIcon={showDeleteIcon} 

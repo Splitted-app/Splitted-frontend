@@ -177,6 +177,7 @@ function TransactionPage() {
                     <TransactionList 
                         transactions={data.transactions} 
                         shadow={false} 
+                        showUser={false}
                         showTransactionType={true} 
                         showDate={true} 
                         showDeleteIcon={false} 

@@ -1,12 +1,16 @@
 import '../../css/ModePages/SettleYourBillsPanel.css';
 
+import { useState } from 'react';
+
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import CloseButton from '../Common/CloseButton';
+import FormInfo from '../Common/FormInfo';
 
 import { SettleYourBillsPanelVisibilityState } from '../../atoms/SettleYourBillsPanelVisibility';
 import { ChooseSettleTransactionPanelVisibilityState } from '../../atoms/ChooseSettleTransactionPanel';
 import { TransactionsToSettleState } from '../../atoms/TransactionsToSettle';
+
 import api from '../../services/api';
 
 
@@ -14,6 +18,9 @@ function SettleYourBillsPanel() {
     const setSettleYourBillsPanelVisibility= useSetRecoilState(SettleYourBillsPanelVisibilityState);
     const setChooseSettleTransactionPanelVisibility = useSetRecoilState(ChooseSettleTransactionPanelVisibilityState);
     const [transansactionsToSettle, setTransactionsToSettle] = useRecoilState(TransactionsToSettleState)
+    const [errors, setErrors] = useState({
+      forbidden: false,
+    })
 
     function handleSettleInCash()
     {
@@ -23,6 +30,12 @@ function SettleYourBillsPanel() {
           setSettleYourBillsPanelVisibility(false);
         })
         .catch((error)=>{
+          if (error.response.status === 403)
+          {
+            setErrors({
+              forbidden: true,
+            })
+          }
           console.error(error);
         })
     }
@@ -64,6 +77,12 @@ function SettleYourBillsPanel() {
             </div>
           </div>
         </div>
+        {errors.forbidden &&
+          <div className='error'>
+            <FormInfo message='Some of the transactions chosen to settle are yours' textColor='black' details=''/>
+          </div>
+        }
+        
       </div>
     );
   }

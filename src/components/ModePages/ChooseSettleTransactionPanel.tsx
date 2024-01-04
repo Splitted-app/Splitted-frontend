@@ -1,9 +1,12 @@
 import '../../css/ModePages/ChooseSettleTransactionPanel.css'
 
+import { useState } from 'react';
+
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import LoadingPanel from '../Common/LoadingPanel';
 import TransactionList from '../Common/TransactionList';
+import FormInfo from '../Common/FormInfo';
 
 import { ChosenSettleTransactionIdState } from '../../atoms/ChosenSettleTransactionId';
 import { ChooseSettleTransactionPanelVisibilityState } from '../../atoms/ChooseSettleTransactionPanel';
@@ -13,13 +16,15 @@ import useFetchTransactions from '../../hooks/useFetchTransactions';
 import api from '../../services/api';
 
 
-
 function ChooseSettleTransactionPanel() {
 
   const transactions = useFetchTransactions()
   const [chosenSettleTransactionId, setChosenSettleTransactionId] = useRecoilState(ChosenSettleTransactionIdState);
   const [transansactionsToSettle, setTransactionsToSettle] = useRecoilState(TransactionsToSettleState)
   const setChooseSettleTransactionPanelVisibility = useSetRecoilState(ChooseSettleTransactionPanelVisibilityState)
+  const [errors, setErrors] = useState({
+    forbidden: false,
+  })
 
   function handleButtonClicked()
   {
@@ -30,6 +35,12 @@ function ChooseSettleTransactionPanel() {
         setChooseSettleTransactionPanelVisibility(false);
     })
     .catch((error)=>{
+        if (error.response.status === 403)
+        {
+          setErrors({
+            forbidden: true,
+          })
+        }
         console.error(error);
     })
   }
@@ -58,6 +69,7 @@ function ChooseSettleTransactionPanel() {
             transactions={transactions.data.transactions.sort((t1: any, t2: any)=>
                 (new Date(t2.date).getTime() - new Date(t1.date).getTime()))} 
             shadow={false} 
+            showUser={false}
             showTransactionType={true} 
             showDate={true} 
             showDeleteIcon={false} 
@@ -75,6 +87,12 @@ function ChooseSettleTransactionPanel() {
           Finish
         </button>
       </div>
+      {errors.forbidden &&
+        <div className='error'>
+          <FormInfo message='Some of the transactions chosen to settle are yours' textColor='black' details=''/>
+        </div>
+      }
+      
     </div>
   );
 }

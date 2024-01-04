@@ -169,7 +169,8 @@ function PartnerModePage() {
                 {!transactions.loading &&
                     <TransactionList 
                         transactions={transactions.data.transactions} 
-                        shadow={false} 
+                        shadow={false}
+                        showUser={true}
                         showTransactionType={true} 
                         showDate={true} 
                         showDeleteIcon={false} 
