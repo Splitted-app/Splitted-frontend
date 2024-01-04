@@ -58,6 +58,7 @@ function ChooseSettleTransactionPanel() {
             transactions={transactions.data.transactions.sort((t1: any, t2: any)=>
                 (new Date(t2.date).getTime() - new Date(t1.date).getTime()))} 
             shadow={false} 
+            showUser={false}
             showTransactionType={true} 
             showDate={true} 
             showDeleteIcon={false} 

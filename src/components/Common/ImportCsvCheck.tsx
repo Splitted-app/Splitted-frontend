@@ -73,7 +73,8 @@ function ImportCsvCheck() {
         { !showDuplicatesMessage && 
           <TransactionList 
             transactions={newTransactions} 
-            shadow={false} 
+            shadow={false}
+            showUser={false}
             showTransactionType={true} 
             showDate={false} 
             showDeleteIcon={true} 

@@ -30,6 +30,7 @@ function TransactionsOverview({dateRange}:TransactionsOverviewInterface) {
                 <TransactionList 
                   transactions={data.transactions} 
                   shadow={true} 
+                  showUser={false}
                   showTransactionType={false} 
                   showDate={false} 
                   showDeleteIcon={true} 

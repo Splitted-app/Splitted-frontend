@@ -171,6 +171,7 @@ function PartyModePage() {
                     <TransactionList 
                         transactions={transactions.data.transactions} 
                         shadow={false} 
+                        showUser={true}
                         showTransactionType={true} 
                         showDate={true} 
                         showDeleteIcon={false} 
