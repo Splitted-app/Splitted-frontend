@@ -42,16 +42,16 @@ function ChooseSettleTransactionPanel() {
 
 
   return (
-    <div className="choose-settle-transaction-panel">
+    <div className="choose-settle-transaction-panel" data-testid="choose-settle-transaction-panel">
       <div className='title'>
-        <div className='main-title'>
+        <div className='main-title' data-testid="choose-settle-transaction-panel-main-title">
           Settled with transaction
         </div>
-        <div className='subtitle'>
+        <div className='subtitle' data-testid="choose-settle-transaction-panel-subtitle">
           Choose transaction that settles this payment.
         </div>
       </div>
-      <div className='content-container'>
+      <div className='content-container' data-testid="choose-settle-transaction-panel-transaction-selection-section">
         {(transactions.loading || transactions.error) && <LoadingPanel error={transactions.error} color={"black"}/>}
         {!transactions.loading && !transactions.error &&
           <TransactionList 
@@ -68,10 +68,10 @@ function ChooseSettleTransactionPanel() {
         }
       </div>
       <div className='button-container'>
-        {<button className='cancel-button' onClick={handleCancelButton}>
+        {<button className='cancel-button' onClick={handleCancelButton} data-testid="choose-settle-transaction-panel-cancel-button">
           Cancel
         </button>}
-        <button className='interaction-button' onClick={handleButtonClicked} disabled={chosenSettleTransactionId === ""}>
+        <button className='interaction-button' onClick={handleButtonClicked} disabled={chosenSettleTransactionId === ""} data-testid="choose-settle-transaction-panel-finish-button">
           Finish
         </button>
       </div>

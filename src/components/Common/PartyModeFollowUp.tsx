@@ -62,25 +62,25 @@ function PartyModeFollowUp()
     }
 
     return (
-        <div className="party-mode-followup">
+        <div className="party-mode-followup" data-testid="party-mode-followup-panel">
             <div className='title'>
-            <div className='main-title'>
+            <div className='main-title' data-testid="party-mode-followup-panel-main-title">
                 Before you begin
             </div>
-            <div className='subtitle'>
+            <div className='subtitle' data-testid="party-mode-followup-panel-subtitle">
                 Name your new joint account          
             </div>
             </div>
             <div className='party-mode-followup-form'>
-                <form onSubmit={(e) => handleSubmit(e)}>
+                <form onSubmit={(e) => handleSubmit(e)} data-testid="party-mode-followup-panel-form">
                     <div className='form-elements'>
                         <div className='information-fields'>
-                            <label>
+                            <label data-testid="party-mode-followup-panel-form-budget-name-input-field-label">
                                 Budget name:
                             </label>
                             <div className="input-container">
                                 <input type="text" placeholder='Budget name' className='budget-input' 
-                                    onChange={(e: any) => setData({ ...data, budgetName: e.target.value })}/>
+                                    onChange={(e: any) => setData({ ...data, budgetName: e.target.value })} data-testid="party-mode-followup-panel-form-budget-name-input-field"/>
                             </div>
                         </div>
                         {errors.nameEmpty && 
@@ -101,7 +101,7 @@ function PartyModeFollowUp()
                         }
                     </div>
                     <div className='button-container'>
-                        <input type="submit" value="Finish" />
+                        <input type="submit" value="Finish" data-testid="party-mode-followup-panel-finish-button"/>
                     </div>
                 </form>
             </div>

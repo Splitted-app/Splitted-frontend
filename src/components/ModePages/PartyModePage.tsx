@@ -89,7 +89,7 @@ function PartyModePage() {
     }
 
     return (
-      <div className="party-mode-page">
+      <div className="party-mode-page" data-testid="party-mode-page">
         <Navbar></Navbar>
         {(budget.loading || budget.error) &&<LoadingPanel error={budget.error} color={"white"}/>}
         {!budget.loading &&
@@ -185,9 +185,12 @@ function PartyModePage() {
             </div>
         </div>
         }
-        <div className='party-mode-pop-up-panel' style={{'display': SettleYourBillsPanelVisibility ? 'flex' : 'none'}}>
+        {SettleYourBillsPanelVisibility &&
+        // style={{'display': SettleYourBillsPanelVisibility ? 'flex' : 'none'}}
+        <div className='party-mode-pop-up-panel' >
             <SettleYourBillsPanel/>
         </div>
+        }
       </div>
     );
   }

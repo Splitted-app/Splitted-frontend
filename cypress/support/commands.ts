@@ -214,6 +214,57 @@ Cypress.Commands.add("addGoal", (
     })
 })
 
+Cypress.Commands.add("connectUsers", (
+    email1: string,
+    password1: string,
+    user1: string,
+    email2: string,
+    password2: string,
+    user2: string,
+    mode: string) => {
+
+        let budgetData : any = { name: "TestBudget" }
+        if (mode === 'family')
+        {
+            budgetData = { ...budgetData, 
+                bank: "Pekao",
+                currency: "PLN"
+            }
+        }
+        
+        cy.cleanSlate(email1, password1, user1, "0", "Pekao", "PLN");
+        cy.cleanSlate(email2, password2, user2, "0", "Pekao", "PLN");
+
+        // get user1 id
+        let token = ""
+        let user1Id = ""
+        cy.request('POST', `http://localhost:8080/api/users/login`, {
+            email: email1,
+            password: password1
+        }).its('body').then(body=>{
+            token = body.token;
+            cy.request({
+                'method': 'GET',
+                'url': 'http://localhost:8080/api/users',
+                'auth': {'bearer': token},
+            }).its('body').then(body=>{
+                user1Id = body.id;
+            })
+        })
+        cy.request('POST', `http://localhost:8080/api/users/login`, {
+            email: email2,
+            password: password2
+        }).its('body').then(body=>{
+            token = body.token;
+            cy.request({
+                'method': 'POST',
+                'url': `http://localhost:8080/api/modes/${mode}-mode/${user1Id}`,
+                'auth': {'bearer': token},
+                'body': budgetData,
+            })
+        })
+})
+
 Cypress.Commands.add("cleanSlate", (
         email: string = "user@example.com", 
         password: string = "User123!",

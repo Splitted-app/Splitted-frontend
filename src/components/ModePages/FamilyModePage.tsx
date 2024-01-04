@@ -17,7 +17,7 @@ function FamilyModePage() {
     const budget = useFetchBudget(id);
 
     return (
-      <div className="family-mode-page">
+      <div className="family-mode-page" data-testid="family-mode-page">
         <Navbar></Navbar>
         {(budget.loading || budget.error) &&<LoadingPanel error={budget.error} color={"white"}/>}
         {!budget.loading && !budget.error &&

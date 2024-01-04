@@ -134,7 +134,17 @@ describe('email form test', () => {
       //checkign sign up follow up content
       cy.get('[data-testid="signup-followup-form-title"]').should("exist").should('contain','Before you begin');
 
-      cy.get('[data-testid="signup-followup-form-bank-select"]').should("exist").select('Pekao');
+      cy.get('[data-testid="signup-followup-form-bank-select"]').should("exist");
+      
+      cy.get('[data-testid="signup-followup-form-bank-select"]').select('Pko').should('have.value','Pko');
+      cy.get('[data-testid="signup-followup-form-bank-select"]').select('Pekao').should('have.value','Pekao');
+      cy.get('[data-testid="signup-followup-form-bank-select"]').select('Santander').should('have.value','Santander');
+      cy.get('[data-testid="signup-followup-form-bank-select"]').select('Ing').should('have.value','Ing');
+      cy.get('[data-testid="signup-followup-form-bank-select"]').select('Mbank').should('have.value','Mbank');
+      cy.get('[data-testid="signup-followup-form-bank-select"]').select('Other').should('have.value','Other');
+
+      cy.get('[data-testid="signup-followup-form-bank-select"]').select('Pekao');
+      
       cy.get('[data-testid="signup-followup-form-bank-balance-input"]').should("exist").type('1000');
       cy.get('[data-testid="currency-select"]').should("exist").select('PLN');
 

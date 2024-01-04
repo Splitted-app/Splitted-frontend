@@ -18,7 +18,7 @@ function DebtPanel({amount}: DebtPanelInterface) {
             Debt:
         </div>
         <div className='debt-panel-main-content' style={{color:(amount<0)? '#A30D0D': '#18B470'}}>
-            <div className='debt-panel-amount'>
+            <div className='debt-panel-amount' data-testid='debt-panel-amount'>
                 {amountFormatter(amount)}
             </div>
             <div className='debt-panel-currency'>
