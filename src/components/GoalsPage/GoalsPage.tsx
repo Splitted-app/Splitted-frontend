@@ -50,7 +50,7 @@ function GoalsPage() {
                         Your main goal:
                     </div>
                     <div className='main-goal' data-testid="goals-page-main-goal">
-                        {typeof mainGoal !== "string" &&
+                        {typeof mainGoal !== "string" && !Array.isArray(mainGoal) &&  
                             <Goal 
                                 goal={mainGoal} 
                                 pinIconVisible={pinsVisible}/>
@@ -75,11 +75,11 @@ function GoalsPage() {
                 </div>
                 <div className='goals-page-current-goals' data-testid="goals-page-current-goals">
                     {goals.map((goal, i)=>(
-                            <div className='goals-page-goal-item'>
-                            <Goal key={i} 
-                                goal={goal} 
-                                pinIconVisible={pinsVisible}/>
-                            </div>
+                        <div className='goals-page-goal-item' key={i}>
+                        <Goal key={i} 
+                            goal={goal} 
+                            pinIconVisible={pinsVisible}/>
+                        </div>
                     )  )}
                 </div>
             </div>
