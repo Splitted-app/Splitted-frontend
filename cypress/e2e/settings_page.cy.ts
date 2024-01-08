@@ -7,7 +7,7 @@ describe('settings page navbar content test', () => {
 
     })
 
-    it('checks whether content of transactions page shows correctly', () => {
+    it('checks whether content of settings page navbar shows correctly', () => {
         cy.viewport(1550, 890);
 
         //checking if good navbar is showing
@@ -169,6 +169,7 @@ describe('delete account test', () => {
         cy.visit('http://localhost:3000/settings');        
         cy.get('[data-testid="delete-account-button"]').click();
         cy.get('[data-testid="delete-account-confirmation-panel-delete-account-button"]').click();
+        cy.get('[data-testid="delete-account-confirmation-panel"]').should('not.exist');
         cy.url().should('contain', '/')
         cy.get('[data-testid="start-page-button"]').click();
         cy.get('[data-testid="email-form-input-field"]').type('user@example.com');

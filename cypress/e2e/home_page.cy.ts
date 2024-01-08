@@ -16,8 +16,6 @@ describe('home page content test', () => {
 
         cy.get('[data-testid="home-page-currency-text"]').should("exist").should('contain', 'PLN');
 
-        cy.get('[data-testid="home-page-reminders-panel"]').should("exist");
-
         cy.get('[data-testid="home-page-transactions-overview"]').should("exist");
 
         cy.get('[data-testid="home-page-transactions-overview-title"]').should("exist").should('contain', 'Transactions');
@@ -31,10 +29,12 @@ describe('home page content test', () => {
         cy.get('[data-testid="home-page-insights-overview"]').should("exist");
 
         cy.get('[data-testid="home-page-insights-overview-title"]').should("exist").should('contain', 'Insights');
+        cy.get('[data-testid="home-page-transactions-overview"]').should("not.exist");
 
 
         cy.get('[data-testid="home-page-right-arrow-button"]').should("exist").click();
         cy.get('[data-testid="home-page-transactions-overview"]').should("exist");
+        cy.get('[data-testid="home-page-insights-overview"]').should("not.exist");
 
 
         cy.get('[data-testid="overview-time-scale-selector"]').should("exist");

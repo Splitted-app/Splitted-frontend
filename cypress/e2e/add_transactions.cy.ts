@@ -104,7 +104,7 @@ describe('add transactions by import csv file with correct data test', () => {
 
         //import csv check panel buttons
 
-        cy.get('[data-testid="import-csv-check-panel-cancel-button"]').should('exist');
+        cy.get('[data-testid="import-csv-check-panel-cancel-button"]').should('exist').should('contain','Cancel');
 
         cy.get('[data-testid="import-csv-check-panel-cancel-button"]').click();
 
@@ -168,8 +168,8 @@ describe('add transactions by import csv file with correct data test', () => {
 
       //import csv check panel buttons
 
-      cy.get('[data-testid="import-csv-check-panel-cancel-button"]').should('exist');
-      cy.get('[data-testid="import-csv-check-panel-add-button"]').should('exist');
+      cy.get('[data-testid="import-csv-check-panel-cancel-button"]').should('exist').should('contain','Cancel');
+      cy.get('[data-testid="import-csv-check-panel-add-button"]').should('exist').should('contain','Add');
 
 
       cy.get('[data-testid="import-csv-check-panel-add-button"]').click();
@@ -226,8 +226,9 @@ describe('add transactions by manual add transactions test', () => {
 
       //add button functionality
 
-      cy.get('[data-testid="manual-add-transaction-panel-add-button"]').should('exist').click();
+      cy.get('[data-testid="manual-add-transaction-panel-add-button"]').should('exist').should('contain','Add').click();
 
+      cy.get('[data-testid="manual-add-transaction-panel-form"]').should('not.exist');
 
       cy.get('[data-testid="navbar-item-transactions-page"]').click();
 
