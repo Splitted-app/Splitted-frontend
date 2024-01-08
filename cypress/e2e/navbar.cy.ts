@@ -90,6 +90,7 @@ describe('log out functionality test', () => {
 
         cy.get('[data-testid="navbar-item-log-out-button"]').click();
         cy.get('[data-testid="log-out-confirmation-panel-log-out-button"]').click();
+        cy.get('[data-testid="log-out-confirmation-panel"]').should('not.exist');
         cy.url().should('include', "/");
 
 

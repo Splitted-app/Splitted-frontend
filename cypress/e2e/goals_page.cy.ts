@@ -8,7 +8,7 @@ describe('goals page content test', () => {
 
     })
 
-    it('checks whether content of insights page shows correctly', () => {
+    it('checks whether content of goals page shows correctly', () => {
         cy.viewport(1550, 890);
 
         //checking content of header

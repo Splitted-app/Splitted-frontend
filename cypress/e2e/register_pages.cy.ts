@@ -12,6 +12,9 @@ describe('email form test', () => {
       cy.url().should('include', "/register");
 
       cy.get('[data-testid="error-message"]').should("exist").should('contain','Invalid Email');
+
+      cy.get('[data-testid="email-form-continue-button"]').should("exist").invoke('attr', 'value').should('contain', 'Continue');
+
     });
     it('checks behaviour of email form with existing user', () => {
       cy.createIfNotExists('user@example.com', 'User123!', "user", "0", "Pekao", "PLN");
@@ -151,6 +154,7 @@ describe('email form test', () => {
       //checking sign up follow up button functionality
       cy.get('[data-testid="signup-followup-form-button"]').should("exist").should('contain','Finish').click();
       cy.get('[data-testid="signup-followup-form"]').should("not.exist")
+      cy.url().should('include', "/home");
 
     })
   })
