@@ -91,6 +91,7 @@
     padding: 20px;
     grid-column-start: start;
     grid-column-end: end;
+    grid-row-start: 5;
 }
 
 .add-goal-panel .add-button-container .add-button{
