@@ -1,9 +1,11 @@
-name: Azure Container Apps Deploy
+name: Splitted-frontend pipeline
 
 on:
   push:
     branches:
       - dev
+      - main
+
 permissions:
   id-token: write
   contents: read
