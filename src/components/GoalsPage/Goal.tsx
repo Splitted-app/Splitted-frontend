@@ -17,7 +17,7 @@ import ExpensesLimitIcon from '../../assets/images/expenses_limit.png'
 import GroceriesIcon from '../../assets/images/grocery.png'
 import ShoppingIcon from '../../assets/images/online-shopping.png'
 import WalletIcon from '../../assets/images/wallet.png'
-import { useState } from 'react';
+import { useCallback, useEffect, useReducer, useState } from 'react';
 import api from '../../services/api';
 
 
@@ -45,7 +45,6 @@ interface GoalTileInterface
 }
 
 function Goal({goal, pinIconVisible} : GoalTileInterface) {
-
     const [goalUpdater, setGoalUpdater] = useRecoilState(GoalsUpdaterState)
     const [editable, setEditable] = useState<boolean>(false);
     let [newData, setNewData] = useState({
@@ -113,6 +112,9 @@ function Goal({goal, pinIconVisible} : GoalTileInterface) {
             setNewData({...newData, isMain: !goal.isMain});
             setGoalUpdater(!goalUpdater);
         })
+        .catch(error=>{
+            console.error(error);
+        })
     }
 
     function handleDeleteGoal()
@@ -120,6 +122,9 @@ function Goal({goal, pinIconVisible} : GoalTileInterface) {
         api.delete(`/api/goals/${goal.id}`)
         .then((res)=>{
             setGoalUpdater(!goalUpdater)
+        })
+        .catch(error=>{
+            console.error(error);
         })
     }
 
@@ -129,10 +134,13 @@ function Goal({goal, pinIconVisible} : GoalTileInterface) {
         if (!editable)
             return;
 
-        console.log(newData);
         api.put(`/api/goals/${goal.id}`,
         JSON.stringify(newData))
         .then((res)=>{
+            setGoalUpdater(!goalUpdater)
+        })
+        .catch(error=>{
+            console.error(error);
             setGoalUpdater(!goalUpdater)
         })
     }
@@ -166,6 +174,7 @@ function Goal({goal, pinIconVisible} : GoalTileInterface) {
         }
         catch
         {
+            setNewData({...newData, deadline: goal.deadline})
             console.log(`Could not parse ${value} into a date`)
         }
         

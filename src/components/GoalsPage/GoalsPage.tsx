@@ -74,7 +74,7 @@ function GoalsPage() {
                     Your current goals
                 </div>
                 <div className='goals-page-current-goals' data-testid="goals-page-current-goals">
-                    {goals.map((goal, i)=>(
+                    {!goalsLoading && goals.map((goal, i)=>(
                         <div className='goals-page-goal-item' key={i}>
                         <Goal key={i} 
                             goal={goal} 
