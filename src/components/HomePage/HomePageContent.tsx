@@ -52,9 +52,6 @@ function HomePageContent() {
 
     return (
       <div className="home-page-content">
-        <div className='reminders-container' data-testid="home-page-reminders-panel">
-            <Reminders></Reminders>
-        </div>
         <div className='information-panel'>
             <div className='your-balance' data-testid="home-page-your-balance-text">
                 Your balance:
