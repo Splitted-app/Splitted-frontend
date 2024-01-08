@@ -1,6 +1,6 @@
 import '../../css/Common/Transaction.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useMediaQuery } from 'react-responsive'
 import Moment from 'moment';
@@ -95,6 +95,11 @@ function Transaction({
     const gridStyle = {
       gridTemplateColumns: gridTemplateColumns
     };
+
+    useEffect(()=>{
+      if (!showCheckbox)
+        setIsChecked(false);
+    }, [showCheckbox])
 
     function handleAmountChanged(value: string)
     {
