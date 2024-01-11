@@ -9,6 +9,7 @@ import useFetchBudget from '../../hooks/useFetchBudget';
 
 import FamilyModeIcon from '../../assets/images/family_mode_add.png'
 import { getUserListString } from '../../utils';
+import LeaveModeButton from '../Common/LeaveModeButton';
 
 
 
@@ -23,6 +24,9 @@ function FamilyModePage() {
         {!budget.loading && !budget.error &&
         <div className='family-mode-content'>
             <div className='header'>
+                <div className='family-mode-button-container'>
+                  <LeaveModeButton budgetId={id}/>
+                </div>
                 <div className='title'>
                     <div className='subtitle'>
                         Family mode with {getUserListString(budget.data.users)}

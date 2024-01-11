@@ -10,6 +10,7 @@ import Navbar from "../Common/Navbar";
 import LoadingPanel from '../Common/LoadingPanel';
 import SettleYourBillsPanel from './SettleYourBillsPanel';
 import TransactionList from '../Common/TransactionList';
+import LeaveModeButton from '../Common/LeaveModeButton';
 
 import { SettleYourBillsPanelVisibilityState } from '../../atoms/SettleYourBillsPanelVisibility';
 import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
@@ -20,6 +21,7 @@ import useFetchTransactions from '../../hooks/useFetchTransactions';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
 import { getUserListString } from '../../utils';
+
 
 
 
@@ -104,6 +106,7 @@ function PartnerModePage() {
                 </div>
                 <div className='partner-mode-button-container'>
                     <button className='settle-your-bills-button' onClick={handleSettleYourBills} data-testid="partner-mode-page-settle-your-bills-button">Settle your bills</button>
+                    <LeaveModeButton budgetId={id}/>
                 </div>
                 {!budget.loading && !budget.error &&
                 <div className='title'>

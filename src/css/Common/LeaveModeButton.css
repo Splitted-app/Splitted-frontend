@@ -1,0 +1,85 @@
+.leave-mode-button
+{
+    font-size: 16px;
+    background-color: #FFDADA;
+    color: #CC3C3C;
+    width: 180px;
+    height: 50px;
+    border: 3px solid #CC3C3C;
+    border-radius: 33px;
+    font-family: 'Gotham Bold';
+    box-shadow: 5px 5px 3px #180A45;
+    margin-left: 10px
+}
+
+@media screen and (max-width: 1300px) 
+{
+    .leave-mode-button
+    {
+        font-size: 14px;
+        width: 160px;
+        height: 45px;
+
+    }
+
+}
+
+@media screen and (max-width: 1150px)
+{
+
+    .leave-mode-button
+    {
+        font-size: 13px;
+        width: 150px;
+        height: 40px;
+
+    }
+}
+
+@media screen and (max-width: 1050px)
+{
+
+    .leave-mode-button
+    {
+        font-size: 12px;
+        width: 130px;
+        height: 40px;
+
+    }
+}
+
+@media screen and (max-width: 750px)
+{    
+
+    .leave-mode-button
+    {
+        font-size: 11px;
+        width: 120px;
+        height: 35px;
+
+    }
+}
+
+@media screen and (max-width: 550px)
+{    
+
+    .leave-mode-button
+    {
+        font-size: 8px;
+        width: 80px;
+        height: 30px;
+
+    }
+}
+
+@media screen and (max-width: 450px)
+{
+
+    .leave-mode-button
+    {
+        font-size: 6px;
+        width: 60px;
+        height: 25px;
+
+    }
+}
