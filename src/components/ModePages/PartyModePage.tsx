@@ -11,6 +11,7 @@ import Navbar from "../Common/Navbar";
 import LoadingPanel from '../Common/LoadingPanel';
 import TransactionList from '../Common/TransactionList';
 import SettleYourBillsPanel from './SettleYourBillsPanel';
+import LeaveModeButton from '../Common/LeaveModeButton';
 
 import { SettleYourBillsPanelVisibilityState } from '../../atoms/SettleYourBillsPanelVisibility';
 import { TransactionsCheckedState } from '../../atoms/TransactionsChecked';
@@ -22,6 +23,7 @@ import useFetchTransactions from '../../hooks/useFetchTransactions';
 import { getUserListString } from '../../utils';
 
 import DownArrowIcon from '../../assets/images/filter_downarrow.svg';
+
 
 
 
@@ -105,6 +107,7 @@ function PartyModePage() {
                 </div>
                 <div className='party-mode-button-container'>
                     <button className='settle-your-bills-button' onClick={handleSettleYourBills}>Settle your bills</button>
+                    <LeaveModeButton budgetId={id}/>
                 </div>
                 {!budget.loading && !budget.error &&
                 <div className='title'>

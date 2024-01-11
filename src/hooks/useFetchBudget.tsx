@@ -8,13 +8,11 @@ export default function useFetchBudget(id : string | undefined) {
     const [error, setError] = useState<boolean>(false);
 
     useEffect(() => {
-        console.log(`id: ${id}`);
         if (!id)
             return;
         setLoading(true);
         api.get(`/api/budgets/${id}`)
         .then((res) => {
-            console.log(res.data);
             setError(false);
             setData(res.data)
         })
