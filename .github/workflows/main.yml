@@ -16,8 +16,14 @@ jobs:
     steps:
       - name: Code check out
         uses: actions/checkout@v3
+      
       - name: E2E Tests
         uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          build: npm build
+          start: npm start
+          wait-on: "http://localhost:3000"
     
   Deploy:
     needs: E2ETests
