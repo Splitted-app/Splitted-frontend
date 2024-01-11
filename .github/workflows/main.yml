@@ -11,7 +11,16 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  E2ETests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code check out
+        uses: actions/checkout@v3
+      - name: E2E Tests
+        uses: cypress-io/github-action@v6
+    
+  Deploy:
+    needs: E2ETests
     runs-on: ubuntu-latest
     steps:
       - name: Code check out
