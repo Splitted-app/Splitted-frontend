@@ -1,5 +1,4 @@
 import FeaturePanel from "./FeaturePanel";
-import Footer from "./Footer";
 import WelcomePanel from "./WelcomePanel";
 
 import FamilyModeIcon from '../../assets/images/family_mode.png';
@@ -16,7 +15,6 @@ function StartPage() {
         <FeaturePanel title="Partner mode" align="right" icon={PartnerModeIcon}></FeaturePanel>
         <FeaturePanel title="Party mode" align="left" icon={PartyModeIcon}></FeaturePanel>
         <FeaturePanel title="Split it" align="right" icon={SplitItIcon}></FeaturePanel>
-        <Footer></Footer>
       </div>
     );
   }

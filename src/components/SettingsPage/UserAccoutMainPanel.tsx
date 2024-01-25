@@ -40,13 +40,13 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
     const [editable, setEditable] = useState<boolean>(false);
     const [editableData, setEditableData] = useState({
       bank: budget.data.bank,
-      currency: budget.data.currency
+      // currency: budget.data.currency
     })
 
     useEffect(()=>{
       setEditableData({
         bank: budget.data.bank,
-        currency: budget.data.currency
+        // currency: budget.data.currency
       })
     }, [budget.data])
 
@@ -62,7 +62,7 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
       {
         bank: editableData.bank,
         name: budget.data.name,
-        currency: editableData.currency,
+        // currency: editableData.currency,
         budgetBalance: budget.data.budgetBalance
       })
       .then(()=>{
@@ -122,12 +122,13 @@ function UserAccountMainPanel({data, loading, error}: UserAccountDataInterface) 
               Your currency:
             </div>
             <div className='users-value'  data-testid="user-account-main-panel-default-currency">
-              {!editable && editableData.currency}
+              {budget.data.currency}
+              {/* {!editable && editableData.currency}
               {editable && 
                 <CurrencyDropdown 
                   currency={editableData.currency}
                   setCurrency={(e: any)=>setEditableData({...editableData, currency: e.target.value})}/>
-              }
+              } */}
             </div>
           </div>
         </div>

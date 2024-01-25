@@ -113,7 +113,7 @@ describe('account page content test', () =>{
 
         cy.get('[data-testid="avatar-image-input-field"]').should('exist');
         cy.get('[data-testid="user-account-main-panel-bank-select-field"]').should('exist');
-        cy.get('[data-testid="currency-select"]').should('exist');
+        // cy.get('[data-testid="currency-select"]').should('exist');
 
         //change in edit mode
         cy.get('[data-testid="user-account-main-panel-bank-select-field"]').select('Pko');

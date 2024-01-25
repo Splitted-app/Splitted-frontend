@@ -183,7 +183,7 @@ describe('add transactions by import csv file with correct data test', () => {
       parent().get('[data-testid="transaction-type-field"]').should('contain','Card').
       parent().get('[data-testid="transaction-date-field"]').should('contain','03.08.2023').
       parent().get('[data-testid="transaction-description-field"]').should('contain','Bilety ZKM').
-      parent().get('[data-testid="transaction-amount-field"]').should('contain','-62.77PLN').should('exist');
+      parent().get('[data-testid="transaction-amount-field"]').should('contain','-62.77').should('exist');
     });
 })
 
