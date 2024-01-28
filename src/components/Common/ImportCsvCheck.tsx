@@ -31,9 +31,15 @@ function ImportCsvCheck() {
     }
     else
     {
-      setImportCsvCheckPanelVisibility(false);
-      setNewTransactions([]);
-
+      api.put(`/api/budgets/${budgetId}/transactions/csv/accept`)
+      .then(res => {
+        setUpdater(!updater);
+        setImportCsvCheckPanelVisibility(false);
+        setNewTransactions([]);
+      })
+      .catch(error => {
+        console.error(error);
+      })
     }
   }
 
