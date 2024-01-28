@@ -12,11 +12,11 @@ interface FriendInterface
 {
     id:string,
     username:string,
-    avatarimage:string
+    avatarImage:string
 }
 
 
-function Friend({id,username,avatarimage}:FriendInterface) {
+function Friend({id,username,avatarImage}:FriendInterface) {
   const setDeleteFriendPanelVisibility = useSetRecoilState(DeleteFriendPanelVisibilityState);
   const setFriendId = useSetRecoilState(FriendIdState);
 
@@ -30,7 +30,7 @@ function Friend({id,username,avatarimage}:FriendInterface) {
       <div className="friend">
         <div className='friend-content'>
           <div className='avatar-image friend-element'>
-            <AvatarImage editable={false} avatarImage={avatarimage}/>
+            <AvatarImage editable={false} avatarImage={avatarImage}/>
           </div>
           <div className='username friend-element'>
             {username}

@@ -10,7 +10,7 @@
     margin: auto;
     display: grid;
     grid-template-rows: 5% 25% 65%;
-    grid-template-columns: 5% 90% 5%;
+    grid-template-columns: 5% 95%;
 }
 
 .statistics-panel-insights-overview .statistics-panel-header
@@ -69,7 +69,7 @@
 .statistics-panel-insights-overview .statistics-panel-main-content .statistics-element
 {
     display: grid;
-    grid-template-columns: 10% 35% 10% 35% 10%;
+    grid-template-columns: 5% 35% 10% 50%;
     grid-template-rows: 100%;
 
 }

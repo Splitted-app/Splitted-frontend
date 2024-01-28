@@ -30,7 +30,7 @@ function FriendsPanel() {
         <div className='friends-panel-data-container'>
           {
             Array.from(friends).map((friend:any)=>
-              <Friend id={friend.id} username={friend.username} avatarimage={friend.avatarimage}/>
+              <Friend id={friend.id} username={friend.username} avatarImage={friend.avatarImage}/>
             )
           }
         </div>

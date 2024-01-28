@@ -301,7 +301,7 @@ function InsightsPage() {
                     {!incomeExpensesOverTime.loading &&
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart width={500} height={300} data={incomeExpensesOverTime.data} stackOffset="sign">
-                        <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize={fontSize}/>
+                        <XAxis dataKey="date" stroke="white" fontFamily='Gotham Medium' fontSize={fontSize} minTickGap={50}/>
                         <YAxis stroke="white" fontFamily='Gotham Medium' fontSize={fontSize}/>
                         <ReferenceLine y={0} stroke="white" />
                         <Bar dataKey="income" fill="#20F7C5" stackId="stack" />

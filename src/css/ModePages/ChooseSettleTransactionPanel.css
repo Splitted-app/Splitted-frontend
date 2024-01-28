@@ -59,6 +59,7 @@
     padding: 20px 0px 20px 10px;
     font-family: 'Gotham Medium';
     color: #575757;
+    overflow: hidden;
 }
 
 .choose-settle-transaction-panel .button-container
