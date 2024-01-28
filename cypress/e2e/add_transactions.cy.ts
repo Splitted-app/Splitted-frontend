@@ -106,6 +106,7 @@ describe('add transactions by import csv file with correct data test', () => {
 
         cy.get('[data-testid="import-csv-check-panel-cancel-button"]').should('exist').should('contain','Cancel');
 
+        cy.wait(1000);
         cy.get('[data-testid="import-csv-check-panel-cancel-button"]').click();
 
         cy.get('[data-testid="import-csv-panel"]').should('not.exist');

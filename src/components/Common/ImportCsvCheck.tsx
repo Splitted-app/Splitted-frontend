@@ -9,7 +9,11 @@ import TransactionList from './TransactionList';
 import { ImportCsvCheckPanelVisibilityState } from '../../atoms/ImportCsvCheckPanelVisibility';
 import { NewTransactionsState } from '../../atoms/NewTransactions';
 import { TransactionUpdaterState } from '../../atoms/TransactionUpdater';
+
+import useFetchBudgetId from '../../hooks/useFetchBudgetId';
+
 import api from '../../services/api';
+
 
 function ImportCsvCheck() {
 
@@ -17,6 +21,7 @@ function ImportCsvCheck() {
   const setImportCsvCheckPanelVisibility = useSetRecoilState(ImportCsvCheckPanelVisibilityState);
   const [showDuplicatesMessage, setShowDuplicatesMessage] = useState<boolean>(false);
   const [updater, setUpdater] = useRecoilState(TransactionUpdaterState);
+  const budgetId = useFetchBudgetId();
 
   function handleButtonClicked()
   {
@@ -34,21 +39,14 @@ function ImportCsvCheck() {
 
   function handleCancelButtonClicked()
   {
-
-    const transactionsToDeleteIds: Array<string> = [] 
-    newTransactions.map(((transaction:any)=>{
-      transactionsToDeleteIds.push(transaction.id);
-    }
-    ));
-
-
-    api.delete('/api/transactions/' + transactionsToDeleteIds.join('/'))
+    
+    api.delete(`/api/budgets/${budgetId}/transactions/csv/cancel`)
     .then(res => {
       setUpdater(!updater);
       setImportCsvCheckPanelVisibility(false);
       setNewTransactions([]);
     })
-    .catch(error=>{
+    .catch(error => {
       console.error(error);
     })
   }
